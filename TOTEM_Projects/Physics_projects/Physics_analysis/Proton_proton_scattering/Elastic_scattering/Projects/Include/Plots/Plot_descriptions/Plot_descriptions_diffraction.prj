@@ -1,0 +1,40 @@
+
+<section> ====================	2D Plot descriptions
+
+	<begin>	x_mm_near_x_mm_far_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_x_mm_far_left_cut
+	<end>	x_mm_near_x_mm_far_left_with_cut_plot_block
+
+	<begin>	x_mm_near_x_mm_far_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_x_mm_far_right_cut
+	<end>	x_mm_near_x_mm_far_right_with_cut_plot_block
+
+	<begin>	x_mm_near_x_mm_far_left_after_y_cut_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_x_mm_far_left_cut
+	<end>	x_mm_near_x_mm_far_left_after_y_cut_with_cut_plot_block
+
+	<begin>	x_mm_near_x_mm_far_right_after_y_cut_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_x_mm_far_right_cut
+	<end>	x_mm_near_x_mm_far_right_after_y_cut_with_cut_plot_block
+
+	

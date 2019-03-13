@@ -1,0 +1,293 @@
+
+<section> ====================	2D Plot descriptions 
+<section> ====================	One sided cuts
+
+	<begin>	theta_x_star_left_rad_theta_y_star_left_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_y_star_left_rad
+	<end>	theta_x_star_left_rad_theta_y_star_left_rad_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_y_star_left_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_y_star_left_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_y_star_left_rad_cut
+	<end>	theta_x_star_left_rad_theta_y_star_left_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_y_star_right_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_y_star_right_rad_cut
+	<end>	theta_x_star_right_rad_theta_y_star_right_rad_with_cut_plot_block
+
+<section> ====================	Two sided with cut
+
+	<begin>	theta_x_star_left_rad_theta_y_star_without_right_near_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_y_star_without_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_y_star_without_right_near_rad_cut
+	<end>	theta_x_star_left_rad_theta_y_star_without_right_near_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_y_star_without_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_y_star_without_right_far_rad_cut
+	<end>	theta_x_star_left_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_near_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_near_rad
+		<setting>	y_variable												theta_y_star_without_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_near_theta_y_star_without_right_far_rad_cut
+	<end>	theta_x_star_right_near_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_near_rad_theta_y_star_without_right_far_rad_with_horizontal_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_near_rad
+		<setting>	y_variable												theta_y_star_without_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_near_theta_y_star_without_right_far_rad_horizontal_cut
+	<end>	theta_x_star_right_near_rad_theta_y_star_without_right_far_rad_with_horizontal_cut_plot_block
+
+	<begin>	theta_x_star_right_near_rad_theta_y_star_without_left_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_near_rad
+		<setting>	y_variable												theta_y_star_without_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_near_theta_y_star_without_left_far_rad_cut
+	<end>	theta_x_star_right_near_rad_theta_y_star_without_left_far_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_near_rad_theta_y_star_without_left_far_rad_with_horizontal_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_near_rad
+		<setting>	y_variable												theta_y_star_without_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_near_theta_y_star_without_left_far_rad_horizontal_cut
+	<end>	theta_x_star_right_near_rad_theta_y_star_without_left_far_rad_with_horizontal_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_y_star_without_left_far_rad_with_horizontal_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_y_star_without_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_y_star_without_left_far_rad_horizontal_cut
+	<end>	theta_x_star_right_rad_theta_y_star_without_left_far_rad_with_horizontal_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_y_star_without_left_near_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_y_star_without_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_y_star_without_left_near_rad_cut
+	<end>	theta_x_star_right_rad_theta_y_star_without_left_near_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_y_star_without_left_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_y_star_without_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_y_star_without_left_far_rad_cut
+	<end>	theta_x_star_right_rad_theta_y_star_without_left_far_rad_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_far_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_far_rad_left_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_far_rad_left_with_cut_plot_block
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_far_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_far_rad_left_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_far_rad_left_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_near_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_near_rad_right_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_near_rad_right_with_cut_plot_block
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_near_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_near_rad_right_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_near_rad_right_with_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_x_star_left_near_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_x_star_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_x_star_left_near_rad_right_cut
+	<end>	theta_x_star_right_rad_theta_x_star_left_near_rad_right_with_cut_plot_block
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_far_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_far_rad_right_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_far_rad_right_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_far_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_far_rad
+	<end>	theta_y_star_left_rad_theta_y_star_right_far_rad_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_far_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_far_rad_with_cut_plot_block
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_far_rad_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_far_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_far_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_far_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_x_star_left_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_x_star_left_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_x_star_left_far_rad_cut	
+	<end>	theta_x_star_right_rad_theta_x_star_left_far_rad_with_cut_plot_block
+
+<section> ====================	Two sided to define cuts
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_far_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_far_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_far_rad_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_far_rad_define_cut_plot_block
+
+	<begin>	x_mm_near_x_mm_far_right_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_mm_near_x_mm_far_right_cut
+	<end>	x_mm_near_x_mm_far_right_define_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_x_star_left_far_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_x_star_left_far_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_x_star_left_far_rad_cut	
+	<end>	theta_x_star_right_rad_theta_x_star_left_far_rad_define_cut_plot_block
+
+<section> ====================	1D Plot descriptions	
+<section> ====================	One sided cuts
+
+	<begin>	theta_y_star_left_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+	<end>	theta_y_star_left_rad_plot_block
+
+	<begin>	theta_y_star_right_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+	<end>	theta_y_star_right_rad_plot_block
+
+	<begin>	theta_x_star_right_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+	<end>	theta_x_star_right_rad_plot_block
+
+	<begin>	theta_x_star_left_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+	<end>	theta_x_star_left_rad_plot_block
+
+<section> ====================	Two sided cuts
+
+	<begin>	theta_y_star_without_right_near_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_without_right_near_rad
+	<end>	theta_y_star_without_right_near_rad_plot_block
+
+	<begin>	theta_y_star_without_right_far_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_without_right_far_rad
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end>	theta_y_star_without_right_far_rad_plot_block
+
+	<begin>	theta_y_star_without_left_near_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_without_left_near_rad
+	<end>	theta_y_star_without_left_near_rad_plot_block
+
+	<begin>	theta_y_star_without_left_far_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_without_left_far_rad
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end>	theta_y_star_without_left_far_rad_plot_block
+

@@ -1,0 +1,78 @@
+	
+	<nsetting>	analysis_plot		text_optics_estimators
+
+	<nsetting>	analysis_plot		theta_x_left_rad_theta_x_right_rad
+	<nsetting>	analysis_plot		y_left_far_mm_y_right_far_mm
+	<nsetting>	analysis_plot		y_left_near_mm_y_right_near_mm
+	<nsetting>	analysis_plot		theta_y_rad_y_far_left_mm
+	<nsetting>	analysis_plot		theta_y_rad_y_far_right_mm
+	<nsetting>	analysis_plot		x_far_left_mm_theta_x_rad
+	<nsetting>	analysis_plot		x_far_right_mm_theta_x_rad
+	<nsetting>	analysis_plot		y_mm_x_mm_near_left_define_cut
+	<nsetting>	analysis_plot		y_mm_x_mm_far_left_define_cut
+	<nsetting>	analysis_plot		y_mm_x_mm_near_right_define_cut
+	<nsetting>	analysis_plot		y_mm_x_mm_far_right_define_cut
+	
+	<nsetting>	analysis_plot		theta_y_star_rad
+	<nsetting>	analysis_plot		theta_x_star_rad
+
+	<nsetting>	analysis_plot		theta_y_star_left_rad
+	<nsetting>	analysis_plot		theta_y_star_right_rad
+	
+	<nsetting>	analysis_plot		theta_y_star_without_right_near_rad
+	<nsetting>	analysis_plot		theta_y_star_without_left_near_rad
+
+	<nsetting>	analysis_plot		theta_y_star_rad_y_far_left_mm
+	<nsetting>	analysis_plot		theta_y_star_rad_y_far_right_mm
+
+	<nsetting>	analysis_plot		theta_y_star_left_rad
+	<nsetting>	analysis_plot		theta_y_star_right_rad
+	
+	<nsetting>	analysis_plot		theta_y_star_rad
+	<nsetting>	analysis_plot		theta_x_star_rad
+
+	<nsetting>	analysis_plot		y_star_mm_y_star_mm_with_cut_to_reduce_vertex_contribution
+
+	<nsetting>	analysis_plot		y_left_far_mm_y_right_far_mm_after_vertex_cut_define_cut
+	<nsetting>	analysis_plot		y_left_near_mm_y_right_near_mm_after_vertex_cut_define_cut
+	<nsetting>	analysis_plot		theta_y_rad_y_far_left_mm_after_vertex_cut_define_cut
+	<nsetting>	analysis_plot		theta_y_rad_y_far_right_mm_after_vertex_cut_define_cut
+
+	<nsetting>	analysis_plot		y_star_mm_y_star_mm_with_cut_2_to_reduce_vertex_contribution
+
+	<nsetting>	analysis_plot		y_left_far_mm_y_right_far_mm_after_vertex_cut2_define_cut
+	<nsetting>	analysis_plot		y_left_near_mm_y_right_near_mm_after_vertex_cut2_define_cut
+	<nsetting>	analysis_plot		theta_y_rad_y_far_left_mm_after_vertex_cut2_define_cut
+	<nsetting>	analysis_plot		theta_y_rad_y_far_right_mm_after_vertex_cut2_define_cut
+
+	<nsetting>	analysis_plot		y_star_mm_y_star_mm_with_cut_3_to_reduce_vertex_contribution
+
+	<nsetting>	analysis_plot		y_left_far_mm_y_right_far_mm_after_vertex_cut3_define_cut
+	<nsetting>	analysis_plot		y_left_near_mm_y_right_near_mm_after_vertex_cut3_define_cut
+	<nsetting>	analysis_plot		theta_y_rad_y_far_left_mm_after_vertex_cut3_define_cut
+	<nsetting>	analysis_plot		theta_y_rad_y_far_right_mm_after_vertex_cut3_define_cut
+
+	<nsetting>	analysis_plot		text_vertex_cut_1
+
+	<nsetting>	analysis_plot		x_star_mm_x_star_mm_with_cut_to_reduce_vertex_contribution
+
+	<nsetting>	analysis_plot		theta_x_left_rad_theta_x_right_rad_after_vertex_cut_define_cut
+	<nsetting>	analysis_plot		x_far_left_mm_theta_x_rad_after_vertex_cut_define_cut
+	<nsetting>	analysis_plot		x_far_right_mm_theta_x_rad_after_vertex_cut_define_cut
+
+	<nsetting>	analysis_plot		text_vertex_cut_2
+
+	<nsetting>	analysis_plot		x_star_mm_x_star_mm_with_cut_2_to_reduce_vertex_contribution
+
+	<nsetting>	analysis_plot		theta_x_left_rad_theta_x_right_rad_after_vertex_cut_2_define_cut
+	<nsetting>	analysis_plot		x_far_left_mm_theta_x_rad_after_vertex_cut_2_define_cut
+	<nsetting>	analysis_plot		x_far_right_mm_theta_x_rad_after_vertex_cut_2_define_cut
+
+	<nsetting>	analysis_plot		text_vertex_cut_3
+
+	<nsetting>	analysis_plot		x_star_mm_x_star_mm_with_cut_3_to_reduce_vertex_contribution
+
+<comment>	<nsetting>	analysis_plot		theta_x_left_rad_theta_x_right_rad_after_vertex_cut_3_define_cut
+<comment>	<nsetting>	analysis_plot		x_far_left_mm_theta_x_rad_after_vertex_cut_3_define_cut
+<comment>	<nsetting>	analysis_plot		x_far_right_mm_theta_x_rad_after_vertex_cut_3_define_cut
+

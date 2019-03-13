@@ -1,0 +1,91 @@
+
+<begin_if_setting>	Inefficiency_2_out_of_4_RP_far		XRPV.B6R5.B1
+
+	<update_setting>	geometrical_acceptance_cut_block				theta_x_star_left_rad_theta_y_star_left_rad_cut_block
+	<update_setting>	vertical_angular_left_acceptance_cut_block		theta_y_star_left_rad_theta_y_star_left_rad_cut_block
+	<update_setting>	vertical_angular_right_acceptance_cut_block		theta_x_star_left_rad_theta_y_star_left_rad_cut_block
+	<update_setting>	vertical_beam_divergence_cut_block				theta_x_star_left_rad_theta_y_star_left_rad_cut_block
+
+	<nsetting>	analysis_plot		x_mm_y_mm_near_left
+
+<section> ====================	Cuts
+
+	<nsetting>	analysis_plot		text_analysis_cuts_start_here
+
+  	<nsetting>	analysis_plot		y_mm_near_dy_mm_left_with_cut
+  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_with_cut
+  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_with_cut_second_cut
+
+	<section> ====================	Plots to define cuts
+
+	<nsetting>	analysis_plot		text_analysis_cut_definitions_start_here
+
+	<nsetting>	analysis_plot		y_mm_near_dy_mm_left_define_cut
+  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_define_cut
+
+	<nsetting>	analysis_plot		text_analysis_cut_definitions_end_here
+		
+<section> ====================	Plots after cuts
+
+	<nsetting>	analysis_plot		x_star_left_mm
+	<nsetting>	analysis_plot		y_star_left_mm
+
+	<nsetting>	analysis_plot		text_differential_cross_section
+
+<comment>	<nsetting>	analysis_plot		y_left_near_mm_y_left_near_mm
+
+	<nsetting>	analysis_plot		x_mm_y_mm_far_left
+	<nsetting>	analysis_plot		x_mm_y_mm_near_left
+	
+	<nsetting>	analysis_plot		theta_y_star_left_rad
+	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_y_star_left_rad_with_cut
+
+	<nsetting>	analysis_plot		theta_x_star_left_rad
+<end_if_setting>
+
+<begin_if_setting>	Inefficiency_2_out_of_4_RP_far		XRPV.B6L5.B2
+
+	<update_setting>	geometrical_acceptance_cut_block				theta_x_star_right_rad_theta_y_star_right_rad_cut_block
+	<update_setting>	vertical_angular_left_acceptance_cut_block		theta_y_star_right_rad_theta_y_star_right_rad_cut_block
+	<update_setting>	vertical_angular_right_acceptance_cut_block		theta_x_star_right_rad_theta_y_star_right_rad_cut_block
+	<update_setting>	vertical_beam_divergence_cut_block				theta_x_star_right_rad_theta_y_star_right_rad_cut_block
+
+	<nsetting>	analysis_plot		x_mm_y_mm_near_right
+
+<section> ====================	Cuts
+
+	<nsetting>	analysis_plot		text_analysis_cuts_start_here
+
+  	<nsetting>	analysis_plot		y_mm_near_dy_mm_right_with_cut
+  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_with_cut
+  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_with_cut_second_cut
+
+	<section> ====================	Plots to define cuts
+
+	<nsetting>	analysis_plot		text_analysis_cut_definitions_start_here
+
+	<nsetting>	analysis_plot		y_mm_near_dy_mm_right_define_cut
+  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_define_cut
+
+	<nsetting>	analysis_plot		text_analysis_cut_definitions_end_here
+		
+<section> ====================	Plots after cuts
+
+	<nsetting>	analysis_plot		x_star_right_mm
+	<nsetting>	analysis_plot		y_star_right_mm
+
+	<nsetting>	analysis_plot		text_differential_cross_section
+
+<comment>	<nsetting>	analysis_plot		y_left_near_mm_y_right_near_mm
+
+	<nsetting>	analysis_plot		x_mm_y_mm_far_right
+	<nsetting>	analysis_plot		x_mm_y_mm_near_right
+
+	<nsetting>	analysis_plot		theta_x_star_right_rad
+
+	<nsetting>	analysis_plot		theta_x_star_right_rad_theta_y_star_right_rad_with_cut
+	<nsetting>	analysis_plot		theta_y_star_right_rad
+	<nsetting>	analysis_plot		theta_x_star_right_rad
+	<nsetting>	analysis_plot		theta_x_star_right_rad_theta_y_star_right_rad_with_cut
+
+<end_if_setting>

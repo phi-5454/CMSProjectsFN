@@ -1,0 +1,395 @@
+
+<section> ====================	Variables
+
+	<begin>	x_l_n_mm_variable_block
+		<setting>	axis_name												x_{left,near}
+		<setting>	unit													mm
+	<end>	x_l_n_mm_variable_block
+
+	<begin>	y_l_n_mm_variable_block
+		<setting>	axis_name												y_{left,near}
+		<setting>	unit													mm
+	<end>	y_l_n_mm_variable_block
+
+	<begin>	x_l_f_mm_variable_block
+		<setting>	axis_name												x_{left,far}
+		<setting>	unit													mm
+	<end>	x_l_f_mm_variable_block
+
+	<begin>	y_l_f_mm_variable_block
+		<setting>	axis_name												y_{left,far}
+		<setting>	unit													mm
+	<end>	y_l_f_mm_variable_block
+
+	<begin>	x_r_n_mm_variable_block
+		<setting>	axis_name												x_{right,near}
+		<setting>	unit													mm
+	<end>	x_r_n_mm_variable_block
+
+	<begin>	y_r_n_mm_variable_block
+		<setting>	axis_name												y_{right,near}
+		<setting>	unit													mm
+	<end>	y_r_n_mm_variable_block
+
+	<begin>	x_r_f_mm_variable_block
+		<setting>	axis_name												x_{right,far}
+		<setting>	unit													mm
+	<end>	x_r_f_mm_variable_block
+
+	<begin>	y_r_f_mm_variable_block
+		<setting>	axis_name												y_{right,far}
+		<setting>	unit													mm
+	<end>	y_r_f_mm_variable_block
+
+<section> ==================== Local differences and angles
+
+	<begin>	dx_left_mm_variable_block
+		<setting>	axis_name												x_{left,far}-x_{left,near}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										x_l_f_mm
+		<nsetting>	depends_on_variable										x_l_n_mm
+	<end>	dx_left_mm_variable_block
+
+	<begin>	dy_left_mm_variable_block
+		<setting>	axis_name												y_{left,far}-y_{left,near}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										y_l_f_mm
+		<nsetting>	depends_on_variable										y_l_n_mm	
+	<end>	dy_left_mm_variable_block
+
+	<begin>	dx_right_mm_variable_block
+		<setting>	axis_name												x_{right,far}-x_{right,near}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										x_r_f_mm
+		<nsetting>	depends_on_variable										x_r_n_mm
+	<end>	dx_right_mm_variable_block
+
+	<begin>	dy_right_mm_variable_block
+		<setting>	axis_name												y_{right,far}-y_{right,near}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										y_r_f_mm
+		<nsetting>	depends_on_variable										y_r_n_mm
+	<end>	dy_right_mm_variable_block
+
+	<begin>	theta_x_left_rad_variable_block
+		<setting>	axis_name												#theta_{x,left}
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										dx_left_mm
+	<end>	theta_x_left_rad_variable_block
+
+	<begin>	theta_y_left_rad_variable_block
+		<setting>	axis_name												#theta_{y,left}
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										dy_left_mm
+	<end>	theta_y_left_rad_variable_block
+
+	<begin>	theta_x_right_rad_variable_block
+		<setting>	axis_name												#theta_{x,right}
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										dx_right_mm
+	<end>	theta_x_right_rad_variable_block
+
+	<begin>	theta_y_right_rad_variable_block
+		<setting>	axis_name												#theta_{y,right}
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										dy_right_mm
+	<end>	theta_y_right_rad_variable_block
+
+<section> ====================	Reconstructed variables
+
+	<begin>	theta_y_star_left_rad_variable_block
+		<setting>	axis_name												#theta_{y,left}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										y_l_n_mm
+		<nsetting>	depends_on_variable										y_l_f_mm
+	<end>	theta_y_star_left_rad_variable_block
+
+	<begin>	theta_y_star_left_near_rad_variable_block
+		<setting>	axis_name												#theta_{y,left,near}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										y_l_n_mm
+	<end>	theta_y_star_left_near_rad_variable_block
+
+	<begin>	theta_y_star_left_far_rad_variable_block
+		<setting>	axis_name												#theta_{y,left,far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										y_l_f_mm
+	<end>	theta_y_star_left_far_rad_variable_block
+
+	<begin>	theta_y_star_right_rad_variable_block
+		<setting>	axis_name												#theta_{y,right}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										y_r_n_mm
+		<nsetting>	depends_on_variable										y_r_f_mm
+		
+	<end>	theta_y_star_right_rad_variable_block
+
+	<begin>	theta_y_star_right_near_rad_variable_block
+		<setting>	axis_name												#theta_{y,right,near}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										y_r_n_mm
+	<end>	theta_y_star_right_near_rad_variable_block
+
+	<begin>	theta_y_star_right_far_rad_variable_block
+		<setting>	axis_name												#theta_{y,right,far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										y_r_f_mm
+	<end>	theta_y_star_right_far_rad_variable_block
+	
+	<begin>	theta_y_star_without_right_near_rad_variable_block
+		<setting>	axis_name												#theta_{y,without,right,near}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_y_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_far_rad
+	<end>	theta_y_star_without_right_near_rad_variable_block
+
+	<begin>	theta_y_star_without_right_far_rad_variable_block
+		<setting>	axis_name												#theta_{y,without,right,far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_y_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_near_rad
+	<end>	theta_y_star_without_right_far_rad_variable_block
+
+	<begin>	theta_y_star_without_left_near_rad_variable_block
+		<setting>	axis_name												#theta_{y,without,left,near}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_y_star_left_far_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_rad
+	<end>	theta_y_star_without_left_near_rad_variable_block
+
+	<begin>	theta_y_star_without_left_far_rad_variable_block
+		<setting>	axis_name												#theta_{y,without,left,far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_y_star_left_near_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_rad
+	<end>	theta_y_star_without_left_far_rad_variable_block
+
+	<begin>	x_star_left_mm_variable_block
+		<setting>	axis_name												x*_{left}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										x_l_n_mm
+		<nsetting>	depends_on_variable										x_l_f_mm
+	<end>	x_star_left_mm_variable_block
+
+	<begin>	x_star_left_m_variable_block
+		<setting>	axis_name												x*_{left}
+		<setting>	unit													m
+		<nsetting>	depends_on_variable										x_star_left_mm
+	<end>	x_star_left_m_variable_block
+
+	<begin>	x_star_right_mm_variable_block
+		<setting>	axis_name												x*_{right}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										x_r_n_mm
+		<nsetting>	depends_on_variable										x_r_f_mm
+	<end>	x_star_right_mm_variable_block
+
+	<begin>	x_star_right_m_variable_block
+		<setting>	axis_name												x*_{right}
+		<setting>	unit													m
+		<nsetting>	depends_on_variable										x_star_right_mm
+	<end>	x_star_right_m_variable_block
+
+	<begin>	x_star_mm_variable_block
+		<setting>	axis_name												x*
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										x_star_left_mm
+		<nsetting>	depends_on_variable										x_star_right_mm
+	<end>	x_star_mm_variable_block
+
+	<begin>	y_star_mm_variable_block
+		<setting>	axis_name												y*
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										y_star_left_mm
+		<nsetting>	depends_on_variable										y_star_right_mm
+	<end>	y_star_mm_variable_block
+
+	<begin>	y_star_left_mm_variable_block
+		<setting>	axis_name												y*_{left}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										y_l_n_mm
+		<nsetting>	depends_on_variable										y_l_f_mm
+	<end>	y_star_left_mm_variable_block
+
+	<begin>	y_star_right_mm_variable_block
+		<setting>	axis_name												y*_{right}
+		<setting>	unit													mm
+		<nsetting>	depends_on_variable										y_r_n_mm
+		<nsetting>	depends_on_variable										y_r_f_mm
+	<end>	y_star_right_mm_variable_block
+
+	<begin>	theta_x_star_left_rad_variable_block
+		<setting>	axis_name												#theta_{x,left}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_left_rad
+		<nsetting>	depends_on_variable										x_star_left_m
+	<end>	theta_x_star_left_rad_variable_block
+
+	<begin>	theta_x_star_right_far_rad_variable_block
+		<setting>	axis_name												#theta_{x,right,far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										x_r_f_mm
+	<end>	theta_x_star_right_far_rad_variable_block
+
+	<begin>	theta_x_star_left_far_rad_variable_block
+		<setting>	axis_name												#theta_{x,left,far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										x_l_f_mm
+	<end>	theta_x_star_left_far_rad_variable_block
+
+	<begin>	theta_x_star_right_near_rad_variable_block
+		<setting>	axis_name												#theta_{x,right,near}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										x_r_n_mm
+	<end>	theta_x_star_right_near_rad_variable_block
+
+	<begin>	theta_x_star_left_near_rad_variable_block
+		<setting>	axis_name												#theta_{x,left,near}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										x_l_n_mm
+	<end>	theta_x_star_left_near_rad_variable_block
+
+	<begin>	theta_x_star_right_rad_variable_block
+		<setting>	axis_name												#theta_{x,right}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_right_rad
+		<nsetting>	depends_on_variable										x_star_right_m
+	<end>	theta_x_star_right_rad_variable_block
+
+	<begin>	theta_x_star_rad_variable_block
+		<setting>	axis_name												#theta_{x}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+	<end>	theta_x_star_rad_variable_block
+
+	<begin>	theta_y_star_rad_variable_block
+		<setting>	axis_name												#theta_{y}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_y_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_rad
+	<end>	theta_y_star_rad_variable_block
+
+	<begin>	theta_star_rad_variable_block
+		<setting>	axis_name												#theta*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_rad
+		<nsetting>	depends_on_variable										theta_y_star_rad
+	<end>	theta_star_rad_variable_block
+
+	<begin>	theta_star_without_right_far_rad_variable_block
+		<setting>	axis_name												#theta_{no_right_far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_right_far_rad
+	<end>	theta_star_without_right_far_rad_variable_block
+
+	<begin>	theta_star_without_left_far_rad_variable_block
+		<setting>	axis_name												#theta_{no_left_far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_left_far_rad
+	<end>	theta_star_without_left_far_rad_variable_block
+
+	<begin>	phi_star_rad_variable_block
+		<setting>	axis_name												#phi*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_rad
+		<nsetting>	depends_on_variable										theta_y_star_rad
+	<end>	phi_star_rad_variable_block
+
+	<begin>	phi_star_without_right_far_rad_variable_block
+		<setting>	axis_name												#phi_{no_right_far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_right_far_rad
+	<end>	phi_star_without_right_far_rad_variable_block
+
+	<begin>	phi_star_without_left_far_rad_variable_block
+		<setting>	axis_name												#phi_{no_left_far}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_left_far_rad
+	<end>	phi_star_without_left_far_rad_variable_block
+
+<section> ====================	Reconstructed t 
+
+	<begin>	t_GeV2_variable_block
+		<setting>	axis_name												t
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_rad
+		<nsetting>	depends_on_variable										theta_y_star_rad
+	<end>	t_GeV2_variable_block
+
+	<begin>	t_left_GeV2_variable_block
+		<setting>	axis_name												t_{left}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_left_rad
+	<end>	t_left_GeV2_variable_block
+
+	<begin>	t_right_GeV2_variable_block
+		<setting>	axis_name												t_{right}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_rad
+	<end>	t_right_GeV2_variable_block
+
+	<begin>	minus_t_left_GeV2_variable_block
+		<setting>	axis_name												-t_{left}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										t_left_GeV2
+	<end>	minus_t_left_GeV2_variable_block
+
+	<begin>	minus_t_right_GeV2_variable_block
+		<setting>	axis_name												-t_{right}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										t_right_GeV2
+	<end>	minus_t_right_GeV2_variable_block
+	
+	<begin>	minus_t_GeV2_variable_block
+		<setting>	axis_name												-t
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										t_GeV2
+	<end>	minus_t_GeV2_variable_block
+
+	<begin>	minus_t_from_theta_y_GeV2_variable_block
+		<setting>	axis_name												-t
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										t_GeV2
+	<end>	minus_t_from_theta_y_GeV2_variable_block
+
+	<begin>	minus_t_without_right_near_GeV2_variable_block
+		<setting>	axis_name												-t_{no_right_near}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_right_near_rad
+	<end>	minus_t_without_right_near_GeV2_variable_block
+
+	<begin>	minus_t_without_left_near_GeV2_variable_block
+		<setting>	axis_name												-t_{no_left_near}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_left_near_rad
+	<end>	minus_t_without_left_near_GeV2_variable_block
+
+	<begin>	minus_t_without_right_far_GeV2_variable_block
+		<setting>	axis_name												-t_{no_right_far}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_right_far_rad
+	<end>	minus_t_without_right_far_GeV2_variable_block
+
+	<begin>	minus_t_without_left_far_GeV2_variable_block
+		<setting>	axis_name												-t_{no_left_far}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+		<nsetting>	depends_on_variable										theta_y_star_without_left_far_rad
+	<end>	minus_t_without_left_far_GeV2_variable_block
+
+<section> ====================	Reconstructed t 
+
+	<begin>		thx_r_n_rad_variable_block
+		<setting>	axis_name												#theta_{x,right,local}
+		<setting>	unit													rad
+	<end>		thx_r_n_rad_variable_block

@@ -1,0 +1,382 @@
+<begin> Plot_descriptions
+
+<section> ====================	2D Plot types
+	
+	<begin>	x_mm_y_mm_type_block
+		<parameter>			horizontal_axis_boundary						35
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							35
+		<parameter>			number_of_vertical_bins							100
+	<end>	x_mm_y_mm_type_block
+
+	<begin>	x_mm_near_x_mm_far_type_block
+		<parameter>			horizontal_axis_boundary						3
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							400
+	<end>	x_mm_near_x_mm_far_type_block
+
+	<begin>	y_mm_near_y_mm_far_type_block
+		<parameter>			horizontal_axis_boundary						30
+		<parameter>			number_of_horizontal_bins						50
+		<parameter>			vertical_axis_boundary							30
+		<parameter>			number_of_vertical_bins							50
+		<parameter>			distance_from_cut_plot_within_range_axis_boundary	75e-3
+	<end>	y_mm_near_y_mm_far_type_block
+
+	<begin>	theta_x_rad_theta_x_right_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.001
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							0.001
+		<parameter>			number_of_vertical_bins							400
+	<end>	theta_x_rad_theta_x_right_rad_type_block
+
+	<begin>	theta_y_star_rad_theta_y_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.0002
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							0.0002
+		<parameter>			number_of_vertical_bins							100
+	<end>	theta_y_star_rad_theta_y_star_rad_type_block
+
+	<begin>	theta_x_star_rad_theta_x_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.0002
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							0.0002
+		<parameter>			number_of_vertical_bins							100
+	<end>	theta_x_star_rad_theta_x_star_rad_type_block
+
+	<begin>	x_star_mm_x_star_mm_type_block
+		<parameter>			horizontal_axis_boundary						0.8
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							0.8
+		<parameter>			number_of_vertical_bins							400
+	<end>	x_star_mm_x_star_mm_type_block
+
+	<begin>	y_star_mm_y_star_mm_type_block
+		<parameter>			horizontal_axis_boundary						10
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							10
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_star_mm_y_star_mm_type_block
+
+	<begin>	phi_star_rad_theta_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						8
+		<parameter>			number_of_horizontal_bins						200
+		<parameter>			vertical_axis_boundary							0.0005
+		<parameter>			number_of_vertical_bins							200
+	<end>	phi_star_rad_theta_star_rad_type_block
+
+<section> ====================	1D Plot types
+
+	<begin>	x_star_left_mm_type_block
+		<parameter>			horizontal_axis_left_boundary					-1
+		<parameter>			horizontal_axis_right_boundary					1
+		<parameter>			number_of_horizontal_bins						100
+	<end>	x_star_left_mm_type_block
+
+	<begin>	dN_dt_GeV2_type_block
+		<parameter>			horizontal_axis_left_boundary					0
+		<parameter>			horizontal_axis_right_boundary					0.5
+		<parameter>			number_of_horizontal_bins						100
+	<end>	dN_dt_GeV2_type_block
+
+	<begin>	theta_y_star_rad_type_block
+		<parameter>			horizontal_axis_left_boundary					-0.0002
+		<parameter>			horizontal_axis_right_boundary					0.0002
+		<parameter>			number_of_horizontal_bins						100
+	<end>	theta_y_star_rad_type_block
+
+	<begin>	theta_x_star_rad_type_block
+		<parameter>			horizontal_axis_left_boundary					-0.0002
+		<parameter>			horizontal_axis_right_boundary					0.0002
+		<parameter>			number_of_horizontal_bins						100
+	<end>	theta_x_star_rad_type_block
+
+<section> ====================	2D Plot descriptions
+
+	<begin>	x_mm_y_mm_near_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												y_l_n_mm
+	<end>	x_mm_y_mm_near_left_plot_block
+
+	<begin>	x_mm_y_mm_far_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_l_f_mm
+		<setting>	y_variable												y_l_f_mm
+	<end>	x_mm_y_mm_far_left_plot_block
+
+	<begin>	x_mm_y_mm_near_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												y_r_n_mm
+	<end>	x_mm_y_mm_near_right_plot_block
+
+	<begin>	x_mm_y_mm_far_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_r_f_mm
+		<setting>	y_variable												y_r_f_mm
+	<end>	x_mm_y_mm_far_right_plot_block
+
+	<begin>	x_mm_near_x_mm_far_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												x_l_f_mm
+	<end>	x_mm_near_x_mm_far_left_plot_block
+
+	<begin>	y_mm_near_y_mm_far_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_l_f_mm
+	<end>	y_mm_near_y_mm_far_left_plot_block
+
+	<begin>	x_mm_near_x_mm_far_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												x_r_f_mm
+	<end>	x_mm_near_x_mm_far_right_plot_block
+
+	<begin>	y_mm_near_y_mm_far_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												y_r_f_mm
+	<end>	y_mm_near_y_mm_far_right_plot_block
+
+	<begin>	theta_x_left_rad_theta_x_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_rad_theta_x_right_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												theta_x_right_rad
+	<end>	theta_x_left_rad_theta_x_right_rad_plot_block
+
+	<begin>	theta_y_left_rad_theta_y_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_rad_theta_x_right_rad_type_block
+		<setting>	x_variable												theta_y_left_rad
+		<setting>	y_variable												theta_y_right_rad
+	<end>	theta_y_left_rad_theta_y_right_rad_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_plot_block
+
+	<begin>	x_star_left_mm_x_star_right_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+		<setting>	y_variable												x_star_right_mm
+	<end>	x_star_left_mm_x_star_right_mm_plot_block
+
+	<begin>	y_star_left_mm_y_star_right_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_left_mm
+		<setting>	y_variable												y_star_right_mm
+	<end>	y_star_left_mm_y_star_right_mm_plot_block
+
+	<begin>	y_left_far_mm_y_right_far_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												y_r_f_mm
+	<end>	y_left_far_mm_y_right_far_mm_plot_block
+
+	<begin>	y_left_near_mm_y_right_near_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_r_n_mm
+	<end>	y_left_near_mm_y_right_near_mm_plot_block
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+	<end>	theta_x_star_rad_theta_y_star_rad_plot_block
+
+	<begin>	phi_star_rad_theta_star_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													phi_star_rad_theta_star_rad_type_block
+		<setting>	x_variable												phi_star_rad
+		<setting>	y_variable												theta_star_rad
+	<end>	phi_star_rad_theta_star_rad_plot_block
+
+<section> ====================	2D Plot descriptions with cuts
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_cut	
+	<end>	theta_x_star_rad_theta_y_star_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_with_cut_plot_block
+	
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_with_cut_plot_block
+
+	<begin>	y_mm_near_y_mm_far_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_l_f_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_mm_near_y_mm_far_left_cut
+	<end>	y_mm_near_y_mm_far_left_with_cut_plot_block
+
+	<begin>	y_mm_near_y_mm_far_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												y_r_f_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_mm_near_y_mm_far_right_cut
+	<end>	y_mm_near_y_mm_far_right_with_cut_plot_block
+
+	<begin>	x_star_left_mm_x_star_right_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+		<setting>	y_variable												x_star_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_star_left_mm_x_star_right_mm_cut
+	<end>	x_star_left_mm_x_star_right_mm_with_cut_plot_block
+
+<section> ====================	2D Plot descriptions draw cuts
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_cut	
+	<end>	theta_x_star_rad_theta_y_star_rad_draw_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_plot_block
+	
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_draw_cut_plot_block
+
+	<begin>	y_mm_near_y_mm_far_left_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_l_f_mm
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												y_mm_near_y_mm_far_left_cut
+	<end>	y_mm_near_y_mm_far_left_draw_cut_plot_block
+
+	<begin>	y_mm_near_y_mm_far_right_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												y_r_f_mm
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												y_mm_near_y_mm_far_right_cut
+	<end>	y_mm_near_y_mm_far_right_draw_cut_plot_block
+
+	<begin>	x_star_left_mm_x_star_right_mm_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+		<setting>	y_variable												x_star_right_mm
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												x_star_left_mm_x_star_right_mm_cut
+	<end>	x_star_left_mm_x_star_right_mm_draw_cut_plot_block
+
+<section> ====================	1D Plot descriptions
+
+	<begin>	x_star_left_mm_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													x_star_left_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+	<end>	x_star_left_mm_plot_block
+
+	<begin>	dN_dt_GeV2_left_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_left_GeV2
+	<end>	dN_dt_GeV2_left_plot_block
+
+	<begin>	dN_dt_GeV2_right_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_right_GeV2
+	<end>	dN_dt_GeV2_right_plot_block
+
+	<begin>	dN_dt_GeV2_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+	<end>	dN_dt_GeV2_plot_block
+
+	<begin>	theta_y_star_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_rad
+	<end>	theta_y_star_rad_plot_block
+
+	<begin>	theta_x_star_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+	<end>	theta_x_star_rad_plot_block
+
+	<begin>	text_analysis_cuts_start_here_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Cuts\_start\_here
+	<end>	text_analysis_cuts_start_here_plot_block
+
+	<begin>	text_analysis_cut_definitions_start_here_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Cut\_definitions\_start\_here
+	<end>	text_analysis_cut_definitions_start_here_plot_block
+
+	<begin>	text_analysis_cut_definitions_end_here_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Cut\_definitions\_end\_here
+	<end>	text_analysis_cut_definitions_end_here_plot_block
+
+
+<end> Plot_descriptions

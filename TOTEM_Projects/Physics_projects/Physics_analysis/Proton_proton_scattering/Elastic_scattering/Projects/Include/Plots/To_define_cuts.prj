@@ -1,0 +1,79 @@
+
+
+<section> ====================	Plots with cuts	
+
+		<nsetting>	analysis_plot		text_analysis_cuts_start_here
+
+	<begin_if_setting>	project_subtask		not MonteCarlo
+
+		<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad_with_cut
+
+		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut
+		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut
+		
+		<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad_horizontal_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_left_with_cut  	
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_right_with_cut  	
+		
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1
+
+	  	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_2
+
+	  	<nsetting>	analysis_plot		y_mm_near_dy_mm_left_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_3
+
+	  	<nsetting>	analysis_plot		y_mm_near_dy_mm_right_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_4
+
+	  	<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_5
+
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_6
+
+	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_7
+
+	  	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm_with_cut
+	  	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_8
+
+	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_9
+
+<comment>		<nsetting>	analysis_plot		x_star_mm_x_star_right_mm_with_cut_test_only
+
+		<section> ====================	Plots to define cuts
+
+		<nsetting>	analysis_plot		text_analysis_cut_definitions_start_here
+
+		<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad_with_cut
+  		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+  		<nsetting>	analysis_plot		y_mm_near_dy_mm_left_define_cut
+		<nsetting>	analysis_plot		y_mm_near_dy_mm_right_define_cut
+		<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_define_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_define_cut
+	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_define_cut
+	  	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm_define_cut
+	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_define_cut
+
+		<nsetting>	analysis_plot		text_analysis_cut_definitions_end_here
+		
+	<end_if_setting>
+
+<comment>		For Monte Carlos to test geometrical and beam divergence correction, remove the comments below accordingly 
+<comment>		<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad_with_cut
+<comment>		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut
+<comment>		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut
+<comment>  		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+
+<comment>		For Monte Carlos to test multitracks, remove the comments below accordingly
+<comment>	  		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+<comment>	  		<nsetting>	analysis_plot		y_mm_near_dy_mm_left_define_cut
+<comment>			<nsetting>	analysis_plot		y_mm_near_dy_mm_right_define_cut
+<comment>			<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_define_cut
+<comment>			<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_define_cut
+<comment>		  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_define_cut
+<comment>		  	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm_define_cut
+<comment>		  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_define_cut
+		

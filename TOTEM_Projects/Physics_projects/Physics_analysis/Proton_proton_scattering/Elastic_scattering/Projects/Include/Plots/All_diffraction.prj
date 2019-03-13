@@ -1,0 +1,7 @@
+
+<section> ====================	Plots
+
+	<nsetting>	analysis_plot		x_mm_y_mm_near_left
+	<nsetting>	analysis_plot		x_mm_y_mm_far_left
+	<nsetting>	analysis_plot		x_mm_y_mm_near_right
+	<nsetting>	analysis_plot		x_mm_y_mm_far_right

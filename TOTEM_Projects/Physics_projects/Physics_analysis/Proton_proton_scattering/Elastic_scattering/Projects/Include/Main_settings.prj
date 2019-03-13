@@ -1,0 +1,37 @@
+<setting>		VersionOfAnalysisCode		1.0
+<setting>		InstallDirectoryOfCode		/afs/cern.ch/work/f/fnemes/main_workspace/workspace/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering
+
+<include>		Projects/Include/Conventions/TOTEM/Trigger_bits.prj
+
+<setting>		geometrical_acceptance_cut_block				theta_x_star_rad_theta_y_star_rad_cut_block
+<setting>		vertical_angular_left_acceptance_cut_block		theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+<setting>		vertical_angular_right_acceptance_cut_block		theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+<setting>		vertical_beam_divergence_cut_block				theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+<begin>	common_normalization_steps
+	<nsetting>	normalization_step		one_over_RP_prescaling_factor
+	<nsetting>	normalization_step		DAQ_efficiency_fraction		
+	<nsetting>	normalization_step		Unfolding_correction
+	<nsetting>	normalization_step		Bin_density
+	<nsetting>	normalization_step		Correction_from_empty_pots
+<end>	common_normalization_steps
+
+<begin>	Inefficiency_3_out_of_4_RP_excluded_variables_RIGHT_NEAR
+	<nsetting>		variable_name		x_r_n_mm
+	<nsetting>		variable_name		y_r_n_mm
+<end>	Inefficiency_3_out_of_4_RP_excluded_variables_RIGHT_NEAR
+
+<begin>	Inefficiency_3_out_of_4_RP_excluded_variables_RIGHT_FAR
+	<nsetting>		variable_name		x_r_f_mm
+	<nsetting>		variable_name		y_r_f_mm
+<end>	Inefficiency_3_out_of_4_RP_excluded_variables_RIGHT_FAR
+
+<begin>	Inefficiency_3_out_of_4_RP_excluded_variables_LEFT_NEAR
+	<nsetting>		variable_name		x_l_n_mm
+	<nsetting>		variable_name		y_l_n_mm
+<end>	Inefficiency_3_out_of_4_RP_excluded_variables_LEFT_NEAR
+
+<begin>	Inefficiency_3_out_of_4_RP_excluded_variables_LEFT_FAR
+	<nsetting>		variable_name		x_l_f_mm
+	<nsetting>		variable_name		y_l_f_mm
+<end>	Inefficiency_3_out_of_4_RP_excluded_variables_LEFT_FAR

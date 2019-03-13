@@ -1,0 +1,8 @@
+
+	<begin>	TOTEM_trigger_bits_block
+		<parameter>		RP220_V			0
+		<parameter>		RP220_H			1
+		<parameter>		RP220_Cross 	2
+		<parameter>		RP147_V			3
+		<parameter>		BX				9
+	<end>	TOTEM_trigger_bits_block

@@ -1,0 +1,1716 @@
+<section> ====================	2D Plot types
+	
+	<begin>	x_mm_y_mm_type_block
+		<parameter>			horizontal_axis_boundary						35
+		<parameter>			number_of_horizontal_bins						1024
+		<parameter>			vertical_axis_boundary							35
+		<parameter>			number_of_vertical_bins							1024
+	<end>	x_mm_y_mm_type_block
+
+	<begin>	y_mm_x_mm_type_block
+		<parameter>			horizontal_axis_boundary						35
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							35
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_mm_x_mm_type_block
+
+	<begin>	x_mm_near_x_mm_far_type_block
+		<parameter>			horizontal_axis_boundary						3
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							400
+	<end>	x_mm_near_x_mm_far_type_block
+
+	<begin>	y_mm_near_y_mm_far_type_block
+		<parameter>			horizontal_axis_boundary						30
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							30
+		<parameter>			number_of_vertical_bins							400
+	<end>	y_mm_near_y_mm_far_type_block
+
+	<begin>	theta_x_rad_theta_x_right_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.001
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							0.001
+		<parameter>			number_of_vertical_bins							100
+	<end>	theta_x_rad_theta_x_right_rad_type_block
+
+	<begin>	theta_y_rad_theta_y_right_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.0001
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							0.0001
+		<parameter>			number_of_vertical_bins							100
+	<end>	theta_y_rad_theta_y_right_rad_type_block
+
+	<begin>	theta_y_rad_y_mm_type_block
+		<parameter>			horizontal_axis_boundary						15
+		<parameter>			number_of_horizontal_bins						200
+		<parameter>			vertical_axis_boundary							0.0002
+		<parameter>			number_of_vertical_bins							200
+	<end>	theta_y_rad_y_mm_type_block
+
+	<begin>	x_mm_theta_x_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.0006
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							100
+	<end>	x_mm_theta_x_rad_type_block
+
+	<begin>	theta_y_star_rad_y_mm_type_block
+		<parameter>			horizontal_axis_boundary						10
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							0.0010
+		<parameter>			number_of_vertical_bins							400
+	<end>	theta_y_star_rad_y_mm_type_block
+
+	<begin>	theta_y_star_rad_theta_y_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.00012
+		<parameter>			number_of_horizontal_bins						800
+		<parameter>			vertical_axis_boundary							0.00012
+		<parameter>			number_of_vertical_bins							800
+	<end>	theta_y_star_rad_theta_y_star_rad_type_block
+	
+	<begin>	theta_x_star_rad_theta_y_star_rad_type_block	
+		<parameter>			horizontal_axis_boundary						0.00035
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							0.0002
+		<parameter>			number_of_vertical_bins							400
+	<end>	theta_x_star_rad_theta_y_star_rad_type_block
+
+	<begin>	theta_x_star_rad_theta_x_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						0.00038
+		<parameter>			number_of_horizontal_bins						400
+		<parameter>			vertical_axis_boundary							0.00038
+		<parameter>			number_of_vertical_bins							400
+	<end>	theta_x_star_rad_theta_x_star_rad_type_block
+
+	<begin>	x_star_mm_x_star_mm_type_block
+		<parameter>			horizontal_axis_boundary						0.9
+		<parameter>			number_of_horizontal_bins						420
+		<parameter>			vertical_axis_boundary							0.9
+		<parameter>			number_of_vertical_bins							420
+	<end>	x_star_mm_x_star_mm_type_block
+
+	<begin>	y_star_mm_y_star_mm_type_block
+		<parameter>			horizontal_axis_boundary						1
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							1
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_star_mm_y_star_mm_type_block
+
+	<begin>	phi_star_rad_theta_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						8
+		<parameter>			number_of_horizontal_bins						200
+		<parameter>			vertical_axis_boundary							0.0005
+		<parameter>			number_of_vertical_bins							200
+	<end>	phi_star_rad_theta_star_rad_type_block
+
+	<begin>	y_mm_near_dy_mm_left_type_block
+		<parameter>			horizontal_axis_boundary						30
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_mm_near_dy_mm_left_type_block
+
+	<begin>	y_mm_far_dy_mm_left_type_block
+		<parameter>			horizontal_axis_boundary						10
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_mm_far_dy_mm_left_type_block
+
+	<begin>	y_mm_far_dy_mm_right_type_block
+		<parameter>			horizontal_axis_boundary						10
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_mm_far_dy_mm_right_type_block
+
+	<begin>	x_mm_near_dx_mm_left_type_block
+		<parameter>			horizontal_axis_boundary						3
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							1
+		<parameter>			number_of_vertical_bins							100
+	<end>	x_mm_near_dx_mm_left_type_block
+
+	<begin>	y_mm_near_dy_mm_right_type_block
+		<parameter>			horizontal_axis_boundary						30
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							3
+		<parameter>			number_of_vertical_bins							100
+	<end>	y_mm_near_dy_mm_right_type_block
+
+	<begin>	x_mm_near_theta_x_near_local_rad_type_block
+		<parameter>			horizontal_axis_boundary						4
+		<parameter>			number_of_horizontal_bins						50
+		<parameter>			vertical_axis_boundary							0.01
+		<parameter>			number_of_vertical_bins							50
+	<end>	x_mm_near_theta_x_near_local_rad_type_block
+
+	<begin>	minus_t_GeV2_minus_t_GeV2_type_block
+		<parameter>			horizontal_axis_boundary						1.5
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							1.5
+		<parameter>			number_of_vertical_bins							100
+	<end>	minus_t_GeV2_minus_t_GeV2_type_block
+
+	<begin>	phi_star_rad_phi_star_rad_type_block
+		<parameter>			horizontal_axis_boundary						8
+		<parameter>			number_of_horizontal_bins						100
+		<parameter>			vertical_axis_boundary							8
+		<parameter>			number_of_vertical_bins							100
+	<end>	phi_star_rad_phi_star_rad_type_block
+
+<section> ====================	1D Plot types
+
+	<begin>	x_star_mm_type_block
+		<parameter>			horizontal_axis_left_boundary					-1
+		<parameter>			horizontal_axis_right_boundary					1
+		<parameter>			number_of_horizontal_bins						100
+	<end>	x_star_mm_type_block
+
+	<begin>	y_star_mm_type_block
+		<parameter>			horizontal_axis_left_boundary					-4
+		<parameter>			horizontal_axis_right_boundary					4
+		<parameter>			number_of_horizontal_bins						100
+	<end>	y_star_mm_type_block
+
+	<begin>	dN_dt_GeV2_type_block
+		<parameter>			horizontal_axis_left_boundary					0
+		<parameter>			horizontal_axis_right_boundary					2.0
+		<parameter>			number_of_horizontal_bins						400
+	<end>	dN_dt_GeV2_type_block
+
+	<begin>	theta_y_star_rad_type_block
+		<parameter>			horizontal_axis_left_boundary					-0.0006
+		<parameter>			horizontal_axis_right_boundary					0.0006
+		<parameter>			number_of_horizontal_bins						400
+	<end>	theta_y_star_rad_type_block
+
+	<begin>	theta_x_star_rad_type_block
+		<parameter>			horizontal_axis_left_boundary					-0.0006
+		<parameter>			horizontal_axis_right_boundary					0.0006
+		<parameter>			number_of_horizontal_bins						100
+	<end>	theta_x_star_rad_type_block
+
+<section> ====================	2D Plot descriptions
+
+	<begin>	x_mm_y_mm_near_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												y_l_n_mm
+	<end>	x_mm_y_mm_near_left_plot_block
+
+	<begin>	x_mm_y_mm_far_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_l_f_mm
+		<setting>	y_variable												y_l_f_mm
+	<end>	x_mm_y_mm_far_left_plot_block
+
+	<begin>	x_mm_y_mm_near_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												y_r_n_mm
+	<end>	x_mm_y_mm_near_right_plot_block
+
+	<begin>	x_mm_y_mm_far_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_r_f_mm
+		<setting>	y_variable												y_r_f_mm
+	<end>	x_mm_y_mm_far_right_plot_block
+
+	<begin>	x_mm_near_x_mm_far_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												x_l_f_mm
+	<end>	x_mm_near_x_mm_far_left_plot_block
+
+	<begin>	y_mm_near_y_mm_far_left_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_l_f_mm
+	<end>	y_mm_near_y_mm_far_left_plot_block
+
+	<begin>	x_mm_near_x_mm_far_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												x_r_f_mm
+	<end>	x_mm_near_x_mm_far_right_plot_block
+
+	<begin>	y_mm_near_y_mm_far_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												y_r_f_mm
+	<end>	y_mm_near_y_mm_far_right_plot_block
+
+	<begin>	theta_x_left_rad_theta_x_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_rad_theta_x_right_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												theta_x_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_left_rad_theta_x_right_rad_cut	
+	<end>	theta_x_left_rad_theta_x_right_rad_plot_block
+
+	<begin>	theta_x_left_rad_theta_x_right_rad_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_rad_theta_x_right_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												theta_x_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_left_rad_theta_x_right_rad_after_vertex_cut_cut	
+	<end>	theta_x_left_rad_theta_x_right_rad_after_vertex_cut_define_cut_plot_block
+
+	<begin>	theta_x_left_rad_theta_x_right_rad_after_vertex_cut_2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_rad_theta_x_right_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												theta_x_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_left_rad_theta_x_right_rad_after_vertex_cut_2_cut	
+	<end>	theta_x_left_rad_theta_x_right_rad_after_vertex_cut_2_define_cut_plot_block
+
+	<begin>	theta_x_left_rad_theta_x_right_rad_after_vertex_cut_3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_rad_theta_x_right_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												theta_x_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_left_rad_theta_x_right_rad_after_vertex_cut_3_cut	
+	<end>	theta_x_left_rad_theta_x_right_rad_after_vertex_cut_3_define_cut_plot_block
+
+	<begin>	theta_y_left_rad_theta_y_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_theta_y_right_rad_type_block
+		<setting>	x_variable												theta_y_left_rad
+		<setting>	y_variable												theta_y_right_rad
+	<end>	theta_y_left_rad_theta_y_right_rad_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_plot_block
+
+	<begin>	x_star_left_mm_x_star_right_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+		<setting>	y_variable												x_star_right_mm
+	<end>	x_star_left_mm_x_star_right_mm_plot_block
+
+	<begin>	y_star_left_mm_y_star_right_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_left_mm
+		<setting>	y_variable												y_star_right_mm
+	<end>	y_star_left_mm_y_star_right_mm_plot_block
+
+	<begin>	y_left_far_mm_y_right_far_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												y_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_far_mm_y_right_far_mm_cut	
+	<end>	y_left_far_mm_y_right_far_mm_plot_block
+
+	<begin>	y_left_near_mm_y_right_near_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_near_mm_y_right_near_mm_cut	
+	<end>	y_left_near_mm_y_right_near_mm_plot_block
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+	<end>	theta_x_star_rad_theta_y_star_rad_plot_block
+
+	<begin>	phi_star_rad_theta_star_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													phi_star_rad_theta_star_rad_type_block
+		<setting>	x_variable												phi_star_rad
+		<setting>	y_variable												theta_star_rad
+	<end>	phi_star_rad_theta_star_rad_plot_block
+
+	<begin>	phi_star_without_right_far_rad_theta_x_star_left_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													phi_star_rad_theta_star_rad_type_block
+		<setting>	x_variable												phi_star_without_right_far_rad
+		<setting>	y_variable												theta_star_without_right_far_rad
+	<end>	phi_star_without_right_far_rad_theta_x_star_left_rad_plot_block
+
+	<begin>	phi_star_without_left_far_rad_theta_x_star_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													phi_star_rad_theta_star_rad_type_block
+		<setting>	x_variable												phi_star_without_left_far_rad
+		<setting>	y_variable												theta_star_without_left_far_rad
+	<end>	phi_star_without_left_far_rad_theta_x_star_right_rad_plot_block
+	
+<section> ====================	2D Plot descriptions with cuts
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_horizontal_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_horizontal_cut	
+	<end>	theta_x_star_rad_theta_y_star_rad_horizontal_with_cut_plot_block
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_cut	
+	<end>	theta_x_star_rad_theta_y_star_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_with_orthogonal_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_orthogonal_cut
+	<end>	theta_x_star_rad_theta_y_star_rad_with_orthogonal_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_left_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_right_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_left_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_left_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_right_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_right_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_with_cut_plot_block
+		
+	<begin>	y_mm_near_dy_mm_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_mm_near_dy_mm_left_cut
+	<end>	y_mm_near_dy_mm_left_with_cut_plot_block
+
+	<begin>	y_mm_near_dy_mm_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_right_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_mm_near_dy_mm_right_cut
+	<end>	y_mm_near_dy_mm_right_with_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_dx_mm_left_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												dx_left_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_dx_mm_left_cut
+	<end>	x_mm_near_dx_mm_left_with_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_dx_mm_left_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												dx_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_dx_mm_right_cut
+	<end>	x_mm_near_dx_mm_right_with_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_right_with_cut_second_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_dx_mm_left_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												dx_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_dx_mm_right_second_cut
+	<end>	x_mm_near_dx_mm_right_with_cut_second_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_left_with_cut_second_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_dx_mm_left_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												dx_left_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_mm_near_dx_mm_left_second_cut
+	<end>	x_mm_near_dx_mm_left_with_cut_second_cut_plot_block
+
+	<begin>	x_mm_near_theta_x_near_local_rad_right_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_theta_x_near_local_rad_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												thx_r_n_rad
+	<end>	x_mm_near_theta_x_near_local_rad_right_plot_block
+
+	<begin>	x_star_left_mm_x_star_right_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+		<setting>	y_variable												x_star_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_star_left_mm_x_star_right_mm_cut
+	<end>	x_star_left_mm_x_star_right_mm_with_cut_plot_block
+
+	<begin>	x_star_mm_x_star_mm_with_cut_to_reduce_vertex_contribution_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_mm
+		<setting>	y_variable												x_star_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_star_mm_x_star_mm_with_cut_to_reduce_vertex_contribution_cut
+	<end>	x_star_mm_x_star_mm_with_cut_to_reduce_vertex_contribution_plot_block
+
+	<begin>	x_star_mm_x_star_mm_with_cut_2_to_reduce_vertex_contribution_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_mm
+		<setting>	y_variable												x_star_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_star_mm_x_star_mm_with_cut_2_to_reduce_vertex_contribution_cut
+	<end>	x_star_mm_x_star_mm_with_cut_2_to_reduce_vertex_contribution_plot_block
+
+	<begin>	x_star_mm_x_star_mm_with_cut_3_to_reduce_vertex_contribution_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_mm
+		<setting>	y_variable												x_star_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_star_mm_x_star_mm_with_cut_3_to_reduce_vertex_contribution_cut
+	<end>	x_star_mm_x_star_mm_with_cut_3_to_reduce_vertex_contribution_plot_block
+
+	<begin>	y_star_mm_y_star_mm_with_cut_to_reduce_vertex_contribution_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_mm
+		<setting>	y_variable												y_star_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_star_mm_y_star_mm_with_cut_to_reduce_vertex_contribution_cut
+	<end>	y_star_mm_y_star_mm_with_cut_to_reduce_vertex_contribution_plot_block
+
+	<begin>	y_star_mm_y_star_mm_with_cut_2_to_reduce_vertex_contribution_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_mm
+		<setting>	y_variable												y_star_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_star_mm_y_star_mm_with_cut_2_to_reduce_vertex_contribution_cut
+	<end>	y_star_mm_y_star_mm_with_cut_2_to_reduce_vertex_contribution_plot_block
+
+	<begin>	y_star_mm_y_star_mm_with_cut_3_to_reduce_vertex_contribution_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_mm
+		<setting>	y_variable												y_star_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_star_mm_y_star_mm_with_cut_3_to_reduce_vertex_contribution_cut
+	<end>	y_star_mm_y_star_mm_with_cut_3_to_reduce_vertex_contribution_plot_block
+
+	<begin>	y_left_far_mm_y_right_far_mm_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												y_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_far_mm_y_right_far_mm_after_vertex_cut_cut	
+	<end>	y_left_far_mm_y_right_far_mm_after_vertex_cut_define_cut_plot_block
+
+	<begin>	y_left_far_mm_y_right_far_mm_after_vertex_cut2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												y_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_far_mm_y_right_far_mm_after_vertex_cut2_cut	
+	<end>	y_left_far_mm_y_right_far_mm_after_vertex_cut2_define_cut_plot_block
+
+	<begin>	y_left_far_mm_y_right_far_mm_after_vertex_cut3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												y_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_far_mm_y_right_far_mm_after_vertex_cut3_cut	
+	<end>	y_left_far_mm_y_right_far_mm_after_vertex_cut3_define_cut_plot_block
+
+	<begin>	y_left_near_mm_y_right_near_mm_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_near_mm_y_right_near_mm_after_vertex_cut_cut	
+	<end>	y_left_near_mm_y_right_near_mm_after_vertex_cut_define_cut_plot_block
+
+	<begin>	y_left_near_mm_y_right_near_mm_after_vertex_cut2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_near_mm_y_right_near_mm_after_vertex_cut2_cut	
+	<end>	y_left_near_mm_y_right_near_mm_after_vertex_cut2_define_cut_plot_block
+
+	<begin>	y_left_near_mm_y_right_near_mm_after_vertex_cut3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_y_mm_far_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												y_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_near_mm_y_right_near_mm_after_vertex_cut3_cut	
+	<end>	y_left_near_mm_y_right_near_mm_after_vertex_cut3_define_cut_plot_block
+
+	<begin>	theta_y_rad_y_far_left_mm_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												theta_y_left_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_left_mm_after_vertex_cut_cut
+	<end>	theta_y_rad_y_far_left_mm_after_vertex_cut_define_cut_plot_block
+
+	<begin>	theta_y_rad_y_far_left_mm_after_vertex_cut2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												theta_y_left_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_left_mm_after_vertex_cut2_cut
+	<end>	theta_y_rad_y_far_left_mm_after_vertex_cut2_define_cut_plot_block
+
+	<begin>	theta_y_rad_y_far_left_mm_after_vertex_cut3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												theta_y_left_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_left_mm_after_vertex_cut3_cut
+	<end>	theta_y_rad_y_far_left_mm_after_vertex_cut3_define_cut_plot_block
+
+	<begin>	theta_y_rad_y_far_right_mm_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												theta_y_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_right_mm_after_vertex_cut_cut
+	<end>	theta_y_rad_y_far_right_mm_after_vertex_cut_define_cut_plot_block
+
+	<begin>	theta_y_rad_y_far_right_mm_after_vertex_cut2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												theta_y_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_right_mm_after_vertex_cut2_cut
+	<end>	theta_y_rad_y_far_right_mm_after_vertex_cut2_define_cut_plot_block
+
+	<begin>	theta_y_rad_y_far_right_mm_after_vertex_cut3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												theta_y_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_right_mm_after_vertex_cut3_cut
+	<end>	theta_y_rad_y_far_right_mm_after_vertex_cut3_define_cut_plot_block
+
+	<begin>	x_star_mm_x_star_right_mm_with_cut_test_only_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_mm
+		<setting>	y_variable												x_star_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												x_star_mm_x_star_right_mm_cut_test_only
+	<end>	x_star_mm_x_star_right_mm_with_cut_test_only_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_near_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_near_rad_left_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_near_rad_left_with_cut_plot_block
+
+		<begin>	theta_y_star_right_rad_theta_y_star_left_near_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_near_rad_left_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_near_rad_left_with_cut_plot_block
+
+		<begin>	theta_x_star_right_rad_theta_x_star_left_near_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_x_star_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_x_star_left_near_rad_left_cut
+	<end>	theta_x_star_right_rad_theta_x_star_left_near_rad_left_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_far_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_far_rad_right_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_far_rad_right_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_near_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_near_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_near_rad_with_cut_plot_block
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_near_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_near_rad_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_near_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_near_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_near_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_near_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_near_rad_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_near_rad_left_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_near_rad_left_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_near_rad_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_near_rad_right_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_near_rad_right_with_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_near_rad_draw_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_near_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_near_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_near_rad_draw_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_x_star_left_near_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_x_star_left_near_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_x_star_left_near_rad_cut	
+	<end>	theta_x_star_right_rad_theta_x_star_left_near_rad_with_cut_plot_block
+
+	<begin>	y_left_near_mm_dy_right_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_left_near_mm_dy_right_mm_cut	
+	<end>	y_left_near_mm_dy_right_mm_with_cut_plot_block
+
+	<begin>	y_left_far_mm_dy_right_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_left_far_mm_dy_right_mm_cut	
+	<end>	y_left_far_mm_dy_right_mm_with_cut_plot_block
+
+	<begin>	y_right_far_mm_dy_left_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_right_far_mm_dy_left_mm_cut	
+	<end>	y_right_far_mm_dy_left_mm_with_cut_plot_block
+
+	<begin>	y_right_near_mm_dy_left_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_right_near_mm_dy_left_mm_cut	
+	<end>	y_right_near_mm_dy_left_mm_with_cut_plot_block
+
+	<begin>	y_star_left_mm_y_star_right_mm_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_left_mm
+		<setting>	y_variable												y_star_right_mm
+		<parameter>	cut														1.0
+		<setting>	cut_name												y_star_left_mm_y_star_right_mm_cut	
+	<end>	y_star_left_mm_y_star_right_mm_with_cut_plot_block
+
+<section> ====================	2D Plot descriptions define cuts
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<setting>	y_variable												theta_y_star_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_cut	
+	<end>	theta_x_star_rad_theta_y_star_rad_define_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_define_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_far_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_far_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_far_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_far_rad_define_cut_plot_block
+
+	<begin>	y_mm_near_dy_mm_left_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_mm_near_dy_mm_left_cut
+	<end>	y_mm_near_dy_mm_left_define_cut_plot_block
+
+	<begin>	y_mm_near_dy_mm_right_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_right_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_mm_near_dy_mm_right_cut
+	<end>	y_mm_near_dy_mm_right_define_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_left_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_dx_mm_left_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												dx_left_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_mm_near_dx_mm_left_cut
+	<end>	x_mm_near_dx_mm_left_define_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_right_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_dx_mm_left_type_block
+		<setting>	x_variable												x_r_n_mm
+		<setting>	y_variable												dx_right_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_mm_near_dx_mm_right_cut
+	<end>	x_mm_near_dx_mm_right_define_cut_plot_block
+
+	<begin>	x_star_left_mm_x_star_right_mm_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_star_mm_x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+		<setting>	y_variable												x_star_right_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_star_left_mm_x_star_right_mm_cut
+	<end>	x_star_left_mm_x_star_right_mm_define_cut_plot_block
+
+	<begin>	x_mm_near_x_mm_far_left_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_near_x_mm_far_type_block
+		<setting>	x_variable												x_l_n_mm
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_mm_near_x_mm_far_left_cut
+	<end>	x_mm_near_x_mm_far_left_define_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_far_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_far_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_far_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_far_rad_define_cut_plot_block
+
+	<begin>	y_right_near_mm_dy_left_mm_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_right_near_mm_dy_left_mm_cut	
+	<end>	y_right_near_mm_dy_left_mm_define_cut_plot_block
+
+	<begin>	y_right_far_mm_dy_left_mm_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_right_far_mm_dy_left_mm_cut	
+	<end>	y_right_far_mm_dy_left_mm_define_cut_plot_block
+
+	<begin>	y_left_near_mm_dy_right_mm_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_near_mm_dy_right_mm_cut	
+	<end>	y_left_near_mm_dy_right_mm_define_cut_plot_block
+
+	<begin>	y_left_far_mm_dy_right_mm_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_near_dy_mm_left_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_left_far_mm_dy_right_mm_cut	
+	<end>	y_left_far_mm_dy_right_mm_define_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_near_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_rad
+		<setting>	y_variable												theta_y_star_right_near_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_near_rad_cut
+	<end>	theta_y_star_left_rad_theta_y_star_right_near_rad_define_cut_plot_block
+
+	<begin>	theta_y_star_right_rad_theta_y_star_left_near_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_rad
+		<setting>	y_variable												theta_y_star_left_near_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_star_right_rad_theta_y_star_left_near_rad_cut
+	<end>	theta_y_star_right_rad_theta_y_star_left_near_rad_define_cut_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_near_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_near_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_near_rad_cut	
+	<end>	theta_x_star_left_rad_theta_x_star_right_near_rad_define_cut_plot_block
+
+	<begin>	theta_x_star_right_rad_theta_x_star_left_near_rad_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_right_rad
+		<setting>	y_variable												theta_x_star_left_near_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_x_star_right_rad_theta_x_star_left_near_rad_cut	
+	<end>	theta_x_star_right_rad_theta_x_star_left_near_rad_define_cut_plot_block
+
+	<begin>	y_mm_x_mm_near_left_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_x_mm_type_block
+		<setting>	x_variable												y_l_n_mm
+		<setting>	y_variable												x_l_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_mm_x_mm_near_left_cut	
+	<end>	y_mm_x_mm_near_left_define_cut_plot_block
+
+	<begin>	y_mm_x_mm_far_left_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_x_mm_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_mm_x_mm_far_left_cut	
+	<end>	y_mm_x_mm_far_left_define_cut_plot_block
+
+	<begin>	y_mm_x_mm_near_right_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_x_mm_type_block
+		<setting>	x_variable												y_r_n_mm
+		<setting>	y_variable												x_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_mm_x_mm_near_right_cut	
+	<end>	y_mm_x_mm_near_right_define_cut_plot_block
+
+	<begin>	y_mm_x_mm_far_right_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_x_mm_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_mm_x_mm_far_right_cut	
+	<end>	y_mm_x_mm_far_right_define_cut_plot_block
+
+	<begin>	y_star_left_mm_y_star_right_mm_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_star_mm_y_star_mm_type_block
+		<setting>	x_variable												y_star_left_mm
+		<setting>	y_variable												y_star_right_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												y_star_left_mm_y_star_right_mm_cut	
+	<end>	y_star_left_mm_y_star_right_mm_define_cut_plot_block
+
+	<begin>	y_mm_far_dy_mm_left_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_far_dy_mm_left_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												dy_left_mm
+		<parameter>	define_cut												0.0
+		<setting>	cut_name												y_mm_far_dy_mm_left_cut
+	<end>	y_mm_far_dy_mm_left_with_cut_plot_block
+
+	<begin>	y_mm_far_dy_mm_right_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													y_mm_far_dy_mm_right_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												dy_right_mm
+		<parameter>	define_cut												0.0
+		<setting>	cut_name												y_mm_far_dy_mm_right_cut
+	<end>	y_mm_far_dy_mm_right_with_cut_plot_block
+
+<section> ====================	2D Plot descriptions draw cuts
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_2_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_2_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_3_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_3_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_4_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_4_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_5_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_5_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_6_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_6_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_7_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_7_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_8_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_8_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_9_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_rad
+		<setting>	y_variable												theta_x_star_right_rad
+		<parameter>	draw_cut												1.0
+		<setting>	cut_name												theta_x_star_left_rad_theta_x_star_right_rad_cut
+	<end>	theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_9_plot_block
+
+	<begin>	theta_y_rad_y_far_left_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												theta_y_left_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_left_mm_cut
+	<end>	theta_y_rad_y_far_left_mm_plot_block
+
+	<begin>	theta_y_rad_y_far_right_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_rad_y_mm_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												theta_y_right_rad
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												theta_y_rad_y_far_right_mm_cut
+	<end>	theta_y_rad_y_far_right_mm_plot_block
+
+	<begin>	x_far_left_mm_theta_x_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_left_mm_theta_x_rad_cut
+	<end>	x_far_left_mm_theta_x_rad_plot_block
+
+<comment> optics estimator after vertex cut
+
+	<begin>	x_far_left_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_left_mm_theta_x_rad_after_vertex_cut_cut
+	<end>	x_far_left_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+
+	<begin>	x_near_left_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_near_left_mm_theta_x_rad_after_vertex_cut_cut
+	<end>	x_near_left_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+
+	<begin>	x_near_left_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_near_left_mm_theta_x_rad_after_vertex_cut_2_cut
+	<end>	x_near_left_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+
+	<begin>	x_near_left_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_near_left_mm_theta_x_rad_after_vertex_cut_3_cut
+	<end>	x_near_left_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+
+	<begin>	x_far_left_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_left_mm_theta_x_rad_after_vertex_cut_2_cut
+	<end>	x_far_left_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+
+	<begin>	x_far_left_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_left_rad
+		<setting>	y_variable												x_l_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_left_mm_theta_x_rad_after_vertex_cut_3_cut
+	<end>	x_far_left_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+
+	<begin>	x_far_right_mm_theta_x_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_right_mm_theta_x_rad_cut
+	<end>	x_far_right_mm_theta_x_rad_plot_block
+
+	<begin>	x_far_right_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_right_mm_theta_x_rad_after_vertex_cut_cut
+	<end>	x_far_right_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+
+	<begin>	x_near_right_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_near_right_mm_theta_x_rad_after_vertex_cut_cut
+	<end>	x_near_right_mm_theta_x_rad_after_vertex_cut_define_cut_plot_block
+
+	<begin>	x_near_right_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_near_right_mm_theta_x_rad_after_vertex_cut_2_cut
+	<end>	x_near_right_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+
+	<begin>	x_near_right_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_n_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_near_right_mm_theta_x_rad_after_vertex_cut_3_cut
+	<end>	x_near_right_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+
+	<begin>	x_far_right_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_right_mm_theta_x_rad_after_vertex_cut_2_cut
+	<end>	x_far_right_mm_theta_x_rad_after_vertex_cut_2_define_cut_plot_block
+
+	<begin>	x_far_right_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_theta_x_rad_type_block
+		<setting>	x_variable												theta_x_right_rad
+		<setting>	y_variable												x_r_f_mm
+		<parameter>	define_cut												1.0
+		<setting>	cut_name												x_far_right_mm_theta_x_rad_after_vertex_cut_3_cut
+	<end>	x_far_right_mm_theta_x_rad_after_vertex_cut_3_define_cut_plot_block
+
+	<begin>	theta_y_star_rad_y_far_left_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_y_mm_type_block
+		<setting>	x_variable												y_l_f_mm
+		<setting>	y_variable												theta_y_star_left_rad
+	<end>	theta_y_star_rad_y_far_left_mm_plot_block
+
+	<begin>	theta_y_star_rad_y_far_right_mm_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_y_mm_type_block
+		<setting>	x_variable												y_r_f_mm
+		<setting>	y_variable												theta_y_star_right_rad
+	<end>	theta_y_star_rad_y_far_right_mm_plot_block
+
+	<begin>	x_star_right_mm_theta_x_star_right_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_y_mm_type_block
+		<setting>	x_variable												x_star_right_mm
+		<setting>	y_variable												theta_x_star_right_rad
+	<end>	x_star_right_mm_theta_x_star_right_rad_plot_block
+	
+	<begin>	minus_t_without_right_far_GeV2_minus_t_without_right_far_GeV2_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													minus_t_GeV2_minus_t_GeV2_type_block
+		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<setting>	y_variable												minus_t_without_right_far_GeV2
+		<parameter>	cut														1.0
+		<setting>	cut_name												minus_t_without_right_far_GeV2_cut
+	<end>	minus_t_without_right_far_GeV2_minus_t_without_right_far_GeV2_with_cut_plot_block
+
+	<begin>	minus_t_without_left_far_GeV2_minus_t_without_left_far_GeV2_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													minus_t_GeV2_minus_t_GeV2_type_block
+		<setting>	x_variable												minus_t_without_left_far_GeV2
+		<setting>	y_variable												minus_t_without_left_far_GeV2
+		<parameter>	cut														1.0
+		<setting>	cut_name												minus_t_without_left_far_GeV2_cut
+	<end>	minus_t_without_left_far_GeV2_minus_t_without_left_far_GeV2_with_cut_plot_block
+
+	<begin>	phi_star_without_right_far_rad_phi_star_without_right_far_rad_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													phi_star_rad_phi_star_rad_type_block
+		<setting>	x_variable												phi_star_without_right_far_rad
+		<setting>	y_variable												phi_star_without_right_far_rad
+		<parameter>	cut														1.0
+		<setting>	cut_name												phi_star_without_right_far_rad_cut
+	<end>	phi_star_without_right_far_rad_phi_star_without_right_far_rad_with_cut_plot_block
+
+	<begin>	minus_t_GeV2_minus_t_GeV2_with_cut_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													minus_t_GeV2_minus_t_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<setting>	y_variable												minus_t_GeV2
+		<parameter>	cut														1.0
+		<setting>	cut_name												minus_t_GeV2_cut
+	<end>	minus_t_GeV2_minus_t_GeV2_with_cut_plot_block
+
+<section> ====================	1D Plot descriptions
+
+	<begin>	x_star_left_mm_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													x_star_mm_type_block
+		<setting>	x_variable												x_star_left_mm
+	<end>	x_star_left_mm_plot_block
+
+	<begin>	x_star_right_mm_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													x_star_mm_type_block
+		<setting>	x_variable												x_star_right_mm
+	<end>	x_star_right_mm_plot_block
+
+	<begin>	x_star_mm_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													x_star_mm_type_block
+		<setting>	x_variable												x_star_mm
+	<end>	x_star_mm_plot_block
+
+	<begin>	y_star_right_mm_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													y_star_mm_type_block
+		<setting>	x_variable												y_star_right_mm
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end>	y_star_right_mm_plot_block
+
+	<begin>	y_star_left_mm_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													y_star_mm_type_block
+		<setting>	x_variable												y_star_left_mm
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end>	y_star_left_mm_plot_block
+
+	<begin>	dN_dt_GeV2_left_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_left_GeV2
+	<end>	dN_dt_GeV2_left_plot_block
+
+	<begin>	dN_dt_GeV2_left_geometrical_acceptance_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_left_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+	<end>	dN_dt_GeV2_left_geometrical_acceptance_corrected_plot_block
+
+	<begin>	dN_dt_GeV2_right_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_right_GeV2
+	<end>	dN_dt_GeV2_right_plot_block
+
+	<begin>	dN_dt_GeV2_right_geometrical_acceptance_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_right_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+	<end>	dN_dt_GeV2_right_geometrical_acceptance_corrected_plot_block
+
+	<begin> dN_dt_without_right_near_GeV2_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_right_near_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end> dN_dt_without_right_near_GeV2_plot_block
+
+	<begin> dN_dt_without_left_near_GeV2_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_left_near_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end> dN_dt_without_left_near_GeV2_plot_block
+
+	<begin> dN_dt_without_right_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end> dN_dt_without_right_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+
+	<begin> dN_dt_without_right_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	horizontal_beam_divergence_corrected					1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end> dN_dt_without_right_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+
+	<begin> dN_dt_without_right_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	horizontal_beam_divergence_corrected					1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end> dN_dt_without_right_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size_plot_block
+
+	<begin> dN_dt_without_left_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_left_far_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	horizontal_beam_divergence_corrected					1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end> dN_dt_without_left_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+
+	<begin> dN_dt_without_left_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_without_left_far_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	horizontal_beam_divergence_corrected					1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end> dN_dt_without_left_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size_plot_block
+
+<comment> ********************************************
+<comment> Final t-distributions
+<comment> ********************************************
+
+	<begin>	dN_dt_GeV2_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+	<end>	dN_dt_GeV2_plot_block
+
+	<begin>	dN_dt_GeV2_weighted_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+	<end>	dN_dt_GeV2_weighted_plot_block
+
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_plot_block
+
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_plot_block
+
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	horizontal_beam_divergence_corrected					1.0		
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_plot_block
+	
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	horizontal_beam_divergence_corrected					1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+
+<comment> ********************************************
+<comment> Final t-distributions variable bin size
+<comment> ********************************************
+
+	<begin>	dN_dt_GeV2_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end>	dN_dt_GeV2_variable_bin_size_plot_block
+
+	<begin>	dN_dt_GeV2_weighted_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end>	dN_dt_GeV2_weighted_variable_bin_size_plot_block
+
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_variable_bin_size_plot_block
+
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_variable_bin_size_plot_block
+	
+	<begin>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+		<parameter>	pile_up_inefficiency_corrected							1.0
+		<parameter>	to_be_saved_for_smart_merging							0.0
+		<parameter>	variable_bin_size										1.0
+		<setting>	variable_bin_size_description							variable_bin_size_from_binning_file
+	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size_plot_block
+
+<comment> ********************************************
+<comment> Final t-distributions end
+<comment> ********************************************
+
+
+	<begin>	theta_y_star_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_rad
+	<end>	theta_y_star_rad_plot_block
+
+	<begin>	theta_x_star_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+	<end>	theta_x_star_rad_plot_block
+
+	<begin>	theta_y_star_rad_weighted_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_rad
+		<parameter>	weighted												1.0
+	<end>	theta_y_star_rad_weighted_plot_block
+
+	<begin>	theta_x_star_rad_weighted_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad
+		<parameter>	weighted												1.0
+	<end>	theta_x_star_rad_weighted_plot_block
+
+	<begin>	theta_y_star_left_near_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_near_rad
+	<end>	theta_y_star_left_near_rad_plot_block
+
+	<begin>	theta_y_star_left_far_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_far_rad
+	<end>	theta_y_star_left_far_rad_plot_block
+
+	<begin>	theta_y_star_right_near_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_near_rad
+	<end>	theta_y_star_right_near_rad_plot_block
+
+	<begin>	theta_y_star_right_far_rad_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_right_far_rad
+	<end>	theta_y_star_right_far_rad_plot_block
+
+
+<section> ====================	LaTeX section descriptions
+	
+	<begin>	text_analysis_cuts_start_here_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Cuts\_start\_here
+	<end>	text_analysis_cuts_start_here_plot_block
+
+	<begin>	text_analysis_cut_definitions_start_here_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Cut\_definitions\_start\_here
+	<end>	text_analysis_cut_definitions_start_here_plot_block
+
+	<begin>	text_analysis_cut_definitions_end_here_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Cut\_definitions\_end\_here
+	<end>	text_analysis_cut_definitions_end_here_plot_block
+
+	<begin>	text_differential_cross_section_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Differential\_cross\_sections
+	<end>	text_differential_cross_section_plot_block
+
+	<begin>	text_optics_estimators_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Optics\_estimators
+	<end>	text_optics_estimators_plot_block
+
+	<begin>	text_vertex_cut_1_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Vertex\_cut\_1
+	<end>	text_vertex_cut_1_plot_block
+
+	<begin>	text_vertex_cut_2_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Vertex\_cut\_2
+	<end>	text_vertex_cut_2_plot_block
+
+	<begin>	text_vertex_cut_3_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Vertex\_cut\_3
+	<end>	text_vertex_cut_3_plot_block
+
+	<begin>	text_orthogonal_acceptance_cut_plot_block
+		<parameter>	dimension												0.0
+		<setting>	text_before												Orthogonal\_acceptance\_cut
+	<end>	text_orthogonal_acceptance_cut_plot_block
+
+<include>	Projects/Include/Plots/Plot_descriptions/Plot_descriptions_diffraction.prj
+<include>	Projects/Include/Plots/Plot_descriptions/Plot_descriptions_inefficiency.prj

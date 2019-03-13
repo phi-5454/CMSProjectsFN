@@ -1,0 +1,88 @@
+
+<begin> Plots
+
+<section> ====================	Plots
+
+	<nsetting>	analysis_plot		x_mm_y_mm_near_left
+	<nsetting>	analysis_plot		x_mm_y_mm_far_left
+	<nsetting>	analysis_plot		x_mm_y_mm_near_right
+	<nsetting>	analysis_plot		x_mm_y_mm_far_right
+
+	<nsetting>	analysis_plot		x_mm_near_x_mm_far_left
+	<nsetting>	analysis_plot		y_mm_near_y_mm_far_left
+	<nsetting>	analysis_plot		x_mm_near_x_mm_far_right
+	<nsetting>	analysis_plot		y_mm_near_y_mm_far_right
+
+	<nsetting>	analysis_plot		theta_x_left_rad_theta_x_right_rad
+	<nsetting>	analysis_plot		theta_y_left_rad_theta_y_right_rad
+
+	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad
+	<nsetting>	analysis_plot		x_star_left_mm
+	
+	<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm
+	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm
+
+	<nsetting>	analysis_plot		dN_dt_GeV2_left
+	<nsetting>	analysis_plot		dN_dt_GeV2_right
+	<nsetting>	analysis_plot		dN_dt_GeV2
+	<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad
+
+  	<nsetting>	analysis_plot		x_mm_near_x_mm_far_left
+  	<nsetting>	analysis_plot		x_mm_near_x_mm_far_right
+  	<nsetting>	analysis_plot		y_mm_near_y_mm_far_left
+  	<nsetting>	analysis_plot		y_mm_near_y_mm_far_right
+
+<section> ====================	Plots with cuts	
+
+	<nsetting>	analysis_plot		text_analysis_cuts_start_here
+
+	<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad
+	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_new
+  	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_new
+  	<nsetting>	analysis_plot		x_mm_near_x_mm_far_left_new
+  	<nsetting>	analysis_plot		y_mm_near_y_mm_far_right_new
+  	<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_new
+
+<section> ====================	Plots to define cuts
+
+	<nsetting>	analysis_plot		text_analysis_cut_definitions_start_here
+
+	<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad
+	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_new_draw_cut
+  	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_new_draw_cut
+  	<nsetting>	analysis_plot		x_mm_near_x_mm_far_left_new_draw_cut
+  	<nsetting>	analysis_plot		y_mm_near_y_mm_far_right_new_draw_cut
+  	<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_new_draw_cut
+
+	<nsetting>	analysis_plot		text_analysis_cut_definitions_end_here
+
+<section> ====================	Plots after cuts
+
+	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad
+	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm
+
+	<nsetting>	analysis_plot		dN_dt_GeV2_left
+	<nsetting>	analysis_plot		dN_dt_GeV2_right
+	<nsetting>	analysis_plot		dN_dt_GeV2
+
+	<nsetting>	analysis_plot		theta_y_left_rad_theta_y_right_rad
+	<nsetting>	analysis_plot		theta_x_left_rad_theta_x_right_rad
+	<nsetting>	analysis_plot		y_left_far_mm_y_right_far_mm
+	<nsetting>	analysis_plot		y_left_near_mm_y_right_near_mm
+	
+	<nsetting>	analysis_plot		theta_y_star_rad
+	<nsetting>	analysis_plot		theta_x_star_rad
+
+	<nsetting>	analysis_plot		x_mm_y_mm_near_left
+	<nsetting>	analysis_plot		x_mm_y_mm_far_left
+	<nsetting>	analysis_plot		x_mm_y_mm_near_right
+	<nsetting>	analysis_plot		x_mm_y_mm_far_right
+
+	<nsetting>	analysis_plot		phi_star_rad_theta_star_rad
+
+  	<nsetting>	analysis_plot		x_mm_near_x_mm_far_left
+  	<nsetting>	analysis_plot		x_mm_near_x_mm_far_right
+  	<nsetting>	analysis_plot		y_mm_near_y_mm_far_left
+  	<nsetting>	analysis_plot		y_mm_near_y_mm_far_right
+
+<end> Plots
