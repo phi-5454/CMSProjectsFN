@@ -1,0 +1,508 @@
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      10.7351
+NDf                       =           16
+p0                        =  -0.00448124   +/-   0.000476982 
+p1                        =   -0.0459774   +/-   0.00135112  
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      7.46391
+NDf                       =            8
+p0                        =    0.0115602   +/-   0.00182789  
+p1                        =   -0.0175865   +/-   0.000657292 
+prob:0.487504
+
+****************************************
+Minimizer is Linear
+Chi2                      =       3.0154
+NDf                       =            5
+p0                        =    0.0170071   +/-   0.00288061  
+p1                        =   -0.0215559   +/-   0.0011697   
+prob:0.697611
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      16.1479
+NDf                       =           18
+p0                        =   0.00357972   +/-   0.000367865 
+p1                        =   -0.0550977   +/-   0.00073912  
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =       19.212
+NDf                       =            5
+p0                        =    -0.010832   +/-   0.00507261  
+p1                        =   -0.0190305   +/-   0.00159763  
+prob:0.00175495
+
+****************************************
+Minimizer is Linear
+Chi2                      =       4.1413
+NDf                       =            4
+p0                        =   -0.0098339   +/-   0.00456999  
+p1                        =   -0.0209141   +/-   0.00174734  
+prob:0.387221
+ FCN=8.30559 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=8.78482e-14    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.25295e+02   6.39571e+00   7.70494e-03   7.60219e-08
+   2  Mean        -3.08126e-02   1.56001e-03   2.32288e-06   5.17010e-05
+   3  Sigma        3.74275e-02   1.14435e-03   1.22373e-05   4.03287e-05
+forvertexcut mean  = -0.0308126
+forvertexcut sigma = 0.0374275
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      69.1474
+NDf                       =           18
+p0                        =   0.00661666   +/-   0.000329329 
+p1                        =   -0.0494261   +/-   0.000754357 
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      13.3921
+NDf                       =            8
+p0                        =   0.00738778   +/-   0.00165386  
+p1                        =    -0.017987   +/-   0.000498436 
+prob:0.0990513
+
+****************************************
+Minimizer is Linear
+Chi2                      =      15.7761
+NDf                       =            8
+p0                        =   0.00926135   +/-   0.00138909  
+p1                        =   -0.0202427   +/-   0.000496739 
+prob:0.045699
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      37.9345
+NDf                       =           18
+p0                        =   0.00213568   +/-   0.000295722 
+p1                        =   -0.0567383   +/-   0.000715382 
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      6.19555
+NDf                       =            5
+p0                        =  -0.00356785   +/-   0.00258494  
+p1                        =   -0.0174706   +/-   0.000875591 
+prob:0.287654
+
+****************************************
+Minimizer is Linear
+Chi2                      =      1.16051
+NDf                       =            4
+p0                        =  -0.00659555   +/-   0.00267088  
+p1                        =   -0.0187984   +/-   0.00106383  
+prob:0.884557
+ FCN=13.519 FROM MIGRAD    STATUS=CONVERGED      59 CALLS          60 TOTAL
+                     EDM=6.47276e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.79846e+02   1.00037e+01   1.46134e-02  -1.29995e-05
+   2  Mean        -3.34129e-02   1.05685e-03   1.90273e-06   1.99532e-02
+   3  Sigma        3.62297e-02   8.10618e-04   1.06147e-05  -1.63411e-02
+forvertexcut mean  = -0.0334129
+forvertexcut sigma = 0.0362297
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      25.4256
+NDf                       =           18
+p0                        =  -0.00269804   +/-   0.000582101 
+p1                        =   -0.0401243   +/-   0.00136917  
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      8.26713
+NDf                       =            7
+p0                        =    0.0101825   +/-   0.00216648  
+p1                        =   -0.0170433   +/-   0.000780139 
+prob:0.309629
+
+****************************************
+Minimizer is Linear
+Chi2                      =      10.8056
+NDf                       =            5
+p0                        =    0.0092959   +/-   0.00311626  
+p1                        =   -0.0183662   +/-   0.0012549   
+prob:0.0553739
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      27.6579
+NDf                       =           18
+p0                        =    0.0029344   +/-   0.000407834 
+p1                        =   -0.0547826   +/-   0.000789205 
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      10.2731
+NDf                       =            7
+p0                        =  5.02312e-05   +/-   0.00304593  
+p1                        =   -0.0159115   +/-   0.00100071  
+prob:0.17362
+
+****************************************
+Minimizer is Linear
+Chi2                      =      6.28963
+NDf                       =            4
+p0                        =  -0.00137428   +/-   0.0042273   
+p1                        =   -0.0183225   +/-   0.00159256  
+prob:0.178537
+ FCN=17.7304 FROM MIGRAD    STATUS=CONVERGED      60 CALLS          61 TOTAL
+                     EDM=5.06074e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.34121e+02   6.64282e+00   1.12009e-02   1.99875e-07
+   2  Mean        -3.78418e-02   1.55636e-03   3.19434e-06   1.73326e-02
+   3  Sigma        3.81129e-02   1.14495e-03   1.62781e-05   1.26083e-03
+forvertexcut mean  = -0.0378418
+forvertexcut sigma = 0.0381129
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      85.0905
+NDf                       =           18
+p0                        =   0.00769729   +/-   0.000283512 
+p1                        =   -0.0444534   +/-   0.000645622 
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      11.9985
+NDf                       =            8
+p0                        =   0.00375079   +/-   0.00128737  
+p1                        =    -0.018816   +/-   0.000394543 
+prob:0.151272
+
+****************************************
+Minimizer is Linear
+Chi2                      =      2.84059
+NDf                       =            5
+p0                        =   0.00533698   +/-   0.0018644   
+p1                        =     -0.02118   +/-   0.000668763 
+prob:0.724547
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      93.0403
+NDf                       =           18
+p0                        =   0.00157854   +/-   0.000231998 
+p1                        =   -0.0541564   +/-   0.000532166 
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      5.69225
+NDf                       =            5
+p0                        =  -0.00179818   +/-   0.00220325  
+p1                        =   -0.0184496   +/-   0.000748117 
+prob:0.337325
+
+****************************************
+Minimizer is Linear
+Chi2                      =      1.35271
+NDf                       =            4
+p0                        =   -0.0032672   +/-   0.00240326  
+p1                        =   -0.0205196   +/-   0.000955289 
+prob:0.852372
+ FCN=16.8872 FROM MIGRAD    STATUS=CONVERGED      59 CALLS          60 TOTAL
+                     EDM=4.18298e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     4.72784e+02   1.25672e+01   2.08768e-02   8.59633e-06
+   2  Mean        -2.47729e-02   8.08160e-04   1.63381e-06  -5.73934e-03
+   3  Sigma        3.69223e-02   5.85239e-04   8.60388e-06   1.74070e-02
+forvertexcut mean  = -0.0247729
+forvertexcut sigma = 0.0369223
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      37.0849
+NDf                       =           18
+p0                        =  -0.00255458   +/-   0.000429956 
+p1                        =   -0.0448416   +/-   0.00105418  
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      7.38507
+NDf                       =            8
+p0                        =    0.0108209   +/-   0.00127412  
+p1                        =   -0.0169706   +/-   0.000455313 
+prob:0.495713
+
+****************************************
+Minimizer is Linear
+Chi2                      =      8.62609
+NDf                       =            5
+p0                        =    0.0135312   +/-   0.00204792  
+p1                        =   -0.0197062   +/-   0.00082836  
+prob:0.12494
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      22.3632
+NDf                       =           18
+p0                        =   0.00136457   +/-   0.000282526 
+p1                        =   -0.0523762   +/-   0.000503975 
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      7.66514
+NDf                       =            5
+p0                        =  -0.00976549   +/-   0.00294876  
+p1                        =   -0.0190125   +/-   0.000985469 
+prob:0.175682
+
+****************************************
+Minimizer is Linear
+Chi2                      =      1.39419
+NDf                       =            4
+p0                        =  -0.00397511   +/-   0.00354798  
+p1                        =   -0.0189856   +/-   0.00134329  
+prob:0.845205
+ FCN=19.0903 FROM MIGRAD    STATUS=CONVERGED      69 CALLS          70 TOTAL
+                     EDM=1.49665e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.32285e+02   8.49623e+00   1.50574e-02   1.11622e-07
+   2  Mean        -3.74967e-02   1.20330e-03   2.55532e-06  -1.51838e-03
+   3  Sigma        3.91938e-02   8.50120e-04   1.23652e-05  -5.78917e-04
+forvertexcut mean  = -0.0374967
+forvertexcut sigma = 0.0391938
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      204.084
+NDf                       =           18
+p0                        =   0.00789599   +/-   0.000194389 
+p1                        =   -0.0456166   +/-   0.000473501 
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =        14.21
+NDf                       =            7
+p0                        =    0.0058218   +/-   0.00121512  
+p1                        =   -0.0180907   +/-   0.000361109 
+prob:0.0475699
+
+****************************************
+Minimizer is Linear
+Chi2                      =      6.15692
+NDf                       =            6
+p0                        =   0.00442322   +/-   0.00146743  
+p1                        =   -0.0213592   +/-   0.000499598 
+prob:0.405843
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      55.9328
+NDf                       =           18
+p0                        =  0.000431955   +/-   0.000194171 
+p1                        =   -0.0538758   +/-   0.000451531 
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      10.4448
+NDf                       =            5
+p0                        =  -0.00155917   +/-   0.0017499   
+p1                        =   -0.0188632   +/-   0.000591663 
+prob:0.0635688
+
+****************************************
+Minimizer is Linear
+Chi2                      =      1.38503
+NDf                       =            4
+p0                        =   -0.0061947   +/-   0.00195493  
+p1                        =   -0.0198266   +/-   0.00077581  
+prob:0.846792
+ FCN=72.2145 FROM MIGRAD    STATUS=CONVERGED      72 CALLS          73 TOTAL
+                     EDM=1.36214e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     8.17246e+02   1.55297e+01   5.45508e-02  -2.45440e-07
+   2  Mean        -1.84089e-02   6.47822e-04   2.55613e-06  -8.64643e-04
+   3  Sigma        3.82549e-02   3.94220e-04   1.13825e-05   5.44324e-04
+forvertexcut mean  = -0.0184089
+forvertexcut sigma = 0.0382549
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      27.7251
+NDf                       =           10
+p0                        = -0.000328668   +/-   0.00173942  
+p1                        =   -0.0493753   +/-   0.00256435  
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      62.2684
+NDf                       =            8
+p0                        =  -0.00510246   +/-   0.00277112  
+p1                        =   -0.0123837   +/-   0.0009422   
+prob:1.66964e-10
+
+****************************************
+Minimizer is Linear
+Chi2                      =      30.7223
+NDf                       =            5
+p0                        =   0.00860194   +/-   0.0066327   
+p1                        =   -0.0195387   +/-   0.00261199  
+prob:1.06271e-05
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =       15.428
+NDf                       =            9
+p0                        =   0.00611243   +/-   0.0018106   
+p1                        =   -0.0585038   +/-   0.00309355  
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =       16.364
+NDf                       =            4
+p0                        =     0.055454   +/-   0.0104594   
+p1                        =   0.00289728   +/-   0.00322005  
+prob:0.00256762
+
+****************************************
+Minimizer is Linear
+Chi2                      =      11.2785
+NDf                       =            4
+p0                        =   -0.0451367   +/-   0.00727835  
+p1                        =   -0.0341246   +/-   0.00267467  
+prob:0.0236063
+ FCN=8.77574 FROM MIGRAD    STATUS=CONVERGED      75 CALLS          76 TOTAL
+                     EDM=1.0084e-11    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.19276e+01   2.04049e+00   2.51975e-03  -6.73688e-07
+   2  Mean        -2.05671e-02   6.20991e-03   8.86366e-06   6.49557e-04
+   3  Sigma        3.88444e-02   4.77656e-03   4.67842e-05  -3.12937e-05
+forvertexcut mean  = -0.0205671
+forvertexcut sigma = 0.0388444
+alpha: 0
+profile_hist_theta_x_right_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      17.2679
+NDf                       =           15
+p0                        =   0.00533639   +/-   0.000740446 
+p1                        =   -0.0449551   +/-   0.00105854  
+profile_hist_theta_y_right_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      29.2612
+NDf                       =            8
+p0                        =   0.00783913   +/-   0.00231485  
+p1                        =   -0.0183786   +/-   0.000652077 
+prob:0.000285306
+
+****************************************
+Minimizer is Linear
+Chi2                      =      25.9351
+NDf                       =            8
+p0                        =    0.0123607   +/-   0.00346566  
+p1                        =   -0.0200211   +/-   0.00121001  
+prob:0.00107751
+profile_hist_theta_x_left_x_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      37.2232
+NDf                       =           18
+p0                        =   0.00398149   +/-   0.000555834 
+p1                        =   -0.0600693   +/-   0.0011232   
+profile_hist_theta_y_left_y_near
+
+****************************************
+Minimizer is Linear
+Chi2                      =      1.04669
+NDf                       =            4
+p0                        = -0.000108106   +/-   0.00981315  
+p1                        =   -0.0197445   +/-   0.00335823  
+prob:0.902635
+
+****************************************
+Minimizer is Linear
+Chi2                      =     0.415439
+NDf                       =            3
+p0                        =  -0.00563948   +/-   0.0109414   
+p1                        =   -0.0206118   +/-   0.00437233  
+prob:0.937035
+ FCN=16.7617 FROM MIGRAD    STATUS=CONVERGED      75 CALLS          76 TOTAL
+                     EDM=1.23228e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.42199e+01   4.09862e+00   5.98850e-03  -1.23536e-05
+   2  Mean        -2.33685e-02   2.85652e-03   5.81648e-06  -1.19687e-02
+   3  Sigma        3.24175e-02   2.86706e-03   3.94820e-05  -1.57420e-03
+forvertexcut mean  = -0.0233685
+forvertexcut sigma = 0.0324175
+left far
+
+****************************************
+Minimizer is Linear
+Chi2                      =       3.0315
+NDf                       =            6
+p0                        =   -0.0196634   +/-   0.000448599 
+right far
+
+****************************************
+Minimizer is Linear
+Chi2                      =      8.79238
+NDf                       =            6
+p0                        =   -0.0206343   +/-   0.000269178 
+left near
+
+****************************************
+Minimizer is Linear
+Chi2                      =       8.4339
+NDf                       =            6
+p0                        =   -0.0182476   +/-   0.000343879 
+right near
+
+****************************************
+Minimizer is Linear
+Chi2                      =       11.671
+NDf                       =            6
+p0                        =   -0.0179754   +/-   0.000184896 
