@@ -1,0 +1,152 @@
+	<parameter>	SaveReducedBinaryDataset				0.0
+	<parameter>	SaveRuns								0.0
+
+<setting>	project_task							analyze
+<setting>	project_subtask							dsigma/dt
+
+<include>	Projects/Include/Variable_descriptions.prj
+<include>	Projects/Include/Plots/Plot_descriptions.prj
+<include>	Projects/Include/Plots/All.prj
+
+<include>	/afs/cern.ch/work/f/fnemes/main_workspace/workspace/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
+
+	<setting>	MADX_label_of_left_near_RP_detector		XRPV.D6L5.B2
+	<setting>	MADX_label_of_left_far_RP_detector		XRPV.B6L5.B2
+
+	<setting>	MADX_label_of_right_near_RP_detector	XRPV.D6R5.B1
+	<setting>	MADX_label_of_right_far_RP_detector		XRPV.B6R5.B1
+
+	<parameter>	NearFarRPUnitsDistanceM					7
+
+	<parameter>		Ask_for_CMS_luminosity_calculations	0.0
+
+<comment> ################## Review of plots
+<comment> ##################################
+
+	<nsetting>	analysis_plot		y_mm_far_dy_mm_left_with_cut
+	<nsetting>	analysis_plot		y_mm_far_dy_mm_right_with_cut
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_with_cut_plot_block
+		<update_parameter>	cut														0.0
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_with_cut_plot_block
+
+	<begin>	theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
+		<update_parameter>	define_cut												0.0
+	<end>	theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
+
+	
+	<begin>	theta_y_star_rad_theta_y_star_rad_type_block
+		<update_parameter>			horizontal_axis_boundary						0.0008
+		<update_parameter>			number_of_horizontal_bins						100
+		<update_parameter>			vertical_axis_boundary							0.0008
+		<update_parameter>			number_of_vertical_bins							100
+	<end>	theta_y_star_rad_theta_y_star_rad_type_block
+
+	<begin>	theta_x_star_rad_theta_y_star_rad_type_block
+		<update_parameter>			horizontal_axis_boundary						0.0008
+		<update_parameter>			number_of_horizontal_bins						100
+		<update_parameter>			vertical_axis_boundary							0.0008
+		<update_parameter>			number_of_vertical_bins							100
+	<end>	theta_x_star_rad_theta_y_star_rad_type_block
+
+	<begin>	theta_x_star_rad_theta_x_star_rad_type_block
+		<update_parameter>			horizontal_axis_boundary						0.0008
+		<update_parameter>			number_of_horizontal_bins						100
+		<update_parameter>			vertical_axis_boundary							0.0008
+		<update_parameter>			number_of_vertical_bins							100
+	<end>	theta_x_star_rad_theta_x_star_rad_type_block
+
+	<begin>	y_mm_near_dy_mm_left_type_block
+		<update_parameter>			horizontal_axis_boundary						3
+		<update_parameter>			number_of_horizontal_bins						100
+		<update_parameter>			vertical_axis_boundary							0.3
+		<update_parameter>			number_of_vertical_bins							100
+	<end>	y_mm_near_dy_mm_left_type_block
+
+	<begin>	y_mm_near_dy_mm_right_type_block
+		<update_parameter>			horizontal_axis_boundary						7
+		<update_parameter>			number_of_horizontal_bins						100
+		<update_parameter>			vertical_axis_boundary							0.3
+		<update_parameter>			number_of_vertical_bins							100
+	<end>	y_mm_near_dy_mm_right_type_block
+
+	<begin>	y_mm_near_y_mm_far_type_block
+		<update_parameter>			horizontal_axis_boundary						9
+		<update_parameter>			number_of_horizontal_bins						200
+		<update_parameter>			vertical_axis_boundary							9
+		<update_parameter>			number_of_vertical_bins							200
+	<end>	y_mm_near_y_mm_far_type_block
+
+	<begin>	y_mm_far_dy_mm_left_type_block
+		<update_parameter>			horizontal_axis_boundary						6
+		<update_parameter>			number_of_horizontal_bins						200
+		<update_parameter>			vertical_axis_boundary							1
+		<update_parameter>			number_of_vertical_bins							200
+	<end>	y_mm_far_dy_mm_left_type_block
+
+	<begin>	y_mm_far_dy_mm_right_type_block
+		<update_parameter>			horizontal_axis_boundary						6
+		<update_parameter>			number_of_horizontal_bins						200
+		<update_parameter>			vertical_axis_boundary							3
+		<update_parameter>			number_of_vertical_bins							200
+	<end>	y_mm_far_dy_mm_right_type_block
+
+
+	<begin>	y_mm_far_dy_mm_left_with_cut_plot_block
+		<update_parameter>	define_cut												1.0
+	<end>	y_mm_far_dy_mm_left_with_cut_plot_block
+
+	<begin>	y_mm_far_dy_mm_right_with_cut_plot_block
+		<update_parameter>	define_cut												1.0
+	<end>	y_mm_far_dy_mm_right_with_cut_plot_block
+
+	<begin>	y_mm_near_y_mm_far_left_plot_block
+		<parameter>			define_cut												1.0
+		<setting>			cut_name												y_mm_near_y_mm_far_left_cut	
+	<end>	y_mm_near_y_mm_far_left_plot_block
+
+	<begin>	y_mm_near_y_mm_far_right_plot_block
+		<parameter>			define_cut												1.0
+		<setting>			cut_name												y_mm_near_y_mm_far_right_cut	
+	<end>	y_mm_near_y_mm_far_right_plot_block
+
+
+<comment> ################## Review of plots
+<comment> ##################################
+
+<nsetting>  Input_root_file_name	generic_LBRT.root
+
+<include>   Projects/2017/CTPPS/Optics_matching/Elastic_analysis/Cuts/Cuts_test_left_bottom_right_top_4_sigma.prj
+
+<setting>	MAD_X_twiss_beam_1						Projects/2017/CTPPS/Optics_matching/General_settings/Optics/Matched_optics/twiss_beam1_for_analysis.tfs
+<setting>	MAD_X_twiss_beam_2						Projects/2017/CTPPS/Optics_matching/General_settings/Optics/Matched_optics/twiss_beam2_for_analysis.tfs
+
+<parameter> Ask_for_trigger 						0.0 
+<setting>	required_trigger_bit_name				RP220_V
+
+<parameter> CollectCutDiagnosticData					0.0
+
+<parameter>		DoNotSaveEpsFiles						0.0
+
+<parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
+<parameter> MaxNumberOfEventsToAnalyze				60000
+
+<parameter>		Ask_for_trigger_data_bunch_num			0.0 
+<nparameter>			trigger_data_bunch_num					1825
+
+<setting>		label_of_vertical_beam_divergence_plot		P0037_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+
+<comment> BX based pileup <update_parameter>	pile_up_inefficiency_correction_percent		10.67		
+<comment> 2/4 based pileup <update_parameter>	pile_up_inefficiency_correction_percent		26.6
+
+<parameter>	pile_up_inefficiency_correction_percent		34.3
+<parameter>			inefficiency_different_sector_2_4			0.0196		
+
+<parameter>	ReducedBinaryDataset	2.0
+<setting>	analysed_diagonal   	DIAGONAL_LEFT_BOTTOM_RIGHT_TOP
+
+<setting>	Input_directory			/afs/cern.ch/work/f/fnemes/main_workspace/workspace/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2017/CTPPS/Optics_matching/
+
+<setting>			Output_directory		/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_13_TeV_beta_star_0p4_m_LHC_Run_II_2017_CTPPS/Analysis_output_files/First_test_matched_optics
+
+	
