@@ -1,4 +1,4 @@
-TARGETS = Acceptance_per_event Acceptance_per_zero_bias_data_set Summary
+TARGETS = Acceptance_per_zero_bias_data_set  Summary
 FLAGS = -g0 -O3 -D__USE_XOPEN2K8
 
 DEPEND = include/*.h
@@ -14,4 +14,4 @@ clean:
 	rm -rf MC
 
 $(TARGETS) : %: %.cc
-	g++ -Wall -Woverloaded-virtual -Wconversion $(FLAGS) -I$(ROOTSYS)/include -L$(ROOTSYS)/lib `root-config --libs` -lMinuit -I. -ldl -pthread $< -o $@
+	g++ -Wall -Woverloaded-virtual -Wconversion $(FLAGS) -pthread -m64 -I/usr/include/root -I$(ROOTSYS)/include -L$(ROOTSYS)/lib `root-config --libs` -lMinuit -I. -ldl -pthread $< -o $@
