@@ -88,7 +88,7 @@ void TAcceptanceFrame::Add(string key_name, TObject *anobject)
 	}
 	else
 	{
-		cout << "Problematic" << endl ;
+		// cout << "Problematic" << endl ;
 	}
 
 
@@ -274,7 +274,7 @@ void TAcceptanceFrame::CalculateAcceptance(double xi, double &visible_distance_u
 	}
 	else
 	{
-		cout << "Not_complete!" << endl ;
+		// cout << "Not_complete!" << endl ;
 	}
 }
 
@@ -382,7 +382,7 @@ int main(int argc, char *argv[])
         gStyle->SetFrameBorderMode(0) ;
 
 
-	TFile *file = new TFile("result/generic.root");
+	TFile *file = new TFile("Acceptance_frames/generic.root");
 	TObject *obj;
 	TKey *key;
 	TIter next( file->GetListOfKeys());
@@ -413,6 +413,8 @@ int main(int argc, char *argv[])
 
 
 	legend->Draw("") ;
+
+	// cout << "hello" << endl ;
 
 	
 	while ((key = (TKey *) next())) {
@@ -497,7 +499,7 @@ int main(int argc, char *argv[])
 		double beta = (strtol((it->first).substr(31,2).c_str(),	&pEnd, 10) / 100.0) ;
 	
 		if(!all_fills && map_of_fills[fill].present == false) continue ;
-		cout << "Fill: " << fill << endl ;	
+		// cout << "Fill: " << fill << endl ;	
 
 		double markersize = 0.2 + (0.8 * (xangle - 120.0) / (160.0 - 120.0)) ;
 		
@@ -644,7 +646,7 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				cout << "Problem" << endl ;
+				// cout << "Problem" << endl ;
 			}
 			
 		}
@@ -698,6 +700,11 @@ int main(int argc, char *argv[])
         corrections_45.Draw("alp") ;
         c->SaveAs("Plots/corrections_45.root") ;
         c->SaveAs("Plots/corrections_45.pdf") ;
+
+        corrections_45.SetName("corrections_45") ;
+        corrections_56.SetName("corrections_56") ;
+        corrections_45.SaveAs("Acceptance_corrections/corrections_45.root") ;
+        corrections_56.SaveAs("Acceptance_corrections/corrections_56.root") ;
 
 	// 56
 
