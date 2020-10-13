@@ -67,6 +67,8 @@ class TAcceptanceFrame
 
 TAcceptanceFrame::TAcceptanceFrame(string name, TObject *anobject) : name(name), upper(NULL), lower(NULL), mean_fit(NULL), complete(false)
 {
+	// Add object
+
 	Add(name, anobject) ;
 }
 
