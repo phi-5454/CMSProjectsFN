@@ -63,6 +63,8 @@ class TAcceptanceFrame
 	TAcceptanceFrame(string, TObject *) ;
 	void Add(string, TObject *) ;
 	void CalculateAcceptance(double, double &, double &, double &, double &, double &, double &) ;
+	
+	bool IsWithinAperture(int, double, double) ;
 } ;
 
 TAcceptanceFrame::TAcceptanceFrame(string name, TObject *anobject) : name(name), upper(NULL), lower(NULL), mean_fit(NULL), complete(false)
@@ -280,6 +282,11 @@ void TAcceptanceFrame::CalculateAcceptance(double xi, double &visible_distance_u
 	}
 }
 
+
+bool TAcceptanceFrame::IsWithinAperture(int fill, double xi, double theta_x_star)
+{
+}
+
 map<string, TCanvas *> graphs ;
 
 void Draw(string graphname_1)
@@ -350,26 +357,13 @@ void create_graphs(string name, double low, double high)
 	
 }
 
-int main(int argc, char *argv[])
+bool acceptance_calculation = false ;
+bool event_check = false ;
+bool all_fills = true ;
+
+int process_1(int argc, char *argv[])
 {
-	bool all_fills = true ;
 
-	if(argc == 2)
-	{
-		all_fills = false ;
-	
-		ifstream fills(argv[1]) ;
-		
-		string word ;
-
-		while(fills >> word)
-		{
-			char *pEnd ;
-			int fill = strtol(word.c_str(),	&pEnd, 10) ;
-			
-			map_of_fills[fill].present = true ;
-		}
-	}
 
 	map<string, TAcceptanceFrame *> frames ;
 	gStyle->SetOptStat("");
@@ -760,3 +754,80 @@ int main(int argc, char *argv[])
         c->SaveAs("Plots/Mx_hist_for_norm.pdf") ;
 }
 	
+
+int process_2(int argc, char *argv[])
+{
+	map<string, TAcceptanceFrame *> frames ;
+
+
+	TFile *file = new TFile("Acceptance_frames/generic.root");
+	TObject *obj;
+	TKey *key;
+	TIter next( file->GetListOfKeys());
+	
+	int index = 0 ;
+	
+	while ((key = (TKey *) next())) {
+		obj = file->Get(key->GetName()); // copy object to memory
+
+		string key_name = key->GetName() ;
+		string main_key = key_name.substr(0, 33) ;
+
+		if(frames[main_key] == NULL)
+		{
+			frames[main_key] = new TAcceptanceFrame(key_name, obj) ;
+			// cout << "hi" ;
+		}
+		else
+		{
+			frames[main_key]->Add(key_name, obj) ;
+		}
+
+		// printf(" found object:%s\n",key->GetName());
+		++index ;
+	}
+
+}
+
+
+int main(int argc, char *argv[])
+{
+	/*
+	if(argc == 2)
+	{
+		all_fills = false ;
+	
+		ifstream fills(argv[1]) ;
+		
+		string word ;
+
+		while(fills >> word)
+		{
+			char *pEnd ;
+			int fill = strtol(word.c_str(),	&pEnd, 10) ;
+			
+			map_of_fills[fill].present = true ;
+		}
+	}*/
+	
+	if(argc == 2)
+	{
+		event_check = false ;
+	
+		ifstream fills(argv[1]) ;
+		
+		string word ;
+
+		while(fills >> word)
+		{
+			char *pEnd ;
+			int fill = strtol(word.c_str(),	&pEnd, 10) ;
+			
+			map_of_fills[fill].present = true ;
+		}
+	}
+
+
+	if(acceptance_calculation) process_1(argc, argv) ;
+	if(event_check) process_2(argc, argv) ;
+}
