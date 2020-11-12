@@ -64,7 +64,7 @@ class TAcceptanceFrame
 	void Add(string, TObject *) ;
 	void CalculateAcceptance(double, double &, double &, double &, double &, double &, double &) ;
 	
-	bool IsWithinAperture(int, double, double) ;
+	bool IsWithinAperture(double, double, double) ;
 } ;
 
 TAcceptanceFrame::TAcceptanceFrame(string name, TObject *anobject) : name(name), upper(NULL), lower(NULL), mean_fit(NULL), complete(false)
@@ -283,8 +283,16 @@ void TAcceptanceFrame::CalculateAcceptance(double xi, double &visible_distance_u
 }
 
 
-bool TAcceptanceFrame::IsWithinAperture(int fill, double xi, double theta_x_star)
+bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double theta_y_star)
 {
+	bool status = false ;
+
+	double max = upper->Eval(xi) ;
+	double min = lower->Eval(xi) ;
+	
+	if((max > theta_x_star) && (min < theta_x_star)) status = true ;
+
+	return status ;
 }
 
 map<string, TCanvas *> graphs ;
@@ -755,8 +763,9 @@ int process_1(int argc, char *argv[])
 }
 	
 
-int process_2(int argc, char *argv[])
+int process_2(string filename)
 {
+
 	map<string, TAcceptanceFrame *> frames ;
 
 
@@ -766,6 +775,34 @@ int process_2(int argc, char *argv[])
 	TIter next( file->GetListOfKeys());
 	
 	int index = 0 ;
+	TCanvas *c = new TCanvas ;
+	
+	TH2D *frame = new TH2D("frame", "frame", 100, 0, 0.3, 100, -0.3e-3, 0.3e-3) ;
+	frame->SetTitle("") ;
+
+	frame->GetXaxis()->SetTitleFont(132) ;
+	frame->GetYaxis()->SetTitleFont(132) ;
+
+        frame->GetXaxis()->SetLabelFont(132) ;
+        frame->GetYaxis()->SetLabelFont(132) ;
+
+	frame->GetXaxis()->SetTitle("#xi") ;
+	frame->GetYaxis()->SetTitle("#theta_{x}* [rad]") ;
+
+
+	frame->Draw("") ;
+
+	legend = new TLegend(.6,.7,.85,.85, 0) ;
+
+	// legend->SetHeader(NULL) ;
+	legend->SetTextFont(132) ;
+	legend->SetFillColor(kWhite) ;
+
+
+	legend->Draw("") ;
+
+	// cout << "hello" << endl ;
+
 	
 	while ((key = (TKey *) next())) {
 		obj = file->Get(key->GetName()); // copy object to memory
@@ -787,6 +824,40 @@ int process_2(int argc, char *argv[])
 		++index ;
 	}
 
+
+        long int Fill, Run, LumiSection, Event, Arm, CrossingAngle ;
+        double xi_p, xi_mumu, ximatch, t, theta_x_star, theta_y_star, y_star, Efficiency ;
+        string comma ;
+
+	ifstream dilepton_data(filename.c_str()) ;
+
+        while(dilepton_data >> Fill >> comma >> Run >> comma >> LumiSection >> comma >> Event >> comma >> Arm >> comma >> CrossingAngle >> comma >> xi_p >> comma >> xi_mumu >> comma >> ximatch >> comma >> t >> comma >> theta_x_star >> comma >> theta_y_star >> comma >> y_star >> comma >> Efficiency)
+        {
+		for(map<string, TAcceptanceFrame *>::iterator it = frames.begin() ; it != frames.end() ; ++it)
+		{
+
+
+			char * pEnd ;
+			int fill = strtol((it->first).substr(8,4).c_str(), 	&pEnd, 10) ;
+			int arm = strtol((it->first).substr(0,2).c_str(), 	&pEnd, 10) ;
+			int xangle = strtol((it->first).substr(20,3).c_str(), 	&pEnd, 10) ;
+			double beta = (strtol((it->first).substr(31,2).c_str(),	&pEnd, 10) / 100.0) ;
+			
+			if((fill == Fill) && (arm == Arm) && (xangle == CrossingAngle))
+			{
+				cout << "ok" << endl ;
+				if((*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star))
+				{
+					cout << "within" << endl ;
+				}
+				else
+				{
+					cout << "not within" << endl ;				}
+				
+			}
+		}
+
+	}
 }
 
 
@@ -809,25 +880,19 @@ int main(int argc, char *argv[])
 			map_of_fills[fill].present = true ;
 		}
 	}*/
+
+	string event_filename = "" ;
 	
 	if(argc == 2)
 	{
-		event_check = false ;
+		event_check = true ;
 	
-		ifstream fills(argv[1]) ;
+		string filename(argv[1]) ;
+		event_filename = filename ;
 		
-		string word ;
-
-		while(fills >> word)
-		{
-			char *pEnd ;
-			int fill = strtol(word.c_str(),	&pEnd, 10) ;
-			
-			map_of_fills[fill].present = true ;
-		}
 	}
 
 
-	if(acceptance_calculation) process_1(argc, argv) ;
-	if(event_check) process_2(argc, argv) ;
+	if(false) process_1(argc, argv) ;
+	if(true) process_2(event_filename) ;
 }
