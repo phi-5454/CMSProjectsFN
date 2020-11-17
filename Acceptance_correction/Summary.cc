@@ -288,7 +288,7 @@ bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double t
 	bool status = false ;
 	bool save_plot = true	 ;
 	
-	cout << "xi: " << xi << endl ;
+	// cout << "xi: " << xi << endl ;
 
 	double max = upper->Eval(xi) ;
 	double min = lower->Eval(xi) ;
@@ -832,9 +832,8 @@ int process_1(int argc, char *argv[])
         c->SaveAs("Plots/Mx_hist_for_norm.root") ;
         c->SaveAs("Plots/Mx_hist_for_norm.pdf") ;
 }
-	
 
-int process_2(string filename)
+int process_2(string filename, ofstream &event_status)
 {
 
 	map<string, TAcceptanceFrame *> frames ;
@@ -907,6 +906,7 @@ int process_2(string filename)
 
 		bool matching_zero_bias_data_with_fill_arm_x_angle = false ;
 		bool matching_zero_bias_data_with_fill_arm = false ;
+		bool accepted = false ;
 
 		for(map<string, TAcceptanceFrame *>::iterator it = frames.begin() ; it != frames.end() ; ++it)
 		{
@@ -923,12 +923,12 @@ int process_2(string filename)
 			if((fill == Fill) && (arm == Arm) && (xangle == CrossingAngle))
 			{
 				matching_zero_bias_data_with_fill_arm_x_angle = true ;
-		
 			
 				// cout << "ok" << endl ;
 				if((*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star, c, true))
 				{
-					cout << "within" << endl ;
+					accepted = true ;
+					event_status << Fill << " " << Run << " " << Event << "\t" << Arm << ": " << "Accepted" << endl ;
 					break ;
 				}
 				else
@@ -963,8 +963,9 @@ int process_2(string filename)
 					if((*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star, c, false))
 					{
 					
-						cout << "dangle: " << (xangle - CrossingAngle) << endl ;
-						cout << "within" << endl ;
+						// cout << "dangle: " << (xangle - CrossingAngle) << endl ;
+						accepted = true ;
+						event_status << Fill << " " << Run << " " << Event << "\t" << Arm << ": " << "Accepted_with_different_xangle" << endl ;
 						break ;
 					}
 					else
@@ -974,18 +975,16 @@ int process_2(string filename)
 
 				}
 
-				if((fill == Fill) && (arm == Arm))
-				{
-					matching_zero_bias_data_with_fill_arm = true ;
-				}
 
 			}
 		}
 		
 		// cout << "end" << endl ;
 		
-		if(!matching_zero_bias_data_with_fill_arm_x_angle) 	cout << "Problem_1 " 	<< Fill << " " << Arm << " " << CrossingAngle << endl ;
-		if(!matching_zero_bias_data_with_fill_arm) 		cout << "Problem_2 " 		<< Fill << " " << Arm << " " << endl ;
+		if(!accepted)
+		{
+			event_status << Fill << " " << Run << " " << Event << "\t" << Arm << ": " << "Not_accepted" << endl ;
+		}
 
 	}
 }
@@ -1036,6 +1035,14 @@ int main(int argc, char *argv[])
 	}
 
 	
-	if(file_with_events) process_2(event_filename) ;
-	else process_1(argc, argv) ;
+	if(file_with_events)
+	{
+		ofstream event_status("event_status.txt") ;
+		process_2(event_filename, event_status) ;
+		event_status.close() ;
+	}
+	else
+	{
+		process_1(argc, argv) ;
+	}
 }
