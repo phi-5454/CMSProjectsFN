@@ -64,7 +64,7 @@ class TAcceptanceFrame
 	void Add(string, TObject *) ;
 	void CalculateAcceptance(double, double &, double &, double &, double &, double &, double &) ;
 	
-	bool IsWithinAperture(double, double, double) ;
+	bool IsWithinAperture(double, double, double, TCanvas *, bool) ;
 } ;
 
 TAcceptanceFrame::TAcceptanceFrame(string name, TObject *anobject) : name(name), upper(NULL), lower(NULL), mean_fit(NULL), complete(false)
@@ -283,14 +283,85 @@ void TAcceptanceFrame::CalculateAcceptance(double xi, double &visible_distance_u
 }
 
 
-bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double theta_y_star)
+bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double theta_y_star, TCanvas *c, bool x_angle_ok)
 {
 	bool status = false ;
+	bool save_plot = true	 ;
+	
+	cout << "xi: " << xi << endl ;
 
 	double max = upper->Eval(xi) ;
 	double min = lower->Eval(xi) ;
 	
 	if((max > theta_x_star) && (min < theta_x_star)) status = true ;
+	
+	if(status && save_plot)
+	{	
+		c->cd() ;
+		
+		upper->GetXaxis()->SetTitle("#xi") ;
+		upper->GetYaxis()->SetTitle("#theta_{x}* [#murad]") ;
+		upper->GetYaxis()->SetTitleOffset(1.2) ;
+		
+		TGraphErrors *upper_error = new TGraphErrors() ;
+		TGraphErrors *lower_error = new TGraphErrors() ;
+		
+		for(int i = 0 ; i < upper->GetN() ; ++i)
+		{
+			double x, y ;
+			
+			upper->GetPoint(i, x, y) ;
+			upper_error->SetPoint(i, x, y) ;
+			upper_error->SetPointError(i, 0.005, 10e-6) ;
+		}
+
+		for(int i = 0 ; i < lower->GetN() ; ++i)
+		{
+			double x, y ;
+			
+			lower->GetPoint(i, x, y) ;
+			lower_error->SetPoint(i, x, y) ;
+			lower_error->SetPointError(i, 0.005, 10e-6) ;
+		}
+		
+		c->SetGridx(kTRUE);
+		c->SetGridy(kTRUE);
+	
+		upper->SetLineColor(kBlue) ;
+		lower->SetLineColor(kBlue) ;
+		
+	
+		upper->Draw("al") ;
+
+		upper_error->SetFillColor(3);
+		upper_error->SetFillColorAlpha(3, .5);
+		upper_error->SetFillStyle(1001);		
+		lower_error->SetFillColorAlpha(3, .5);
+		lower_error->SetFillStyle(1001);		
+		
+		upper_error->Draw("same3") ;
+		lower_error->Draw("same3") ;
+
+		upper->Draw("samel") ;
+		lower->Draw("samel") ;
+		
+		TMarker *marker = new TMarker() ;
+		marker->SetX(xi) ;
+		marker->SetY(theta_x_star) ;
+		marker->SetMarkerStyle(20) ;
+		marker->SetMarkerSize(1.2) ;
+		marker->Draw("same") ;
+		marker->SetMarkerColor(kRed) ;
+		
+		string postfix = "" ;
+		if(!x_angle_ok) postfix = "_x_angle_no_match" ;
+		
+		c->SaveAs(("Plots/" + name + "_proton_wrt_frame" + postfix + ".root").c_str()) ; 
+		c->SaveAs(("Plots/" + name + "_proton_wrt_frame" + postfix + ".pdf").c_str()) ; 
+		
+		delete lower_error ;
+		delete upper_error ;
+	}
 
 	return status ;
 }
@@ -466,7 +537,7 @@ int process_1(int argc, char *argv[])
 
         create_graphs("correction", 0, 5.0);
 
-	const int num_points = 100 ;
+	const int num_points = 1000 ;
 	const double xi_upper_boundary = 0.25 ;
 	const double dxi = (xi_upper_boundary / num_points) ;
 
@@ -833,6 +904,10 @@ int process_2(string filename)
 
         while(dilepton_data >> Fill >> comma >> Run >> comma >> LumiSection >> comma >> Event >> comma >> Arm >> comma >> CrossingAngle >> comma >> xi_p >> comma >> xi_mumu >> comma >> ximatch >> comma >> t >> comma >> theta_x_star >> comma >> theta_y_star >> comma >> y_star >> comma >> Efficiency)
         {
+
+		bool matching_zero_bias_data_with_fill_arm_x_angle = false ;
+		bool matching_zero_bias_data_with_fill_arm = false ;
+
 		for(map<string, TAcceptanceFrame *>::iterator it = frames.begin() ; it != frames.end() ; ++it)
 		{
 
@@ -843,19 +918,74 @@ int process_2(string filename)
 			int xangle = strtol((it->first).substr(20,3).c_str(), 	&pEnd, 10) ;
 			double beta = (strtol((it->first).substr(31,2).c_str(),	&pEnd, 10) / 100.0) ;
 			
+			// cout << "check: " << fill << " " << arm << endl ;
+
 			if((fill == Fill) && (arm == Arm) && (xangle == CrossingAngle))
 			{
-				cout << "ok" << endl ;
-				if((*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star))
+				matching_zero_bias_data_with_fill_arm_x_angle = true ;
+		
+			
+				// cout << "ok" << endl ;
+				if((*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star, c, true))
 				{
 					cout << "within" << endl ;
+					break ;
 				}
 				else
 				{
-					cout << "not within" << endl ;				}
+					// cout << "not within" << endl ;
+				}
 				
 			}
+			
 		}
+
+		if(!matching_zero_bias_data_with_fill_arm_x_angle)
+		{
+			for(map<string, TAcceptanceFrame *>::iterator it = frames.begin() ; it != frames.end() ; ++it)
+			{
+
+
+				char * pEnd ;
+				int fill = strtol((it->first).substr(8,4).c_str(), 	&pEnd, 10) ;
+				int arm = strtol((it->first).substr(0,2).c_str(), 	&pEnd, 10) ;
+				int xangle = strtol((it->first).substr(20,3).c_str(), 	&pEnd, 10) ;
+				double beta = (strtol((it->first).substr(31,2).c_str(),	&pEnd, 10) / 100.0) ;
+
+				// cout << "check: " << fill << " " << arm << endl ;
+
+				if((fill == Fill) && (arm == Arm))
+				{
+					matching_zero_bias_data_with_fill_arm = true ;
+
+
+					// cout << "ok" << endl ;
+					if((*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star, c, false))
+					{
+					
+						cout << "dangle: " << (xangle - CrossingAngle) << endl ;
+						cout << "within" << endl ;
+						break ;
+					}
+					else
+					{
+						// cout << "not within" << endl ;
+					}
+
+				}
+
+				if((fill == Fill) && (arm == Arm))
+				{
+					matching_zero_bias_data_with_fill_arm = true ;
+				}
+
+			}
+		}
+		
+		// cout << "end" << endl ;
+		
+		if(!matching_zero_bias_data_with_fill_arm_x_angle) 	cout << "Problem_1 " 	<< Fill << " " << Arm << " " << CrossingAngle << endl ;
+		if(!matching_zero_bias_data_with_fill_arm) 		cout << "Problem_2 " 		<< Fill << " " << Arm << " " << endl ;
 
 	}
 }
@@ -863,12 +993,36 @@ int process_2(string filename)
 
 int main(int argc, char *argv[])
 {
-	/*
-	if(argc == 2)
+
+	bool file_with_fills = false ;
+	bool file_with_events = false ;
+	
+	string fill_filename = "" ;
+	string event_filename = "" ;
+
+	for(int i = 1 ; i < argc ; ++i) 
+	{
+		string parameter(argv[i]) ;
+
+		if(parameter.substr(0, 8).compare("--fills=") == 0)
+		{
+			file_with_fills = true ;
+			fill_filename = parameter.substr(8) ;
+		}
+		
+		if(parameter.substr(0, 9).compare("--events=") == 0)
+		{
+			file_with_events = true ;
+			event_check = true ;
+			event_filename = parameter.substr(9) ;
+		}
+	}
+
+	if(file_with_fills)
 	{
 		all_fills = false ;
 	
-		ifstream fills(argv[1]) ;
+		ifstream fills(fill_filename) ;
 		
 		string word ;
 
@@ -879,20 +1033,9 @@ int main(int argc, char *argv[])
 			
 			map_of_fills[fill].present = true ;
 		}
-	}*/
-
-	string event_filename = "" ;
-	
-	if(argc == 2)
-	{
-		event_check = true ;
-	
-		string filename(argv[1]) ;
-		event_filename = filename ;
-		
 	}
 
-
-	if(false) process_1(argc, argv) ;
-	if(true) process_2(event_filename) ;
+	
+	if(file_with_events) process_2(event_filename) ;
+	else process_1(argc, argv) ;
 }
