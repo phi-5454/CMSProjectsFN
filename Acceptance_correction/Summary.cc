@@ -64,7 +64,7 @@ class TAcceptanceFrame
 	void Add(string, TObject *) ;
 	void CalculateAcceptance(double, double &, double &, double &, double &, double &, double &) ;
 	
-	bool IsWithinAperture(double, double, double, TCanvas *, bool) ;
+	bool IsWithinAperture(double, double, double, TCanvas *, bool, bool=false) ;
 } ;
 
 TAcceptanceFrame::TAcceptanceFrame(string name, TObject *anobject) : name(name), upper(NULL), lower(NULL), mean_fit(NULL), complete(false)
@@ -283,7 +283,7 @@ void TAcceptanceFrame::CalculateAcceptance(double xi, double &visible_distance_u
 }
 
 
-bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double theta_y_star, TCanvas *c, bool x_angle_ok)
+bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double theta_y_star, TCanvas *c, bool x_angle_ok, bool not_accepted_to_plot)
 {
 	bool status = false ;
 	bool save_plot = true	 ;
@@ -295,7 +295,7 @@ bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double t
 	
 	if((max > theta_x_star) && (min < theta_x_star)) status = true ;
 	
-	if(status && save_plot)
+	if((status && save_plot) ||  not_accepted_to_plot)
 	{	
 		c->cd() ;
 		
@@ -355,6 +355,7 @@ bool TAcceptanceFrame::IsWithinAperture(double xi, double theta_x_star, double t
 		
 		string postfix = "" ;
 		if(!x_angle_ok) postfix = "_x_angle_no_match" ;
+		if(not_accepted_to_plot) postfix = "_not_accepted" ;
 		
 		c->SaveAs(("Plots/" + name + "_proton_wrt_frame" + postfix + ".root").c_str()) ; 
 		c->SaveAs(("Plots/" + name + "_proton_wrt_frame" + postfix + ".pdf").c_str()) ; 
@@ -935,7 +936,6 @@ int process_2(string filename, ofstream &event_status)
 				{
 					// cout << "not within" << endl ;
 				}
-				
 			}
 			
 		}
@@ -984,6 +984,31 @@ int process_2(string filename, ofstream &event_status)
 		if(!accepted)
 		{
 			event_status << Fill << " " << Run << " " << Event << "\t" << Arm << ": " << "Not_accepted" << endl ;
+			
+			for(map<string, TAcceptanceFrame *>::iterator it = frames.begin() ; it != frames.end() ; ++it)
+			{
+
+
+				char * pEnd ;
+				int fill = strtol((it->first).substr(8,4).c_str(), 	&pEnd, 10) ;
+				int arm = strtol((it->first).substr(0,2).c_str(), 	&pEnd, 10) ;
+				int xangle = strtol((it->first).substr(20,3).c_str(), 	&pEnd, 10) ;
+				double beta = (strtol((it->first).substr(31,2).c_str(),	&pEnd, 10) / 100.0) ;
+
+				// cout << "check: " << fill << " " << arm << endl ;
+
+				if((fill == Fill) && (arm == Arm))
+				{
+
+					// cout << "ok" << endl ;
+					(*it).second->IsWithinAperture(xi_p, theta_x_star, theta_y_star, c, false, true) ;
+					break ;
+				}
+
+
+			}
+
+			
 		}
 
 	}
