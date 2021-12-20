@@ -16,7 +16,6 @@ process.load('Configuration/StandardSequences/FrontierConditions_GlobalTag_cff')
 process.load('Configuration.StandardSequences.MagneticField_AutoFromDBCurrent_cff')
 
 from Configuration.AlCa.GlobalTag import GlobalTag
-# process.GlobalTag.globaltag = "101X_dataRun2_Express_v8"
 process.GlobalTag.globaltag = "101X_dataRun2_Prompt_v11"
 
 process.content = cms.EDAnalyzer("EventContentAnalyzer")
@@ -31,7 +30,6 @@ process.source = cms.Source("PoolSource",
   )
 )
 
-#process.energyLossProducer.tag = cms.string('totem')
 
 process.analyzer = cms.EDFilter("PromptAnalyzer",
   tracks = cms.InputTag('generalTracks'),
