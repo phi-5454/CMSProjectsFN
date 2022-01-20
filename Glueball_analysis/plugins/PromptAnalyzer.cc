@@ -82,6 +82,19 @@ const double v_y_L_1_F =  +2.5777E-002  ;  const double L_y_L_1_F =   2.3834E+00
 const double v_x_L_2_F =  -1.8739E+000  ;  const double L_x_L_2_F =  -4.9261E+002 ;
 const double v_y_L_2_F =  +2.7884E-010  ;  const double L_y_L_2_F =   2.7157E+005 ;
 
+// Matched optics
+
+const double v_x_R_1_F_matched = -2.24546659 ; const double L_x_R_1_F_matched = 194.31957649 ;
+const double v_y_R_1_F_matched = 0.01851263  ; const double L_y_R_1_F_matched = 238326.01074279 ;
+const double v_x_R_2_F_matched = -1.92329688 ; const double L_x_R_2_F_matched = -2950.79562493 ;
+const double v_y_R_2_F_matched = -0.00829497 ; const double L_y_R_2_F_matched = 271314.32190238 ;
+	    				      	 		    
+const double v_x_L_1_F_matched = -2.20419654 ; const double L_x_L_1_F_matched = 3104.19818816 ;
+const double v_y_L_1_F_matched = 0.03239461  ; const double L_y_L_1_F_matched = 238218.46794102 ;
+const double v_x_L_2_F_matched = -1.88422776 ; const double L_x_L_2_F_matched = -522.47623562 ;
+const double v_y_L_2_F_matched = 0.00750900  ; const double L_y_L_2_F_matched = 271324.15847026 ;
+
+
 const double m_pi = 0.13957;
 const double m_k = 0.493677;
 const double m_p = 0.93827;
