@@ -1,5 +1,5 @@
  // Original Author:  Robert Ciesielski
-// modified by Jan Kašpar
+ // modified by Jan Kašpar
 // and by Frici Nemes
 
 // system include files
