@@ -10,8 +10,8 @@ class Particle:
   def __init__(self, line):
   
     info = line.split()
-    self.isvalid = (len(info)==14)
-    if not self.isvalid: info=('0 '*13).split()
+    self.isvalid = (len(info)==16) or (len(info)==14)
+    if not self.isvalid: info=('0 '*14).split()
     self.idx = int(info[0])
     self.pid = int(info[2])
     self.status = int(info[1])
