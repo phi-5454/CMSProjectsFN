@@ -1,0 +1,5 @@
+<use name="Projects/Glueball_analysis"/>
+<environment>
+  <bin name="analysisWrapper"       file="analysisWrapper.cc"></bin>
+</environment>
+<Flags CXXFLAGS="-g"/>
