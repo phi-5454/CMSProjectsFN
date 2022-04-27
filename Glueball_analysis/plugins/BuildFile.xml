@@ -15,6 +15,8 @@
 <use name="DataFormats/FWLite"/>
 <use name="DataFormats/CTPPSDetId"/>
 <use name="DataFormats/CTPPSReco"/>
+<use name="CondFormats/RunInfo"/>
+<use name="Projects/Glueball_analysis"/>
 
 
 <use name="HLTrigger/HLTcore"/>
