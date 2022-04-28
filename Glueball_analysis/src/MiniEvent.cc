@@ -20,6 +20,7 @@ void createMiniEventTree(TTree *t,MiniEvent_t &ev)
   t->Branch("trk_dz",       ev.trk_dz,        "trk_dz[ntrk]/F");
   t->Branch("trk_dedx",     ev.trk_dedx,      "trk_dedx[ntrk]/F");
   t->Branch("trk_q",        ev.trk_q,         "trk_q[ntrk]/I");
+  t->Branch("trk_id",       ev.trk_id,        "trk_id[ntrk]/I");
 
   t->Branch("ngentrk",      &ev.ngentrk,      "ngentrk/I");
   t->Branch("gentrk_id",    ev.gentrk_id,     "gentrk_id[ngentrk]/I");
@@ -61,6 +62,7 @@ void attachToMiniEventTree(TTree *t,MiniEvent_t &ev)
   t->SetBranchAddress("trk_dz",      ev.trk_dz);
   t->SetBranchAddress("trk_dedx",    ev.trk_dedx);
   t->SetBranchAddress("trk_q",       ev.trk_q);
+  t->SetBranchAddress("trk_id",      ev.trk_id);
 
   t->SetBranchAddress("ngentrk",        &ev.ngentrk);
   t->SetBranchAddress("gentrk_id",      ev.gentrk_id);

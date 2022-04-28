@@ -32,9 +32,9 @@ void RunGlueballAnalysis(const TString in_fname,
   // INITIALIZATION //
   ///////////////////
 
-  //const double m_pi = 0.13957;
-  //const double m_k = 0.493677;
-  //const double m_p = 0.93827;
+  const double m_pi = 0.13957;
+  const double m_k = 0.493677;
+  const double m_p = 0.93827;
     
   //const char* CMSSW_BASE = getenv("CMSSW_BASE");
   MiniEvent_t ev;  
@@ -69,13 +69,20 @@ void RunGlueballAnalysis(const TString in_fname,
   outT->Branch("LumiSection",&ev.lumi,"LumiSection/i");
 
   // Tracks
+  int trk_isK[ev.MAXTRACKS], trk_isPi[ev.MAXTRACKS], trk_isP[ev.MAXTRACKS];
   outT->Branch("ntrk",&ev.ntrk,"ntrk/I");
+  outT->Branch("trk_p",    ev.trk_p,    "trk_p[ntrk]/F");
   outT->Branch("trk_pt",   ev.trk_pt,   "trk_pt[ntrk]/F");
   outT->Branch("trk_eta",  ev.trk_eta,  "trk_eta[ntrk]/F");
   outT->Branch("trk_phi",  ev.trk_phi,  "trk_phi[ntrk]/F");
   outT->Branch("trk_dedx", ev.trk_dedx, "trk_dedx[ntrk]/F");
   outT->Branch("trk_q",    ev.trk_q,    "trk_q[ntrk]/I");
-  outT->Branch("alltrk_mass",&ev.alltrk_mass,"alltrk_mass/F");
+  outT->Branch("trk_id",   ev.trk_id,   "trk_id[ntrk]/I");
+  outT->Branch("alltrk_mass", &ev.alltrk_mass,  "alltrk_mass/F");
+  outT->Branch("alltrk_pt",   &ev.alltrk_pt,    "alltrk_pt/F");
+  outT->Branch("trk_isPi",    trk_isPi,    "trk_isPi[ntrk]/I");
+  outT->Branch("trk_isK",     trk_isK,     "trk_isK[ntrk]/I");
+  outT->Branch("trk_isP",     trk_isP,     "trk_isP[ntrk]/I");
 
     
   //BOOK HISTOGRAMS  
@@ -103,9 +110,54 @@ void RunGlueballAnalysis(const TString in_fname,
       t->GetEntry(iev);
       if(iev%10==0) printf ("\r [%3.0f%%] done", 100.*(float)iev/(float)nentries);
 		
-	  // Keep only events with 2 or 4 tracks
-	  if(skimtree && !(ev.ntrk==2 || ev.ntrk==4)) continue;
+	  // Keep only events with 2 or >=4 tracks
+	  if(skimtree && !(ev.ntrk==2 || ev.ntrk>=4)) continue;
 	  evt_count->Fill(5,1);
+	  
+	  // compute track ID (https://indico.cern.ch/event/1154003/contributions/4845647/attachments/2433551/4167637/update.pdf):
+	  float K[3]={0.0588246, 0.6906, 2.26059}, dK[3]={0.0606806,0.194597,0.347767}, C=2.75, dC=0.15, a[3]={-0.171908, -0.50415, -0.714069};
+	  for(int i_trk = 0; i_trk<ev.ntrk; i_trk++){
+		  ev.trk_p[i_trk] = ev.trk_pt[i_trk]*cosh(ev.trk_eta[i_trk]); // should be removed in a new production
+		  float dedx=ev.trk_dedx[i_trk], p=ev.trk_p[i_trk];
+		  trk_isPi[i_trk]=0; trk_isK[i_trk]=0; trk_isP[i_trk]=0;
+
+		  // pion ID:
+		  if( (dedx - (C - 2.*dC)) * p > a[0] &&  (((dedx - (C + 2.*dC)) * p - a[0]) * p ) < ( K[0] + 2.*dK[0] ) ){
+			  if( (dedx - (C - dC)) * p > a[0] &&  (((dedx - (C + dC)) * p - a[0]) * p ) < ( K[0] + dK[0] ) ) trk_isPi[i_trk]=2;
+			  else trk_isPi[i_trk]=1;
+		  }
+
+		  // Kaon ID:
+		  if( (((dedx - (C - 2.*dC)) * p - a[1]) * p ) > ( K[1] - 2.*dK[1] ) &&  (((dedx - (C + 2.*dC)) * p - a[1]) * p ) < ( K[1] + 2.*dK[1] ) ){
+			  if( (((dedx - (C - dC)) * p - a[1]) * p ) > ( K[1] - dK[1] ) &&  (((dedx - (C + dC)) * p - a[1]) * p ) < ( K[1] + dK[1] ) ) trk_isK[i_trk]=2;
+			  else trk_isK[i_trk]=1;
+		  }
+
+
+		  // proton ID:
+		  if( (((dedx - (C - 2.*dC)) * p - a[2]) * p ) > ( K[2] - 2.*dK[2] ) &&  (((dedx - (C + 2.*dC)) * p - a[2]) * p ) < ( K[2] + 2.*dK[2] ) ){
+			  if( (((dedx - (C - dC)) * p - a[2]) * p ) > ( K[2] - dK[2] ) &&  (((dedx - (C + dC)) * p - a[2]) * p ) < ( K[2] + dK[2] ) ) trk_isP[i_trk]=2;
+			  else trk_isP[i_trk]=1;
+		  }
+	  }
+	  
+	  // Compute invariant mass of all tracks:
+	  TLorentzVector pi4Rec(0.,0.,0.,0.);
+	  for(int i_trk = 0; i_trk<ev.ntrk; i_trk++){
+		  float m = m_pi;
+		  if (trk_isP[i_trk]==2) m = m_p;
+		  if (trk_isK[i_trk]==2) m = m_k;
+		  if (trk_isPi[i_trk]==2) m = m_pi;
+          
+		  const TLorentzVector trk_lorentz_pi( ev.trk_pt[i_trk]*cos(ev.trk_phi[i_trk]),
+                                    		   ev.trk_pt[i_trk]*sin(ev.trk_phi[i_trk]),
+											   ev.trk_pt[i_trk]*sinh(ev.trk_eta[i_trk]),
+											   sqrt(ev.trk_p[i_trk]*ev.trk_p[i_trk] + m*m)
+											  );
+	      pi4Rec += trk_lorentz_pi;		  
+	  }
+	  ev.alltrk_mass = pi4Rec.M();
+	  
 	  
 	  // Save output tree
 	  outT->Fill();
