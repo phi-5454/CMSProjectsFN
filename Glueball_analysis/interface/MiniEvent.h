@@ -25,7 +25,7 @@ struct MiniEvent_t
    
   //track info
   Int_t ntrk;
-  Int_t trk_q[MAXTRACKS];
+  Int_t trk_q[MAXTRACKS], trk_id[MAXTRACKS], trk_isPi[MAXTRACKS], trk_isK[MAXTRACKS], trk_isP[MAXTRACKS];
   Float_t trk_p[MAXTRACKS], trk_pt[MAXTRACKS], trk_eta[MAXTRACKS], trk_phi[MAXTRACKS], trk_dedx[MAXTRACKS];
   Float_t trk_dxy[MAXTRACKS], trk_dz[MAXTRACKS];
   
