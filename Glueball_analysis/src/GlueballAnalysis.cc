@@ -67,7 +67,8 @@ void RunGlueballAnalysis(const TString in_fname,
   outT->Branch("Run",&ev.run,"Run/i");
   outT->Branch("EventNum",&ev.event,"EventNum/l");
   outT->Branch("LumiSection",&ev.lumi,"LumiSection/i");
-
+  outT->Branch("zPV",  &ev.zPV,  "zPV/F");
+  
   // Tracks
   int trk_isK[ev.MAXTRACKS], trk_isPi[ev.MAXTRACKS], trk_isP[ev.MAXTRACKS];
   outT->Branch("ntrk",&ev.ntrk,"ntrk/I");
@@ -75,15 +76,24 @@ void RunGlueballAnalysis(const TString in_fname,
   outT->Branch("trk_pt",   ev.trk_pt,   "trk_pt[ntrk]/F");
   outT->Branch("trk_eta",  ev.trk_eta,  "trk_eta[ntrk]/F");
   outT->Branch("trk_phi",  ev.trk_phi,  "trk_phi[ntrk]/F");
-  outT->Branch("trk_dedx", ev.trk_dedx, "trk_dedx[ntrk]/F");
   outT->Branch("trk_q",    ev.trk_q,    "trk_q[ntrk]/I");
-  outT->Branch("trk_id",   ev.trk_id,   "trk_id[ntrk]/I");
   outT->Branch("alltrk_mass", &ev.alltrk_mass,  "alltrk_mass/F");
   outT->Branch("alltrk_pt",   &ev.alltrk_pt,    "alltrk_pt/F");
   outT->Branch("trk_isPi",    trk_isPi,    "trk_isPi[ntrk]/I");
   outT->Branch("trk_isK",     trk_isK,     "trk_isK[ntrk]/I");
   outT->Branch("trk_isP",     trk_isP,     "trk_isP[ntrk]/I");
+  outT->Branch("trk_dz",       ev.trk_dz,        "trk_dz[ntrk]/F");
+  outT->Branch("trk_dedx",     ev.trk_dedx,      "trk_dedx[ntrk]/F");
+  outT->Branch("trk_dedxerr",  ev.trk_dedxerr,   "trk_dedxerr[ntrk]/F");
+  outT->Branch("trk_nSaturMeasure",  ev.trk_nSaturMeasure,   "trk_nSaturMeasure[ntrk]/I");
+  outT->Branch("trk_nMeasure",  ev.trk_nMeasure,   "trk_nMeasure[ntrk]/I");
+  outT->Branch("trk_nMeasureLayer",  ev.trk_nMeasureLayer,   "trk_nMeasureLayer[ntrk]/I");
 
+  // Protons
+  outT->Branch("ThxR", &ev.ThxR, "ThxR/F");
+  outT->Branch("ThyR", &ev.ThyR, "ThyR/F");
+  outT->Branch("ThxL", &ev.ThxL, "ThxL/F");
+  outT->Branch("ThyL", &ev.ThyL, "ThyL/F");
     
   //BOOK HISTOGRAMS  
   TH1F * evt_count = new TH1F("evt_count",   ";Selection Stage;Events",5,0,5);
@@ -112,7 +122,7 @@ void RunGlueballAnalysis(const TString in_fname,
 		
 	  // Keep only events with 2 or >=4 tracks
 	  if(skimtree && !(ev.ntrk==2 || ev.ntrk>=4)) continue;
-	  evt_count->Fill(5,1);
+	  evt_count->Fill(4,1);
 	  
 	  // compute track ID (https://indico.cern.ch/event/1154003/contributions/4845647/attachments/2433551/4167637/update.pdf):
 	  float K[3]={0.0588246, 0.6906, 2.26059}, dK[3]={0.0606806,0.194597,0.347767}, C=2.75, dC=0.15, a[3]={-0.171908, -0.50415, -0.714069};

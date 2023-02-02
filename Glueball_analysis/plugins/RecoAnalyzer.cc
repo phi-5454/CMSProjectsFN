@@ -36,6 +36,7 @@
 #include "FWCore/Utilities/interface/InputTag.h"
 #include "DataFormats/TrackReco/interface/Track.h"
 #include "DataFormats/TrackReco/interface/TrackFwd.h"
+#include "DataFormats/TrackReco/interface/HitPattern.h"
 #include "DataFormats/Candidate/interface/Candidate.h"
 
 #include "DataFormats/FWLite/interface/Handle.h"
@@ -268,17 +269,28 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	    ev_.alltrk_q += ev_.trk_q[i] ;
 		
 		ev_.trk_dedx[i] = dEdxTrack[track].dEdx();
+		ev_.trk_dedxerr[i] = dEdxTrack[track].dEdxError();
+		ev_.trk_nSaturMeasure[i] = dEdxTrack[track].numberOfSaturatedMeasurements();
+		ev_.trk_nMeasure[i] = int(dEdxTrack[track].numberOfMeasurements());
 		
-		//cout << "Trk["<<ev_.ntrk<<"]: pt=" << ev_.trk_pt[i] << " , eta=" << ev_.trk_eta[i] << " , phi=" << ev_.trk_phi[i];
-		//cout << " , de/dx=" << ev_.trk_dedx[i] <<  " , dz=" << ev_.trk_dz[i] << " , dxy=" << ev_.trk_dxy[i] << std::endl;
-				
-		
+		// number of measurements / layer (from HitPatten)
+		const HitPattern &p = track->hitPattern();
+		ev_.trk_nMeasureLayer[i] = (p.trackerLayersWithMeasurement()); //all tracks
+		ev_.trk_nMeasureLayer[i] += 1e2*(p.pixelBarrelLayersWithMeasurement()); //PXB
+		ev_.trk_nMeasureLayer[i] += 1e3*(p.pixelEndcapLayersWithMeasurement()); //PXF
+		ev_.trk_nMeasureLayer[i] += 1e4*(p.stripTIBLayersWithMeasurement());    //TIB
+		ev_.trk_nMeasureLayer[i] += 1e5*(p.stripTIDLayersWithMeasurement());    //TID
+		ev_.trk_nMeasureLayer[i] += 1e6*(p.stripTOBLayersWithMeasurement());    //TOB
+		ev_.trk_nMeasureLayer[i] += 1e7*(p.stripTECLayersWithMeasurement());    //TEC
+
+
 	    const double ene_pi = sqrt((track->pt() * track->pt()) + (track->pz() * track->pz()) + (m_pi * m_pi)) ;
 	    const TLorentzVector trk_lorentz_pi(track->px(), track->py(), track->pz(), ene_pi) ;
 
 	    pi4Rec += trk_lorentz_pi;
 		ev_.ntrk++;
     }
+	
 	
     if(ev_.MAXTRACKS<ev_.ntrk){
        cout << "ERROR: MAXTRACKS ("<<ev_.MAXTRACKS<<") is smaller than the N of tracks ("<<ev_.ntrk<<")."<<endl;
@@ -309,8 +321,8 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   bool rp_valid_124 = false;
   bool rp_valid_125 = false;
 
-  double xLN = 100, xLF = 100, yLN = 100, yLF = 100;
-  double xRN = 100, xRF = 100, yRN = 100, yRF = 100;
+  ev_.xLN = 100; ev_.xLF = 100; ev_.yLN = 100; ev_.yLF = 100;
+  ev_.xRN = 100; ev_.xRF = 100; ev_.yRN = 100; ev_.yRF = 100;
 
   // T, from L to R, as on Jan's slides
   const double mean_x24  = -0.465;
@@ -342,17 +354,17 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 		CTPPSDetId rpId(tr.getRPId());
 		unsigned int rpDecId = (100*rpId.arm()) + (10*rpId.station()) + (1*rpId.rp());
 
-		if(rpDecId == 4) 	{rp_valid_004 = true; xLN = tr.getX() + mean_x4; yLN = tr.getY() + mean_y4;}
-		if(rpDecId == 5) 	{rp_valid_005 = true; xLN = tr.getX() + mean_x5; yLN = tr.getY() + mean_y5;}
+		if(rpDecId == 4) 	{rp_valid_004 = true; ev_.xLN = tr.getX() + mean_x4; ev_.yLN = tr.getY() + mean_y4;}
+		if(rpDecId == 5) 	{rp_valid_005 = true; ev_.xLN = tr.getX() + mean_x5; ev_.yLN = tr.getY() + mean_y5;}
 
-		if(rpDecId == 24) 	{rp_valid_024 = true; xLF = tr.getX() + mean_x24; yLF = tr.getY() + mean_y24;}
-		if(rpDecId == 25) 	{rp_valid_025 = true; xLF = tr.getX() + mean_x25; yLF = tr.getY() + mean_y25;}
+		if(rpDecId == 24) 	{rp_valid_024 = true; ev_.xLF = tr.getX() + mean_x24; ev_.yLF = tr.getY() + mean_y24;}
+		if(rpDecId == 25) 	{rp_valid_025 = true; ev_.xLF = tr.getX() + mean_x25; ev_.yLF = tr.getY() + mean_y25;}
 
-		if(rpDecId == 104) 	{rp_valid_104 = true; xRN = tr.getX() + mean_x104; yRN = tr.getY() + mean_y104;}
-		if(rpDecId == 105) 	{rp_valid_105 = true; xRN = tr.getX() + mean_x105; yRN = tr.getY() + mean_y105;}
+		if(rpDecId == 104) 	{rp_valid_104 = true; ev_.xRN = tr.getX() + mean_x104; ev_.yRN = tr.getY() + mean_y104;}
+		if(rpDecId == 105) 	{rp_valid_105 = true; ev_.xRN = tr.getX() + mean_x105; ev_.yRN = tr.getY() + mean_y105;}
 
-		if(rpDecId == 124) 	{rp_valid_124 = true; xRF = tr.getX() + mean_x124; yRF = tr.getY() + mean_y124;}
-		if(rpDecId == 125) 	{rp_valid_125 = true; xRF = tr.getX() + mean_x125; yRF = tr.getY() + mean_y125;}
+		if(rpDecId == 124) 	{rp_valid_124 = true; ev_.xRF = tr.getX() + mean_x124; ev_.yRF = tr.getY() + mean_y124;}
+		if(rpDecId == 125) 	{rp_valid_125 = true; ev_.xRF = tr.getX() + mean_x125; ev_.yRF = tr.getY() + mean_y125;}
 	}
 
 	bool diag_top45_bot56 = (rp_valid_024 && rp_valid_004 && rp_valid_105 && rp_valid_125);
@@ -365,29 +377,29 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	// topology: 1 - TB, 2 - BT, 3 - TT, 4 - BB
 
 	// single-arm kinematics reconstruction
-	double xVtxL, xVtxR;
+	//double xVtxL, xVtxR;
 
 	double D_x_L = + v_x_L_1_F * L_x_L_2_F - v_x_L_2_F * L_x_L_1_F;
-	ev_.ThxL = (v_x_L_1_F * xLF - v_x_L_2_F * xLN) / D_x_L;
-	// xVtxL = (- xLN * L_x_L_2_F + xLF * L_x_L_1_F) / D_x_L;
+	ev_.ThxL = (v_x_L_1_F * ev_.xLF - v_x_L_2_F * ev_.xLN) / D_x_L;
+	ev_.xVtxL = (- ev_.xLN * L_x_L_2_F + ev_.xLF * L_x_L_1_F) / D_x_L;
 
 	double D_x_R = + v_x_R_1_F * L_x_R_2_F - v_x_R_2_F * L_x_R_1_F;
-	ev_.ThxR = (v_x_R_1_F * xRF - v_x_R_2_F * xRN) / D_x_R;
-	// xVtxR = -(+ xRN * L_x_R_2_F - xRF * L_x_R_1_F) / D_x_R;
+	ev_.ThxR = (v_x_R_1_F * ev_.xRF - v_x_R_2_F * ev_.xRN) / D_x_R;
+	ev_.xVtxR = -(+ ev_.xRN * L_x_R_2_F - ev_.xRF * L_x_R_1_F) / D_x_R;
 
-	double th_y_L_1_F = + yLN / L_y_L_1_F;
-	double th_y_L_2_F = + yLF / L_y_L_2_F;
+	double th_y_L_1_F = + ev_.yLN / L_y_L_1_F;
+	double th_y_L_2_F = + ev_.yLF / L_y_L_2_F;
 	ev_.ThyL = (th_y_L_1_F + th_y_L_2_F) / 2.;
 
-	double th_y_R_1_F = + yRN / L_y_R_1_F;
-	double th_y_R_2_F = + yRF / L_y_R_2_F;
+	double th_y_R_1_F = + ev_.yRN / L_y_R_1_F;
+	double th_y_R_2_F = + ev_.yRF / L_y_R_2_F;
 	ev_.ThyR = (th_y_R_1_F + th_y_R_2_F) / 2.;
 
 	double D_y_L = + v_y_L_1_F * L_y_L_2_F - v_y_L_2_F * L_y_L_1_F;
 	double D_y_R = + v_y_R_1_F * L_y_R_2_F - v_y_R_2_F * L_y_R_1_F;
 
-	double yVtxL = (- yLN * L_y_L_2_F + yLF * L_y_L_1_F) / D_y_L;
-	double yVtxR = (+ yRN * L_y_R_2_F - yRF * L_y_R_1_F) / D_y_R;
+	ev_.yVtxL = (- ev_.yLN * L_y_L_2_F + ev_.yLF * L_y_L_1_F) / D_y_L;
+	ev_.yVtxR = (+ ev_.yRN * L_y_R_2_F - ev_.yRF * L_y_R_1_F) / D_y_R;
   
 	double a_off =  0.000002386 ; // TB
 	double b_off = -0.000006593 ; // BT
