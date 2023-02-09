@@ -275,7 +275,7 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 		
 		// number of measurements / layer (from HitPatten)
 		const HitPattern &p = track->hitPattern();
-		ev_.trk_nMeasureLayer[i] = (p.trackerLayersWithMeasurement()); //all tracks
+		ev_.trk_nMeasureLayer[i] = (p.trackerLayersWithMeasurement()); //all layers
 		ev_.trk_nMeasureLayer[i] += 1e2*(p.pixelBarrelLayersWithMeasurement()); //PXB
 		ev_.trk_nMeasureLayer[i] += 1e3*(p.pixelEndcapLayersWithMeasurement()); //PXF
 		ev_.trk_nMeasureLayer[i] += 1e4*(p.stripTIBLayersWithMeasurement());    //TIB
