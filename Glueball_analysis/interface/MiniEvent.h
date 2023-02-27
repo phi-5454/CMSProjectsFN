@@ -24,9 +24,9 @@ struct MiniEvent_t
 
    
   //track info
-  Int_t ntrk;
-  Int_t trk_q[MAXTRACKS], trk_id[MAXTRACKS], trk_isPi[MAXTRACKS], trk_isK[MAXTRACKS], trk_isP[MAXTRACKS];
-  Float_t trk_p[MAXTRACKS], trk_pt[MAXTRACKS], trk_eta[MAXTRACKS], trk_phi[MAXTRACKS], trk_dedx[MAXTRACKS];
+  Int_t ntrk, trk_nMeasure[MAXTRACKS], trk_nSaturMeasure[MAXTRACKS], trk_nMeasureLayer[MAXTRACKS];
+  Int_t trk_q[MAXTRACKS], trk_isPi[MAXTRACKS], trk_isK[MAXTRACKS], trk_isP[MAXTRACKS];
+  Float_t trk_p[MAXTRACKS], trk_pt[MAXTRACKS], trk_eta[MAXTRACKS], trk_phi[MAXTRACKS], trk_dedx[MAXTRACKS], trk_dedxerr[MAXTRACKS];
   Float_t trk_dxy[MAXTRACKS], trk_dz[MAXTRACKS];
   
   // generator level particles
@@ -38,7 +38,7 @@ struct MiniEvent_t
   Float_t alltrk_pt, alltrk_mass;
 
   //TOTEM protons
-  Float_t ThxR, ThyR, ThxL, ThyL;
+  Float_t ThxR, ThyR, ThxL, ThyL, xLN, xLF, xRN, xRF, yLN, yLF, yRN, yRF, xVtxR, xVtxL, yVtxL, yVtxR;
 };
 
 void createMiniEventTree(TTree *t,MiniEvent_t &ev);
