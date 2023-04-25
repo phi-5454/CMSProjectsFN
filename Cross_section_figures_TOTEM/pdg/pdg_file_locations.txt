@@ -1,0 +1,2 @@
+wget https://pdg.lbl.gov/2010/hadronic-xsections/pbarp_total.dat
+wget https://pdg.lbl.gov/2010/hadronic-xsections/pp_total.dat
