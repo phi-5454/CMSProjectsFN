@@ -111,9 +111,14 @@ int add_PDG(int process)
 
   while(sigma_total_data >> POINT_NUMBER >> PLAB >> PLAB_MIN >> PLAB_MAX >> SIG >> STA_ERRP >> STA_ERRM >> SY_ERP >> SY_ERM >> REF1 >> REF2 >> REF3 >> REF4 >> REF5)
   {
-  
-    double uncertainty_minus = sqrt((STA_ERRM*STA_ERRM) + (SY_ERM*SY_ERM)) ;
-    double uncertainty_plus = sqrt((STA_ERRP*STA_ERRP) + (SY_ERP*SY_ERP)) ;
+
+    const double percent_to_mb = 1.0E-2 ;
+
+    double syst_minus_mb = SIG * SY_ERM * percent_to_mb ;
+    double syst_plus_mb  = SIG * SY_ERP * percent_to_mb ;
+
+    double uncertainty_minus = sqrt((STA_ERRM*STA_ERRM) + (syst_minus_mb*syst_minus_mb)) ;
+    double uncertainty_plus = sqrt((STA_ERRP*STA_ERRP) + (syst_plus_mb*syst_plus_mb)) ;
 
     if((process == process_ppbar) && (POINT_NUMBER == 442))
     {
