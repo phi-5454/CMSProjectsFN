@@ -50,6 +50,8 @@ TGraphAsymmErrors *sigma_total_graph_pp_OTHER = new TGraphAsymmErrors() ;
 
 TGraphAsymmErrors *sigma_total_graph_ppbar = new TGraphAsymmErrors() ;
 
+ofstream compilation("results/results.txt") ;
+
 
 TCanvas c ;
 
@@ -71,18 +73,24 @@ int add_TOTEM()
       sigma_total_graph_pp_TOTEM->AddPoint(energy, total_cross_section) ;
       int index = sigma_total_graph_pp_TOTEM->GetN() - 1;
       sigma_total_graph_pp_TOTEM->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+      
+      compilation << energy << " " << total_cross_section << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " pp" << endl ;
     }
     else if(collaboration.compare("STAR") == 0)
     {
       sigma_total_graph_pp_STAR->AddPoint(energy, total_cross_section) ;
       int index = sigma_total_graph_pp_STAR->GetN() - 1;
       sigma_total_graph_pp_STAR->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+
+      compilation << energy << " " << total_cross_section << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " pp" << endl ;
     }
     else
     {
       sigma_total_graph_pp_OTHER->AddPoint(energy, total_cross_section) ;
       int index = sigma_total_graph_pp_OTHER->GetN() - 1 ;
       sigma_total_graph_pp_OTHER->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+
+      compilation << energy << " " << total_cross_section << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " pp" << endl ;
     }
   }
   
@@ -140,12 +148,16 @@ int add_PDG(int process)
       sigma_total_graph_pp_OTHER->AddPoint(energy, SIG) ;
       int index = sigma_total_graph_pp_OTHER->GetN() - 1 ;
       sigma_total_graph_pp_OTHER->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+
+      compilation << energy << " " << SIG << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " pp" << endl ;
     }
     else if(process == process_ppbar)
     {
       sigma_total_graph_ppbar->AddPoint(energy, SIG) ;
       int index = sigma_total_graph_ppbar->GetN() - 1 ;
       sigma_total_graph_ppbar->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+
+      compilation << energy << " " << SIG << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " ppbar" << endl ;
     }
     else
     {
