@@ -103,6 +103,8 @@ const int process_ppbar = 2 ;
 
 int add_PDG(int process)
 {
+  bool test_uncertainties = true ;
+
   string header ;
 
   string data_file_name = "" ;
@@ -136,6 +138,12 @@ int add_PDG(int process)
     double energy = plab_to_sqrts(PLAB) ;
     double energy_unc_minus = energy - plab_to_sqrts(PLAB_MIN) ;
     double energy_unc_plus  = plab_to_sqrts(PLAB_MAX) - energy ;
+
+    if(test_uncertainties)
+    {
+      if(STA_ERRP != STA_ERRM) cout << "asymstat " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (STA_ERRP/STA_ERRM) << " " << REF1 << " " << REF4 << endl ;
+      if(SY_ERP != SY_ERM)     cout << "asymsyst " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (SY_ERP/SY_ERM)     << " " << REF1 << " " << REF4 << endl ;
+    }
 
     if((energy_unc_minus < 0) || (energy_unc_plus < 0))
     {
