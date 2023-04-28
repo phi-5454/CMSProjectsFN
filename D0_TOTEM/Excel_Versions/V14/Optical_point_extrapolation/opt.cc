@@ -397,7 +397,7 @@ int main(int argc, char *argv[])
         c.cd() ;
         // func->Draw("same") ;
 
-        if(concavitiy_condition)
+        // if(concavitiy_condition)
         {
           func->Draw("same") ;
         }
@@ -416,7 +416,7 @@ int main(int argc, char *argv[])
           hist1_p_constraint->Fill(result) ;
         }
         
-        if(concavitiy_condition)
+        // if(concavitiy_condition)
         {
           hist1_concavity->Fill(result) ;
         }
