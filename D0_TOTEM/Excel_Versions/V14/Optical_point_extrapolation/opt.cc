@@ -169,7 +169,8 @@ Int_t MinuitFit()
   par_vec(1) = par[1] ;
   par_vec(2) = par[2] ;
 
-  func = new TF1("func", special_fit_function, 0.0001, 14.0 * energy_factor, 3) ;  
+//  func = new TF1("func", special_fit_function, 0.0001, 14.0 * energy_factor, 3) ;  
+  func = new TF1("func", special_fit_function, 0.0001, 0.1 * energy_factor, 3) ;  
   func->SetNpx(1000) ;
 
   func->SetParameters(par_vec(0), par_vec(1), par_vec(2))  ;
@@ -184,7 +185,7 @@ Int_t MinuitFit()
 int main(int argc, char *argv[])
 {
 
-  bool perturb = true ;
+  bool perturb = false ;
 
   bool test = true ;
   
@@ -276,7 +277,7 @@ int main(int argc, char *argv[])
   
   double lower_boundary = 0.01 ;
   double upper_boundary = 14.0 * energy_factor ;
-  upper_boundary = 2.0 ;
+  // upper_boundary = 2.0 ;
 
   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary, 100, 0, 140) ;
 
@@ -379,6 +380,10 @@ int main(int argc, char *argv[])
       if(!perturb)
       {
          func->SaveAs("func.root") ;
+         c.cd() ;
+         func->Draw("") ;
+         c.SaveAs("func.pdf") ;
+         
          hist_2d->SaveAs("hist_2d.root") ;
       }
 
@@ -405,7 +410,8 @@ int main(int argc, char *argv[])
         chi2_hist->Fill(save_chi2) ;
         p_value_hist->Fill(p_value) ;
 
-        if(p_value < 0.5) 
+//        if(p_value < 0.5) 
+        if(save_chi2 < 2.0) 
         {
           hist1_p_constraint->Fill(result) ;
         }
@@ -424,6 +430,7 @@ int main(int argc, char *argv[])
     }
     
     if(number_of_experiments != 1) func->SetLineColor(j%10) ;
+    func->SetLineColor(kBlack) ;
 
     // graph2->Draw("same p") ;
     
