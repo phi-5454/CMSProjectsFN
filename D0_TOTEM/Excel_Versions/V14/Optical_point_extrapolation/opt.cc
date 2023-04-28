@@ -112,16 +112,18 @@ TH1D *histb = new TH1D("histb", "histb", 100, 70, 68) ;
 TH1D *histc = new TH1D("histc", "histc", 100, 70, 68) ;
 
 TH1D *chi2_hist = new TH1D("chi2_hist", "chi2_hist", 100, 0, 10) ;
-
+TH1D *p_value_hist = new TH1D("p_value_hist", "p_value_hist", 100, 0, 2) ;
 
 TH1D *hist_der = new TH1D("hist_der", "hist_der", 100, 70, 68) ;
 
 TVector par_vec(7) ;
 
 double energy_factor = 1.0 ;
+int number_of_free_parameters = 3 ;
 
 Int_t MinuitFit()
 {
+
   TMinuit *gMinuit2 = new TMinuit(10);
 //  gMinuit2->SetPrintLevel(1) ;  
   gMinuit2->SetPrintLevel(-1) ;  
@@ -150,6 +152,7 @@ Int_t MinuitFit()
   if(fit_scenario == fit_scenario_constraint_from_low_energy)
   {
     gMinuit2->FixParameter(2) ;
+    number_of_free_parameters = 2 ;
   }
 
   gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
@@ -175,9 +178,7 @@ Int_t MinuitFit()
   histb->Fill(par_vec(1)) ;
   histc->Fill(par_vec(2)) ;
   
-  chi2_hist->Fill(save_chi2) ;
-  
-   return ierflg ;
+  return ierflg ;
 }
 
 int main(int argc, char *argv[])
@@ -185,7 +186,7 @@ int main(int argc, char *argv[])
 
   bool perturb = true ;
 
-  bool test = true ;
+  bool test = false ;
   
   if(!perturb) test = true ;
   
@@ -270,12 +271,8 @@ int main(int argc, char *argv[])
   if(!perturb) number_of_experiments = 1 ;
 
   TH1D *hist1 = new TH1D("hist1", "hist1", 100, 70, 90) ;
-//  TH1D *hist1 = new TH1D("hist1", "hist1", 100, 20, 60) ;
+  TH1D *hist1_p_constraint = new TH1D("hist1_p_constraint", "hist1_p_constraint", 100, 70, 90) ;
   
-//  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 0.01, 0, 0.01 * 14.0 * energy_factor, 100, 0, 140) ;
-//  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 0.01, 0, 14.0 * energy_factor, 100, 0, 140) ;
-
-
   double lower_boundary = 0.01 ;
   double upper_boundary = 14.0 * energy_factor ;
 
@@ -389,7 +386,21 @@ int main(int argc, char *argv[])
         c.cd() ;
         func->Draw("same") ;
       }
-      hist1->Fill(result) ;
+      
+      if(status == 0)
+      {
+        hist1->Fill(result) ;
+
+        double p_value = TMath::Prob(save_chi2, number_of_free_parameters) ;
+        chi2_hist->Fill(save_chi2) ;
+        p_value_hist->Fill(p_value) ;
+
+        if(p_value < 0.5) 
+        {
+          hist1_p_constraint->Fill(result) ;
+        }
+      }
+
     }
     else
     {
@@ -409,14 +420,23 @@ int main(int argc, char *argv[])
   c.SaveAs("plots2/hist_2d.pdf") ;
   c.SaveAs("plots2/hist_2d.root") ;
   
-   hist1->SetTitle("#sqrt{s}=1.96 TeV") ;
+  hist1->SetTitle("#sqrt{s}=1.96 TeV") ;
   hist1->Draw("") ;
   hist1->SaveAs("plots2/hist1.root") ;
   hist1->GetXaxis()->SetTitle("#sigma_{tot} (mb)") ;
   c.SaveAs("plots2/hist1.pdf") ;
+
+  hist1_p_constraint->SetTitle("#sqrt{s}=1.96 TeV") ;
+  hist1_p_constraint->Draw("") ;
+  hist1_p_constraint->SaveAs("plots2/hist1.root") ;
+  hist1_p_constraint->GetXaxis()->SetTitle("#sigma_{tot} (mb)") ;
+  c.SaveAs("plots2/hist1_p_constraint.pdf") ;
   
   chi2_hist->Draw("") ;
   c.SaveAs("plots2/chi2_hist.pdf") ;
+
+  p_value_hist->Draw("") ;
+  c.SaveAs("plots2/p_value_hist.pdf") ;
 }
 
   
