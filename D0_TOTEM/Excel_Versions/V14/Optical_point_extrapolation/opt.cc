@@ -99,7 +99,7 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
   }
 
   // cout << chi2 << endl ;
-
+  
   save_chi2 = chi2 ;
 
   f = chi2 ; 
@@ -225,6 +225,9 @@ int main(int argc, char *argv[])
   graph->SetPoint(number_of_point++, 13.00, 110.3) ;
   */
 
+  graph->SetPoint(number_of_point++, 10.0e-3 * energy_factor,   38) ;
+  graph->SetPoint(number_of_point++, 14.0e-3 * energy_factor,   38) ;
+
   graph->SetPoint(number_of_point++, 2.76 * energy_factor,   84.7) ;
   graph->SetPoint(number_of_point++, 7.00 * energy_factor,   98.3) ;
   graph->SetPoint(number_of_point++, 8.00 * energy_factor,  101.5) ;
@@ -234,6 +237,9 @@ int main(int argc, char *argv[])
   
   if(scenario == standard_uncertainties)
   {
+    graph->SetPointError(number_of_point++, 0, 0.2) ;
+    graph->SetPointError(number_of_point++, 0, 0.2) ;
+
     graph->SetPointError(number_of_point++, 0, 3.3) ;
     graph->SetPointError(number_of_point++, 0, 2.8) ;
     graph->SetPointError(number_of_point++, 0, 2.1) ;
