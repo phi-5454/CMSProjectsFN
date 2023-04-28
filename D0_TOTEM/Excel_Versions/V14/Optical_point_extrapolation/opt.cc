@@ -225,8 +225,8 @@ int main(int argc, char *argv[])
   graph->SetPoint(number_of_point++, 13.00, 110.3) ;
   */
 
-  graph->SetPoint(number_of_point++, 10.0e-3 * energy_factor,   38) ;
-  graph->SetPoint(number_of_point++, 14.0e-3 * energy_factor,   38) ;
+  graph->SetPoint(number_of_point++, 10.2463e-3 * energy_factor, 38.43) ;
+  graph->SetPoint(number_of_point++, 16.83e-3 * energy_factor,   38.62) ;
 
   graph->SetPoint(number_of_point++, 2.76 * energy_factor,   84.7) ;
   graph->SetPoint(number_of_point++, 7.00 * energy_factor,   98.3) ;
@@ -282,7 +282,7 @@ int main(int argc, char *argv[])
   
   double lower_boundary = 0.01 ;
   double upper_boundary = 14.0 * energy_factor ;
-  upper_boundary = 2.0 ;
+  upper_boundary = 10.0 ;
 
   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary, 100, 0, 140) ;
 
