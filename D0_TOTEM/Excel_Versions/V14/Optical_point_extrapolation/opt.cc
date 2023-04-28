@@ -382,12 +382,16 @@ int main(int argc, char *argv[])
          hist_2d->SaveAs("hist_2d.root") ;
       }
 
+      // bool concavitiy_condition = ((par_vec(0) < 0.7) && (par_vec(0) > 0.61)) ;
+      bool concavitiy_condition = (par_vec(0) < 0.7) ;
+      //bool concavitiy_condition = true ;
+
       if(test)
       {
         c.cd() ;
         // func->Draw("same") ;
 
-        if(par_vec(0) < 0.7)
+        if(concavitiy_condition)
         {
           func->Draw("same") ;
         }
@@ -406,7 +410,7 @@ int main(int argc, char *argv[])
           hist1_p_constraint->Fill(result) ;
         }
         
-        if(par_vec(0) < 0.7)
+        if(concavitiy_condition)
         {
           hist1_concavity->Fill(result) ;
         }
