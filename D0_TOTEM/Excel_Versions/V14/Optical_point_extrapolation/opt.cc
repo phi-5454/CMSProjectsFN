@@ -272,7 +272,11 @@ int main(int argc, char *argv[])
 //	TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 0.01, 0, 0.01 * 14.0 * energy_factor, 100, 0, 140) ;
 //	TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 0.01, 0, 14.0 * energy_factor, 100, 0, 140) ;
 
-	TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 200, 14.0 * energy_factor, 100, 0, 140) ;
+
+  double lower_boundary = 0.01 ;
+  double upper_boundary = 14.0 * energy_factor ;
+
+	TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary, 100, 0, 140) ;
 
 //	TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0, 1.4e-1, 100, 0, 140) ;
 
