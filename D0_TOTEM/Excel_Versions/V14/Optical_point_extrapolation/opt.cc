@@ -59,16 +59,16 @@ int fit_scenario = fit_scenario_constraint_from_low_energy ;
 
 Double_t special_fit_function(Double_t *x, Double_t *par)
 {
-	double a = par[0] ;
-	double b = par[1] ;
-	double c = par[2] ;
+  double a = par[0] ;
+  double b = par[1] ;
+  double c = par[2] ;
 
-	double sig_tot = x[0] ;
+  double sig_tot = x[0] ;
 
-	double log_sig_tot = log(sig_tot) ;
-	double final = (a * log_sig_tot * log_sig_tot) + (b * log_sig_tot) + c ;
+  double log_sig_tot = log(sig_tot) ;
+  double final = (a * log_sig_tot * log_sig_tot) + (b * log_sig_tot) + c ;
 
-	return final ;
+  return final ;
 }
 
 TGraphErrors *graph = new TGraphErrors() ;
@@ -79,30 +79,30 @@ double save_chi2 = 0 ;
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
 
-	double chi2 = 0 ;
+  double chi2 = 0 ;
 
-	int number_of_points_in_graph = graph2->GetN() ;
+  int number_of_points_in_graph = graph2->GetN() ;
 
-	for(int i = 0 ; i < number_of_points_in_graph ; ++i)
-	{
-  	double t_value = 0 ;
-  	double dsdt = 0 ;
-  	double uncertainty_y = 0 ;
+  for(int i = 0 ; i < number_of_points_in_graph ; ++i)
+  {
+    double t_value = 0 ;
+    double dsdt = 0 ;
+    double uncertainty_y = 0 ;
 
-  	graph2->GetPoint(i, t_value, dsdt) ;
-  	uncertainty_y = graph2->GetErrorY(i) ;
+    graph2->GetPoint(i, t_value, dsdt) ;
+    uncertainty_y = graph2->GetErrorY(i) ;
 
-  	double value = special_fit_function(&t_value, par) ;
+    double value = special_fit_function(&t_value, par) ;
 
-  	double delta = ((value - dsdt) / uncertainty_y) ;
-  	chi2 += delta*delta ;
-	}
+    double delta = ((value - dsdt) / uncertainty_y) ;
+    chi2 += delta*delta ;
+  }
 
-	// cout << chi2 << endl ;
+  // cout << chi2 << endl ;
 
-	save_chi2 = chi2 ;
+  save_chi2 = chi2 ;
 
-	f = chi2 ; 
+  f = chi2 ; 
 }
 
 TF1 *func = NULL ;
