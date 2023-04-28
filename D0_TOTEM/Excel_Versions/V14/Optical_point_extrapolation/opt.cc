@@ -85,14 +85,14 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 
   for(int i = 0 ; i < number_of_points_in_graph ; ++i)
   {
-    double t_value = 0 ;
+    double sqrts_value = 0 ;
     double dsdt = 0 ;
     double uncertainty_y = 0 ;
 
-    graph2->GetPoint(i, t_value, dsdt) ;
+    graph2->GetPoint(i, sqrts_value, dsdt) ;
     uncertainty_y = graph2->GetErrorY(i) ;
 
-    double value = special_fit_function(&t_value, par) ;
+    double value = special_fit_function(&sqrts_value, par) ;
 
     double delta = ((value - dsdt) / uncertainty_y) ;
     chi2 += delta*delta ;
@@ -125,8 +125,8 @@ Int_t MinuitFit()
 {
 
   TMinuit *gMinuit2 = new TMinuit(10);
-//  gMinuit2->SetPrintLevel(1) ;  
-  gMinuit2->SetPrintLevel(-1) ;  
+  gMinuit2->SetPrintLevel(1) ;  
+//   gMinuit2->SetPrintLevel(-1) ;  
   gMinuit2->SetFCN(fcn);
 
   Double_t arglist[10];
@@ -186,7 +186,7 @@ int main(int argc, char *argv[])
 
   bool perturb = true ;
 
-  bool test = false ;
+  bool test = true ;
   
   if(!perturb) test = true ;
   
@@ -272,9 +272,11 @@ int main(int argc, char *argv[])
 
   TH1D *hist1 = new TH1D("hist1", "hist1", 100, 70, 90) ;
   TH1D *hist1_p_constraint = new TH1D("hist1_p_constraint", "hist1_p_constraint", 100, 70, 90) ;
+  TH1D *hist1_concavity = new TH1D("hist1_concavity", "hist1_concavity", 100, 70, 90) ;
   
   double lower_boundary = 0.01 ;
   double upper_boundary = 14.0 * energy_factor ;
+  upper_boundary = 2.0 ;
 
   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary, 100, 0, 140) ;
 
@@ -295,11 +297,11 @@ int main(int argc, char *argv[])
 
     for(int i = 0 ; i < graph->GetN() ; ++i)
     {
-      double t_value = 0 ;
+      double sqrts_value = 0 ;
       double dsdt = 0 ;
       double uncertainty_y = 0 ;
 
-      graph->GetPoint(i, t_value, dsdt) ;
+      graph->GetPoint(i, sqrts_value, dsdt) ;
       uncertainty_y = graph->GetErrorY(i) ;
 
       double mygaus = 0.0 ;
@@ -308,7 +310,7 @@ int main(int argc, char *argv[])
 
       double dsdt_pert = dsdt + (mygaus * uncertainty_y) ;
 
-      graph2->SetPoint(i, t_value,   dsdt_pert) ; 
+      graph2->SetPoint(i, sqrts_value,   dsdt_pert) ; 
       graph2->SetPointError(i, 0, uncertainty_y) ;
 
     }
@@ -360,7 +362,6 @@ int main(int argc, char *argv[])
     {
       // Parameter values
 
-      // if((par_vec(0) > 0.0))
       if((par_vec(0) > 0.0) && (par_vec(2) < 80))
       {
         if(test)
@@ -384,7 +385,12 @@ int main(int argc, char *argv[])
       if(test)
       {
         c.cd() ;
-        func->Draw("same") ;
+        // func->Draw("same") ;
+
+        if(par_vec(0) < 0.7)
+        {
+          func->Draw("same") ;
+        }
       }
       
       if(status == 0)
@@ -398,6 +404,11 @@ int main(int argc, char *argv[])
         if(p_value < 0.5) 
         {
           hist1_p_constraint->Fill(result) ;
+        }
+        
+        if(par_vec(0) < 0.7)
+        {
+          hist1_concavity->Fill(result) ;
         }
       }
 
@@ -431,6 +442,12 @@ int main(int argc, char *argv[])
   hist1_p_constraint->SaveAs("plots2/hist1.root") ;
   hist1_p_constraint->GetXaxis()->SetTitle("#sigma_{tot} (mb)") ;
   c.SaveAs("plots2/hist1_p_constraint.pdf") ;
+
+  hist1_concavity->SetTitle("#sqrt{s}=1.96 TeV") ;
+  hist1_concavity->Draw("") ;
+  hist1_concavity->SaveAs("plots2/hist1.root") ;
+  hist1_concavity->GetXaxis()->SetTitle("#sigma_{tot} (mb)") ;
+  c.SaveAs("plots2/hist1_concavity.pdf") ;
   
   chi2_hist->Draw("") ;
   c.SaveAs("plots2/chi2_hist.pdf") ;
