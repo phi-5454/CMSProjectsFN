@@ -231,7 +231,7 @@ int main(int argc, char *argv[])
   graph->SetPoint(number_of_point++, 2.76 * energy_factor,   84.7) ;
   graph->SetPoint(number_of_point++, 7.00 * energy_factor,   98.3) ;
   graph->SetPoint(number_of_point++, 8.00 * energy_factor,  101.5) ;
-  graph->SetPoint(number_of_point++, 13.0 * energy_factor,  110.3) ;
+  graph->SetPoint(number_of_point++, 13.0 * energy_factor,  110.30) ;
   
   number_of_point = 0 ;  
   
