@@ -42,15 +42,16 @@ const int unit_scenario_in_GeV = 1 ;
 const int unit_scenario_in_TeV = 2 ;
 const int unit_scenario_in_10GeV = 3 ;
 
-const int normalized_to_chi2_1 = 1 ;
-const int normalized_to_p_value_0p5 = 2 ;
-const int normalized_to_chi2_1_in_GeV = 3 ;
+const int standard_uncertainties = 1 ;
+const int normalized_to_chi2_1 = 2 ;
+const int normalized_to_p_value_0p5 = 3 ;
+const int normalized_to_chi2_1_in_GeV = 4 ;
 
 const int fit_scenario_standard = 1 ;
 const int fit_scenario_test_concavity = 2 ;
 const int fit_scenario_constraint_from_low_energy = 3 ;
 
-int scenario = normalized_to_p_value_0p5 ;
+int scenario = standard_uncertainties ;
 int unit_scenario = unit_scenario_in_10GeV ;
 
 // int fit_scenario = fit_scenario_test_concavity ;
@@ -230,24 +231,26 @@ int main(int argc, char *argv[])
 	
 	number_of_point = 0 ;	
 	
-	if(scenario == normalized_to_chi2_1)
+	if(scenario == standard_uncertainties)
+  {
+    graph->SetPointError(number_of_point++, 0, 3.3) ;
+    graph->SetPointError(number_of_point++, 0, 2.8) ;
+    graph->SetPointError(number_of_point++, 0, 2.1) ;
+    graph->SetPointError(number_of_point++, 0, 3.5) ;
+  }
+	else if(scenario == normalized_to_chi2_1)
 	{
-		graph->SetPointError(number_of_point++, 0, 0.8048) ;
-		graph->SetPointError(number_of_point++, 0, 0.6829) ;
-		graph->SetPointError(number_of_point++, 0, 0.5121) ;
-		graph->SetPointError(number_of_point++, 0, 0.8536) ;
+    graph->SetPointError(number_of_point++, 0, 0.8048) ;
+    graph->SetPointError(number_of_point++, 0, 0.6829) ;
+    graph->SetPointError(number_of_point++, 0, 0.5121) ;
+    graph->SetPointError(number_of_point++, 0, 0.8536) ;
 	}
 	else if(scenario == normalized_to_p_value_0p5)
 	{
-//        graph->SetPointError(number_of_point++, 0, 1.20) ;
-//        graph->SetPointError(number_of_point++, 0, 1.018) ;
-//        graph->SetPointError(number_of_point++, 0, 0.7636) ;
-//        graph->SetPointError(number_of_point++, 0, 1.27) ;
-
-        graph->SetPointError(number_of_point++, 0, 3.3) ;
-        graph->SetPointError(number_of_point++, 0, 2.8) ;
-        graph->SetPointError(number_of_point++, 0, 2.1) ;
-        graph->SetPointError(number_of_point++, 0, 3.5) ;
+    graph->SetPointError(number_of_point++, 0, 1.20) ;
+    graph->SetPointError(number_of_point++, 0, 1.018) ;
+    graph->SetPointError(number_of_point++, 0, 0.7636) ;
+    graph->SetPointError(number_of_point++, 0, 1.27) ;
 	}
 	else
 	{
