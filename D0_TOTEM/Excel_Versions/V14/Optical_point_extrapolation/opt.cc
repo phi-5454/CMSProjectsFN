@@ -282,9 +282,9 @@ int main(int argc, char *argv[])
   
   double lower_boundary = 0.01 ;
   double upper_boundary = 14.0 * energy_factor ;
-  upper_boundary = 10.0 ;
+  double upper_boundary_short = 10.0 ;
 
-  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary, 100, 0, 140) ;
+  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary_short, 100, 0, 140) ;
 
 //  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0, 1.4e-1, 100, 0, 140) ;
 
@@ -399,6 +399,7 @@ int main(int argc, char *argv[])
 
         // if(concavitiy_condition)
         {
+          func->SetNpx(1000) ;
           func->Draw("same") ;
         }
       }
@@ -437,15 +438,23 @@ int main(int argc, char *argv[])
   }
   
   gStyle->SetLineScalePS(.3) ;
-
+  
   c.SaveAs("plots2/hist_2d.pdf") ;
+  c.SaveAs("plots2/hist_2d.png") ;
   c.SaveAs("plots2/hist_2d.root") ;
+
+//  hist_2d->GetXaxis()->SetRangeUser(lower_boundary, upper_boundary_short) ;
+
+  c.SaveAs("plots2/hist_2d_zoom.pdf") ;
+  c.SaveAs("plots2/hist_2d_zoom.png") ;
+  c.SaveAs("plots2/hist_2d_zoom.root") ;
   
   hist1->SetTitle("#sqrt{s}=1.96 TeV") ;
   hist1->Draw("") ;
   hist1->SaveAs("plots2/hist1.root") ;
   hist1->GetXaxis()->SetTitle("#sigma_{tot} (mb)") ;
   c.SaveAs("plots2/hist1.pdf") ;
+  c.SaveAs("plots2/hist1.png") ;
 
   hist1_p_constraint->SetTitle("#sqrt{s}=1.96 TeV") ;
   hist1_p_constraint->Draw("") ;
