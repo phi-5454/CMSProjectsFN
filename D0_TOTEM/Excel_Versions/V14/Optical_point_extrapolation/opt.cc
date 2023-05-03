@@ -99,7 +99,7 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
   }
 
   // cout << chi2 << endl ;
-
+  
   save_chi2 = chi2 ;
 
   f = chi2 ; 
@@ -169,8 +169,7 @@ Int_t MinuitFit()
   par_vec(1) = par[1] ;
   par_vec(2) = par[2] ;
 
-//  func = new TF1("func", special_fit_function, 0.0001, 14.0 * energy_factor, 3) ;  
-  func = new TF1("func", special_fit_function, 0.0001, 0.1 * energy_factor, 3) ;  
+  func = new TF1("func", special_fit_function, 0.0001, 14.0 * energy_factor, 3) ;  
   func->SetNpx(1000) ;
 
   func->SetParameters(par_vec(0), par_vec(1), par_vec(2))  ;
@@ -185,7 +184,7 @@ Int_t MinuitFit()
 int main(int argc, char *argv[])
 {
 
-  bool perturb = false ;
+  bool perturb = true ;
 
   bool test = true ;
   
@@ -226,15 +225,21 @@ int main(int argc, char *argv[])
   graph->SetPoint(number_of_point++, 13.00, 110.3) ;
   */
 
+  graph->SetPoint(number_of_point++, 10.2463e-3 * energy_factor, 38.43) ;
+  graph->SetPoint(number_of_point++, 16.83e-3 * energy_factor,   38.62) ;
+
   graph->SetPoint(number_of_point++, 2.76 * energy_factor,   84.7) ;
   graph->SetPoint(number_of_point++, 7.00 * energy_factor,   98.3) ;
   graph->SetPoint(number_of_point++, 8.00 * energy_factor,  101.5) ;
-  graph->SetPoint(number_of_point++, 13.0 * energy_factor,  110.3) ;
+  graph->SetPoint(number_of_point++, 13.0 * energy_factor,  110.30) ;
   
   number_of_point = 0 ;  
   
   if(scenario == standard_uncertainties)
   {
+    graph->SetPointError(number_of_point++, 0, 0.2) ;
+    graph->SetPointError(number_of_point++, 0, 0.2) ;
+
     graph->SetPointError(number_of_point++, 0, 3.3) ;
     graph->SetPointError(number_of_point++, 0, 2.8) ;
     graph->SetPointError(number_of_point++, 0, 2.1) ;
@@ -277,9 +282,9 @@ int main(int argc, char *argv[])
   
   double lower_boundary = 0.01 ;
   double upper_boundary = 14.0 * energy_factor ;
-  // upper_boundary = 2.0 ;
+  double upper_boundary_short = 10.0 ;
 
-  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary, 100, 0, 140) ;
+  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, lower_boundary, upper_boundary_short, 100, 0, 140) ;
 
 //  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0, 1.4e-1, 100, 0, 140) ;
 
@@ -380,10 +385,6 @@ int main(int argc, char *argv[])
       if(!perturb)
       {
          func->SaveAs("func.root") ;
-         c.cd() ;
-         func->Draw("") ;
-         c.SaveAs("func.pdf") ;
-         
          hist_2d->SaveAs("hist_2d.root") ;
       }
 
@@ -396,8 +397,9 @@ int main(int argc, char *argv[])
         c.cd() ;
         // func->Draw("same") ;
 
-        if(concavitiy_condition)
+        // if(concavitiy_condition)
         {
+          func->SetNpx(1000) ;
           func->Draw("same") ;
         }
       }
@@ -410,13 +412,12 @@ int main(int argc, char *argv[])
         chi2_hist->Fill(save_chi2) ;
         p_value_hist->Fill(p_value) ;
 
-//        if(p_value < 0.5) 
-        if(save_chi2 < 2.0) 
+        if(p_value < 0.5) 
         {
           hist1_p_constraint->Fill(result) ;
         }
         
-        if(concavitiy_condition)
+        // if(concavitiy_condition)
         {
           hist1_concavity->Fill(result) ;
         }
@@ -430,7 +431,6 @@ int main(int argc, char *argv[])
     }
     
     if(number_of_experiments != 1) func->SetLineColor(j%10) ;
-    func->SetLineColor(kBlack) ;
 
     // graph2->Draw("same p") ;
     
@@ -438,15 +438,23 @@ int main(int argc, char *argv[])
   }
   
   gStyle->SetLineScalePS(.3) ;
-
+  
   c.SaveAs("plots2/hist_2d.pdf") ;
+  c.SaveAs("plots2/hist_2d.png") ;
   c.SaveAs("plots2/hist_2d.root") ;
+
+//  hist_2d->GetXaxis()->SetRangeUser(lower_boundary, upper_boundary_short) ;
+
+  c.SaveAs("plots2/hist_2d_zoom.pdf") ;
+  c.SaveAs("plots2/hist_2d_zoom.png") ;
+  c.SaveAs("plots2/hist_2d_zoom.root") ;
   
   hist1->SetTitle("#sqrt{s}=1.96 TeV") ;
   hist1->Draw("") ;
   hist1->SaveAs("plots2/hist1.root") ;
   hist1->GetXaxis()->SetTitle("#sigma_{tot} (mb)") ;
   c.SaveAs("plots2/hist1.pdf") ;
+  c.SaveAs("plots2/hist1.png") ;
 
   hist1_p_constraint->SetTitle("#sqrt{s}=1.96 TeV") ;
   hist1_p_constraint->Draw("") ;

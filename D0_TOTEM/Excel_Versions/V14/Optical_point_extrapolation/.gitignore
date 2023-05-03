@@ -4,3 +4,6 @@ func.root
 hist_2d.root
 lol
 lola
+*.pdf
+*.root
+*.png

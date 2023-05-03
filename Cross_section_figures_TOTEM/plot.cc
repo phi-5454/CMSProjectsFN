@@ -109,8 +109,8 @@ int add_PDG(int process)
 
   string data_file_name = "" ;
 
-  if(process == process_pp) data_file_name = "pdg/pp_total.dat" ;
-  if(process == process_ppbar) data_file_name = "pdg/pbarp_total.dat" ;
+  if(process == process_pp) data_file_name = "hepdata/pp_total.dat" ;
+  if(process == process_ppbar) data_file_name = "hepdata/pbarp_total.dat" ;
   
   ifstream sigma_total_data(data_file_name) ;
 
@@ -229,7 +229,7 @@ int main(int argc, char *argv[])
   gStyle->SetLineScalePS(.3) ;
   gStyle->SetOptStat(0) ;    
 
-  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e1, 1e5, 100, 0, 140) ;
+  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
 
   hist_2d->GetXaxis()->SetTitle("#sqrt{s}  (GeV)") ;
   hist_2d->GetXaxis()->SetTitleOffset(1.2) ;
