@@ -229,7 +229,7 @@ int main(int argc, char *argv[])
   gStyle->SetLineScalePS(.3) ;
   gStyle->SetOptStat(0) ;    
 
-  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e1, 1e5, 100, 0, 140) ;
+  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 140) ;
 
   hist_2d->GetXaxis()->SetTitle("#sqrt{s}  (GeV)") ;
   hist_2d->GetXaxis()->SetTitleOffset(1.2) ;
