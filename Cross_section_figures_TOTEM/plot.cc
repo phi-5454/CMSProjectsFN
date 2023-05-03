@@ -109,8 +109,8 @@ int add_PDG(int process)
 
   string data_file_name = "" ;
 
-  if(process == process_pp) data_file_name = "pdg/pp_total.dat" ;
-  if(process == process_ppbar) data_file_name = "pdg/pbarp_total.dat" ;
+  if(process == process_pp) data_file_name = "hepdata/pp_total.dat" ;
+  if(process == process_ppbar) data_file_name = "hepdata/pbarp_total.dat" ;
   
   ifstream sigma_total_data(data_file_name) ;
 
