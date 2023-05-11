@@ -272,7 +272,7 @@ Double_t beam_divergence_correction_factor(Double_t *pt_GeV2, Double_t *par)
 double theta_star_result_for_test ;
 double dphi_for_test ;
 
-Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(const Double_t *pt_GeV2, Double_t *par)
+Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(Double_t *pt_GeV2, Double_t *par)
 {
 	Double_t beam_1_momentum 	= par[0] ;
 	Double_t theta_y_star_rad_min 	= par[1] ;

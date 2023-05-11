@@ -379,7 +379,8 @@ void TAnalysisPlot1D::Fill(double a_weight, bool test)
 		parameters[3] = theta_x_star_rad_cut_left ;
 		parameters[4] = theta_x_star_rad_cut_right ;
 
-		weight_geometrical_acceptance_correction = preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(x_variable, parameters) ;
+		ProjectParameters->Get_preliminary_acceptance_beam_1()->GetPreliminaryAcceptance_TF1()->SetParameters(parameters) ;
+		weight_geometrical_acceptance_correction = ProjectParameters->Get_preliminary_acceptance_beam_1()->GetPreliminaryAcceptance_TF1()->Eval(*x_variable) ;
 	}
 
 	if(beam_divergence_corrected)
@@ -406,7 +407,7 @@ void TAnalysisPlot1D::Fill(double a_weight, bool test)
 
 		if(to_be_saved_for_smart_merging)
 		{
-			(*(ProjectParameters->GetPLogFile())) << "Proton_kinematics_for_smart_merging: " << *Ptrigger_data_run_num << "  " << *Ptrigger_data_event_num << "  " << (*x_variable) << "  "  << weight_of_corrections << endl ;			
+			(*(ProjectParameters->GetPLogFile())) << "Proton_kinematics_for_smart_merging: " << *Ptrigger_data_run_num << "  " << *Ptrigger_data_event_num << "  " << (*x_variable) << "  "  << weight_of_corrections << "  " << weight << endl ;
 		}
 	}
 

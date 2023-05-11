@@ -2871,7 +2871,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 
 										inefficiency_fraction += empty_pot_case_Mul_Mul_Mul_E_hist->GetBinContent(n_multitrack_3_out_4_inefficiency + 1) ;
 
-										// cout << "inefficiency_fraction1: " << inefficiency_fraction << endl ;
+										cout << "inefficiency_fraction1: " << inefficiency_fraction << endl ;
 										// cout << "weight: " << weight << endl ;
 
 									}
@@ -2884,7 +2884,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 
 										inefficiency_fraction += empty_pot_case_Mul_E_Mul_E_hist->GetBinContent(n_multitrack_2_out_4_inefficiency + 1) ;
 
-										// cout << "inefficiency_fraction2: " << inefficiency_fraction << endl ;
+										cout << "inefficiency_fraction2: " << inefficiency_fraction << endl ;
 										// cout << "weight: " << weight << endl ;
 
 
@@ -2900,8 +2900,13 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 
 										// cout << "inefficiency_fraction1: " << inefficiency_fraction << endl ;
 										// cout << "weight: " << weight << endl ;
+										cout << "Hi" << endl ;
 
 									}
+									else
+									{
+										cout << "Ni" << endl ;
+									}	
 
 									if(empty_pot_case_Mul_E_Mul_E_hist_number_of_clusters != NULL)
 									{
@@ -2920,6 +2925,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 									if(overload_inefficiency_correction_hist != NULL)
 									{
 										inefficiency_fraction += overload_inefficiency_correction_hist->GetBinContent(number_of_clusters + 1) ;
+										cout << "inefficiency_fraction3: " << inefficiency_fraction << endl ;
 									}
 
 									weight = weight * (1.0 + inefficiency_fraction + value_2_out_4_same_sector_inefficiency_correction_fraction) ; 
@@ -3461,7 +3467,7 @@ void TProject::CalculateOverallNormalization(TH1D *merged_histogram_normalized, 
 			}
 			else
 			{
-				merged_histogram_normalized->Multiply(unfolding_correction_function) ;
+				merged_histogram_normalized->Multiply(unfolding_correction) ;
 			}
 
 
@@ -3859,7 +3865,7 @@ void TProject::MergeAndPostProcess()
 
 	// ===================== Non-exponential test
 
-	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", exponential_distribution, 0.0, 4.0, 2) ;
+	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 4.0, 2) ;
 
 	t_GeV2_distribution->SetParameters(constant, slope) ;
 	t_GeV2_distribution->SetNpx(100000) ;
@@ -4236,7 +4242,7 @@ void TProject::ExecuteMonteCarlo()
 			xi_fraction_distribution_constant = MC_generator_settings_block->GetParameterValue("xi_fraction_distribution_constant") ;
 			xi_fraction_distribution_slope = MC_generator_settings_block->GetParameterValue("xi_fraction_distribution_slope") ;
 
-			xi_fraction_distribution = new TF1("xi_fraction_distribution", exponential_distribution, xi_fraction_distribution_upper_edge, xi_fraction_distribution_lower_edge, 2) ;
+			xi_fraction_distribution = new TF1("xi_fraction_distribution", my_exponential_distribution, xi_fraction_distribution_upper_edge, xi_fraction_distribution_lower_edge, 2) ;
 			xi_fraction_distribution->SetParameters(xi_fraction_distribution_constant, xi_fraction_distribution_slope) ;
 			xi_fraction_distribution->SetNpx(1000000) ;
 			xi_fraction_distribution->SaveAs("xi_fraction_distribution.root") ;
@@ -4288,7 +4294,7 @@ void TProject::ExecuteMonteCarlo()
 		Double_t Constant = Exponential_fit_block->GetParameterValue("Constant") ;
 		Double_t Slope = Exponential_fit_block->GetParameterValue("Slope") ;
 
-		t_GeV2_distribution = new TF1("t_GeV2_distribution", exponential_distribution, t_GeV2_distribution_lower_edge, t_GeV2_distribution_upper_edge, 2) ;
+		t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, t_GeV2_distribution_lower_edge, t_GeV2_distribution_upper_edge, 2) ;
 		t_GeV2_distribution->SetParameters(Constant, Slope) ;
 		t_GeV2_distribution->SetNpx(1000000) ;
 		t_GeV2_distribution->SaveAs("t_GeV2_distribution.root") ;

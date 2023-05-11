@@ -51,6 +51,7 @@ class TConstants
 	static const int filled_circle_marker_style ;	
 
 	static const int scale_between_xi_and_its_index = 10000 ;
+	static const double hbarc ;
 
 	static const int twiss_position_in_line_of_horizontal_beam_position_m = 3 ;
 
@@ -61,7 +62,6 @@ class TConstants
 	
 	static const int buffersize_for_property_string = 80 ;
 
-	static const double hbarc = 0.19732697 ;				 // [hbarc] = GeV * fm
 
 	static double Get_hbarc2_GeV_2_mb() { return (10.0 * hbarc * hbarc) ; } ; 
 
@@ -73,6 +73,8 @@ const int TConstants::total_number_of_validity_branches = 4 ;
 const double TConstants::conversion_factor_from_m_to_mm 		= 1000.0 ;
 const double TConstants::conversion_factor_from_mbarn_to_ubarn 		= 1000.0 ;
 const double TConstants::conversion_factor_from_fraction_to_percent 	= 100.0 ;
+
+const double TConstants::hbarc = 0.19732697 ;				 // [hbarc] = GeV * fm
 
 const int TConstants::NO_ORIENTATION	= 0 ;
 const int TConstants::TOP 		= 1 ;

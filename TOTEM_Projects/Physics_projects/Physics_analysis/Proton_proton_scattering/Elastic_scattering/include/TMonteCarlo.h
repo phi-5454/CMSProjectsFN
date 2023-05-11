@@ -3,7 +3,7 @@
 
 #include "TVector3.h"
 
-Double_t exponential_distribution(Double_t *x, Double_t *par)
+Double_t my_exponential_distribution(Double_t *x, Double_t *par)
 {
       return par[0] * exp(par[1] * (x[0])) ;
 }
