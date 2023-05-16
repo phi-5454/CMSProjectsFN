@@ -12,7 +12,9 @@
 
 <parameter>	ReducedBinaryDataset	2.0
 
-<setting>	Input_directory			root://eostotem.cern.ch//eos/totem/user/f/fnemes/data/cmstotem/2015/90m/Totem/Ntuple/version2/Reduced_ntuples/Near_pot_is_XRPV_D6RL5/4511/
+<setting>       binning_file_name               /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Binning_scenarios/Binning_scenario_1.txt
+
+<setting>	Input_directory         root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_100_m/Reduced_ntuples/7291/
 
 <setting>	analysed_diagonal   	DIAGONAL_LEFT_BOTTOM_RIGHT_TOP
 
