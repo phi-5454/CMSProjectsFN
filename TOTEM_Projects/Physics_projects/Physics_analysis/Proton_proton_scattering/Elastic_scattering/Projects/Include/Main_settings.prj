@@ -1,5 +1,5 @@
 <setting>		VersionOfAnalysisCode		1.0
-<setting>		InstallDirectoryOfCode		/afs/cern.ch/work/f/fnemes/main_workspace/workspace/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering
+<setting>               InstallDirectoryOfCode          /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering
 
 <include>		Projects/Include/Conventions/TOTEM/Trigger_bits.prj
 
