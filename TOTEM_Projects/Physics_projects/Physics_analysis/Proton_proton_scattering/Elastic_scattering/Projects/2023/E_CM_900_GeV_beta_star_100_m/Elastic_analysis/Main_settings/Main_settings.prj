@@ -32,7 +32,7 @@
 
 	<setting>	required_trigger_bit_name				RP220_V
 
-	<parameter> Ask_for_trigger 						1.0 
+	<parameter> Ask_for_trigger 						0.0 
 	<parameter>	Ask_for_trigger_data_bunch_num			0.0 
 
 <section> ==================== Luminosity settings
