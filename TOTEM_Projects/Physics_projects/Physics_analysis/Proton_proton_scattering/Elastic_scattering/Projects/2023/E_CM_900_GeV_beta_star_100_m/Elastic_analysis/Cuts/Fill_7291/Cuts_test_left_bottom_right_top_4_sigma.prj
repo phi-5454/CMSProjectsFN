@@ -2,6 +2,18 @@
 <comment> ./analyse Projects/2015/E_CM_13_TeV_beta_star_90_m_2015_10_13_to_18/Elastic_analysis/Project_files/Fill_4495/Split/Left_bottom_right_top_4_sigma_0000.prj | grep "<begin>" -A 11 > new_definitions.txt
 <comment> cat new_definitions.txt  | sed 's/parameter/update_parameter/g' | sed 's/define\_//g' | sed 's/\-\-//g' 
 
+<begin> alignment_block
+                <parameter> RP_alignment_left_far__x_mm             0.0
+                <parameter> RP_alignment_left_near_x_mm             0.0 
+                <parameter> RP_alignment_right_far__x_mm            0.0
+                <parameter> RP_alignment_right_near_x_mm            0.0
+
+                <parameter> RP_alignment_left_near_y_mm             0.0
+                <parameter> RP_alignment_left_far__y_mm             0.0
+                <parameter> RP_alignment_right_far__y_mm            0.0
+                <parameter> RP_alignment_right_near_y_mm            0.0
+<end>   alignment_block
+
 <begin> theta_x_star_rad_theta_y_star_rad_cut_block
         <parameter>     x1              -6e-05
         <parameter>     y1              6.6565e-05
