@@ -33,6 +33,9 @@ int main()
 {
 	TH2D *hist = new TH2D("hist", "hist", 100, -5e+2, 5e+2, 100, -1000, 1000) ;
 
+	TH2D *hist_compare_theta_y_star = new TH2D("hist_compare_theta_y_star", "hist_compare_theta_y_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
+	TH2D *hist_compare_y_star = new TH2D("hist_compare_y_star", "hist_compare_y_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
+
 	TRandom3 rand ;
 
 	// Near: XRPV.C6R5.B1
@@ -48,19 +51,19 @@ int main()
 	double delta_f = -3.0 ;
 
 	// 
-        delta_n = -2.0 * 1.0 ;
-        delta_f = -3.0 * 1.0 ;
+  delta_n = -2.0 * 0.0 ;
+  delta_f = -3.0 * 0.0 ;
 
-        double Ly_near_reco = Ly_near + delta_n ;
-        double Ly_far_reco = Ly_far   + delta_f ;
+  double Ly_near_reco = Ly_near + delta_n ;
+  double Ly_far_reco = Ly_far   + delta_f ;
 
 	double vy_near = 2.47 ;
 	double vy_far  = 3.13 ;
 
 	for(int i = 0 ; i < 1e6 ; ++i)
 	{
-		double theta_y_star = 128e-6 * rand.Gaus() ;
-		double y_star = 1.0 * 200e-6 * rand.Gaus() ;
+	  double theta_y_star = 128e-6 * rand.Gaus() ;
+	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
 		
 		double beam_divergence = 0.0 * 20e-6 * rand.Gaus() ;
 		
@@ -69,10 +72,10 @@ int main()
 		double y_near = (Ly_near * theta_y_star_pert) + (vy_near * y_star) ;
 		double y_far =  (Ly_far *  theta_y_star_pert) + (vy_far *  y_star) ;
 
-		cout << y_far << endl ;
+		// cout << y_far << endl ;
 
 		// if((y_far < -1.e-3) && (y_far > -10.0e-3) )
-		if((y_far < -1.e-3) && (y_far > -10.0e-3) && (y_near < (-1.e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
+		// if((y_far < -1.e-3) && (y_far > -10.0e-3) && (y_near < (-1.e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
 		{
 
 			double theta_y_star_reco = ((y_near * vy_far) - (y_far * vy_near)) / ((Ly_near_reco * vy_far) - (Ly_far_reco * vy_near)) ;
@@ -81,6 +84,9 @@ int main()
 		// cout <<	theta_y_star << " " << theta_y_star_reco << " " << y_star << " " << y_star_reco << endl ;
 
 			hist->Fill(theta_y_star_reco * 1e6, y_star_reco * 1e6) ;
+
+			hist_compare_theta_y_star->Fill(theta_y_star, theta_y_star_reco) ;
+			hist_compare_y_star->Fill(y_star, y_star_reco) ;
 		}
 
 	}
@@ -88,16 +94,13 @@ int main()
 	gStyle->SetPalette(1) ;
 
 	TCanvas c ;
-	//c.GetXaxis()->SetRangeUser(-1e-4, 1e-4,) ;
-	//c.GetYaxis()->SetRangeUser(-1e-4, 1e-4,) ;
 	
-        gStyle->SetTitleFillColor(kWhite) ;
-        gStyle->SetStatColor(kWhite) ;
-        gStyle->SetFillColor(kWhite) ;
+  gStyle->SetTitleFillColor(kWhite) ;
+  gStyle->SetStatColor(kWhite) ;
+  gStyle->SetFillColor(kWhite) ;
 
 	gStyle->SetPadGridX(kTRUE);
 	gStyle->SetPadGridY(kTRUE);
-
 	
 	hist->SetFillColor(kWhite) ;
 	hist->SetTitle("") ;
@@ -129,6 +132,12 @@ int main()
 	hist->GetYaxis()->SetAxisColor(17);	
 
 	c.SetLogz() ;
-	c.SaveAs("hist.pdf") ;
+	c.SaveAs("plots/hist.pdf") ;
+	
+	hist_compare_theta_y_star->Draw("colz") ;
+	c.SaveAs("plots/hist_compare_theta_y_star.pdf") ;
+
+	hist_compare_y_star->Draw("colz") ;
+	c.SaveAs("plots/hist_compare_y_star.pdf") ;
 
 }	
