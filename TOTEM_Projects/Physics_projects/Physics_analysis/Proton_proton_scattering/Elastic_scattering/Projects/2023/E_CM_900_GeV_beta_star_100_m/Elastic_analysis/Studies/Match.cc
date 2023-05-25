@@ -75,11 +75,11 @@ int main()
 	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
 	  double x_star = 1.0 * 200e-6 * rand.Gaus() ;
 
-		double beam_divergence_y = 1.0 * 20e-6 * rand.Gaus() ;
 		double beam_divergence_x = 1.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_y = 1.0 * 20e-6 * rand.Gaus() ;
 		
-		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
 		double theta_x_star_pert = theta_x_star + beam_divergence_x ;
+		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
 
 		double x_near = (Lx_near * theta_x_star_pert) + (vx_near * x_star) ;
 		double x_far =  (Lx_far *  theta_x_star_pert) + (vx_far *  x_star) ;
