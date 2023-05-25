@@ -43,7 +43,8 @@ const double PI_TIMES_2 = (2.0 * TMath::Pi()) ;
 const double beam_momentum_GeV = 450 ;
 
 const double Constant = 2.363e7 ;
-const double Slope = -1.69642e+01 ;
+const double Slope = -14.0 ;
+//const double Slope = -1.69642e+01 ;
 // const double Slope = -1.69642 ;
 
 
@@ -57,8 +58,12 @@ int main()
   t_GeV2_distribution->SetParameters(Constant, Slope) ;
   t_GeV2_distribution->SetNpx(100000) ;
   
-  TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 2) ;
-  TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 2) ;
+//   TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 2) ;
+//   TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 2) ;
+//   TH1D *hist_minus_t_GeV2_reco_diff_rel_percent = new TH1D("hist_minus_t_GeV2_reco_diff_rel_percent", "hist_minus_t_GeV2_reco_diff_rel_percent", 100, 1e-2, -1e-2) ;
+
+  TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 0.2) ;
+  TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 0.2) ;
 
   TH1D *hist_minus_t_GeV2_reco_diff_rel_percent = new TH1D("hist_minus_t_GeV2_reco_diff_rel_percent", "hist_minus_t_GeV2_reco_diff_rel_percent", 100, 1e-2, -1e-2) ;
 
@@ -98,7 +103,7 @@ int main()
   const double vx_near = -3.3797 ;
   const double vx_far  = -3.0494 ;
 
-	for(int i = 0 ; i < 1e7 ; ++i)
+	for(int i = 0 ; i < 1e6 / 5 ; ++i)
 	{
 
     const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
@@ -124,15 +129,20 @@ int main()
 		double y_far =  (Ly_far *  theta_y_star_pert) + (vy_far *  y_star) ;
 
 		// cout << y_far << endl ;
+//		if(fabs(x_far)< 3e-3)
+//		if(fabs(x_near)< 3e-3)
 
 		// if((y_far < -1.e-3) && (y_far > -10.0e-3) )
-		if((y_far < -4.0e-3) && (y_far > -10.0e-3) && (y_near < (-4.0e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
+  		if(fabs(x_near) < 3e-3)
+  		if(fabs(x_far) < 3e-3)
+  		if((y_far < -4.0e-3) && (y_far > -10.0e-3) && (y_near < (-4.0e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
 		{
 
       double determinant_x = ((Lx_near_reco * vx_far) - (Lx_far_reco * vx_near)) ;
       double determinant_y = ((Ly_near_reco * vy_far) - (Ly_far_reco * vy_near)) ;
 
 			double theta_y_star_reco = ((y_near * vy_far) - (y_far * vy_near)) / determinant_y ;
+			// double theta_y_star_reco = ((y_near / Ly_near_reco) + (y_far / Ly_far_reco)) / 2.0 ;
 			double y_star_reco =      -((y_near * Ly_far_reco) - (y_far * Ly_near_reco)) / determinant_y ;
 
 			double theta_x_star_reco = ((x_near * vx_far) - (x_far * vx_near)) / determinant_x ;
@@ -230,8 +240,7 @@ int main()
 	c.SaveAs("plots/hist_minus_t_GeV2_reco.pdf") ;
   
   hist_minus_t_GeV2_reco_diff_rel_percent->Draw("colz") ;
-  hist_minus_t_GeV2_reco_diff_rel_percent->GetYaxis()->SetRangeUser(0.1, 1e7) ;
-  c.SetLogy() ;
+  c.SetLogy(0) ;
 	c.SaveAs("plots/hist_minus_t_GeV2_reco_diff_rel_percent.pdf") ;
   
 }	
