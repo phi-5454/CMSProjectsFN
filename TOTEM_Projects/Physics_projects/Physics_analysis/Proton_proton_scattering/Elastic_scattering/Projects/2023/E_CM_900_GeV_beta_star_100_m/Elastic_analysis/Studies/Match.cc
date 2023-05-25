@@ -216,6 +216,7 @@ int main()
 
   hist_theta_x_y_star_reco->Draw("colz") ;
 	c.SaveAs("plots/hist_theta_x_y_star_reco.pdf") ;
+	c.SaveAs("plots/hist_theta_x_y_star_reco.root") ;
 
   // cout >> hist_minus_t_GeV2->Integral() ;
   hist_minus_t_GeV2->Draw("colz") ;
@@ -232,6 +233,5 @@ int main()
   hist_minus_t_GeV2_reco_diff_rel_percent->GetYaxis()->SetRangeUser(0.1, 1e7) ;
   c.SetLogy() ;
 	c.SaveAs("plots/hist_minus_t_GeV2_reco_diff_rel_percent.pdf") ;
-	c.SaveAs("plots/hist_minus_t_GeV2_reco_diff_rel_percent.root") ;
   
 }	
