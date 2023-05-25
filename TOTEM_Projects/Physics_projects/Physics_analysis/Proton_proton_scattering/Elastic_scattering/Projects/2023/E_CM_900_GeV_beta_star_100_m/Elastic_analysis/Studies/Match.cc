@@ -29,8 +29,32 @@ using namespace std;
 
 #include <iomanip>
 
+Double_t my_exponential_distribution(Double_t *x, Double_t *par)
+{
+      return par[0] * exp(par[1] * (x[0])) ;
+}
+
+Double_t theta_star_rad_from_t_GeV2(double t_GeV2, double beam_momentum_GeV)
+{
+        return asin(sqrt(-t_GeV2) / beam_momentum_GeV) ;
+}
+
+const double PI_TIMES_2 = (2.0 * TMath::Pi()) ;
+const double beam_momentum_GeV = 450 ;
+
+const double Constant = 2.363e7 ;
+const double Slope = -1.69642e+01 ;
+// const double Slope = -1.69642 ;
+
+
 int main()
 {
+	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
+  t_GeV2_distribution->SetParameters(Constant, Slope) ;
+  t_GeV2_distribution->SetNpx(100000) ;
+  
+  TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 2) ;
+
 	TH2D *hist = new TH2D("hist", "hist", 100, -5e+2, 5e+2, 100, -1000, 1000) ;
 
 	TH2D *hist_compare_theta_y_star = new TH2D("hist_compare_theta_y_star", "hist_compare_theta_y_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
@@ -67,11 +91,17 @@ int main()
   const double vx_near = -3.3797 ;
   const double vx_far  = -3.0494 ;
 
-
 	for(int i = 0 ; i < 1e6 ; ++i)
 	{
-	  double theta_y_star = 128e-6 * rand.Gaus() ;
-	  double theta_x_star = 128e-6 * rand.Gaus() ;
+
+    const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
+    const Double_t phi_IP5_rad = gRandom->Uniform(0, PI_TIMES_2) ;    
+  
+    double theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
+
+    double theta_x_star = (theta_star_rad * cos(phi_IP5_rad)) ;
+    double theta_y_star = (theta_star_rad * sin(phi_IP5_rad)) ;
+  
 	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
 	  double x_star = 1.0 * 200e-6 * rand.Gaus() ;
 
@@ -88,7 +118,7 @@ int main()
 
 		// cout << y_far << endl ;
 
-		if((y_far < -1.e-3) && (y_far > -10.0e-3) )
+		// if((y_far < -1.e-3) && (y_far > -10.0e-3) )
 		// if((y_far < -1.e-3) && (y_far > -10.0e-3) && (y_near < (-1.e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
 		{
 
@@ -100,6 +130,10 @@ int main()
 
 			double theta_x_star_reco = ((x_near * vx_far) - (x_far * vx_near)) / determinant_x ;
 			double x_star_reco =      -((x_near * Lx_far_reco) - (x_far * Lx_near_reco)) / determinant_x ;
+      
+      double theta_star_reco = sqrt((theta_x_star_reco*theta_x_star_reco) + (theta_y_star_reco*theta_y_star_reco)) ;
+      
+      hist_minus_t_GeV2->Fill(minus_t_GeV2) ;
 
 			hist_compare_theta_x_star->Fill(theta_x_star_pert, theta_x_star_reco) ;
 			hist_compare_x_star->Fill(x_star, x_star_reco) ;
@@ -172,4 +206,10 @@ int main()
   hist_theta_x_y_star_reco->Draw("colz") ;
 	c.SaveAs("plots/hist_theta_x_y_star_reco.pdf") ;
 
+  // cout >> hist_minus_t_GeV2->Integral() ;
+  hist_minus_t_GeV2->Draw("colz") ;
+  hist_minus_t_GeV2->GetYaxis()->SetRangeUser(0.1, 1e7) ;
+  c.SetLogy() ;
+	c.SaveAs("plots/hist_minus_t_GeV2.pdf") ;
+  
 }	
