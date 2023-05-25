@@ -54,6 +54,7 @@ int main()
   t_GeV2_distribution->SetNpx(100000) ;
   
   TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 2) ;
+  TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 2) ;
 
 	TH2D *hist = new TH2D("hist", "hist", 100, -5e+2, 5e+2, 100, -1000, 1000) ;
 
@@ -132,8 +133,10 @@ int main()
 			double x_star_reco =      -((x_near * Lx_far_reco) - (x_far * Lx_near_reco)) / determinant_x ;
       
       double theta_star_reco = sqrt((theta_x_star_reco*theta_x_star_reco) + (theta_y_star_reco*theta_y_star_reco)) ;
+      double minus_t_GeV2_reco = - beam_momentum_GeV * beam_momentum_GeV * theta_star_reco * theta_star_reco ;
       
       hist_minus_t_GeV2->Fill(minus_t_GeV2) ;
+      hist_minus_t_GeV2_reco->Fill(-minus_t_GeV2_reco) ;
 
 			hist_compare_theta_x_star->Fill(theta_x_star_pert, theta_x_star_reco) ;
 			hist_compare_x_star->Fill(x_star, x_star_reco) ;
