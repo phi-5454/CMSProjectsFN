@@ -49,12 +49,18 @@ const double Slope = -1.69642e+01 ;
 
 int main()
 {
+
+  // gStyle->SetOptStat(0) ;
+  // gStyle->SetOptFit(1111) ;
+
 	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
   t_GeV2_distribution->SetParameters(Constant, Slope) ;
   t_GeV2_distribution->SetNpx(100000) ;
   
   TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 2) ;
   TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 2) ;
+
+  TH1D *hist_minus_t_GeV2_reco_diff_rel_percent = new TH1D("hist_minus_t_GeV2_reco_diff_rel_percent", "hist_minus_t_GeV2_reco_diff_rel_percent", 100, 1e-2, -1e-2) ;
 
 	TH2D *hist = new TH2D("hist", "hist", 100, -5e+2, 5e+2, 100, -1000, 1000) ;
 
@@ -64,7 +70,7 @@ int main()
 	TH2D *hist_compare_theta_x_star = new TH2D("hist_compare_theta_x_star", "hist_compare_theta_x_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
 	TH2D *hist_compare_x_star = new TH2D("hist_compare_x_star", "hist_compare_x_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
 
-	TH2D *hist_theta_x_y_star_reco = new TH2D("hist_theta_x_y_star_reco", "hist_theta_x_y_star_reco", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
+	TH2D *hist_theta_x_y_star_reco = new TH2D("hist_theta_x_y_star_reco", "hist_theta_x_y_star_reco", 1000, -16.0e-4, 16.0e-4,  1000, -16.0e-4, 16.0e-4) ;
 
 	TRandom3 rand ;
 
@@ -92,7 +98,7 @@ int main()
   const double vx_near = -3.3797 ;
   const double vx_far  = -3.0494 ;
 
-	for(int i = 0 ; i < 1e6 ; ++i)
+	for(int i = 0 ; i < 1e7 ; ++i)
 	{
 
     const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
@@ -106,8 +112,8 @@ int main()
 	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
 	  double x_star = 1.0 * 200e-6 * rand.Gaus() ;
 
-		double beam_divergence_x = 1.0 * 20e-6 * rand.Gaus() ;
-		double beam_divergence_y = 1.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_x = 0.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_y = 0.0 * 20e-6 * rand.Gaus() ;
 		
 		double theta_x_star_pert = theta_x_star + beam_divergence_x ;
 		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
@@ -120,7 +126,7 @@ int main()
 		// cout << y_far << endl ;
 
 		// if((y_far < -1.e-3) && (y_far > -10.0e-3) )
-		// if((y_far < -1.e-3) && (y_far > -10.0e-3) && (y_near < (-1.e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
+		if((y_far < -4.0e-3) && (y_far > -10.0e-3) && (y_near < (-4.0e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
 		{
 
       double determinant_x = ((Lx_near_reco * vx_far) - (Lx_far_reco * vx_near)) ;
@@ -137,6 +143,8 @@ int main()
       
       hist_minus_t_GeV2->Fill(minus_t_GeV2) ;
       hist_minus_t_GeV2_reco->Fill(-minus_t_GeV2_reco) ;
+      
+      hist_minus_t_GeV2_reco_diff_rel_percent->Fill(((minus_t_GeV2 + minus_t_GeV2_reco) / minus_t_GeV2) * 100.0) ;
 
 			hist_compare_theta_x_star->Fill(theta_x_star_pert, theta_x_star_reco) ;
 			hist_compare_x_star->Fill(x_star, x_star_reco) ;
@@ -183,10 +191,10 @@ int main()
 	
 	c.SetFillColor(kWhite) ;
 	
-	gStyle->SetOptStat(0);
+//	gStyle->SetOptStat(0);
 
-        c.SetGridx() ;
-        c.SetGridy() ;	
+  c.SetGridx() ;
+  c.SetGridy() ;	
 	
 	hist->GetXaxis()->SetAxisColor(17);
 	hist->GetYaxis()->SetAxisColor(17);	
@@ -214,5 +222,16 @@ int main()
   hist_minus_t_GeV2->GetYaxis()->SetRangeUser(0.1, 1e7) ;
   c.SetLogy() ;
 	c.SaveAs("plots/hist_minus_t_GeV2.pdf") ;
+
+  hist_minus_t_GeV2_reco->Draw("colz") ;
+  hist_minus_t_GeV2_reco->GetYaxis()->SetRangeUser(0.1, 1e7) ;
+  c.SetLogy() ;
+	c.SaveAs("plots/hist_minus_t_GeV2_reco.pdf") ;
+  
+  hist_minus_t_GeV2_reco_diff_rel_percent->Draw("colz") ;
+  hist_minus_t_GeV2_reco_diff_rel_percent->GetYaxis()->SetRangeUser(0.1, 1e7) ;
+  c.SetLogy() ;
+	c.SaveAs("plots/hist_minus_t_GeV2_reco_diff_rel_percent.pdf") ;
+	c.SaveAs("plots/hist_minus_t_GeV2_reco_diff_rel_percent.root") ;
   
 }	
