@@ -62,8 +62,8 @@ int main()
 //   TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 2) ;
 //   TH1D *hist_minus_t_GeV2_reco_diff_rel_percent = new TH1D("hist_minus_t_GeV2_reco_diff_rel_percent", "hist_minus_t_GeV2_reco_diff_rel_percent", 100, 1e-2, -1e-2) ;
 
-  TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 0.2) ;
-  TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 0.2) ;
+  TH1D *hist_minus_t_GeV2 = new TH1D("hist_minus_t_GeV2", "hist_minus_t_GeV2", 100, 0, 2) ;
+  TH1D *hist_minus_t_GeV2_reco = new TH1D("hist_minus_t_GeV2_reco", "hist_minus_t_GeV2_reco", 100, 0, 2) ;
 
   TH1D *hist_minus_t_GeV2_reco_diff_rel_percent = new TH1D("hist_minus_t_GeV2_reco_diff_rel_percent", "hist_minus_t_GeV2_reco_diff_rel_percent", 100, 1e-2, -1e-2) ;
 
@@ -103,7 +103,7 @@ int main()
   const double vx_near = -3.3797 ;
   const double vx_far  = -3.0494 ;
 
-	for(int i = 0 ; i < 1e6 / 5 ; ++i)
+	for(int i = 0 ; i < 1e6 ; ++i)
 	{
 
     const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
@@ -133,9 +133,9 @@ int main()
 //		if(fabs(x_near)< 3e-3)
 
 		// if((y_far < -1.e-3) && (y_far > -10.0e-3) )
-  		if(fabs(x_near) < 3e-3)
-  		if(fabs(x_far) < 3e-3)
-  		if((y_far < -4.0e-3) && (y_far > -10.0e-3) && (y_near < (-4.0e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
+  	//	if(fabs(x_near) < 3e-3)
+  	//	if(fabs(x_far) < 3e-3)
+  	//	if((y_far < -4.0e-3) && (y_far > -10.0e-3) && (y_near < (-4.0e-3*1.4*(Ly_far/Ly_near))) && (y_near > (-10.0e-3*(Ly_far/Ly_near))))
 		{
 
       double determinant_x = ((Lx_near_reco * vx_far) - (Lx_far_reco * vx_near)) ;
