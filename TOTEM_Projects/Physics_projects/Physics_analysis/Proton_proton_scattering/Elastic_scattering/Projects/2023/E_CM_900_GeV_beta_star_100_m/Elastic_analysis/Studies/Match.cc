@@ -211,6 +211,12 @@ void read_apertures()
 
         double theta_y_star_limit_due_rectangle_half_height = (rectangle_half_height / Ly) ;
         double theta_y_star_limit_due_ellipse_semi_axis_ver = (ellipse_semi_axis_ver / Ly) ;
+
+        cout << name << " theta_x_star_limit_due_rectangle_half_width_min_name:  " << theta_x_star_limit_due_rectangle_half_width_min << endl ;
+        cout << name << " theta_x_star_limit_due_ellipse_semi_axis_hor_min_name: " << theta_x_star_limit_due_ellipse_semi_axis_hor_min << endl ;
+
+        cout << name << " theta_y_star_limit_due_rectangle_half_height_min_name: " << theta_y_star_limit_due_rectangle_half_height_min << endl ;
+        cout << name << " theta_y_star_limit_due_ellipse_semi_axis_ver_min_name: " << theta_y_star_limit_due_ellipse_semi_axis_ver_min << endl << endl ;
         
         if(theta_x_star_limit_due_rectangle_half_width_min > theta_x_star_limit_due_rectangle_half_width)   { theta_x_star_limit_due_rectangle_half_width_min_name = name ; theta_x_star_limit_due_rectangle_half_width_min = theta_x_star_limit_due_rectangle_half_width ; } ;
         if(theta_x_star_limit_due_ellipse_semi_axis_hor_min > theta_x_star_limit_due_ellipse_semi_axis_hor) { theta_x_star_limit_due_ellipse_semi_axis_hor_min_name = name ;theta_x_star_limit_due_ellipse_semi_axis_hor_min = theta_x_star_limit_due_ellipse_semi_axis_hor ; } ;
@@ -230,6 +236,10 @@ void read_apertures()
     }
   }
   
+  cout << endl ;
+  cout << "#################" << endl ;  
+  cout << endl ;
+
   cout << "theta_x_star_limit_due_rectangle_half_width_min_name:  " <<  theta_x_star_limit_due_rectangle_half_width_min_name  << theta_x_star_limit_due_rectangle_half_width_min << endl ;
   cout << "theta_x_star_limit_due_ellipse_semi_axis_hor_min_name: " <<  theta_x_star_limit_due_ellipse_semi_axis_hor_min_name << theta_x_star_limit_due_ellipse_semi_axis_hor_min << endl ;
   
