@@ -192,6 +192,12 @@ void read_apertures()
         TAperture *aperture = new TAperture(name, Lx, Ly, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
         vector_apertures.push_back(aperture) ;
         
+        double theta_x_star_limit_due_rectangle_half_width = (rectangle_half_width / Lx) ;
+        double theta_x_star_limit_due_ellipse_semi_axis_hor = (ellipse_semi_axis_hor / Lx) ;
+
+        double theta_y_star_limit_due_rectangle_half_height = (rectangle_half_height / Ly) ;
+        double theta_y_star_limit_due_ellipse_semi_axis_ver = (ellipse_semi_axis_ver / Ly) ;
+        
         // test_aperture(name, Lx, Ly, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
       }
     }
