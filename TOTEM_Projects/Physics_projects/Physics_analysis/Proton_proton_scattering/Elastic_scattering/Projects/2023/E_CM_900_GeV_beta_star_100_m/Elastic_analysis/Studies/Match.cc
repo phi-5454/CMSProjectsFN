@@ -156,6 +156,20 @@ void read_apertures()
   
   const int RE12_position = 13 ;
   const int RE34_position = 23 ;
+
+  const double LARGE_VALUE = 1e99 ;
+
+  double theta_x_star_limit_due_rectangle_half_width_min = LARGE_VALUE ;
+  double theta_x_star_limit_due_ellipse_semi_axis_hor_min = LARGE_VALUE ;
+
+  double theta_y_star_limit_due_rectangle_half_height_min = LARGE_VALUE ;
+  double theta_y_star_limit_due_ellipse_semi_axis_ver_min = LARGE_VALUE ;
+
+  string theta_x_star_limit_due_rectangle_half_width_min_name = "" ;
+  string theta_x_star_limit_due_ellipse_semi_axis_hor_min_name = "" ;
+
+  string theta_y_star_limit_due_rectangle_half_height_min_name = "" ;
+  string theta_y_star_limit_due_ellipse_semi_axis_ver_min_name = "" ;
   
   while(apertures >> name >> rectangle_half_width >> rectangle_half_height >>  ellipse_semi_axis_hor >> ellipse_semi_axis_ver)
   {
@@ -198,6 +212,12 @@ void read_apertures()
         double theta_y_star_limit_due_rectangle_half_height = (rectangle_half_height / Ly) ;
         double theta_y_star_limit_due_ellipse_semi_axis_ver = (ellipse_semi_axis_ver / Ly) ;
         
+        if(theta_x_star_limit_due_rectangle_half_width_min > theta_x_star_limit_due_rectangle_half_width)   { theta_x_star_limit_due_rectangle_half_width_min_name = name ; theta_x_star_limit_due_rectangle_half_width_min = theta_x_star_limit_due_rectangle_half_width ; } ;
+        if(theta_x_star_limit_due_ellipse_semi_axis_hor_min > theta_x_star_limit_due_ellipse_semi_axis_hor) { theta_x_star_limit_due_ellipse_semi_axis_hor_min_name = name ;theta_x_star_limit_due_ellipse_semi_axis_hor_min = theta_x_star_limit_due_ellipse_semi_axis_hor ; } ;
+
+        if(theta_y_star_limit_due_rectangle_half_height_min > theta_y_star_limit_due_rectangle_half_height) { theta_y_star_limit_due_rectangle_half_height_min_name = name ; theta_y_star_limit_due_rectangle_half_height_min = theta_y_star_limit_due_rectangle_half_height ; } ;
+        if(theta_y_star_limit_due_ellipse_semi_axis_ver_min > theta_y_star_limit_due_ellipse_semi_axis_ver) { theta_y_star_limit_due_ellipse_semi_axis_ver_min_name = name ; theta_y_star_limit_due_ellipse_semi_axis_ver_min = theta_y_star_limit_due_ellipse_semi_axis_ver ; } ;
+        
         // test_aperture(name, Lx, Ly, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
       }
     }
@@ -210,6 +230,12 @@ void read_apertures()
     }
   }
   
+  cout << "theta_x_star_limit_due_rectangle_half_width_min_name:  " <<  theta_x_star_limit_due_rectangle_half_width_min_name  << theta_x_star_limit_due_rectangle_half_width_min << endl ;
+  cout << "theta_x_star_limit_due_ellipse_semi_axis_hor_min_name: " <<  theta_x_star_limit_due_ellipse_semi_axis_hor_min_name << theta_x_star_limit_due_ellipse_semi_axis_hor_min << endl ;
+  
+  cout << "theta_y_star_limit_due_rectangle_half_height_min_name: " <<  theta_y_star_limit_due_rectangle_half_height_min_name << theta_y_star_limit_due_rectangle_half_height_min << endl ;
+  cout << "theta_y_star_limit_due_ellipse_semi_axis_ver_min_name: " <<  theta_y_star_limit_due_ellipse_semi_axis_ver_min_name << theta_y_star_limit_due_ellipse_semi_axis_ver_min << endl ;
+
   test_aperture(vector_apertures) ;
 }
 
