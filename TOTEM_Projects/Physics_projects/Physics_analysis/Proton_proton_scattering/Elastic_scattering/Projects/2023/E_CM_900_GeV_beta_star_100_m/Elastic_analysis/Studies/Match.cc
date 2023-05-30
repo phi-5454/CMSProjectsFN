@@ -47,6 +47,165 @@ const double Slope = -14.0 ;
 //const double Slope = -1.69642e+01 ;
 // const double Slope = -1.69642 ;
 
+// const string aperture_filename="/afs/cern.ch/eng/lhc/optics/V6.503/aperture/aperture.b1.madx" ;
+const string aperture_filename="data/lhc/apertures_after_IP5_B1.txt" ;
+const string optics_file_name = "/afs/cern.ch/work/f/fnemes/main_workspace_git/projects/LHCRealOpticsTools/OpticsProject/Project_files/2018/E_CM_900_GeV/Valentina/twiss_beam1_900_beta11_thetay0.tfs" ;
+
+class TAperture
+{ 
+  public:
+
+  string name ;
+  TH2D *histogram ;
+
+  double rectangle_half_width = 0 ;
+  double rectangle_half_height = 0 ;
+  double ellipse_semi_axis_hor = 0 ;
+  double ellipse_semi_axis_ver = 0 ;
+  
+  double Lx, Ly ;
+  
+  TAperture(string name, double Lx, double Ly, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver):
+  name(name), Lx(Lx), Ly(Ly), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver)
+  {
+    histogram = new TH2D(name.c_str(), name.c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
+  }
+  
+  
+} ;
+
+void test_aperture(vector<TAperture *> &vector_apertures)
+{
+
+	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
+  t_GeV2_distribution->SetParameters(Constant, Slope) ;
+  t_GeV2_distribution->SetNpx(100000) ;
+
+	TRandom3 rand ;
+  
+	for(int i = 0 ; i < 1e6 ; ++i)
+	{
+
+    const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
+    const Double_t phi_IP5_rad = gRandom->Uniform(0, PI_TIMES_2) ;    
+  
+    double theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
+
+    double theta_x_star = (theta_star_rad * cos(phi_IP5_rad)) ;
+    double theta_y_star = (theta_star_rad * sin(phi_IP5_rad)) ;
+    // cout << theta_x_star << endl ;
+  
+	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
+	  double x_star = 1.0 * 200e-6 * rand.Gaus() ;
+
+		double beam_divergence_x = 0.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_y = 0.0 * 20e-6 * rand.Gaus() ;
+		
+		double theta_x_star_pert = theta_x_star + beam_divergence_x ;
+		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
+    
+    for(int j = 0 ; j < vector_apertures.size() ; ++j)
+    {
+      double x_pos_meter = vector_apertures[j]->Lx * theta_x_star_pert ;
+      double y_pos_meter = vector_apertures[j]->Ly * theta_y_star_pert ;
+      
+      if((fabs(x_pos_meter) < vector_apertures[j]->rectangle_half_width) &&
+         (fabs(y_pos_meter) < vector_apertures[j]->rectangle_half_height)  )
+      {
+        // ((x/A)^2) + ((y/B)^2) == 1
+        
+        double x_scaled =  (x_pos_meter / vector_apertures[j]->ellipse_semi_axis_hor) ;
+        
+        double y_scaled = sqrt(1-x_scaled*x_scaled) * vector_apertures[j]->ellipse_semi_axis_ver ;
+        
+        if(fabs(y_pos_meter) < y_scaled)
+        {
+          // vector_apertures[j]->histogram->Fill(x_pos_meter, y_pos_meter) ;
+          vector_apertures[j]->histogram->Fill(theta_x_star_pert, theta_y_star_pert) ;
+        }
+      }
+    }
+  }
+
+	gStyle->SetPadGridX(kTRUE);
+	gStyle->SetPadGridY(kTRUE);
+
+  TCanvas c ;
+  
+  for(int j = 0 ; j < vector_apertures.size() ; ++j)
+  {
+    vector_apertures[j]->histogram->GetXaxis()->SetTitle("#theta_{x}* (rad)") ;
+    vector_apertures[j]->histogram->GetYaxis()->SetTitle("#theta_{y}* (rad)") ;
+
+    vector_apertures[j]->histogram->Draw("colz") ;
+    c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + ".root").c_str()) ;
+  }
+}
+
+void read_apertures()
+{
+
+  ifstream apertures(aperture_filename.c_str()) ;
+  vector<TAperture *> vector_apertures ;
+  
+  string name ;
+  double rectangle_half_width = 0 ;
+  double rectangle_half_height = 0 ;
+  double ellipse_semi_axis_hor = 0 ;
+  double ellipse_semi_axis_ver = 0 ;
+  
+  const int RE12_position = 13 ;
+  const int RE34_position = 23 ;
+  
+  while(apertures >> name >> rectangle_half_width >> rectangle_half_height >>  ellipse_semi_axis_hor >> ellipse_semi_axis_ver)
+  {
+    // cout << name << endl ;
+    
+    ifstream optics_file(optics_file_name.c_str()) ;
+    
+    const string magnet_name = "\"" + name + "\"" ;
+    string word ;
+    
+    bool found = false ;
+    
+    while(optics_file >> word)
+    {
+      if(word.compare(magnet_name) == 0)
+      {
+        found = true ;
+        
+        double Lx = 0 ;
+        double Ly = 0 ;
+        double value = 0 ;
+        
+        for(int i = 0 ; i < 24 ; ++i)
+        {
+          optics_file >> value ;
+          // cout << value << " " ;
+
+          if(i == RE12_position-1) Lx = value ;
+          if(i == RE34_position-1) Ly = value ;
+        }
+        
+        // cout << name << "     " << Lx  << " " << Ly << endl ;
+        
+        TAperture *aperture = new TAperture(name, Lx, Ly, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
+        vector_apertures.push_back(aperture) ;
+        
+        // test_aperture(name, Lx, Ly, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
+      }
+    }
+    
+    optics_file.close() ;
+    
+    if(!found)
+    {
+      cout << name << " not found" << endl ;
+    }
+  }
+  
+  test_aperture(vector_apertures) ;
+}
 
 int main()
 {
@@ -102,6 +261,10 @@ int main()
   
   const double vx_near = -3.3797 ;
   const double vx_far  = -3.0494 ;
+  
+  read_apertures() ;
+  
+  exit(1) ;
 
 	for(int i = 0 ; i < 1e6 ; ++i)
 	{
