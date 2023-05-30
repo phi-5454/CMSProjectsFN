@@ -57,18 +57,24 @@ class TAperture
 
   string name ;
   TH2D *histogram ;
+  TH2D *histogram_vertex ;
+  TH1D *histogram_t ;
+  TH1D *histogram_phi ;
 
   double rectangle_half_width = 0 ;
   double rectangle_half_height = 0 ;
   double ellipse_semi_axis_hor = 0 ;
   double ellipse_semi_axis_ver = 0 ;
   
-  double Lx, Ly ;
+  double Lx, Ly, vx, vy ;
   
-  TAperture(string name, double Lx, double Ly, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver):
-  name(name), Lx(Lx), Ly(Ly), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver)
+  TAperture(string name, double Lx, double Ly, double vx, double vy, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver):
+  name(name), Lx(Lx), Ly(Ly), vx(vx), vy(vy), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver)
   {
     histogram = new TH2D(name.c_str(), name.c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
+    histogram_vertex = new TH2D((name + "_vertex").c_str(), (name + "_vertex").c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
+    histogram_t = new TH1D((name + "_t").c_str(), (name + "_t").c_str(), 1000, 0, 10) ;
+    histogram_phi = new TH1D((name + "_phi").c_str(), (name + "_phi").c_str(), 100, 0, 10) ;
   }
   
   
@@ -80,6 +86,9 @@ void test_aperture(vector<TAperture *> &vector_apertures)
 	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
   t_GeV2_distribution->SetParameters(Constant, Slope) ;
   t_GeV2_distribution->SetNpx(100000) ;
+  
+  TH1D *histogram_t = new TH1D("histogram_t", "histogram_t", 1000, 0, 10) ;
+  TH1D *histogram_phi = new TH1D("histogram_phi", "histogram_phi", 100, 0, 10) ;
 
 	TRandom3 rand ;
   
@@ -88,6 +97,9 @@ void test_aperture(vector<TAperture *> &vector_apertures)
 
     const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
     const Double_t phi_IP5_rad = gRandom->Uniform(0, PI_TIMES_2) ;    
+    
+    histogram_t->Fill(minus_t_GeV2) ;
+    histogram_phi->Fill(phi_IP5_rad) ;
   
     double theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
 
@@ -95,19 +107,19 @@ void test_aperture(vector<TAperture *> &vector_apertures)
     double theta_y_star = (theta_star_rad * sin(phi_IP5_rad)) ;
     // cout << theta_x_star << endl ;
   
-	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
-	  double x_star = 1.0 * 200e-6 * rand.Gaus() ;
+	  double x_star = 0.0 * 200e-6 * rand.Gaus() ;
+	  double y_star = 0.0 * 200e-6 * rand.Gaus() ;
 
-		double beam_divergence_x = 0.0 * 20e-6 * rand.Gaus() ;
-		double beam_divergence_y = 0.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_x = 1.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_y = 1.0 * 20e-6 * rand.Gaus() ;
 		
 		double theta_x_star_pert = theta_x_star + beam_divergence_x ;
 		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
     
     for(int j = 0 ; j < vector_apertures.size() ; ++j)
     {
-      double x_pos_meter = vector_apertures[j]->Lx * theta_x_star_pert ;
-      double y_pos_meter = vector_apertures[j]->Ly * theta_y_star_pert ;
+      double x_pos_meter = ((vector_apertures[j]->Lx * theta_x_star_pert) + (vector_apertures[j]->vx * x_star)) ;
+      double y_pos_meter = ((vector_apertures[j]->Ly * theta_y_star_pert) + (vector_apertures[j]->vy * y_star)) ;
       
       if((fabs(x_pos_meter) < vector_apertures[j]->rectangle_half_width) &&
          (fabs(y_pos_meter) < vector_apertures[j]->rectangle_half_height)  )
@@ -120,8 +132,10 @@ void test_aperture(vector<TAperture *> &vector_apertures)
         
         if(fabs(y_pos_meter) < y_scaled)
         {
-          // vector_apertures[j]->histogram->Fill(x_pos_meter, y_pos_meter) ;
           vector_apertures[j]->histogram->Fill(theta_x_star_pert, theta_y_star_pert) ;
+          vector_apertures[j]->histogram_vertex->Fill(x_star, y_star) ;
+          vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
+          vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
         }
       }
     }
@@ -139,7 +153,32 @@ void test_aperture(vector<TAperture *> &vector_apertures)
 
     vector_apertures[j]->histogram->Draw("colz") ;
     c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + ".root").c_str()) ;
+
+    vector_apertures[j]->histogram_vertex->Draw("colz") ;
+    c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_vertex.root").c_str()) ;
+
+    vector_apertures[j]->histogram_t->Draw("") ;
+    c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_t.root").c_str()) ;
+
+    vector_apertures[j]->histogram_phi->Draw("") ;
+    c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_phi.root").c_str()) ;
+    
+    cout << "statistics " << vector_apertures[j]->name << " " << vector_apertures[j]->histogram->GetEntries() << endl ;
   }
+  
+  histogram_t->SaveAs("histogram_t.root") ;
+  histogram_phi->SaveAs("histogram_phi.root") ;
+  
+  c.cd() ;
+  
+  histogram_t->Draw("") ;
+
+  for(int j = 0 ; j < vector_apertures.size() ; ++j)
+  {
+    vector_apertures[j]->histogram_t->Draw("same") ;
+  }
+  
+  c.SaveAs("histogram_t_combined.root") ;
 }
 
 void read_apertures()
@@ -190,6 +229,10 @@ void read_apertures()
         
         double Lx = 0 ;
         double Ly = 0 ;
+
+        double vx = 0 ;
+        double vy = 0 ;
+
         double value = 0 ;
         
         for(int i = 0 ; i < 24 ; ++i)
@@ -197,13 +240,16 @@ void read_apertures()
           optics_file >> value ;
           // cout << value << " " ;
 
-          if(i == RE12_position-1) Lx = value ;
-          if(i == RE34_position-1) Ly = value ;
+          if(i == (RE12_position - 1)) Lx = value ;
+          if(i == (RE34_position - 1)) Ly = value ;
+
+          if(i == (RE12_position - 2)) vx = value ;
+          if(i == (RE34_position - 2)) vy = value ;
         }
         
         // cout << name << "     " << Lx  << " " << Ly << endl ;
         
-        TAperture *aperture = new TAperture(name, Lx, Ly, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
+        TAperture *aperture = new TAperture(name, Lx, Ly, vx, vy, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
         vector_apertures.push_back(aperture) ;
         
         double theta_x_star_limit_due_rectangle_half_width = (rectangle_half_width / Lx) ;
