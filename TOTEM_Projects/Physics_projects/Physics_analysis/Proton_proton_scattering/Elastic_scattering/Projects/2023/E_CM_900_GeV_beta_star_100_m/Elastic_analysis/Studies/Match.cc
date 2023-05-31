@@ -29,6 +29,19 @@ using namespace std;
 
 #include <iomanip>
 
+const double Ly_near = 19.1 ;
+const double Ly_far  = 17.4 ; 
+
+const double Lx_near = 8.8228247 ;
+const double Lx_far  = 5.8873862 ;
+
+const double vy_near = 2.47 ;
+const double vy_far  = 3.13 ;
+
+const double vx_near = -3.3797 ;
+const double vx_far  = -3.0494 ;
+
+
 Double_t my_exponential_distribution(Double_t *x, Double_t *par)
 {
       return par[0] * exp(par[1] * (x[0])) ;
@@ -89,12 +102,41 @@ class TProton
 
   double theta_x_star ;
   double theta_y_star ;
+  double x_star ;
+  double y_star ;
 
   double theta_x_star_pert ;
   double theta_y_star_pert ;
 
+  double theta_x_star_reco ;
+  double theta_y_star_reco ;
+  double x_star_reco ;
+  double y_star_reco ;
+
   TProton() {} ;
+  void Reconstruct() ;
 } ;
+
+
+void TProton::Reconstruct()
+{
+  double x_near = (Lx_near * theta_x_star_pert) + (vx_near * x_star) ;
+  double x_far  = (Lx_far *  theta_x_star_pert) + (vx_far *  x_star) ;
+  double y_near = (Ly_near * theta_y_star_pert) + (vy_near * y_star) ;
+  double y_far  = (Ly_far *  theta_y_star_pert) + (vy_far *  y_star) ;
+
+  double determinant_x = ((Lx_near * vx_far) - (Lx_far * vx_near)) ;
+  double determinant_y = ((Ly_near * vy_far) - (Ly_far * vy_near)) ;
+
+  theta_x_star_reco = ((x_near * vx_far) - (x_far * vx_near)) / determinant_x ;
+  x_star_reco =      -((x_near * Lx_far) - (x_far * Lx_near)) / determinant_x ;
+
+  theta_y_star_reco = ((y_near * vy_far) - (y_far * vy_near)) / determinant_y ;
+  y_star_reco =      -((y_near * Ly_far) - (y_far * Ly_near)) / determinant_y ;
+
+  double theta_star_reco = sqrt((theta_x_star_reco*theta_x_star_reco) + (theta_y_star_reco*theta_y_star_reco)) ;
+  double minus_t_GeV2_reco = - beam_momentum_GeV * beam_momentum_GeV * theta_star_reco * theta_star_reco ;
+}
 
 class TProtonPair
 {
@@ -107,14 +149,18 @@ class TProtonPair
 
   TProton p_b1, p_b2 ;
 
-  double x_star ;
-  double y_star ;
-
   double beam_divergence_x_b1 ;
   double beam_divergence_y_b1 ;
 
   double beam_divergence_x_b2 ;
   double beam_divergence_y_b2 ;
+  
+  bool reconstructed ;
+
+  double theta_x_star_reco ;
+  double theta_y_star_reco ;
+  double x_star_reco ;
+  double y_star_reco ;
 
   TProtonPair() ;
   void GenerateParticles() ;
@@ -124,8 +170,8 @@ class TProtonPair
 
 const double vertex_size_m = 200e-6 ;
 
-const double beam_divergence_x_rad = 20e-6 ;
-const double beam_divergence_y_rad = 20e-6 ;
+const double beam_divergence_x_rad = 50e-6 ;
+const double beam_divergence_y_rad = 27e-6 ;
 
 TProtonPair::TProtonPair()
 {
@@ -134,6 +180,8 @@ TProtonPair::TProtonPair()
 
 void TProtonPair::GenerateParticles()
 {
+  reconstructed = false ;
+
   minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
   phi_IP5_rad = gRandom->Uniform(0, PI_TIMES_2) ;    
 
@@ -145,20 +193,31 @@ void TProtonPair::GenerateParticles()
   p_b2.theta_x_star = -(theta_star_rad * cos(phi_IP5_rad)) ;
   p_b2.theta_y_star = -(theta_star_rad * sin(phi_IP5_rad)) ;
 
-  x_star = 0.0 * vertex_size_m * myrand.Gaus() ;
-  y_star = 0.0 * vertex_size_m * myrand.Gaus() ;
+  p_b1.x_star = 1.0 * vertex_size_m * myrand.Gaus() ;
+  p_b1.y_star = 1.0 * vertex_size_m * myrand.Gaus() ;
 
-  beam_divergence_x_b1 = 1.0 * beam_divergence_x_rad * myrand.Gaus() ;
-  beam_divergence_y_b1 = 1.0 * beam_divergence_y_rad * myrand.Gaus() ;
+  p_b2.x_star = p_b1.x_star ;
+  p_b2.y_star = p_b1.y_star ;
+  
+  double factor = 1.0 ;
 
-  beam_divergence_x_b2 = 1.0 * beam_divergence_x_rad * myrand.Gaus() ;
-  beam_divergence_y_b2 = 1.0 * beam_divergence_y_rad * myrand.Gaus() ;
+  beam_divergence_x_b1 = factor * beam_divergence_x_rad * myrand.Gaus() ;
+  beam_divergence_y_b1 = factor * beam_divergence_y_rad * myrand.Gaus() ;
+
+  beam_divergence_x_b2 = factor * beam_divergence_x_rad * myrand.Gaus() ;
+  beam_divergence_y_b2 = factor * beam_divergence_y_rad * myrand.Gaus() ;
 
   p_b1.theta_x_star_pert = p_b1.theta_x_star + beam_divergence_x_b1 ;
   p_b1.theta_y_star_pert = p_b1.theta_y_star + beam_divergence_y_b1 ;
 
   p_b2.theta_x_star_pert = p_b2.theta_x_star + beam_divergence_x_b2 ;
   p_b2.theta_y_star_pert = p_b2.theta_y_star + beam_divergence_y_b2 ;
+  
+  theta_x_star_reco = 0 ;
+  theta_y_star_reco = 0 ;
+  x_star_reco = 0 ;
+  y_star_reco = 0 ;
+  
 }
 
 bool TProtonPair::TestApertures(vector<TAperture *> &vector_apertures) 
@@ -166,9 +225,20 @@ bool TProtonPair::TestApertures(vector<TAperture *> &vector_apertures)
   bool test_p_b1 = TestAperturesOneProton(p_b1, vector_apertures, true) ;
   bool test_p_b2 = TestAperturesOneProton(p_b2, vector_apertures, false) ;
   
-  if(test_p_b2 && !test_p_b1) cout << "ok3" << endl ;
+  if(test_p_b1 && test_p_b2)
+  {
+    p_b1.Reconstruct() ;
+    p_b2.Reconstruct() ;
 
- // cout << endl ;
+    theta_x_star_reco = (p_b1.theta_x_star_reco - p_b2.theta_x_star_reco) / 2.0 ;
+    theta_y_star_reco = (p_b1.theta_y_star_reco - p_b2.theta_y_star_reco) / 2.0 ;
+
+    x_star_reco = (p_b1.x_star_reco + p_b2.x_star_reco) / 2.0 ;
+    y_star_reco = (p_b1.y_star_reco + p_b2.y_star_reco) / 2.0 ;
+    
+    reconstructed = true ;
+  }
+
 }
 
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
@@ -177,8 +247,8 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
 
   for(int j = 0 ; j < vector_apertures.size() ; ++j)
   {
-    double x_pos_meter = ((vector_apertures[j]->Lx * proton.theta_x_star_pert) + (vector_apertures[j]->vx * x_star)) ;
-    double y_pos_meter = ((vector_apertures[j]->Ly * proton.theta_y_star_pert) + (vector_apertures[j]->vy * y_star)) ;
+    double x_pos_meter = ((vector_apertures[j]->Lx * proton.theta_x_star_pert) + (vector_apertures[j]->vx * proton.x_star)) ;
+    double y_pos_meter = ((vector_apertures[j]->Ly * proton.theta_y_star_pert) + (vector_apertures[j]->vy * proton.y_star)) ;
 
     if((fabs(x_pos_meter) < vector_apertures[j]->rectangle_half_width) &&
        (fabs(y_pos_meter) < vector_apertures[j]->rectangle_half_height)  )
@@ -193,8 +263,8 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
       {
         if(save_result)
         {
-          vector_apertures[j]->histogram->Fill(proton.theta_x_star, proton.theta_y_star) ;
-          vector_apertures[j]->histogram_vertex->Fill(x_star, y_star) ;
+          vector_apertures[j]->histogram->Fill(proton.theta_x_star_pert, proton.theta_y_star_pert) ;
+          vector_apertures[j]->histogram_vertex->Fill(proton.x_star, proton.y_star) ;
           vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
           vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
         }
@@ -223,6 +293,9 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   TH1D *histogram_t = new TH1D("histogram_t", "histogram_t", 1000, 0, 10) ;
   TH1D *histogram_phi = new TH1D("histogram_phi", "histogram_phi", 100, 0, 10) ;
 
+  TH2D *histogram_theta_x_star_rad = new TH2D("histogram_theta_x_star_rad", "histogram_theta_x_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
+  TH2D *histogram_theta_x_y_star_rad = new TH2D("histogram_theta_x_y_star_rad", "histogram_theta_x_y_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
+
 
 	for(int i = 0 ; i < 1e6 ; ++i)
 	{
@@ -232,6 +305,12 @@ void test_aperture(vector<TAperture *> &vector_apertures)
     histogram_phi->Fill(pp.phi_IP5_rad) ;
   
     pp.TestApertures(vector_apertures) ;
+    
+    if(pp.reconstructed)
+    {
+      histogram_theta_x_star_rad->Fill(pp.p_b1.theta_x_star, pp.theta_x_star_reco) ;
+      histogram_theta_x_y_star_rad->Fill(pp.p_b1.theta_x_star_reco, pp.theta_y_star_reco) ;
+    }
     
   }
 
@@ -262,6 +341,8 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   
   histogram_t->SaveAs("histogram_t.root") ;
   histogram_phi->SaveAs("histogram_phi.root") ;
+  histogram_theta_x_star_rad->SaveAs("histogram_theta_x_star_rad.root") ;
+  histogram_theta_x_y_star_rad->SaveAs("histogram_theta_x_y_star_rad.root") ;
   
   c.cd() ;
   
@@ -420,12 +501,6 @@ int main()
 
 	TH2D *hist_theta_x_y_star_reco = new TH2D("hist_theta_x_y_star_reco", "hist_theta_x_y_star_reco", 1000, -16.0e-4, 16.0e-4,  1000, -16.0e-4, 16.0e-4) ;
 
-	const double Ly_near = 19.1 ;
-	const double Ly_far  = 17.4 ; 
-
-  const double Lx_near = 8.8228247 ;
-  const double Lx_far  = 5.8873862 ;
-
 	// Best effect
 	const double delta_n = -2.0 * 0.0 ;
 	const double delta_f = -3.0 * 0.0 ;
@@ -438,12 +513,6 @@ int main()
   const double Ly_near_reco = Ly_near + delta_n ;
   const double Ly_far_reco = Ly_far   + delta_f ;
 
-	const double vy_near = 2.47 ;
-	const double vy_far  = 3.13 ;
-  
-  const double vx_near = -3.3797 ;
-  const double vx_far  = -3.0494 ;
-  
   read_apertures() ;
   
   exit(1) ;
