@@ -227,152 +227,152 @@ Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSW.1R5.
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSW.1R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSW.1R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSW.1R5.B1_phi.root has been created
-statistics BPMSW.1R5.B1 995880
+statistics BPMSW.1R5.B1 995899
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.1R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.1R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.1R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.1R5_phi.root has been created
-statistics MQXA.1R5 779883
+statistics MQXA.1R5 779736
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.1R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.1R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.1R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.1R5_phi.root has been created
-statistics MCBXH.1R5 765001
+statistics MCBXH.1R5 765021
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.1R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.1R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.1R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.1R5_phi.root has been created
-statistics MCBXV.1R5 765001
+statistics MCBXV.1R5 765021
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMS.2R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMS.2R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMS.2R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMS.2R5.B1_phi.root has been created
-statistics BPMS.2R5.B1 904029
+statistics BPMS.2R5.B1 904096
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.A2R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.A2R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.A2R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.A2R5_phi.root has been created
-statistics MQXB.A2R5 742490
+statistics MQXB.A2R5 742823
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.2R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.2R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.2R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.2R5_phi.root has been created
-statistics MCBXH.2R5 739506
+statistics MCBXH.2R5 739867
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.2R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.2R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.2R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.2R5_phi.root has been created
-statistics MCBXV.2R5 739506
+statistics MCBXV.2R5 739867
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.B2R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.B2R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.B2R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXB.B2R5_phi.root has been created
-statistics MQXB.B2R5 735217
+statistics MQXB.B2R5 735072
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQSX.3R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQSX.3R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQSX.3R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQSX.3R5_phi.root has been created
-statistics MQSX.3R5 741853
+statistics MQSX.3R5 741784
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.3R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.3R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.3R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQXA.3R5_phi.root has been created
-statistics MQXA.3R5 744827
+statistics MQXA.3R5 744624
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.3R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.3R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.3R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXH.3R5_phi.root has been created
-statistics MCBXH.3R5 745714
+statistics MCBXH.3R5 745488
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.3R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.3R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.3R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBXV.3R5_phi.root has been created
-statistics MCBXV.3R5 745714
+statistics MCBXV.3R5 745488
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSY.4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSY.4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSY.4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMSY.4R5.B1_phi.root has been created
-statistics BPMSY.4R5.B1 938107
+statistics BPMSY.4R5.B1 938128
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.A4R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.A4R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.A4R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.A4R5_phi.root has been created
-statistics MBXW.A4R5 922802
+statistics MBXW.A4R5 922819
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.B4R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.B4R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.B4R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.B4R5_phi.root has been created
-statistics MBXW.B4R5 922987
+statistics MBXW.B4R5 923053
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.C4R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.C4R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.C4R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.C4R5_phi.root has been created
-statistics MBXW.C4R5 923055
+statistics MBXW.C4R5 923122
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.D4R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.D4R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.D4R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.D4R5_phi.root has been created
-statistics MBXW.D4R5 923132
+statistics MBXW.D4R5 923121
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.E4R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.E4R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.E4R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.E4R5_phi.root has been created
-statistics MBXW.E4R5 923050
+statistics MBXW.E4R5 923071
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.F4R5.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.F4R5_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.F4R5_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBXW.F4R5_phi.root has been created
-statistics MBXW.F4R5 922928
+statistics MBXW.F4R5 922930
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWB.4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWB.4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWB.4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWB.4R5.B1_phi.root has been created
-statistics BPMWB.4R5.B1 937337
+statistics BPMWB.4R5.B1 937240
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBRC.4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBRC.4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBRC.4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MBRC.4R5.B1_phi.root has been created
-statistics MBRC.4R5.B1 914155
+statistics MBRC.4R5.B1 914195
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.A4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.A4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.A4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.A4R5.B1_phi.root has been created
-statistics MCBYV.A4R5.B1 880481
+statistics MCBYV.A4R5.B1 880711
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYH.4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYH.4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYH.4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYH.4R5.B1_phi.root has been created
-statistics MCBYH.4R5.B1 880264
+statistics MCBYH.4R5.B1 880477
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.B4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.B4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.B4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBYV.B4R5.B1_phi.root has been created
-statistics MCBYV.B4R5.B1 880025
+statistics MCBYV.B4R5.B1 880237
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQY.4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQY.4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQY.4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQY.4R5.B1_phi.root has been created
-statistics MQY.4R5.B1 890437
+statistics MQY.4R5.B1 890536
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMYA.4R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMYA.4R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMYA.4R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMYA.4R5.B1_phi.root has been created
-statistics BPMYA.4R5.B1 952620
+statistics BPMYA.4R5.B1 952544
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPM.5R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPM.5R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPM.5R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPM.5R5.B1_phi.root has been created
-statistics BPM.5R5.B1 985777
+statistics BPM.5R5.B1 985794
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.5R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.5R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.5R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.5R5.B1_phi.root has been created
-statistics MQML.5R5.B1 967337
+statistics MQML.5R5.B1 967351
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBCH.5R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBCH.5R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBCH.5R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MCBCH.5R5.B1_phi.root has been created
-statistics MCBCH.5R5.B1 968679
+statistics MCBCH.5R5.B1 968637
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWT.A6R5.B1.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWT.A6R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_BPMWT.A6R5.B1_t.root has been created
@@ -412,7 +412,7 @@ Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.6R5.B
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.6R5.B1_vertex.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.6R5.B1_t.root has been created
 Info in <TCanvas::SaveAs>: ROOT file plots/apeture_test/aperture_test_MQML.6R5.B1_phi.root has been created
-statistics MQML.6R5.B1 999500
+statistics MQML.6R5.B1 999486
 Info in <TH1D::SaveAs>: ROOT file histogram_t.root has been created
 Info in <TH1D::SaveAs>: ROOT file histogram_phi.root has been created
 Info in <TCanvas::SaveAs>: ROOT file histogram_t_combined.root has been created

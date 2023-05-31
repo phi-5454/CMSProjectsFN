@@ -80,65 +80,159 @@ class TAperture
   
 } ;
 
+TF1 *t_GeV2_distribution = NULL ;
+TRandom3 myrand ;
+
+class TProton
+{
+  public:
+
+  double theta_x_star ;
+  double theta_y_star ;
+
+  double theta_x_star_pert ;
+  double theta_y_star_pert ;
+
+  TProton() {} ;
+} ;
+
+class TProtonPair
+{
+  public:
+
+  double minus_t_GeV2 ;
+  Double_t phi_IP5_rad ;    
+
+  double theta_star_rad ;
+
+  TProton p_b1, p_b2 ;
+
+  double x_star ;
+  double y_star ;
+
+  double beam_divergence_x_b1 ;
+  double beam_divergence_y_b1 ;
+
+  double beam_divergence_x_b2 ;
+  double beam_divergence_y_b2 ;
+
+  TProtonPair() ;
+  void GenerateParticles() ;
+  bool TestApertures(vector<TAperture *> &) ;
+  bool TestAperturesOneProton(TProton, vector<TAperture *> &, bool) ;
+} ;
+
+const double vertex_size_m = 200e-6 ;
+
+const double beam_divergence_x_rad = 20e-6 ;
+const double beam_divergence_y_rad = 20e-6 ;
+
+TProtonPair::TProtonPair()
+{
+  GenerateParticles() ;
+}
+
+void TProtonPair::GenerateParticles()
+{
+  minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
+  phi_IP5_rad = gRandom->Uniform(0, PI_TIMES_2) ;    
+
+  theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
+
+  p_b1.theta_x_star =  (theta_star_rad * cos(phi_IP5_rad)) ;
+  p_b1.theta_y_star =  (theta_star_rad * sin(phi_IP5_rad)) ;
+
+  p_b2.theta_x_star = -(theta_star_rad * cos(phi_IP5_rad)) ;
+  p_b2.theta_y_star = -(theta_star_rad * sin(phi_IP5_rad)) ;
+
+  x_star = 0.0 * vertex_size_m * myrand.Gaus() ;
+  y_star = 0.0 * vertex_size_m * myrand.Gaus() ;
+
+  beam_divergence_x_b1 = 1.0 * beam_divergence_x_rad * myrand.Gaus() ;
+  beam_divergence_y_b1 = 1.0 * beam_divergence_y_rad * myrand.Gaus() ;
+
+  beam_divergence_x_b2 = 1.0 * beam_divergence_x_rad * myrand.Gaus() ;
+  beam_divergence_y_b2 = 1.0 * beam_divergence_y_rad * myrand.Gaus() ;
+
+  p_b1.theta_x_star_pert = p_b1.theta_x_star + beam_divergence_x_b1 ;
+  p_b1.theta_y_star_pert = p_b1.theta_y_star + beam_divergence_y_b1 ;
+
+  p_b2.theta_x_star_pert = p_b2.theta_x_star + beam_divergence_x_b2 ;
+  p_b2.theta_y_star_pert = p_b2.theta_y_star + beam_divergence_y_b2 ;
+}
+
+bool TProtonPair::TestApertures(vector<TAperture *> &vector_apertures) 
+{
+  bool test_p_b1 = TestAperturesOneProton(p_b1, vector_apertures, true) ;
+  bool test_p_b2 = TestAperturesOneProton(p_b2, vector_apertures, false) ;
+  
+  if(test_p_b2 && !test_p_b1) cout << "ok3" << endl ;
+
+ // cout << endl ;
+}
+
+bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
+{
+  bool test = true ;
+
+  for(int j = 0 ; j < vector_apertures.size() ; ++j)
+  {
+    double x_pos_meter = ((vector_apertures[j]->Lx * proton.theta_x_star_pert) + (vector_apertures[j]->vx * x_star)) ;
+    double y_pos_meter = ((vector_apertures[j]->Ly * proton.theta_y_star_pert) + (vector_apertures[j]->vy * y_star)) ;
+
+    if((fabs(x_pos_meter) < vector_apertures[j]->rectangle_half_width) &&
+       (fabs(y_pos_meter) < vector_apertures[j]->rectangle_half_height)  )
+    {
+      // ((x/A)^2) + ((y/B)^2) == 1
+
+      double x_scaled =  (x_pos_meter / vector_apertures[j]->ellipse_semi_axis_hor) ;
+
+      double y_scaled = sqrt(1 - (x_scaled*x_scaled)) * vector_apertures[j]->ellipse_semi_axis_ver ;
+
+      if(fabs(y_pos_meter) < y_scaled)
+      {
+        if(save_result)
+        {
+          vector_apertures[j]->histogram->Fill(proton.theta_x_star, proton.theta_y_star) ;
+          vector_apertures[j]->histogram_vertex->Fill(x_star, y_star) ;
+          vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
+          vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
+        }
+      }
+      else
+      {
+        test = false ;
+      }
+    }
+    else
+    {
+      test = false ;
+    }
+  }
+  
+  return test ;
+}
+
 void test_aperture(vector<TAperture *> &vector_apertures)
 {
 
-	TF1 *t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
+
   t_GeV2_distribution->SetParameters(Constant, Slope) ;
   t_GeV2_distribution->SetNpx(100000) ;
   
   TH1D *histogram_t = new TH1D("histogram_t", "histogram_t", 1000, 0, 10) ;
   TH1D *histogram_phi = new TH1D("histogram_phi", "histogram_phi", 100, 0, 10) ;
 
-	TRandom3 rand ;
-  
+
 	for(int i = 0 ; i < 1e6 ; ++i)
 	{
-
-    const double minus_t_GeV2 = t_GeV2_distribution->GetRandom() ;
-    const Double_t phi_IP5_rad = gRandom->Uniform(0, PI_TIMES_2) ;    
-    
-    histogram_t->Fill(minus_t_GeV2) ;
-    histogram_phi->Fill(phi_IP5_rad) ;
+    TProtonPair pp ;
+   
+    histogram_t->Fill(pp.minus_t_GeV2) ;
+    histogram_phi->Fill(pp.phi_IP5_rad) ;
   
-    double theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
-
-    double theta_x_star = (theta_star_rad * cos(phi_IP5_rad)) ;
-    double theta_y_star = (theta_star_rad * sin(phi_IP5_rad)) ;
-    // cout << theta_x_star << endl ;
-  
-	  double x_star = 0.0 * 200e-6 * rand.Gaus() ;
-	  double y_star = 0.0 * 200e-6 * rand.Gaus() ;
-
-		double beam_divergence_x = 1.0 * 20e-6 * rand.Gaus() ;
-		double beam_divergence_y = 1.0 * 20e-6 * rand.Gaus() ;
-		
-		double theta_x_star_pert = theta_x_star + beam_divergence_x ;
-		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
+    pp.TestApertures(vector_apertures) ;
     
-    for(int j = 0 ; j < vector_apertures.size() ; ++j)
-    {
-      double x_pos_meter = ((vector_apertures[j]->Lx * theta_x_star_pert) + (vector_apertures[j]->vx * x_star)) ;
-      double y_pos_meter = ((vector_apertures[j]->Ly * theta_y_star_pert) + (vector_apertures[j]->vy * y_star)) ;
-      
-      if((fabs(x_pos_meter) < vector_apertures[j]->rectangle_half_width) &&
-         (fabs(y_pos_meter) < vector_apertures[j]->rectangle_half_height)  )
-      {
-        // ((x/A)^2) + ((y/B)^2) == 1
-        
-        double x_scaled =  (x_pos_meter / vector_apertures[j]->ellipse_semi_axis_hor) ;
-        
-        double y_scaled = sqrt(1-x_scaled*x_scaled) * vector_apertures[j]->ellipse_semi_axis_ver ;
-        
-        if(fabs(y_pos_meter) < y_scaled)
-        {
-          vector_apertures[j]->histogram->Fill(theta_x_star_pert, theta_y_star_pert) ;
-          vector_apertures[j]->histogram_vertex->Fill(x_star, y_star) ;
-          vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
-          vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
-        }
-      }
-    }
   }
 
 	gStyle->SetPadGridX(kTRUE);
@@ -298,6 +392,8 @@ void read_apertures()
 int main()
 {
 
+  t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
+
   // gStyle->SetOptStat(0) ;
   // gStyle->SetOptFit(1111) ;
 
@@ -323,8 +419,6 @@ int main()
 	TH2D *hist_compare_x_star = new TH2D("hist_compare_x_star", "hist_compare_x_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
 
 	TH2D *hist_theta_x_y_star_reco = new TH2D("hist_theta_x_y_star_reco", "hist_theta_x_y_star_reco", 1000, -16.0e-4, 16.0e-4,  1000, -16.0e-4, 16.0e-4) ;
-
-	TRandom3 rand ;
 
 	const double Ly_near = 19.1 ;
 	const double Ly_far  = 17.4 ; 
@@ -365,11 +459,11 @@ int main()
     double theta_x_star = (theta_star_rad * cos(phi_IP5_rad)) ;
     double theta_y_star = (theta_star_rad * sin(phi_IP5_rad)) ;
   
-	  double y_star = 1.0 * 200e-6 * rand.Gaus() ;
-	  double x_star = 1.0 * 200e-6 * rand.Gaus() ;
+	  double y_star = 1.0 * 200e-6 * myrand.Gaus() ;
+	  double x_star = 1.0 * 200e-6 * myrand.Gaus() ;
 
-		double beam_divergence_x = 0.0 * 20e-6 * rand.Gaus() ;
-		double beam_divergence_y = 0.0 * 20e-6 * rand.Gaus() ;
+		double beam_divergence_x = 0.0 * 20e-6 * myrand.Gaus() ;
+		double beam_divergence_y = 0.0 * 20e-6 * myrand.Gaus() ;
 		
 		double theta_x_star_pert = theta_x_star + beam_divergence_x ;
 		double theta_y_star_pert = theta_y_star + beam_divergence_y ;
