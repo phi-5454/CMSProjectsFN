@@ -41,6 +41,8 @@ const double vy_far  = 3.13 ;
 const double vx_near = -3.3797 ;
 const double vx_far  = -3.0494 ;
 
+const double beam_size_XRPV_D6R5_B1_m = 9.336356565323156e-04 ;
+const double beam_size_XRPV_B6R5_B1_m = 9.944974273364598e-04 ;
 
 Double_t my_exponential_distribution(Double_t *x, Double_t *par)
 {
