@@ -41,8 +41,10 @@ const double vy_far  = 3.13 ;
 const double vx_near = -3.3797 ;
 const double vx_far  = -3.0494 ;
 
-const double beam_size_XRPV_D6R5_B1_m = 9.336356565323156e-04 ;
-const double beam_size_XRPV_B6R5_B1_m = 9.944974273364598e-04 ;
+const string RP_near_name = "XRPV.D6R5.B1" ;
+const string RP_far_name  = "XRPV.B6R5.B1" ;
+
+const double n_sigma = 3.0 ;
 
 Double_t my_exponential_distribution(Double_t *x, Double_t *par)
 {
@@ -76,15 +78,16 @@ class TAperture
   TH1D *histogram_t ;
   TH1D *histogram_phi ;
 
-  double rectangle_half_width = 0 ;
-  double rectangle_half_height = 0 ;
-  double ellipse_semi_axis_hor = 0 ;
-  double ellipse_semi_axis_ver = 0 ;
+  double rectangle_half_width ;
+  double rectangle_half_height ;
+  double ellipse_semi_axis_hor ;
+  double ellipse_semi_axis_ver ;
+  double edge ;
   
   double Lx, Ly, vx, vy ;
   
-  TAperture(string name, double Lx, double Ly, double vx, double vy, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver):
-  name(name), Lx(Lx), Ly(Ly), vx(vx), vy(vy), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver)
+  TAperture(string name, double Lx, double Ly, double vx, double vy, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver, double edge):
+  name(name), Lx(Lx), Ly(Ly), vx(vx), vy(vy), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver), edge(edge)
   {
     histogram = new TH2D(name.c_str(), name.c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
     histogram_vertex = new TH2D((name + "_vertex").c_str(), (name + "_vertex").c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
@@ -195,14 +198,15 @@ void TProtonPair::GenerateParticles()
   p_b2.theta_x_star = -(theta_star_rad * cos(phi_IP5_rad)) ;
   p_b2.theta_y_star = -(theta_star_rad * sin(phi_IP5_rad)) ;
 
-  p_b1.x_star = 1.0 * vertex_size_m * myrand.Gaus() ;
-  p_b1.y_star = 1.0 * vertex_size_m * myrand.Gaus() ;
+  double factor = 1.0 ;
+  double factor_vtx = 1.0 ;
+
+  p_b1.x_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
+  p_b1.y_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
 
   p_b2.x_star = p_b1.x_star ;
   p_b2.y_star = p_b1.y_star ;
   
-  double factor = 1.0 ;
-
   beam_divergence_x_b1 = factor * beam_divergence_x_rad * myrand.Gaus() ;
   beam_divergence_y_b1 = factor * beam_divergence_y_rad * myrand.Gaus() ;
 
@@ -263,13 +267,21 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
 
       if(fabs(y_pos_meter) < y_scaled)
       {
-        if(save_result)
+        if((vector_apertures[j]->edge == 0) || (fabs(y_pos_meter) > vector_apertures[j]->edge))
         {
-          vector_apertures[j]->histogram->Fill(proton.theta_x_star_pert, proton.theta_y_star_pert) ;
-          vector_apertures[j]->histogram_vertex->Fill(proton.x_star, proton.y_star) ;
-          vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
-          vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
+          if(save_result)
+          {
+            vector_apertures[j]->histogram->Fill(proton.theta_x_star_pert, proton.theta_y_star_pert) ;
+            vector_apertures[j]->histogram_vertex->Fill(proton.x_star, proton.y_star) ;
+            vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
+            vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
+          }
         }
+        else
+        {
+          test = false ;
+        }
+
       }
       else
       {
@@ -370,8 +382,11 @@ void read_apertures()
   double ellipse_semi_axis_hor = 0 ;
   double ellipse_semi_axis_ver = 0 ;
   
+  double edge = 0 ;
+  
   const int RE12_position = 13 ;
   const int RE34_position = 23 ;
+  const int BSY_position =  29 ;
 
   const double LARGE_VALUE = 1e99 ;
 
@@ -410,9 +425,11 @@ void read_apertures()
         double vx = 0 ;
         double vy = 0 ;
 
+        double bsy = 0 ;
+
         double value = 0 ;
         
-        for(int i = 0 ; i < 24 ; ++i)
+        for(int i = 0 ; i < 29 ; ++i)
         {
           optics_file >> value ;
           // cout << value << " " ;
@@ -422,11 +439,22 @@ void read_apertures()
 
           if(i == (RE12_position - 2)) vx = value ;
           if(i == (RE34_position - 2)) vy = value ;
+          
+          if(i == (BSY_position - 1))
+          {
+            bsy = value ;
+          
+            if((name.compare(RP_near_name) == 0) || (name.compare(RP_far_name) == 0))
+            {
+              edge = n_sigma * bsy ;
+              cout << "megvanedge " << name << " " << edge << " " << endl ;
+            }
+          }
         }
         
         // cout << name << "     " << Lx  << " " << Ly << endl ;
         
-        TAperture *aperture = new TAperture(name, Lx, Ly, vx, vy, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver) ;
+        TAperture *aperture = new TAperture(name, Lx, Ly, vx, vy, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver, edge) ;
         vector_apertures.push_back(aperture) ;
         
         double theta_x_star_limit_due_rectangle_half_width = (rectangle_half_width / Lx) ;
@@ -501,7 +529,7 @@ int main()
 	TH2D *hist_compare_theta_x_star = new TH2D("hist_compare_theta_x_star", "hist_compare_theta_x_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
 	TH2D *hist_compare_x_star = new TH2D("hist_compare_x_star", "hist_compare_x_star", 100, -16.0e-4, 16.0e-4,  100, -16.0e-4, 16.0e-4) ;
 
-	TH2D *hist_theta_x_y_star_reco = new TH2D("hist_theta_x_y_star_reco", "hist_theta_x_y_star_reco", 1000, -16.0e-4, 16.0e-4,  1000, -16.0e-4, 16.0e-4) ;
+	TH2D *hist_theta_x_y_star_reco = new TH2D("hist_theta_x_y_star_reco", "hist_theta_x_y_star_reco", 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
 
 	// Best effect
 	const double delta_n = -2.0 * 0.0 ;
