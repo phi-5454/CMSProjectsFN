@@ -500,8 +500,60 @@ void read_apertures()
   test_aperture(vector_apertures) ;
 }
 
+void plot_contour()
+{
+  string contour_45b_56t_L = "[[-200e-6, 550e-6], [-500e-6, 500e-6], [-560e-6, 220e-6], [-400e-6, 170e-6], [+200e-6, 170e-6], [+440e-6, 260e-6], [+370e-6, 500e-6], [+340e-6, 550e-6]]" ;
+  string contour_45t_56b_L = "[[-200e-6, 170e-6], [+400e-6, 170e-6], [+520e-6, 200e-6], [+400e-6, 480e-6], [-430e-6, 480e-6], [-550e-6, 400e-6], [-600e-6, 200e-6]]" ;
+  
+  ifstream mycontours("data/contours_of_Jan/contours.txt") ;
+  string word ;
+  string contour_name, an_equal_sign ;
+  double x_coord, y_coord ;
+  string x_coord_str, y_coord_str ;
+  
+  mycontours >> contour_name ;
+  mycontours >> an_equal_sign ;
+
+  TGraph *graph = new TGraph() ;
+  
+  string output_string = "" ;
+  
+  while(mycontours >> x_coord >> y_coord)
+  {
+    graph->AddPoint(x_coord, y_coord) ;
+  }
+
+  mycontours.close() ;
+  mycontours.open("data/contours_of_Jan/contours.txt") ;
+
+  mycontours >> contour_name ;
+  mycontours >> an_equal_sign ;
+
+  while(mycontours >> x_coord_str >> y_coord_str)
+  {
+    output_string += "[" + x_coord_str + ", " + y_coord_str + "], " ;
+  }
+  
+  mycontours.close() ;
+  
+  cout << "[" << output_string << "]" << endl ;
+  
+  TCanvas c ;
+  
+  graph->Draw("alp") ;
+  graph->SetMarkerStyle(20) ;
+  graph->SaveAs("plots/contour.root") ;
+  c.SaveAs("plots/contour.pdf") ;
+
+}
+
 int main()
 {
+
+  plot_contour() ;
+  
+  exit(1) ;
+
 
   t_GeV2_distribution = new TF1("t_GeV2_distribution", my_exponential_distribution, 0.0, 7.0, 2) ;
 
