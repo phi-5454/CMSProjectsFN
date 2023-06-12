@@ -1,0 +1,20 @@
+
+<include>	Projects/Include/Variable_descriptions.prj
+<include>	Projects/Include/Plots/Plot_descriptions.prj
+<include>	Projects/Include/Plots/All.prj
+	
+<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Main_settings/Main_settings.prj
+<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Plots/Plots.prj
+
+<begin_if_setting>	Fill_number		7301
+	<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Cuts/Fill_7301/Cuts_test_left_bottom_right_top_4_sigma.prj
+<end_if_setting>
+
+<parameter>	ReducedBinaryDataset	2.0
+
+<setting>       binning_file_name               /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Binning_scenarios/Binning_scenario_1.txt
+
+<setting>	Input_directory         root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/
+
+<setting>	analysed_diagonal   	DIAGONAL_LEFT_BOTTOM_RIGHT_TOP
+
