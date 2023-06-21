@@ -27,6 +27,8 @@ using namespace std;
 #include "TStyle.h"
 #include "TFitResult.h"
 
+#include "/afs/cern.ch/work/f/fnemes/main_workspace/2023/Elastic_analysis/E_CM_900_GeV_beta_star_100_m/CMSSW_10_6_17/src/ElasticAnalysis/ElasticAnalyzer/interface/ElasticAnalyzer.h"
+
 #include <iomanip>
 
 const double Ly_near = 19.1 ;
@@ -95,8 +97,28 @@ class TAperture
     histogram_phi = new TH1D((name + "_phi").c_str(), (name + "_phi").c_str(), 100, 0, 10) ;
   }
   
-  
+  int getrpDecId(double) ;
 } ;
+
+int TAperture::getrpDecId(double y)
+{
+  int value = 0 ;
+
+  if(name.compare("XRPH.D6R5.B1") == 0) value = 103 ;
+  else if(name.compare("XRPH.B6R5.B1") == 0) value = 123 ;
+  else if(name.compare("XRPV.D6R5.B1") == 0)
+  {
+    value = (y > 0) ? 104 : 105 ;
+  }
+  else if(name.compare("XRPV.B6R5.B1") == 0)
+  {
+    value = (y > 0) ? 124 : 125 ;
+  }
+  
+  // if(value != 0) cout << "valuetest " << value << endl ;
+
+  return value ;
+}
 
 TF1 *t_GeV2_distribution = NULL ;
 TRandom3 myrand ;
@@ -171,6 +193,8 @@ class TProtonPair
   void GenerateParticles() ;
   bool TestApertures(vector<TAperture *> &) ;
   bool TestAperturesOneProton(TProton, vector<TAperture *> &, bool) ;
+  
+  virtual void TestDetectorPair(map<unsigned int, RP_struct_type>::iterator, map<unsigned int, RP_struct_type>::iterator, unsigned int, unsigned int) ;  
 } ;
 
 const double vertex_size_m = 200e-6 ;
@@ -247,10 +271,48 @@ bool TProtonPair::TestApertures(vector<TAperture *> &vector_apertures)
 
 }
 
+const double dx_threshold_between_vertical_and_horizontal_mm = 0.2 ;
+
+void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator it1, map<unsigned int, RP_struct_type>::iterator it2, unsigned int detector_1, unsigned int detector_2)
+{
+  if((it1->first == detector_1) && (it2->first == detector_2))
+  {
+    stringstream ss_1 ;
+    stringstream ss_2 ;
+
+    ss_1 << it1->first ;
+    ss_2 << it2->first ;
+
+    string key_for_coords = ss_1.str() + "_" + ss_2.str() ;
+
+    string name_x = "dx_" + ss_1.str() + "_" + ss_2.str() ;
+    string name_y = "dy_" + ss_1.str() + "_" + ss_2.str() ;
+    
+    // cout << name_x << " " << name_y << endl ;
+
+    if((fabs(it2->second.x - it1->second.x) < dx_threshold_between_vertical_and_horizontal_mm) && (fabs(it2->second.y - it1->second.y) < dx_threshold_between_vertical_and_horizontal_mm))
+    {
+
+      map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(it1->second.x, it1->second.y, it2->second.x, it2->second.y)) ;
+      
+      // cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
+
+      string name_x2 = "xy_" + ss_1.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
+      string name_y2 = "xy_" + ss_2.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
+
+      // cout << name_x2 << " " << name_y2 << endl ;
+
+    }
+  }
+}
+
+
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
 {
   bool test = true ;
 
+  map<unsigned int, RP_struct_type> map_RPs ;
+ 
   for(int j = 0 ; j < vector_apertures.size() ; ++j)
   {
     double x_pos_meter = ((vector_apertures[j]->Lx * proton.theta_x_star_pert) + (vector_apertures[j]->vx * proton.x_star)) ;
@@ -275,6 +337,18 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
             vector_apertures[j]->histogram_vertex->Fill(proton.x_star, proton.y_star) ;
             vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
             vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
+
+            RP_struct_type my_RP_struct ;
+            
+            my_RP_struct.validity = kTRUE ;
+            my_RP_struct.rpDecId = vector_apertures[j]->getrpDecId(y_pos_meter) ;
+            my_RP_struct.x = x_pos_meter ;
+            my_RP_struct.y = y_pos_meter ;
+            my_RP_struct.thx = 0 ;
+            my_RP_struct.thy = 0 ;
+    
+            map_RPs[my_RP_struct.rpDecId] = my_RP_struct ;
+            
           }
         }
         else
@@ -294,7 +368,52 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
     }
   }
   
+  for(map<unsigned int, RP_struct_type>::iterator it = map_RPs.begin() ; it != map_RPs.end() ; ++it)
+  for(map<unsigned int, RP_struct_type>::iterator it2 = it ; it2 != map_RPs.end() ; ++it2)
+  {
+    if(it == it2) continue ;
+  
+    TestDetectorPair(it, it2, 3, 4) ;
+    TestDetectorPair(it, it2, 3, 5) ;
+
+    TestDetectorPair(it, it2, 23, 24) ;
+    TestDetectorPair(it, it2, 23, 25) ;
+
+    TestDetectorPair(it, it2, 103, 104) ;
+    TestDetectorPair(it, it2, 103, 105) ;
+
+    TestDetectorPair(it, it2, 123, 124) ;
+    TestDetectorPair(it, it2, 123, 125) ;
+  }
+  
+  
   return test ;
+}
+
+void MinimizeHorizontalVerticalPair(vector<THorizontal_and_vertical_xy_pairs_to_match *> &vector_of_corrd)
+{
+  points = &vector_of_corrd ;
+
+  MinuitFit() ;
+}
+
+void Minimize()
+{
+  for(map<string, vector<THorizontal_and_vertical_xy_pairs_to_match *>>:: iterator it = map_of_THorizontal_and_vertical_xy_pairs_to_match.begin() ; it != map_of_THorizontal_and_vertical_xy_pairs_to_match.end() ; ++it)
+  {
+    cout << endl << endl << "################" << it->first << " " << it->second.size() << endl ;
+
+    actual_detector_combination = it->first ;
+    string name_of_hist = "chi2_contribution_" + actual_detector_combination ;
+    map_of_hists[actual_detector_combination] = new TH1F(name_of_hist.c_str(), name_of_hist.c_str(), 1000, 0, 100) ;
+
+    MinimizeHorizontalVerticalPair(it->second) ;
+    
+    test_hist_ver->SaveAs("test_hist_ver.root") ;
+    test_hist_hor->SaveAs("test_hist_hor.root") ;
+
+  }
+  
 }
 
 void test_aperture(vector<TAperture *> &vector_apertures)
@@ -327,6 +446,10 @@ void test_aperture(vector<TAperture *> &vector_apertures)
     }
     
   }
+  
+  cout << "######### Minimize start" << endl ;
+  Minimize() ;
+  cout << "######### Minimize end" << endl ;
 
 	gStyle->SetPadGridX(kTRUE);
 	gStyle->SetPadGridY(kTRUE);
