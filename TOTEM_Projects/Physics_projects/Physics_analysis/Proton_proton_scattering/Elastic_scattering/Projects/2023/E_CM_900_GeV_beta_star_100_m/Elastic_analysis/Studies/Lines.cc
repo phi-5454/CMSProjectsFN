@@ -31,12 +31,14 @@ using namespace std;
 
 int main()
 {
+	gStyle->SetLineScalePS(.3);
 	TH2F *histo = new TH2F("histo", "histo", 100, -20, 20, 100, -20, 20) ;
 
 	string header ;
 	string name ;
 
 	double hor_x, hor_y,  ver_x,  ver_y ;
+	double prev_hor_x, prev_hor_y,  prev_ver_x,  prev_ver_y ;
 
 	ifstream myfile("lola.txt") ;
 	
@@ -48,7 +50,10 @@ int main()
 	histo->Draw("colz") ;
 	
 	int number_of_points = 0 ;
-
+	int color_index = 0 ;
+	
+	bool test_correlation = true ;
+	
 	while(myfile >> header >> name >> hor_x >> hor_y >> ver_x >> ver_y)
 	{
 		if(name.compare("123_124") == 0)
@@ -56,13 +61,33 @@ int main()
 			histo->Fill(hor_x, hor_y) ;
 			histo->Fill(ver_x + a, ver_y + b) ;
 			
-			TLine *line = new TLine(hor_x, hor_y, ver_x + a, ver_y + b) ;
+			TLine *line = NULL ;
 			
-			if((number_of_points % 10) == 0) line->Draw("same") ;
+			if(!test_correlation) line = new TLine(hor_x, hor_y, ver_x + a, ver_y + b) ;
+			else
+			 line = new TLine(hor_x, hor_y, prev_ver_x + a, prev_ver_y + b) ;
+			
+			if((number_of_points % 20) == 0)
+			{
+				++color_index;
+				line->Draw("same") ;
+				line->SetLineColor(color_index % 20) ;
+			}		
 			
 			++number_of_points ;
+
+			prev_hor_x = hor_x ;
+			prev_hor_y = hor_y ;
+			prev_ver_x = ver_x ;
+			prev_ver_y = ver_y ;
 		}
+
 	}
+
+	string hist_name = "histo" ; 
 	
-	c.SaveAs("histo.root") ;
+	if(test_correlation) hist_name += "_test" ;
+
+	c.SaveAs((hist_name + ".root").c_str()) ;
+	c.SaveAs((hist_name + ".pdf").c_str()) ;
 }	
