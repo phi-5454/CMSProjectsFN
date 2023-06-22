@@ -289,13 +289,34 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     string name_y = "dy_" + ss_1.str() + "_" + ss_2.str() ;
     
     // cout << name_x << " " << name_y << endl ;
+    
+    const bool idealized_case = true ; // comparing the exact same coordinate with some offsets
 
     if((fabs(it2->second.x - it1->second.x) < dx_threshold_between_vertical_and_horizontal_mm) && (fabs(it2->second.y - it1->second.y) < dx_threshold_between_vertical_and_horizontal_mm))
     {
+    
+      double pert_alpha = 2.0e-2 ;
+      double pert_a = 2.0 ;
+      double pert_b = 1.0 ;
 
-      map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(it1->second.x, it1->second.y, it2->second.x, it2->second.y)) ;
+      double pert_hor_x = 0.0 ;
+      double pert_hor_y = 0.0 ;
+
+      if(idealized_case)
+      {
+        pert_hor_x = (cos(pert_alpha) * it2->second.x) - (sin(pert_alpha) * it2->second.y) + pert_a ;
+        pert_hor_y = (sin(pert_alpha) * it2->second.x) + (cos(pert_alpha) * it2->second.y) + pert_b ;
+      }
+      else
+      {
+        pert_hor_x = (cos(pert_alpha) * it1->second.x) - (sin(pert_alpha) * it1->second.y) + pert_a ;
+        pert_hor_y = (sin(pert_alpha) * it1->second.x) + (cos(pert_alpha) * it1->second.y) + pert_b ;
+      }
+
+      map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
       
       // cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
+      cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
 
       string name_x2 = "xy_" + ss_1.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
       string name_y2 = "xy_" + ss_2.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
@@ -430,7 +451,7 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   TH2D *histogram_theta_x_y_star_rad = new TH2D("histogram_theta_x_y_star_rad", "histogram_theta_x_y_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
 
 
-	for(int i = 0 ; i < 1e6 ; ++i)
+	for(int i = 0 ; i < 1e4 ; ++i)
 	{
     TProtonPair pp ;
    
@@ -672,6 +693,8 @@ void plot_contour()
 
 int main()
 {
+  gErrorIgnoreLevel = 6001 ;
+
   const int main_scenario_plot_fiducial_cuts = 1 ;
   const int main_scenario_plot_apertures = 2 ;
   const int main_scenario_optics_test = 3 ;
