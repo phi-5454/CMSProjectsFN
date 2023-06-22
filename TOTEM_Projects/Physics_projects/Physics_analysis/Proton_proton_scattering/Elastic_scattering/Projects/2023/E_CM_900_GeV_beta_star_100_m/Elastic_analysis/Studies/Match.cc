@@ -46,6 +46,9 @@ const double vx_far  = -3.0494 ;
 const string RP_near_name = "XRPV.D6R5.B1" ;
 const string RP_far_name  = "XRPV.B6R5.B1" ;
 
+const string RP_near_hor_name = "XRPH.D6R5.B1" ;
+const string RP_far_hor_name  = "XRPH.B6R5.B1" ;
+
 const double n_sigma = 3.0 ;
 
 Double_t my_exponential_distribution(Double_t *x, Double_t *par)
@@ -77,6 +80,7 @@ class TAperture
   string name ;
   TH2D *histogram ;
   TH2D *histogram_vertex ;
+  TH2D *histogram_x_y_mm ;
   TH1D *histogram_t ;
   TH1D *histogram_phi ;
 
@@ -85,16 +89,19 @@ class TAperture
   double ellipse_semi_axis_hor ;
   double ellipse_semi_axis_ver ;
   double edge ;
+  double hedge ;
   
   double Lx, Ly, vx, vy ;
   
-  TAperture(string name, double Lx, double Ly, double vx, double vy, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver, double edge):
-  name(name), Lx(Lx), Ly(Ly), vx(vx), vy(vy), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver), edge(edge)
+  TAperture(string name, double Lx, double Ly, double vx, double vy, double rectangle_half_width, double rectangle_half_height, double ellipse_semi_axis_hor, double ellipse_semi_axis_ver, double edge, double hedge):
+  name(name), Lx(Lx), Ly(Ly), vx(vx), vy(vy), rectangle_half_width(rectangle_half_width), rectangle_half_height(rectangle_half_height), ellipse_semi_axis_hor(ellipse_semi_axis_hor), ellipse_semi_axis_ver(ellipse_semi_axis_ver), edge(edge), hedge(hedge)
   {
     histogram = new TH2D(name.c_str(), name.c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
     histogram_vertex = new TH2D((name + "_vertex").c_str(), (name + "_vertex").c_str(), 100, -1000e-6, 1000e-6, 100, -1000e-6, 1000e-6) ;
     histogram_t = new TH1D((name + "_t").c_str(), (name + "_t").c_str(), 1000, 0, 10) ;
     histogram_phi = new TH1D((name + "_phi").c_str(), (name + "_phi").c_str(), 100, 0, 10) ;
+
+    histogram_x_y_mm = new TH2D("histogram_x_y_mm", "histogram_x_y_mm", 100, -1e-2, 1e-2,  100, -1e-2, 1e-2) ;
   }
   
   int getrpDecId(double) ;
@@ -290,33 +297,33 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     
     // cout << name_x << " " << name_y << endl ;
     
-    const bool idealized_case = true ; // comparing the exact same coordinate with some offsets
+    const bool idealized_case = false ; // comparing the exact same coordinate with some offsets
 
     if((fabs(it2->second.x - it1->second.x) < dx_threshold_between_vertical_and_horizontal_mm) && (fabs(it2->second.y - it1->second.y) < dx_threshold_between_vertical_and_horizontal_mm))
     {
     
-      double pert_alpha = 2.0e-2 ;
-      double pert_a = 2.0 ;
-      double pert_b = 1.0 ;
+      double pert_alpha_rad = 2.0e-2 ;
+      double pert_a_mm = 2.0 ;
+      double pert_b_mm = 1.0 ;
 
       double pert_hor_x = 0.0 ;
       double pert_hor_y = 0.0 ;
 
       if(idealized_case)
       {
-        pert_hor_x = (cos(pert_alpha) * it2->second.x) - (sin(pert_alpha) * it2->second.y) + pert_a ;
-        pert_hor_y = (sin(pert_alpha) * it2->second.x) + (cos(pert_alpha) * it2->second.y) + pert_b ;
+        pert_hor_x = (cos(pert_alpha_rad) * it2->second.x) - (sin(pert_alpha_rad) * it2->second.y) + pert_a_mm ;
+        pert_hor_y = (sin(pert_alpha_rad) * it2->second.x) + (cos(pert_alpha_rad) * it2->second.y) + pert_b_mm ;
       }
       else
       {
-        pert_hor_x = (cos(pert_alpha) * it1->second.x) - (sin(pert_alpha) * it1->second.y) + pert_a ;
-        pert_hor_y = (sin(pert_alpha) * it1->second.x) + (cos(pert_alpha) * it1->second.y) + pert_b ;
+        pert_hor_x = (cos(pert_alpha_rad) * it1->second.x) - (sin(pert_alpha_rad) * it1->second.y) + pert_a_mm ;
+        pert_hor_y = (sin(pert_alpha_rad) * it1->second.x) + (cos(pert_alpha_rad) * it1->second.y) + pert_b_mm ;
       }
 
-      map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
+      if(it2->second.x > 4) map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
       
-      // cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
-      cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
+      if(it2->second.x > 4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
+      // cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
 
       string name_x2 = "xy_" + ss_1.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
       string name_y2 = "xy_" + ss_2.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
@@ -331,6 +338,8 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
 {
   bool test = true ;
+  bool test_positivity = true ;
+  bool test_horizontals = false ;
 
   map<unsigned int, RP_struct_type> map_RPs ;
  
@@ -350,7 +359,9 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
 
       if(fabs(y_pos_meter) < y_scaled)
       {
+        // if(!test_positivity || (test_positivity && (y_pos_meter > 0)))
         if((vector_apertures[j]->edge == 0) || (fabs(y_pos_meter) > vector_apertures[j]->edge))
+        //if(!test_horizontals || (test_horizontals && ((vector_apertures[j]->hedge == 0) || (x_pos_meter > vector_apertures[j]->hedge))))
         {
           if(save_result)
           {
@@ -358,13 +369,14 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
             vector_apertures[j]->histogram_vertex->Fill(proton.x_star, proton.y_star) ;
             vector_apertures[j]->histogram_t->Fill(minus_t_GeV2) ;
             vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
+            vector_apertures[j]->histogram_x_y_mm->Fill(x_pos_meter, y_pos_meter) ;
 
             RP_struct_type my_RP_struct ;
             
             my_RP_struct.validity = kTRUE ;
             my_RP_struct.rpDecId = vector_apertures[j]->getrpDecId(y_pos_meter) ;
-            my_RP_struct.x = x_pos_meter ;
-            my_RP_struct.y = y_pos_meter ;
+            my_RP_struct.x = x_pos_meter * 1e3 ;
+            my_RP_struct.y = y_pos_meter * 1e3 ;
             my_RP_struct.thx = 0 ;
             my_RP_struct.thy = 0 ;
     
@@ -451,7 +463,8 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   TH2D *histogram_theta_x_y_star_rad = new TH2D("histogram_theta_x_y_star_rad", "histogram_theta_x_y_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
 
 
-	for(int i = 0 ; i < 1e4 ; ++i)
+	// for(int i = 0 ; i < 1e4 ; ++i)
+	for(int i = 0 ; i < 16e4 ; ++i)
 	{
     TProtonPair pp ;
    
@@ -493,6 +506,9 @@ void test_aperture(vector<TAperture *> &vector_apertures)
 
     vector_apertures[j]->histogram_phi->Draw("") ;
     c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_phi.root").c_str()) ;
+
+    vector_apertures[j]->histogram_x_y_mm->Draw("colz") ;
+    c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_x_y.root").c_str()) ;
     
     cout << "statistics " << vector_apertures[j]->name << " " << vector_apertures[j]->histogram->GetEntries() << endl ;
   }
@@ -527,6 +543,7 @@ void read_apertures()
   double ellipse_semi_axis_ver = 0 ;
   
   double edge = 0 ;
+  double hedge = 0 ;
   
   const int RE12_position = 13 ;
   const int RE34_position = 23 ;
@@ -593,12 +610,18 @@ void read_apertures()
               edge = n_sigma * bsy ;
               cout << "megvanedge " << name << " " << edge << " " << endl ;
             }
+
+            if((name.compare(RP_near_hor_name) == 0) || (name.compare(RP_far_hor_name) == 0))
+            {
+              hedge = n_sigma * bsy ;
+              cout << "megvanedge " << name << " " << edge << " " << endl ;
+            }
           }
         }
         
         // cout << name << "     " << Lx  << " " << Ly << endl ;
         
-        TAperture *aperture = new TAperture(name, Lx, Ly, vx, vy, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver, edge) ;
+        TAperture *aperture = new TAperture(name, Lx, Ly, vx, vy, rectangle_half_width, rectangle_half_height,  ellipse_semi_axis_hor, ellipse_semi_axis_ver, edge, hedge) ;
         vector_apertures.push_back(aperture) ;
         
         double theta_x_star_limit_due_rectangle_half_width = (rectangle_half_width / Lx) ;
