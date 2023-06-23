@@ -295,6 +295,8 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     string key_for_coords = ss_1.str() + "_" + ss_2.str() ;
     string key_for_coords_1 = ss_1.str() + "_" + ss_2.str() + "_" + ss_1.str() ;
     string key_for_coords_2 = ss_1.str() + "_" + ss_2.str() + "_" + ss_2.str()  ;
+    string key_for_coords_3 = ss_1.str() + "_" + ss_2.str() + "_corr_x_dx"  ;
+    string key_for_coords_4 = ss_1.str() + "_" + ss_2.str() + "_corr_y_dy"  ;
 
     string name_x = "dx_" + ss_1.str() + "_" + ss_2.str() ;
     string name_y = "dy_" + ss_1.str() + "_" + ss_2.str() ;
@@ -326,9 +328,12 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
 
       map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
 
-      // cout << "hello " << key_for_coords_1 << " " << key_for_coords_2 << endl ;
+      // cout << "hello " << key_for_coords_3 << endl ; 
       map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_1]->Fill(pert_hor_x, pert_hor_y) ;
       map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_2]->Fill(it2->second.x, it2->second.y) ;
+
+      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_3]->Fill(it1->second.x, it2->second.x - it1->second.x) ;
+      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_4]->Fill(it1->second.y, it2->second.y - it1->second.y) ;
       
       // if(it2->second.x < -4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
       // cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
@@ -345,7 +350,7 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
 {
   bool test = true ;
-  bool test_horizontals = true ;
+  bool test_horizontals = false ;
 
   map<unsigned int, RP_struct_type> map_RPs ;
  
@@ -415,7 +420,7 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
     }
   }
 
-  bool test_all_apertures_before_overlap_test = false ;
+  bool test_all_apertures_before_overlap_test = false  ;
 
   if(!test_all_apertures_before_overlap_test || test)
   {  
@@ -493,6 +498,17 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   map_of_THorizontal_and_vertical_xy_histogram["123_125_123"] = new TH2D("123_125_123", "123_125_123", 100, -20, 20,  100, -20, 20) ;
   map_of_THorizontal_and_vertical_xy_histogram["123_125_125"] = new TH2D("123_125_124", "123_125_124", 100, -20, 20,  100, -20, 20) ;
 
+  map_of_THorizontal_and_vertical_xy_histogram["103_104_corr_x_dx"] = new TH2D("103_104_corr_x_dx", "103_104_corr_x_dx", 100, -20, 20,  100, -0.2, 0.2) ;
+  map_of_THorizontal_and_vertical_xy_histogram["123_124_corr_x_dx"] = new TH2D("123_124_corr_x_dx", "123_124_corr_x_dx", 100, -20, 20,  100, -0.2, 0.2) ;
+
+  map_of_THorizontal_and_vertical_xy_histogram["103_105_corr_x_dx"] = new TH2D("103_105_corr_x_dx", "103_105_corr_x_dx", 100, -20, 20,  100, -0.2, 0.2) ;
+  map_of_THorizontal_and_vertical_xy_histogram["123_125_corr_x_dx"] = new TH2D("123_125_corr_x_dx", "123_125_corr_x_dx", 100, -20, 20,  100, -0.2, 0.2) ;
+
+  map_of_THorizontal_and_vertical_xy_histogram["103_104_corr_y_dy"] = new TH2D("103_104_corr_y_dy", "103_104_corr_y_dy", 100, -20, 20,  100, -0.2, 0.2) ;
+  map_of_THorizontal_and_vertical_xy_histogram["123_124_corr_y_dy"] = new TH2D("123_124_corr_y_dy", "123_124_corr_y_dy", 100, -20, 20,  100, -0.2, 0.2) ;
+
+  map_of_THorizontal_and_vertical_xy_histogram["103_105_corr_y_dy"] = new TH2D("103_105_corr_y_dy", "103_105_corr_y_dy", 100, -20, 20,  100, -0.2, 0.2) ;
+  map_of_THorizontal_and_vertical_xy_histogram["123_125_corr_y_dy"] = new TH2D("123_125_corr_y_dy", "123_125_corr_y_dy", 100, -20, 20,  100, -0.2, 0.2) ;
 
 	for(int i = 0 ; i < 1e6 ; ++i)
 	// for(int i = 0 ; i < 16e4 ; ++i)
