@@ -280,6 +280,8 @@ bool TProtonPair::TestApertures(vector<TAperture *> &vector_apertures)
 
 const double dx_threshold_between_vertical_and_horizontal_mm = 0.2 ;
 
+map<string, TH2D *> map_of_THorizontal_and_vertical_xy_histogram ;
+
 void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator it1, map<unsigned int, RP_struct_type>::iterator it2, unsigned int detector_1, unsigned int detector_2)
 {
   if((it1->first == detector_1) && (it2->first == detector_2))
@@ -291,6 +293,8 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     ss_2 << it2->first ;
 
     string key_for_coords = ss_1.str() + "_" + ss_2.str() ;
+    string key_for_coords_1 = ss_1.str() + "_" + ss_2.str() + "_" + ss_1.str() ;
+    string key_for_coords_2 = ss_1.str() + "_" + ss_2.str() + "_" + ss_2.str()  ;
 
     string name_x = "dx_" + ss_1.str() + "_" + ss_2.str() ;
     string name_y = "dy_" + ss_1.str() + "_" + ss_2.str() ;
@@ -321,6 +325,10 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
       }
 
       map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
+
+      // cout << "hello " << key_for_coords_1 << " " << key_for_coords_2 << endl ;
+      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_1]->Fill(pert_hor_x, pert_hor_y) ;
+      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_2]->Fill(it2->second.x, it2->second.y) ;
       
       // if(it2->second.x < -4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
       // cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
@@ -337,7 +345,6 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
 {
   bool test = true ;
-  bool test_positivity = true ;
   bool test_horizontals = true ;
 
   map<unsigned int, RP_struct_type> map_RPs ;
@@ -358,11 +365,10 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
 
       if(fabs(y_pos_meter) < y_scaled)
       {
-        // if(!test_positivity || (test_positivity && (y_pos_meter > 0)))
         if((vector_apertures[j]->edge == 0) || (fabs(y_pos_meter) > vector_apertures[j]->edge))
         if(!test_horizontals || (test_horizontals && ((vector_apertures[j]->hedge == 0) || (x_pos_meter > vector_apertures[j]->hedge))))
         {
-          if(vector_apertures[j]->hedge != 0) cout << "hedge " << vector_apertures[j]->name << endl ;
+          // if(vector_apertures[j]->hedge != 0) cout << "hedge " << vector_apertures[j]->name << endl ;
 
           if(save_result)
           {
@@ -372,16 +378,23 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
             vector_apertures[j]->histogram_phi->Fill(phi_IP5_rad) ;
             vector_apertures[j]->histogram_x_y_mm->Fill(x_pos_meter, y_pos_meter) ;
 
-            RP_struct_type my_RP_struct ;
+            int rpDecId = vector_apertures[j]->getrpDecId(y_pos_meter) ;
+
+            if(rpDecId != 0)
+            {
+              RP_struct_type my_RP_struct ;
             
-            my_RP_struct.validity = kTRUE ;
-            my_RP_struct.rpDecId = vector_apertures[j]->getrpDecId(y_pos_meter) ;
-            my_RP_struct.x = x_pos_meter * 1e3 ;
-            my_RP_struct.y = y_pos_meter * 1e3 ;
-            my_RP_struct.thx = 0 ;
-            my_RP_struct.thy = 0 ;
+              // cout << "weirdtest: " <<  vector_apertures[j]->getrpDecId(y_pos_meter) << endl ;
+            
+              my_RP_struct.validity = kTRUE ;
+              my_RP_struct.rpDecId = rpDecId ;
+              my_RP_struct.x = x_pos_meter * 1e3 ;
+              my_RP_struct.y = y_pos_meter * 1e3 ;
+              my_RP_struct.thx = 0 ;
+              my_RP_struct.thy = 0 ;
     
-            map_RPs[my_RP_struct.rpDecId] = my_RP_struct ;
+              map_RPs[my_RP_struct.rpDecId] = my_RP_struct ;
+            }
             
           }
         }
@@ -401,23 +414,28 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
       test = false ;
     }
   }
+
+  bool test_all_apertures_before_overlap_test = false ;
+
+  if(!test_all_apertures_before_overlap_test || test)
+  {  
+    for(map<unsigned int, RP_struct_type>::iterator it = map_RPs.begin() ; it != map_RPs.end() ; ++it)
+    for(map<unsigned int, RP_struct_type>::iterator it2 = it ; it2 != map_RPs.end() ; ++it2)
+    {
+      if(it == it2) continue ;
   
-  for(map<unsigned int, RP_struct_type>::iterator it = map_RPs.begin() ; it != map_RPs.end() ; ++it)
-  for(map<unsigned int, RP_struct_type>::iterator it2 = it ; it2 != map_RPs.end() ; ++it2)
-  {
-    if(it == it2) continue ;
-  
-    TestDetectorPair(it, it2, 3, 4) ;
-    TestDetectorPair(it, it2, 3, 5) ;
+      TestDetectorPair(it, it2, 3, 4) ;
+      TestDetectorPair(it, it2, 3, 5) ;
 
-    TestDetectorPair(it, it2, 23, 24) ;
-    TestDetectorPair(it, it2, 23, 25) ;
+      TestDetectorPair(it, it2, 23, 24) ;
+      TestDetectorPair(it, it2, 23, 25) ;
 
-    TestDetectorPair(it, it2, 103, 104) ;
-    TestDetectorPair(it, it2, 103, 105) ;
+      TestDetectorPair(it, it2, 103, 104) ;
+      TestDetectorPair(it, it2, 103, 105) ;
 
-    TestDetectorPair(it, it2, 123, 124) ;
-    TestDetectorPair(it, it2, 123, 125) ;
+      TestDetectorPair(it, it2, 123, 124) ;
+      TestDetectorPair(it, it2, 123, 125) ;
+    }
   }
   
   
@@ -463,6 +481,18 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   TH2D *histogram_theta_x_star_rad = new TH2D("histogram_theta_x_star_rad", "histogram_theta_x_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
   TH2D *histogram_theta_x_y_star_rad = new TH2D("histogram_theta_x_y_star_rad", "histogram_theta_x_y_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
 
+  map_of_THorizontal_and_vertical_xy_histogram["103_104_103"] = new TH2D("103_104_103", "103_104_103", 100, -20, 20,  100, -20, 20) ;
+  map_of_THorizontal_and_vertical_xy_histogram["103_104_104"] = new TH2D("103_104_104", "103_104_104", 100, -20, 20,  100, -20, 20) ;
+
+  map_of_THorizontal_and_vertical_xy_histogram["123_124_123"] = new TH2D("123_124_123", "123_124_123", 100, -20, 20,  100, -20, 20) ;
+  map_of_THorizontal_and_vertical_xy_histogram["123_124_124"] = new TH2D("123_124_124", "123_124_124", 100, -20, 20,  100, -20, 20) ;
+
+  map_of_THorizontal_and_vertical_xy_histogram["103_105_103"] = new TH2D("103_105_103", "103_105_103", 100, -20, 20,  100, -20, 20) ;
+  map_of_THorizontal_and_vertical_xy_histogram["103_105_105"] = new TH2D("103_105_105", "103_105_105", 100, -20, 20,  100, -20, 20) ;
+
+  map_of_THorizontal_and_vertical_xy_histogram["123_125_123"] = new TH2D("123_125_123", "123_125_123", 100, -20, 20,  100, -20, 20) ;
+  map_of_THorizontal_and_vertical_xy_histogram["123_125_125"] = new TH2D("123_125_124", "123_125_124", 100, -20, 20,  100, -20, 20) ;
+
 
 	for(int i = 0 ; i < 1e6 ; ++i)
 	// for(int i = 0 ; i < 16e4 ; ++i)
@@ -479,7 +509,6 @@ void test_aperture(vector<TAperture *> &vector_apertures)
       histogram_theta_x_star_rad->Fill(pp.p_b1.theta_x_star, pp.theta_x_star_reco) ;
       histogram_theta_x_y_star_rad->Fill(pp.p_b1.theta_x_star_reco, pp.theta_y_star_reco) ;
     }
-    
   }
   
   cout << "######### Minimize start" << endl ;
@@ -512,6 +541,11 @@ void test_aperture(vector<TAperture *> &vector_apertures)
     c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_x_y.root").c_str()) ;
     
     cout << "statistics " << vector_apertures[j]->name << " " << vector_apertures[j]->histogram->GetEntries() << endl ;
+  }
+  
+  for(map<string, TH2D *>::iterator it = map_of_THorizontal_and_vertical_xy_histogram.begin() ; it != map_of_THorizontal_and_vertical_xy_histogram.end() ; ++it)
+  {
+    it->second->SaveAs(("plots/apeture_test/xy_overlap_test_" + it->first + ".root").c_str()) ;
   }
   
   histogram_t->SaveAs("histogram_t.root") ;
