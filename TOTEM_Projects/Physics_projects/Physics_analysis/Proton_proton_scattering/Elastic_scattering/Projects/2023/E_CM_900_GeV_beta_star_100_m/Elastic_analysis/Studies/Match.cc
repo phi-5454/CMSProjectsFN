@@ -302,9 +302,9 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     if((fabs(it2->second.x - it1->second.x) < dx_threshold_between_vertical_and_horizontal_mm) && (fabs(it2->second.y - it1->second.y) < dx_threshold_between_vertical_and_horizontal_mm))
     {
     
-      double pert_alpha_rad = 2.0e-2 ;
-      double pert_a_mm = 2.0 ;
-      double pert_b_mm = 1.0 ;
+      double pert_alpha_rad = 0.0e-2 ;
+      double pert_a_mm = 0.0 ;
+      double pert_b_mm = 0.0 ;
 
       double pert_hor_x = 0.0 ;
       double pert_hor_y = 0.0 ;
@@ -320,9 +320,12 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
         pert_hor_y = (sin(pert_alpha_rad) * it1->second.x) + (cos(pert_alpha_rad) * it1->second.y) + pert_b_mm ;
       }
 
-      if(it2->second.x > 4) map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
+      //if(it2->second.x > 4)
+      {
+        map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
+      }
       
-      if(it2->second.x > 4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
+      if(it2->second.x < -4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
       // cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
 
       string name_x2 = "xy_" + ss_1.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
@@ -334,12 +337,11 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
   }
 }
 
-
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
 {
   bool test = true ;
   bool test_positivity = true ;
-  bool test_horizontals = false ;
+  bool test_horizontals = true ;
 
   map<unsigned int, RP_struct_type> map_RPs ;
  
@@ -361,8 +363,10 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
       {
         // if(!test_positivity || (test_positivity && (y_pos_meter > 0)))
         if((vector_apertures[j]->edge == 0) || (fabs(y_pos_meter) > vector_apertures[j]->edge))
-        //if(!test_horizontals || (test_horizontals && ((vector_apertures[j]->hedge == 0) || (x_pos_meter > vector_apertures[j]->hedge))))
+        if(!test_horizontals || (test_horizontals && ((vector_apertures[j]->hedge == 0) || (x_pos_meter > vector_apertures[j]->hedge))))
         {
+          if(vector_apertures[j]->hedge != 0) cout << "hedge " << vector_apertures[j]->name << endl ;
+
           if(save_result)
           {
             vector_apertures[j]->histogram->Fill(proton.theta_x_star_pert, proton.theta_y_star_pert) ;
@@ -423,11 +427,11 @@ bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &ve
   return test ;
 }
 
-void MinimizeHorizontalVerticalPair(vector<THorizontal_and_vertical_xy_pairs_to_match *> &vector_of_corrd)
+void MinimizeHorizontalVerticalPair(string key, vector<THorizontal_and_vertical_xy_pairs_to_match *> &vector_of_corrd)
 {
   points = &vector_of_corrd ;
 
-  MinuitFit() ;
+  MinuitFit(key) ;
 }
 
 void Minimize()
@@ -440,7 +444,7 @@ void Minimize()
     string name_of_hist = "chi2_contribution_" + actual_detector_combination ;
     map_of_hists[actual_detector_combination] = new TH1F(name_of_hist.c_str(), name_of_hist.c_str(), 1000, 0, 100) ;
 
-    MinimizeHorizontalVerticalPair(it->second) ;
+    MinimizeHorizontalVerticalPair(it->first, it->second) ;
     
     test_hist_ver->SaveAs("test_hist_ver.root") ;
     test_hist_hor->SaveAs("test_hist_hor.root") ;
@@ -463,8 +467,8 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   TH2D *histogram_theta_x_y_star_rad = new TH2D("histogram_theta_x_y_star_rad", "histogram_theta_x_y_star_rad", 100, -1400e-6, 1400e-6,  100, -1400e-6, 1400e-6) ;
 
 
-	// for(int i = 0 ; i < 1e4 ; ++i)
-	for(int i = 0 ; i < 16e4 ; ++i)
+	for(int i = 0 ; i < 1e6 ; ++i)
+	// for(int i = 0 ; i < 16e4 ; ++i)
 	{
     TProtonPair pp ;
    
@@ -542,9 +546,6 @@ void read_apertures()
   double ellipse_semi_axis_hor = 0 ;
   double ellipse_semi_axis_ver = 0 ;
   
-  double edge = 0 ;
-  double hedge = 0 ;
-  
   const int RE12_position = 13 ;
   const int RE34_position = 23 ;
   const int BSY_position =  29 ;
@@ -566,6 +567,9 @@ void read_apertures()
   while(apertures >> name >> rectangle_half_width >> rectangle_half_height >>  ellipse_semi_axis_hor >> ellipse_semi_axis_ver)
   {
     // cout << name << endl ;
+
+    double edge = 0 ;
+    double hedge = 0 ;
     
     ifstream optics_file(optics_file_name.c_str()) ;
     
