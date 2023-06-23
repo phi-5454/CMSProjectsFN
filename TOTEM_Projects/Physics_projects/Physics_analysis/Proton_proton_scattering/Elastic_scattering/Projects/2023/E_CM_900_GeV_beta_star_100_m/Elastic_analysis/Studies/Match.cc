@@ -320,12 +320,9 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
         pert_hor_y = (sin(pert_alpha_rad) * it1->second.x) + (cos(pert_alpha_rad) * it1->second.y) + pert_b_mm ;
       }
 
-      //if(it2->second.x > 4)
-      {
-        map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
-      }
+      map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
       
-      if(it2->second.x < -4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
+      // if(it2->second.x < -4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
       // cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
 
       string name_x2 = "xy_" + ss_1.str() + "_if_" + ss_1.str() + "_" + ss_2.str() ;
