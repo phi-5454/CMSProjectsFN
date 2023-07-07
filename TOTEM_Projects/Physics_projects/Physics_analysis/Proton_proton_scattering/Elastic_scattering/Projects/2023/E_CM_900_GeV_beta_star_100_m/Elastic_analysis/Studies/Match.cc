@@ -303,7 +303,7 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     
     // cout << name_x << " " << name_y << endl ;
     
-    const bool idealized_case = false ; // comparing the exact same coordinate with some offsets
+    const bool idealized_case = true ; // comparing the exact same coordinate with some offsets
 
     if((fabs(it2->second.x - it1->second.x) < dx_threshold_between_vertical_and_horizontal_mm) && (fabs(it2->second.y - it1->second.y) < dx_threshold_between_vertical_and_horizontal_mm))
     {
@@ -350,7 +350,7 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
 bool TProtonPair::TestAperturesOneProton(TProton proton, vector<TAperture *> &vector_apertures, bool save_result) 
 {
   bool test = true ;
-  bool test_horizontals = false ;
+  bool test_horizontals = true ;
 
   map<unsigned int, RP_struct_type> map_RPs ;
  
@@ -510,8 +510,8 @@ void test_aperture(vector<TAperture *> &vector_apertures)
   map_of_THorizontal_and_vertical_xy_histogram["103_105_corr_y_dy"] = new TH2D("103_105_corr_y_dy", "103_105_corr_y_dy", 100, -20, 20,  100, -0.2, 0.2) ;
   map_of_THorizontal_and_vertical_xy_histogram["123_125_corr_y_dy"] = new TH2D("123_125_corr_y_dy", "123_125_corr_y_dy", 100, -20, 20,  100, -0.2, 0.2) ;
 
-	for(int i = 0 ; i < 1e6 ; ++i)
-	// for(int i = 0 ; i < 16e4 ; ++i)
+	// for(int i = 0 ; i < 1e6 ; ++i)
+	for(int i = 0 ; i < 16e4 ; ++i)
 	{
     TProtonPair pp ;
    
@@ -767,7 +767,7 @@ void plot_contour()
 
 int main()
 {
-  gErrorIgnoreLevel = 6001 ;
+  // gErrorIgnoreLevel = 6001 ;
 
   const int main_scenario_plot_fiducial_cuts = 1 ;
   const int main_scenario_plot_apertures = 2 ;

@@ -29,10 +29,10 @@ using namespace std;
 
 #include <iomanip>
 
-int main()
+void test(string name_to_test)
 {
 	gStyle->SetLineScalePS(.3);
-	TH2F *histo = new TH2F("histo", "histo", 100, -20, 20, 100, -20, 20) ;
+	TH2F *histo = new TH2F("histo", "histo", 100, 0, 20, 100, -15, 15) ;
 
 	string header ;
 	string name ;
@@ -56,7 +56,7 @@ int main()
 	
 	while(myfile >> header >> name >> hor_x >> hor_y >> ver_x >> ver_y)
 	{
-		if(name.compare("123_124") == 0)
+		if(name.compare(name_to_test) == 0)
 		{
 			histo->Fill(hor_x, hor_y) ;
 			histo->Fill(ver_x + a, ver_y + b) ;
@@ -88,6 +88,18 @@ int main()
 	
 	if(test_correlation) hist_name += "_test" ;
 
-	c.SaveAs((hist_name + ".root").c_str()) ;
-	c.SaveAs((hist_name + ".pdf").c_str()) ;
+	c.SaveAs((hist_name + "_" + name_to_test + ".pdf").c_str()) ;
+	c.SaveAs((hist_name + "_" + name_to_test + ".root").c_str()) ;
 }	
+
+int main()
+{
+	test("3_4");
+	test("3_5");
+	test("23_24");
+	test("23_25");
+	test("103_104");
+	test("103_105");
+	test("123_124");
+	test("123_125");
+}
