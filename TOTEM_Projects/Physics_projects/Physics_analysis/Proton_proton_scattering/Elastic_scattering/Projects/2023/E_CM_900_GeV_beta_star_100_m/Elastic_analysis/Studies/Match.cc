@@ -229,8 +229,8 @@ void TProtonPair::GenerateParticles()
   p_b2.theta_x_star = -(theta_star_rad * cos(phi_IP5_rad)) ;
   p_b2.theta_y_star = -(theta_star_rad * sin(phi_IP5_rad)) ;
 
-  double factor = 1.0 ;
-  double factor_vtx = 1.0 ;
+  double factor = 0.0 ;
+  double factor_vtx = 0.0 ;
 
   p_b1.x_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
   p_b1.y_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
@@ -314,7 +314,7 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
 
       double pert_hor_x = 0.0 ;
       double pert_hor_y = 0.0 ;
-
+		
       if(idealized_case)
       {
         pert_hor_x = (cos(pert_alpha_rad) * it2->second.x) - (sin(pert_alpha_rad) * it2->second.y) + pert_a_mm ;
@@ -322,8 +322,22 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
       }
       else
       {
-        pert_hor_x = (cos(pert_alpha_rad) * it1->second.x) - (sin(pert_alpha_rad) * it1->second.y) + pert_a_mm ;
-        pert_hor_y = (sin(pert_alpha_rad) * it1->second.x) + (cos(pert_alpha_rad) * it1->second.y) + pert_b_mm ;
+				bool experimental_slope_correction = true ;
+			
+				double experiment_slope_factor_x = -0.0178338 ;
+				double experiment_slope_factor_y = -0.0023834 ;
+				
+				experiment_slope_factor_x = -0.0182398 ; 
+				experiment_slope_factor_y = -0.0024307 ;
+
+				if(!experimental_slope_correction)
+				{
+					experiment_slope_factor_x = 0.0 ;
+					experiment_slope_factor_y = 0.0 ;
+				}
+		
+        pert_hor_x = (cos(pert_alpha_rad) * it1->second.x) - (sin(pert_alpha_rad) * it1->second.y) + pert_a_mm + (experiment_slope_factor_x * it1->second.x) ;
+        pert_hor_y = (sin(pert_alpha_rad) * it1->second.x) + (cos(pert_alpha_rad) * it1->second.y) + pert_b_mm + (experiment_slope_factor_y * it1->second.y) ;
       }
 
       map_of_THorizontal_and_vertical_xy_pairs_to_match[key_for_coords].push_back(new THorizontal_and_vertical_xy_pairs_to_match(pert_hor_x, pert_hor_y, it2->second.x, it2->second.y)) ;
@@ -332,8 +346,8 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
       map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_1]->Fill(pert_hor_x, pert_hor_y) ;
       map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_2]->Fill(it2->second.x, it2->second.y) ;
 
-      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_3]->Fill(it1->second.x, it2->second.x - it1->second.x) ;
-      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_4]->Fill(it1->second.y, it2->second.y - it1->second.y) ;
+      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_3]->Fill(pert_hor_x, it2->second.x - pert_hor_x) ;
+      map_of_THorizontal_and_vertical_xy_histogram[key_for_coords_4]->Fill(pert_hor_y, it2->second.y - pert_hor_y) ;
       
       // if(it2->second.x < -4) cout << "to_be_saved " << key_for_coords << " " <<  it1->second.x << " " <<  it1->second.y << " " <<  it2->second.x << " " <<  it2->second.y << " " <<  endl ;
       // cout << " dx: " << (it2->second.x - it1->second.x) << " dy: " << (it2->second.y - it1->second.y) << endl ;
@@ -767,7 +781,7 @@ void plot_contour()
 
 int main()
 {
-  // gErrorIgnoreLevel = 6001 ;
+  gErrorIgnoreLevel = 6001 ;
 
   const int main_scenario_plot_fiducial_cuts = 1 ;
   const int main_scenario_plot_apertures = 2 ;
