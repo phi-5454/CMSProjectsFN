@@ -303,7 +303,7 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
     
     // cout << name_x << " " << name_y << endl ;
     
-    const bool idealized_case = true ; // comparing the exact same coordinate with some offsets
+    const bool idealized_case = false ; // comparing the exact same coordinate with some offsets
 
     if((fabs(it2->second.x - it1->second.x) < dx_threshold_between_vertical_and_horizontal_mm) && (fabs(it2->second.y - it1->second.y) < dx_threshold_between_vertical_and_horizontal_mm))
     {
@@ -322,7 +322,7 @@ void TProtonPair::TestDetectorPair(map<unsigned int, RP_struct_type>::iterator i
       }
       else
       {
-				bool experimental_slope_correction = true ;
+				bool experimental_slope_correction = false ;
 			
 				double experiment_slope_factor_x = -0.0178338 ;
 				double experiment_slope_factor_y = -0.0023834 ;
