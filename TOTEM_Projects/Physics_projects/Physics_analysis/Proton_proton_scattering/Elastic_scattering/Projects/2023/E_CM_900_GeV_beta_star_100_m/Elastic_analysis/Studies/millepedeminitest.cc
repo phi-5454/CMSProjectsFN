@@ -27,8 +27,124 @@ using namespace std;
 #include "TStyle.h"
 #include "TFitResult.h"
 
+class myclass
+{
+  public:
 
+  vector<double> vz ;
+  vector<double> vx ;
+
+  myclass() ;
+  void add(double, double) ;
+  void print() ;
+} ;
+
+myclass::myclass()
+{
+} ;
+
+void myclass::add(double z, double x) 
+{
+  vz.push_back(z) ;
+  vx.push_back(x) ;
+}
+
+void myclass::print() 
+{
+  for(int i = 0 ; i < vz.size() ; ++i)
+  {
+    cout << "(" << vz[i] << ", " << vx[i] << "), " ;
+  }
+  cout << endl ;
+}
+
+const double res = 66e-6 ;
+
+vector<myclass *> vector_of_myclass;
+
+int minimize()
+{
+
+  double chi2 = 0 ;
+
+  for(vector<myclass *>::iterator it = vector_of_myclass.begin() ; it != vector_of_myclass.end() ; ++it)
+  {
+    // (*it)->print() ;
+    
+    double z0 = (*it)->vz[0] ;
+    double x0 = (*it)->vx[0] ;
+
+    double z1 = (*it)->vz[1] ;
+    double x1 = (*it)->vx[1] ;
+    
+    double theta_x = (x1 - x0) / (z1 - z0) ;
+
+    double z2 = (*it)->vz[2] ;
+    double x2 = (*it)->vx[2] ;
+
+    double x2_propagated = x0 + (z2 - z0) * theta_x ;
+    
+    double delta = (x2_propagated - x2) / res ;
+    
+    double chi2_contr = delta * delta ;
+    
+    chi2 += chi2_contr ;
+  }
+  
+  cout << chi2 << endl ;
+}
 
 main()
 {
+
+  TRandom3 myrand ;
+
+  int number_of_particles = 10 ;
+  
+  double Lx_m = 20 ;
+  double dLxds_1 = -0.5 ;
+  
+  const double z0 = 220.0 ;
+  const double z1 = 220.4 ;
+  const double z2 = 227.0 ;
+  
+  for(int i = 0 ; i < number_of_particles ; ++i)
+  {
+    double theta_x_star = myrand.Gaus()*100e-6 ;
+    
+    double x0       = Lx_m * theta_x_star ;
+    double theta_x0 = dLxds_1 * theta_x_star ;
+
+    double x1 = x0 + ((z1 - z0) * theta_x0);
+    double x2 = x0 + ((z2 - z0) * theta_x0);
+    
+    double m0 = 0 ;
+    double m1 = 0 ;
+    double m2 = 0 ;
+    
+    x0 += m0 ;
+    x1 += m1 ;
+    x2 += m2 ;
+    
+    double theta_rec_0 = (x1 - x0) / (z1 - z0) ;
+    double theta_rec_1 = (x2 - x0) / (z2 - z0) ;
+    double theta_rec_2 = (x2 - x1) / (z2 - z1) ;
+    
+    myclass *m = new myclass() ;
+    m->add(z0, x0) ;
+    m->add(z1, x1) ;
+    m->add(z2, x2) ;
+    
+    vector_of_myclass.push_back(m) ;
+    
+    // cout << endl ;
+    // cout << "partice " << i << endl ;
+    // cout << " " << theta_x0 << " " << theta_rec_0 << " " << theta_rec_1 << " " << theta_rec_2 << endl ;
+    // cout << " " << theta_x0 - theta_x0 << " " << theta_rec_0 - theta_x0 << " " << theta_rec_1 - theta_x0 << " " << theta_rec_2 - theta_x0 << endl ;
+
+    // cout << theta_x_star << " " << theta_x0 << " " << x0 << " " << x1 << " " << x2 << endl ;
+    // cout << theta_x_star << " " << theta_x0 << " " << (x1 - x0) << " " << (x2 - x0) << endl ;
+  }
+  
+  minimize() ;
 }
