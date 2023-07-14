@@ -37,6 +37,7 @@ class myclass
   myclass() ;
   void add(double, double) ;
   void print() ;
+  double delta(int, int, int, double, double, double) ;
 } ;
 
 myclass::myclass()
@@ -62,9 +63,33 @@ const double res = 66e-6 ;
 
 vector<myclass *> vector_of_myclass;
 
-void compute_delta(int i, int j)
+double myclass::delta(int i, int j, int n, double m0, double m1, double m2)
 {
+    double m[3] ;
+
+    m[0] = m0 ;
+    m[1] = m1 ;
+    m[2] = m2 ;
+
+    double z0 = vz[i] ;
+    double x0 = vx[i] + m[i];
+
+    double z1 = vz[j] ;
+    double x1 = vx[j] + m[j] ;
+    
+    double theta_x = (x1 - x0) / (z1 - z0) ;
+
+    double z2 = vz[n] ;
+    double x2 = vx[n] + m[n] ;
+
+    double x2_propagated = x0 + ((z2 - z0) * theta_x) ;
+    
+    double delta = (x2_propagated - x2) / res ;
+    
+    return delta ;
+
 }
+ 
 
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
@@ -79,24 +104,16 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
   {
     // (*it)->print() ;
     
-    double z0 = (*it)->vz[0] ;
-    double x0 = (*it)->vx[0] + m0;
-
-    double z1 = (*it)->vz[1] ;
-    double x1 = (*it)->vx[1] + m1 ;
+    double delta = (*it)->delta(0, 1, 2, m0, m1, m2) ;
+    double delta1 = (*it)->delta(0, 2, 1, m0, m1, m2) ;
+    double delta2 = (*it)->delta(1, 2, 0, m0, m1, m2) ;
     
-    double theta_x = (x1 - x0) / (z1 - z0) ;
-
-    double z2 = (*it)->vz[2] ;
-    double x2 = (*it)->vx[2] + m2 ;
-
-    double x2_propagated = x0 + ((z2 - z0) * theta_x) ;
+    double chi2_contr = (delta * delta) ;
+    double chi2_contr1 = (delta1 * delta1) ;
+    double chi2_contr2 = (delta2 * delta2) ;
     
-    double delta = (x2_propagated - x2) / res ;
-    
-    double chi2_contr = delta * delta ;
-    
-    chi2 += chi2_contr ;
+    // chi2 += (chi2_contr) + (chi2_contr1)+ (chi2_contr2)  ;
+    chi2 += (chi2_contr2)  ;
   }
   
   // cout << chi2 << "              " << m0 << " " << m1 << " " << m2 << endl ;
@@ -115,9 +132,9 @@ int minimize()
   arglist[0] = 1 ;
   gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
 
-  gMinuit2->mnparm(0, "m1", 0, 0.1, -3, 3, ierflg);
-  gMinuit2->mnparm(1, "m2", 0, 0.1, -3, 3, ierflg);
-  gMinuit2->mnparm(2, "m3", 0, 0.1, -3, 3, ierflg);
+  gMinuit2->mnparm(0, "m0", 0, 0.1, -3, 3, ierflg);
+  gMinuit2->mnparm(1, "m1", 0, 0.1, -3, 3, ierflg);
+  gMinuit2->mnparm(2, "m2", 0, 0.1, -3, 3, ierflg);
 
   arglist[0] = 0 ;
   arglist[1] = 3 ;
@@ -151,8 +168,8 @@ main()
     double x1 = x0 + ((z1 - z0) * theta_x0);
     double x2 = x0 + ((z2 - z0) * theta_x0);
     
-    double m0 = 0.0 ;
-    double m1 = 1.0 ;
+    double m0 = 1.0 ;
+    double m1 = 0.0 ;
     double m2 = 0.0 ;
     
     x0 += m0 ;
