@@ -62,8 +62,16 @@ const double res = 66e-6 ;
 
 vector<myclass *> vector_of_myclass;
 
-int minimize()
+void compute_delta(int i, int j)
 {
+}
+
+void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
+{
+
+  double m0 = par[0] ;
+  double m1 = par[1] ;
+  double m2 = par[2] ;
 
   double chi2 = 0 ;
 
@@ -72,17 +80,17 @@ int minimize()
     // (*it)->print() ;
     
     double z0 = (*it)->vz[0] ;
-    double x0 = (*it)->vx[0] ;
+    double x0 = (*it)->vx[0] + m0;
 
     double z1 = (*it)->vz[1] ;
-    double x1 = (*it)->vx[1] ;
+    double x1 = (*it)->vx[1] + m1 ;
     
     double theta_x = (x1 - x0) / (z1 - z0) ;
 
     double z2 = (*it)->vz[2] ;
-    double x2 = (*it)->vx[2] ;
+    double x2 = (*it)->vx[2] + m2 ;
 
-    double x2_propagated = x0 + (z2 - z0) * theta_x ;
+    double x2_propagated = x0 + ((z2 - z0) * theta_x) ;
     
     double delta = (x2_propagated - x2) / res ;
     
@@ -91,7 +99,32 @@ int minimize()
     chi2 += chi2_contr ;
   }
   
+  // cout << chi2 << "              " << m0 << " " << m1 << " " << m2 << endl ;
   cout << chi2 << endl ;
+
+  f = chi2 ;
+}
+
+int minimize()
+{
+  TMinuit *gMinuit2 = new TMinuit(10);
+  gMinuit2->SetFCN(fcn);
+
+  Double_t arglist[10];
+  Int_t ierflg = 0 ;
+  arglist[0] = 1 ;
+  gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
+
+  gMinuit2->mnparm(0, "m1", 0, 0.1, -3, 3, ierflg);
+  gMinuit2->mnparm(1, "m2", 0, 0.1, -3, 3, ierflg);
+  gMinuit2->mnparm(2, "m3", 0, 0.1, -3, 3, ierflg);
+
+  arglist[0] = 0 ;
+  arglist[1] = 3 ;
+  arglist[2] = 1 ;
+
+  gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+
 }
 
 main()
@@ -99,7 +132,7 @@ main()
 
   TRandom3 myrand ;
 
-  int number_of_particles = 10 ;
+  int number_of_particles = 100 ;
   
   double Lx_m = 20 ;
   double dLxds_1 = -0.5 ;
@@ -118,9 +151,9 @@ main()
     double x1 = x0 + ((z1 - z0) * theta_x0);
     double x2 = x0 + ((z2 - z0) * theta_x0);
     
-    double m0 = 0 ;
-    double m1 = 0 ;
-    double m2 = 0 ;
+    double m0 = 0.0 ;
+    double m1 = 1.0 ;
+    double m2 = 0.0 ;
     
     x0 += m0 ;
     x1 += m1 ;
