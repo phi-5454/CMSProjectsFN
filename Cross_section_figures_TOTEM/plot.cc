@@ -178,6 +178,17 @@ int add_PDG(int process)
 
 }
 
+void fit()
+{
+	string fit_function_name = "pol0" ;
+
+	sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "", "", 10, 20) ;
+	sigma_total_graph_pp_OTHER->GetFunction(fit_function_name.c_str())->SetLineColor(kBlack) ;
+}
+
+// TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
+TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 5, 25, 100, 30, 80) ;
+
 int post_process()
 {
   // pp TOTEM
@@ -219,8 +230,10 @@ int post_process()
   c.SetTitle("") ;
   c.SetGridy() ;
   c.SetLogx() ;
-
+  
+ 
   c.SaveAs("fig/sigma_total_graph.pdf") ;
+  c.SaveAs("fig/sigma_total_graph.root") ;
 }
 
 
@@ -229,18 +242,19 @@ int main(int argc, char *argv[])
   gStyle->SetLineScalePS(.3) ;
   gStyle->SetOptStat(0) ;    
 
-  TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
-
   hist_2d->GetXaxis()->SetTitle("#sqrt{s}  (GeV)") ;
   hist_2d->GetXaxis()->SetTitleOffset(1.2) ;
   hist_2d->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;
 
   hist_2d->SetTitle("") ;
+  hist_2d->GetXaxis()->SetRangeUser(5, 25) ;
   hist_2d->Draw() ;
 
   add_TOTEM() ;
   add_PDG(process_pp) ;
   add_PDG(process_ppbar) ;
+
+  fit() ;
   
   post_process() ;
 
