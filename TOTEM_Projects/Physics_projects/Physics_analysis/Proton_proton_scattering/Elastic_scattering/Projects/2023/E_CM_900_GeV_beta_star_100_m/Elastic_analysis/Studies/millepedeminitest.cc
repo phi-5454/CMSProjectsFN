@@ -64,7 +64,7 @@ class myclass
   void print() ;
   double delta(int, int, int, double, double, double) ;
 
-  void fit_track() ;
+  double fit_track() ;
 } ;
 
 myclass::myclass()
@@ -94,6 +94,8 @@ myclass *thisclass ;
 
 double fit_m[3] ;
 
+double global_fcn2 ;
+
 void fcn2(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
   double chi2 = 0 ;
@@ -114,9 +116,12 @@ void fcn2(Int_t &npar, double *gin, double &f, double *par, int iflag)
   }
   
   f = chi2 ;
+  
+  global_fcn2 = chi2 ;
 }
 
-void myclass::fit_track()
+
+double myclass::fit_track()
 {
   thisclass = this ;
   
@@ -139,7 +144,8 @@ void myclass::fit_track()
   
   gMinuit2->GetParameter(0, mytrack.ax, mytrack.axe) ;
   gMinuit2->GetParameter(0, mytrack.bx, mytrack.bxe) ;
-  
+ 
+  return global_fcn2 ; 
 }
 
 
@@ -197,11 +203,14 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
   fit_m[1] = par[1] ;
   fit_m[2] = par[2] ;
 
+  double chi2_2 = 0 ;
   double chi2 = 0 ;
+  
+  bool add_track_controbution = false ;
 
   for(vector<myclass *>::iterator it = vector_of_myclass.begin() ; it != vector_of_myclass.end() ; ++it)
   {
-    (*it)->fit_track() ;
+    chi2_2 = (*it)->fit_track() ;
 
     for(int j = 0 ; j < (*it)->vz.size() ; ++j) 
     {
@@ -212,6 +221,8 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
       
       chi2 += (deltax*deltax) ;
     }
+    
+    if(add_track_controbution) chi2 += chi2_2 ;
   }
 
   cout << chi2 << endl ;
@@ -245,7 +256,7 @@ main()
 
   TRandom3 myrand ;
 
-  int number_of_particles = 2 ;
+  int number_of_particles = 12 ;
   
   double Lx_m = 20 ;
   double dLxds_1 = -0.5 ;
@@ -264,8 +275,8 @@ main()
     double x1 = x0 + ((z1 - z0) * theta_x0);
     double x2 = x0 + ((z2 - z0) * theta_x0);
     
-    double m0 = 0.0 ;
-    double m1 = -1.0 ;
+    double m0 = 1.0 ;
+    double m1 = 0.0 ;
     double m2 = 0.0 ;
     
     x0 += m0 ;
