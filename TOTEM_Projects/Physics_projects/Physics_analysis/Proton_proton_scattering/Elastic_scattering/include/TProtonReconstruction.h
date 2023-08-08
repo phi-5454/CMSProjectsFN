@@ -25,6 +25,9 @@ class TProtonReconstruction
 	Double_t x_l_f_mm, x_l_n_mm, x_r_f_mm, x_r_n_mm ;
 	Double_t y_l_f_mm, y_l_n_mm, y_r_f_mm, y_r_n_mm ;
 
+	Double_t x_l_f_aligned_mm, x_l_n_aligned_mm, x_r_f_aligned_mm, x_r_n_aligned_mm ;
+	Double_t y_l_f_aligned_mm, y_l_n_aligned_mm, y_r_f_aligned_mm, y_r_n_aligned_mm ;
+
 	// Local angles
 
 	Double_t thx_l_f_rad, thx_l_n_rad, thx_r_f_rad, thx_r_n_rad ;
@@ -497,6 +500,38 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &minus_t_x_without_left_far_GeV2 ; 
 	}
+	else if(variable_name.compare("y_l_n_aligned_mm")==0)
+	{
+		return &y_l_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_l_n_aligned_mm")==0)
+	{
+		return &x_l_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("y_l_f_aligned_mm")==0)
+	{
+		return &y_l_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_l_f_aligned_mm")==0)
+	{
+		return &x_l_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("y_r_n_aligned_mm")==0)
+	{
+		return &y_r_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_r_n_aligned_mm")==0)
+	{
+		return &x_r_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("y_r_f_aligned_mm")==0)
+	{
+		return &y_r_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_r_f_aligned_mm")==0)
+	{
+		return &x_r_f_aligned_mm ; 
+	}
 	else
 	{
                 cout << "The requested variable is not defined ! " << variable_name << endl ;
@@ -585,17 +620,17 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 
 	if(RPAlignment != NULL)
 	{
-		x_l_n_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
-		x_l_f_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
+		x_l_n_aligned_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
+		x_l_f_aligned_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
 
-		x_r_n_mm += RPAlignment->Get_RP_alignment_right_near_x_mm() ;
-		x_r_f_mm += RPAlignment->Get_RP_alignment_right_far__x_mm() ;
+		x_r_n_aligned_mm += RPAlignment->Get_RP_alignment_right_near_x_mm() ;
+		x_r_f_aligned_mm += RPAlignment->Get_RP_alignment_right_far__x_mm() ;
 
-		y_l_n_mm += RPAlignment->Get_RP_alignment_left_near_y_mm() ;
-		y_l_f_mm += RPAlignment->Get_RP_alignment_left_far__y_mm() ;
+		y_l_n_aligned_mm += RPAlignment->Get_RP_alignment_left_near_y_mm() ;
+		y_l_f_aligned_mm += RPAlignment->Get_RP_alignment_left_far__y_mm() ;
 
-		y_r_n_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
-		y_r_f_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
+		y_r_n_aligned_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
+		y_r_f_aligned_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
 	}
 	
 	dx_left_mm 	= (x_l_f_mm - x_l_n_mm) ;
