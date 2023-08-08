@@ -1,2 +1,6 @@
 analyse
 *.root
+*.aux
+*.log
+*.pdf
+*.toc

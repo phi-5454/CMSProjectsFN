@@ -1,0 +1,8353 @@
+Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7301/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Conventions/TOTEM/Trigger_bits.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_top_right_bottom.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_top_right_bottom_4_sigma.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Variable_descriptions.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/Plot_descriptions.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/Plot_descriptions/Plot_descriptions_diffraction.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/Plot_descriptions/Plot_descriptions_inefficiency.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/All.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/To_define_cuts.prj
+Begin of if setting part
+	Name of setting: project_subtask
+	setting_required_value: not
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Main_settings/Main_settings.prj
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Plots/Plots.prj
+Begin of if setting part
+	Name of setting: Fill_number
+	setting_required_value: 7301
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Cuts/Fill_7301/Cuts_test_left_top_right_bottom_4_sigma.prj
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+TProject: ProjectParameters have been read in.
+TProject: Load optics...
+TProject: Optics loaded.
+
+Parameter names and values:
+---------------------------
+
+Ask_for_CMS_luminosity_calculations -> 0
+Ask_for_trigger -> 0
+Ask_for_trigger_data_bunch_num -> 0
+CollectCutDiagnosticData -> 1
+DoNotSaveEpsFiles -> 0
+MaxNumberOfEventsToAnalyze -> 60000
+MaxNumberOfEventsToAnalyzeIsSet -> 0
+NearFarRPUnitsDistanceM -> 7
+ReducedBinaryDataset -> 2
+SaveReducedBinaryDataset -> 0
+SaveRuns -> 0
+analytical_acceptance_calculation -> 1
+pile_up_inefficiency_correction_percent -> 0
+vertical_RP_position_beam_sigma -> 10
+
+Setting names and values:
+---------------------------
+
+Fill_number -> 7301
+Input_directory -> root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/
+InstallDirectoryOfCode -> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering
+Log_file_name -> AnalyzeDsigmaOverDt.log
+MADX_label_of_left_far_RP_detector -> XRPV.B6L5.B2
+MADX_label_of_left_near_RP_detector -> XRPV.D6L5.B2
+MADX_label_of_right_far_RP_detector -> XRPV.B6R5.B1
+MADX_label_of_right_near_RP_detector -> XRPV.D6R5.B1
+MAD_X_twiss_beam_1 -> Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/LHC_nominal/Beam_1/opticsproject.tfs
+MAD_X_twiss_beam_2 -> Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/LHC_nominal/Beam_2/opticsproject.tfs
+Output_directory -> /afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/
+VersionOfAnalysisCode -> 1.0
+analysed_diagonal -> DIAGONAL_LEFT_TOP_RIGHT_BOTTOM
+binning_file_name -> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Binning_scenarios/Binning_scenario_1.txt
+geometrical_acceptance_cut_block -> theta_x_star_rad_theta_y_star_rad_cut_block
+label_of_vertical_beam_divergence_plot -> P0037_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+project_subtask -> dsigma/dt
+project_task -> analyze
+required_trigger_bit_name -> RP220_V
+vertical_angular_left_acceptance_cut_block -> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+vertical_angular_right_acceptance_cut_block -> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+vertical_beam_divergence_cut_block -> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+Fill_number -> 7301
+Input_directory -> root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/
+InstallDirectoryOfCode -> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering
+Log_file_name -> AnalyzeDsigmaOverDt.log
+MADX_label_of_left_far_RP_detector -> XRPV.B6L5.B2
+MADX_label_of_left_near_RP_detector -> XRPV.D6L5.B2
+MADX_label_of_right_far_RP_detector -> XRPV.B6R5.B1
+MADX_label_of_right_near_RP_detector -> XRPV.D6R5.B1
+MAD_X_twiss_beam_1 -> Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/LHC_nominal/Beam_1/opticsproject.tfs
+MAD_X_twiss_beam_2 -> Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/LHC_nominal/Beam_2/opticsproject.tfs
+Output_directory -> /afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/
+VersionOfAnalysisCode -> 1.0
+analysed_diagonal -> DIAGONAL_LEFT_TOP_RIGHT_BOTTOM
+binning_file_name -> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Binning_scenarios/Binning_scenario_1.txt
+geometrical_acceptance_cut_block -> theta_x_star_rad_theta_y_star_rad_cut_block
+label_of_vertical_beam_divergence_plot -> P0037_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+project_subtask -> dsigma/dt
+project_task -> analyze
+required_trigger_bit_name -> RP220_V
+vertical_angular_left_acceptance_cut_block -> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+vertical_angular_right_acceptance_cut_block -> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+vertical_beam_divergence_cut_block -> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+
+Parameter names and values:
+---------------------------
+
+BX -> 9
+RP147_V -> 3
+RP220_Cross -> 2
+RP220_H -> 1
+RP220_V -> 0
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{left,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{left,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{left,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{left,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{left,far}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{left,far}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{left,far}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{left,far}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{right,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{right,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{right,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{right,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{right,far}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{right,far}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{right,far}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{right,far}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{left,far}-x_{left,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{left,far}-x_{left,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{left,far}-y_{left,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{left,far}-y_{left,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{right,far}-x_{right,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x_{right,far}-x_{right,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{right,far}-y_{right,near}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y_{right,far}-y_{right,near}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left}
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left}
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left}
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left}
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right}
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right}
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right}
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right}
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left,near}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left,near}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left,far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,left,far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right,near}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right,near}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right,far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,right,far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,right,near}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,right,near}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,right,far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,right,far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,left,near}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,left,near}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,left,far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y,without,left,far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{left}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{left}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{left}
+unit -> m
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{left}
+unit -> m
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{right}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{right}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{right}
+unit -> m
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*_{right}
+unit -> m
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> x*
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y*
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y*
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y*_{left}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y*_{left}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y*_{right}
+unit -> mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> y*_{right}
+unit -> mm
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right,far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right,far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left,far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left,far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right,near}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right,near}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left,near}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,left,near}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{y}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{no_right_far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{no_right_far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{no_left_far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{no_left_far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #phi*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #phi*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #phi_{no_right_far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #phi_{no_right_far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #phi_{no_left_far}*
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #phi_{no_left_far}*
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> t
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> t
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> t_{left}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> t_{left}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> t_{right}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> t_{right}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{left}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{left}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{right}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{right}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_right_near}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_right_near}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_left_near}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_left_near}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_right_far}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_right_far}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_left_far}
+unit -> GeV^{2}
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> -t_{no_left_far}
+unit -> GeV^{2}
+
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right,local}
+unit -> rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+axis_name -> #theta_{x,right,local}
+unit -> rad
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 35
+number_of_horizontal_bins -> 1024
+number_of_vertical_bins -> 1024
+vertical_axis_boundary -> 35
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 35
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 35
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 3
+number_of_horizontal_bins -> 400
+number_of_vertical_bins -> 400
+vertical_axis_boundary -> 3
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 30
+number_of_horizontal_bins -> 400
+number_of_vertical_bins -> 400
+vertical_axis_boundary -> 30
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.0002
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 0.0002
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.0001
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 0.0001
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 30
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 200
+vertical_axis_boundary -> 0.0006
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.0006
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 3
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 10
+number_of_horizontal_bins -> 400
+number_of_vertical_bins -> 400
+vertical_axis_boundary -> 0.001
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.001
+number_of_horizontal_bins -> 200
+number_of_vertical_bins -> 800
+vertical_axis_boundary -> 0.001
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.001
+number_of_horizontal_bins -> 400
+number_of_vertical_bins -> 400
+vertical_axis_boundary -> 0.001
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.0008
+number_of_horizontal_bins -> 200
+number_of_vertical_bins -> 200
+vertical_axis_boundary -> 0.0008
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 0.9
+number_of_horizontal_bins -> 40
+number_of_vertical_bins -> 40
+vertical_axis_boundary -> 0.9
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 1
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 1
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 8
+number_of_horizontal_bins -> 200
+number_of_vertical_bins -> 200
+vertical_axis_boundary -> 0.0005
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 30
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 3
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 10
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 3
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 10
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 3
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 12
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 2
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 30
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 3
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 4
+number_of_horizontal_bins -> 50
+number_of_vertical_bins -> 50
+vertical_axis_boundary -> 0.01
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 1.5
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 1.5
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_boundary -> 8
+number_of_horizontal_bins -> 100
+number_of_vertical_bins -> 100
+vertical_axis_boundary -> 8
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_left_boundary -> -1
+horizontal_axis_right_boundary -> 1
+number_of_horizontal_bins -> 100
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_left_boundary -> -4
+horizontal_axis_right_boundary -> 4
+number_of_horizontal_bins -> 100
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_left_boundary -> 0
+horizontal_axis_right_boundary -> 4
+number_of_horizontal_bins -> 800
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_left_boundary -> -0.0006
+horizontal_axis_right_boundary -> 0.0006
+number_of_horizontal_bins -> 400
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+horizontal_axis_left_boundary -> -0.0006
+horizontal_axis_right_boundary -> 0.0006
+number_of_horizontal_bins -> 400
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_l_n_mm
+y_variable -> y_l_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_l_n_mm
+y_variable -> y_l_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_l_f_mm
+y_variable -> y_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_l_f_mm
+y_variable -> y_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_r_n_mm
+y_variable -> y_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_r_n_mm
+y_variable -> y_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_r_f_mm
+y_variable -> y_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_y_mm_type_block
+x_variable -> x_r_f_mm
+y_variable -> y_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_r_n_mm
+y_variable -> y_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_r_n_mm
+y_variable -> y_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_after_vertex_cut_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_after_vertex_cut_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_after_vertex_cut_2_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_after_vertex_cut_2_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_after_vertex_cut_3_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_left_rad_theta_x_right_rad_after_vertex_cut_3_cut
+type -> theta_x_rad_theta_x_right_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> theta_x_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_rad_theta_y_right_rad_type_block
+x_variable -> theta_y_left_rad
+y_variable -> theta_y_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_rad_theta_y_right_rad_type_block
+x_variable -> theta_y_left_rad
+y_variable -> theta_y_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_left_mm
+y_variable -> x_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_left_mm
+y_variable -> x_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_left_mm
+y_variable -> y_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_left_mm
+y_variable -> y_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> phi_star_rad_theta_star_rad_type_block
+x_variable -> phi_star_rad
+y_variable -> theta_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> phi_star_rad_theta_star_rad_type_block
+x_variable -> phi_star_rad
+y_variable -> theta_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> phi_star_rad_theta_star_rad_type_block
+x_variable -> phi_star_without_right_far_rad
+y_variable -> theta_star_without_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> phi_star_rad_theta_star_rad_type_block
+x_variable -> phi_star_without_right_far_rad
+y_variable -> theta_star_without_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> phi_star_rad_theta_star_rad_type_block
+x_variable -> phi_star_without_left_far_rad
+y_variable -> theta_star_without_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> phi_star_rad_theta_star_rad_type_block
+x_variable -> phi_star_without_left_far_rad
+y_variable -> theta_star_without_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_orthogonal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_orthogonal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_left_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_left_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_right_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_right_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_left_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_left_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_right_cut
+type -> y_mm_near_dy_mm_right_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_right_cut
+type -> y_mm_near_dy_mm_right_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_left_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_l_n_mm
+y_variable -> dx_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_left_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_l_n_mm
+y_variable -> dx_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_right_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_r_n_mm
+y_variable -> dx_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_right_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_r_n_mm
+y_variable -> dx_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_right_second_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_r_n_mm
+y_variable -> dx_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_right_second_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_r_n_mm
+y_variable -> dx_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_left_second_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_l_n_mm
+y_variable -> dx_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_left_second_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_l_n_mm
+y_variable -> dx_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_near_theta_x_near_local_rad_type_block
+x_variable -> x_r_n_mm
+y_variable -> thx_r_n_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_mm_near_theta_x_near_local_rad_type_block
+x_variable -> x_r_n_mm
+y_variable -> thx_r_n_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_left_mm_x_star_right_mm_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_left_mm
+y_variable -> x_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_left_mm_x_star_right_mm_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_left_mm
+y_variable -> x_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_mm_with_cut_to_reduce_vertex_contribution_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_mm_with_cut_to_reduce_vertex_contribution_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_mm_with_cut_2_to_reduce_vertex_contribution_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_mm_with_cut_2_to_reduce_vertex_contribution_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_mm_with_cut_3_to_reduce_vertex_contribution_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_mm_with_cut_3_to_reduce_vertex_contribution_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_mm_y_star_mm_with_cut_to_reduce_vertex_contribution_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_mm
+y_variable -> y_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_mm_y_star_mm_with_cut_to_reduce_vertex_contribution_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_mm
+y_variable -> y_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_mm_y_star_mm_with_cut_2_to_reduce_vertex_contribution_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_mm
+y_variable -> y_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_mm_y_star_mm_with_cut_2_to_reduce_vertex_contribution_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_mm
+y_variable -> y_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_mm_y_star_mm_with_cut_3_to_reduce_vertex_contribution_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_mm
+y_variable -> y_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_mm_y_star_mm_with_cut_3_to_reduce_vertex_contribution_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_mm
+y_variable -> y_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_after_vertex_cut_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_after_vertex_cut_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_after_vertex_cut2_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_after_vertex_cut2_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_after_vertex_cut3_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_y_right_far_mm_after_vertex_cut3_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_f_mm
+y_variable -> y_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_after_vertex_cut_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_after_vertex_cut_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_after_vertex_cut2_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_after_vertex_cut2_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_after_vertex_cut3_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_y_right_near_mm_after_vertex_cut3_cut
+type -> y_mm_near_y_mm_far_type_block
+x_variable -> y_l_n_mm
+y_variable -> y_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_after_vertex_cut_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_after_vertex_cut_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_after_vertex_cut2_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_after_vertex_cut2_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_after_vertex_cut3_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_after_vertex_cut3_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_after_vertex_cut_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_after_vertex_cut_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_after_vertex_cut2_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_after_vertex_cut2_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_after_vertex_cut3_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_after_vertex_cut3_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_right_mm_cut_test_only
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_mm_x_star_right_mm_cut_test_only
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_mm
+y_variable -> x_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_left_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_left_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_left_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_left_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_right_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_right_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_f_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_f_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_far_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_f_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_far_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_f_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_near_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_near_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_left_mm_y_star_right_mm_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_left_mm
+y_variable -> y_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_left_mm_y_star_right_mm_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_left_mm
+y_variable -> y_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_rad_theta_y_star_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_rad
+y_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_left_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_left_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_right_cut
+type -> y_mm_near_dy_mm_right_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_near_dy_mm_right_cut
+type -> y_mm_near_dy_mm_right_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_left_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_l_n_mm
+y_variable -> dx_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_left_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_l_n_mm
+y_variable -> dx_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_right_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_r_n_mm
+y_variable -> dx_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_dx_mm_right_cut
+type -> x_mm_near_dx_mm_left_type_block
+x_variable -> x_r_n_mm
+y_variable -> dx_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_left_mm_x_star_right_mm_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_left_mm
+y_variable -> x_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_star_left_mm_x_star_right_mm_cut
+type -> x_star_mm_x_star_mm_type_block
+x_variable -> x_star_left_mm
+y_variable -> x_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_left_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_left_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_near_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_near_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_n_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_far_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_f_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_right_far_mm_dy_left_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_r_f_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_near_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_n_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_f_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_left_far_mm_dy_right_mm_cut
+type -> y_mm_near_dy_mm_left_type_block
+x_variable -> y_l_f_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_near_left_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_l_n_mm
+y_variable -> x_l_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_near_left_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_l_n_mm
+y_variable -> x_l_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_far_left_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_far_left_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_near_right_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_r_n_mm
+y_variable -> x_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_near_right_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_r_n_mm
+y_variable -> x_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_far_right_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_x_mm_far_right_cut
+type -> y_mm_x_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_left_mm_y_star_right_mm_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_left_mm
+y_variable -> y_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_star_left_mm_y_star_right_mm_cut
+type -> y_star_mm_y_star_mm_type_block
+x_variable -> y_star_left_mm
+y_variable -> y_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_far_dy_mm_left_cut
+type -> y_mm_far_dy_mm_left_type_block
+x_variable -> y_l_f_mm
+y_variable -> dy_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_far_dy_mm_left_cut
+type -> y_mm_far_dy_mm_left_type_block
+x_variable -> y_l_f_mm
+y_variable -> dy_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_far_dy_mm_right_cut
+type -> y_mm_far_dy_mm_right_type_block
+x_variable -> y_r_f_mm
+y_variable -> dy_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> y_mm_far_dy_mm_right_cut
+type -> y_mm_far_dy_mm_right_type_block
+x_variable -> y_r_f_mm
+y_variable -> dy_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+draw_cut -> 1
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_left_mm_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_rad_y_far_right_mm_cut
+type -> theta_y_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_left_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_left_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_left_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_left_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_left_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_left_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_left_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_left_rad
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 0
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_right_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_right_mm_theta_x_rad_after_vertex_cut_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_right_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_right_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_right_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_n_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_near_right_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_n_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_after_vertex_cut_2_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_far_right_mm_theta_x_rad_after_vertex_cut_3_cut
+type -> x_mm_theta_x_rad_type_block
+x_variable -> theta_x_right_rad
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_star_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_y_mm_type_block
+x_variable -> y_l_f_mm
+y_variable -> theta_y_star_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_y_mm_type_block
+x_variable -> y_r_f_mm
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_y_mm_type_block
+x_variable -> x_star_right_mm
+y_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_y_mm_type_block
+x_variable -> x_star_right_mm
+y_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> minus_t_without_right_far_GeV2_cut
+type -> minus_t_GeV2_minus_t_GeV2_type_block
+x_variable -> minus_t_without_right_far_GeV2
+y_variable -> minus_t_without_right_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> minus_t_without_right_far_GeV2_cut
+type -> minus_t_GeV2_minus_t_GeV2_type_block
+x_variable -> minus_t_without_right_far_GeV2
+y_variable -> minus_t_without_right_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> minus_t_without_left_far_GeV2_cut
+type -> minus_t_GeV2_minus_t_GeV2_type_block
+x_variable -> minus_t_without_left_far_GeV2
+y_variable -> minus_t_without_left_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> minus_t_without_left_far_GeV2_cut
+type -> minus_t_GeV2_minus_t_GeV2_type_block
+x_variable -> minus_t_without_left_far_GeV2
+y_variable -> minus_t_without_left_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> phi_star_without_right_far_rad_cut
+type -> phi_star_rad_phi_star_rad_type_block
+x_variable -> phi_star_without_right_far_rad
+y_variable -> phi_star_without_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> phi_star_without_right_far_rad_cut
+type -> phi_star_rad_phi_star_rad_type_block
+x_variable -> phi_star_without_right_far_rad
+y_variable -> phi_star_without_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> minus_t_GeV2_cut
+type -> minus_t_GeV2_minus_t_GeV2_type_block
+x_variable -> minus_t_GeV2
+y_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> minus_t_GeV2_cut
+type -> minus_t_GeV2_minus_t_GeV2_type_block
+x_variable -> minus_t_GeV2
+y_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_type_block
+x_variable -> x_star_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_type_block
+x_variable -> x_star_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_type_block
+x_variable -> x_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_type_block
+x_variable -> x_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_type_block
+x_variable -> x_star_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> x_star_mm_type_block
+x_variable -> x_star_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+to_be_saved_for_smart_merging -> 0
+
+Setting names and values:
+---------------------------
+
+type -> y_star_mm_type_block
+x_variable -> y_star_right_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> y_star_mm_type_block
+x_variable -> y_star_right_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+to_be_saved_for_smart_merging -> 0
+
+Setting names and values:
+---------------------------
+
+type -> y_star_mm_type_block
+x_variable -> y_star_left_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> y_star_mm_type_block
+x_variable -> y_star_left_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_left_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_left_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_left_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_left_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_right_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_right_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_right_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_right_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_right_near_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_right_near_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_left_near_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_left_near_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_right_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_right_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+horizontal_beam_divergence_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_right_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_right_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+horizontal_beam_divergence_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+variable_bin_size -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_without_right_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_without_right_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+horizontal_beam_divergence_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_left_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_without_left_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+horizontal_beam_divergence_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+variable_bin_size -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_without_left_far_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_without_left_far_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+horizontal_beam_divergence_corrected -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+horizontal_beam_divergence_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+variable_bin_size -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+variable_bin_size -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+variable_bin_size -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+variable_bin_size -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+beam_divergence_corrected -> 1
+dimension -> 1
+geometrical_acceptance_corrected -> 1
+pile_up_inefficiency_corrected -> 1
+to_be_saved_for_smart_merging -> 0
+variable_bin_size -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> dN_dt_GeV2_type_block
+variable_bin_size_description -> variable_bin_size_from_binning_file
+x_variable -> minus_t_GeV2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+weighted -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Cuts\_start\_here
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Cuts\_start\_here
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Cut\_definitions\_start\_here
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Cut\_definitions\_start\_here
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Cut\_definitions\_end\_here
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Cut\_definitions\_end\_here
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Differential\_cross\_sections
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Differential\_cross\_sections
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Optics\_estimators
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Optics\_estimators
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Vertex\_cut\_1
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Vertex\_cut\_1
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Vertex\_cut\_2
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Vertex\_cut\_2
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Vertex\_cut\_3
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Vertex\_cut\_3
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 0
+
+Setting names and values:
+---------------------------
+
+text_before -> Orthogonal\_acceptance\_cut
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+text_before -> Orthogonal\_acceptance\_cut
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_left_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_left_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_right_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_right_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_left_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_left_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_l_n_mm
+y_variable -> x_l_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_right_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_right_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_y_star_left_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_y_star_left_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_right_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_right_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_y_star_without_right_near_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_without_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_y_star_without_right_near_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_without_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_y_star_without_right_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_without_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_y_star_without_right_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_y_star_without_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_right_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_right_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_right_far_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_right_far_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_left_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_left_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_left_far_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_near_theta_y_star_without_left_far_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_near_rad
+y_variable -> theta_y_star_without_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_without_left_far_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_without_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_without_left_far_rad_horizontal_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_without_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_without_left_near_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_without_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_without_left_near_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_without_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_without_left_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_without_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_y_star_without_left_far_rad_cut
+type -> theta_x_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_y_star_without_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_left_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_near_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_near_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_right_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_near_rad_right_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_right_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_left_rad_theta_y_star_right_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+y_variable -> theta_y_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_left_rad_theta_x_star_right_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+y_variable -> theta_x_star_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_y_star_right_rad_theta_y_star_left_far_rad_cut
+type -> theta_y_star_rad_theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+y_variable -> theta_y_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_right_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> x_mm_near_x_mm_far_right_cut
+type -> x_mm_near_x_mm_far_type_block
+x_variable -> x_r_n_mm
+y_variable -> x_r_f_mm
+
+
+Parameter names and values:
+---------------------------
+
+define_cut -> 1
+dimension -> 2
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+cut_name -> theta_x_star_right_rad_theta_x_star_left_far_rad_cut
+type -> theta_x_star_rad_theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+y_variable -> theta_x_star_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_right_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_x_star_rad_type_block
+x_variable -> theta_x_star_left_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_right_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_right_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+to_be_saved_for_smart_merging -> 0
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_right_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_right_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_left_near_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_left_near_rad
+
+
+Parameter names and values:
+---------------------------
+
+dimension -> 1
+to_be_saved_for_smart_merging -> 0
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_left_far_rad
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+type -> theta_y_star_rad_type_block
+x_variable -> theta_y_star_without_left_far_rad
+
+
+Parameter names and values:
+---------------------------
+
+lower_abs_t_boundary_of_fit_GeV2 -> 0.012
+relative_delta_sigma_per_delta_t_range -> 0.06
+upper_abs_t_boundary_of_fit_GeV2 -> 0.2
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+RP_alignment_left_far__x_mm -> 0
+RP_alignment_left_far__y_mm -> 0
+RP_alignment_left_near_x_mm -> 0
+RP_alignment_left_near_y_mm -> 0
+RP_alignment_right_far__x_mm -> 0
+RP_alignment_right_far__y_mm -> 0
+RP_alignment_right_near_x_mm -> 0
+RP_alignment_right_near_y_mm -> 0
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 1
+range1_x -> -6e-05
+range1_y -> 6.6565e-05
+range2_x -> 6e-05
+range2_y -> 6.6565e-05
+sigma -> 0.0002
+x1 -> -6e-05
+x2 -> 6e-05
+y1 -> 0.0004
+y2 -> 0.0004
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 1
+range1_x -> -6e-05
+range1_y -> 6.6565e-05
+range2_x -> 6e-05
+range2_y -> 6.6565e-05
+sigma -> 0.0002
+x1 -> 0.0004
+x2 -> 0.0004
+y1 -> -4e-05
+y2 -> -9e-05
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 1
+range1_x -> -6e-05
+range1_y -> 6.6565e-05
+range2_x -> 6e-05
+range2_y -> 6.6565e-05
+sigma -> 0.0002
+x1 -> 4e-05
+x2 -> 9e-05
+y1 -> -0.0004
+y2 -> -0.0004
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 4
+range1_x -> -0.0008
+range1_y -> 0.0008
+range2_x -> 0.0008
+range2_y -> -0.0008
+sigma -> 8.39152e-06
+x1 -> -0.0006
+x2 -> 0.0006
+y1 -> 0.0006
+y2 -> -0.0006
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 4
+range1_x -> -9.33107
+range1_y -> -0.763575
+range2_x -> -22
+range2_y -> -2.6414
+sigma -> 0.1
+x1 -> -4.34046
+x2 -> -13.4906
+y1 -> 0.250457
+y2 -> 0.161253
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 4
+range1_x -> 2
+range1_y -> 0.763575
+range2_x -> 12
+range2_y -> 2.6414
+sigma -> 0.1
+x1 -> 3.28467
+x2 -> 11.3008
+y1 -> 0.0583257
+y2 -> -0.0994968
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 4
+range1_x -> 0.2
+range1_y -> 0.2
+range2_x -> 0.03
+range2_y -> 0.03
+sigma -> 7.65185
+x1 -> 0.000272145
+x2 -> -0.223978
+y1 -> -0.000274497
+y2 -> -0.223979
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 4
+range1_x -> 0.0006
+range1_y -> -1.8e-05
+range2_x -> -0.0006
+range2_y -> 1.8e-05
+sigma -> 5.81138e-05
+x1 -> 2.04076e-07
+x2 -> 8.36704e-05
+y1 -> 2.05671e-07
+y2 -> -8.33184e-05
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 1
+range1_x -> -6e-05
+range1_y -> 6.6565e-05
+range2_x -> 6e-05
+range2_y -> 6.6565e-05
+sigma -> 0.0006
+x1 -> 0
+x2 -> 0
+y1 -> 0.000466502
+y2 -> -0.000466502
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 1
+range1_x -> -7.75052e-05
+range1_y -> 8.03706e-05
+range2_x -> 8.10282e-05
+range2_y -> -7.69824e-05
+sigma -> 0.000853289
+x1 -> 0
+x2 -> 0
+y1 -> 0.000235468
+y2 -> -0.000324917
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 1
+range1_x -> -7.75052e-05
+range1_y -> 8.03706e-05
+range2_x -> 8.10282e-05
+range2_y -> -7.69824e-05
+sigma -> 0.000806757
+x1 -> 0.000235468
+x2 -> -0.000324917
+y1 -> 0
+y2 -> 0
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+
+Parameter names and values:
+---------------------------
+
+number_of_sigmas -> 4
+range1_x -> -0.2
+range1_y -> 0.2
+range2_x -> 0.2
+range2_y -> -0.2
+sigma -> 1
+x1 -> -5
+x2 -> 5
+y1 -> 1.5
+y2 -> -1.5
+
+Setting names and values:
+---------------------------
+
+Parameter names and values:
+---------------------------
+
+
+Setting names and values:
+---------------------------
+
+
+=====================================
+beam_energy [GeV] = 450
+
+5x5 matrix is as follows
+
+     |      1    |      2    |      3    |      4    |      5    |
+----------------------------------------------------------------------
+   1 |     -3.498       9.592    -0.03029     0.08307    -0.06835 
+   2 |    0.04145     -0.3995    0.000359    -0.00346    0.001436 
+   3 |    0.02483     -0.1584      -2.867       18.29   -0.000471 
+   4 |  0.0003474   0.0008046    -0.04011     -0.0929  -6.241e-06 
+   5 |          0           0           0           0           1 
+
+Energy [GeV]: 450
+Deltap [fraction]: 0 Horizontal beam position [m]: 0.00163056
+
+5x5 matrix is as follows
+
+     |      1    |      2    |      3    |      4    |      5    |
+----------------------------------------------------------------------
+   1 |     -3.208       6.795    -0.02778     0.05885    -0.05782 
+   2 |    0.04145     -0.3995    0.000359    -0.00346    0.001436 
+   3 |    0.02726     -0.1528      -3.148       17.64  -0.0005157 
+   4 |  0.0003474   0.0008046    -0.04011     -0.0929  -6.241e-06 
+   5 |          0           0           0           0           1 
+
+Energy [GeV]: 450
+Deltap [fraction]: 0 Horizontal beam position [m]: 0.00115511
+determinant x [m] = 6.99948
+determinant y [m] = 6.99947
+=====================================
+beam_energy [GeV] = 450
+
+5x5 matrix is as follows
+
+     |      1    |      2    |      3    |      4    |      5    |
+----------------------------------------------------------------------
+   1 |     -3.465       9.079     0.03001    -0.07863     0.06674 
+   2 |    0.03636     -0.3839  -0.0003149    0.003325   -0.001329 
+   3 |   -0.02655       0.184      -3.066       21.24  -0.0004974 
+   4 | -0.0003841  -0.0001631    -0.04435    -0.01883  -6.843e-06 
+   5 |          0           0           0           0           1 
+
+Energy [GeV]: 450
+Deltap [fraction]: 0 Horizontal beam position [m]: -0.00154345
+
+5x5 matrix is as follows
+
+     |      1    |      2    |      3    |      4    |      5    |
+----------------------------------------------------------------------
+   1 |      -3.21       6.392      0.0278    -0.05536     0.05699 
+   2 |    0.03636     -0.3839  -0.0003149    0.003325   -0.001329 
+   3 |   -0.02924      0.1828      -3.376       21.11  -0.0005455 
+   4 | -0.0003841  -0.0001631    -0.04435    -0.01883  -6.843e-06 
+   5 |          0           0           0           0           1 
+
+Energy [GeV]: 450
+Deltap [fraction]: 0 Horizontal beam position [m]: -0.00108661
+determinant x [m] = 6.99948
+determinant y [m] = 6.99947
+[1;31m Check this assignments [0m
+plotname: x_mm_y_mm_near_left
+		P0000_PlotsCollection
+plotname: x_mm_y_mm_far_left
+		P0001_PlotsCollection
+plotname: x_mm_y_mm_near_right
+		P0002_PlotsCollection
+plotname: x_mm_y_mm_far_right
+		P0003_PlotsCollection
+plotname: x_mm_near_x_mm_far_left
+		P0004_PlotsCollection
+plotname: y_mm_near_y_mm_far_left
+		P0005_PlotsCollection
+plotname: x_mm_near_x_mm_far_right
+		P0006_PlotsCollection
+plotname: y_mm_near_y_mm_far_right
+		P0007_PlotsCollection
+plotname: theta_y_star_left_rad_theta_y_star_right_rad
+		P0008_PlotsCollection
+plotname: x_star_left_mm
+		P0009_PlotsCollection
+plotname: x_star_left_mm_x_star_right_mm
+		P0010_PlotsCollection
+plotname: y_star_left_mm_y_star_right_mm
+		P0011_PlotsCollection
+plotname: dN_dt_GeV2_left
+		P0012_PlotsCollection
+plotname: dN_dt_GeV2_right
+		P0013_PlotsCollection
+plotname: dN_dt_GeV2
+		P0014_PlotsCollection
+plotname: theta_x_star_rad_theta_y_star_rad
+		P0015_PlotsCollection
+plotname: x_mm_near_x_mm_far_left
+		P0016_PlotsCollection
+plotname: x_mm_near_x_mm_far_right
+		P0017_PlotsCollection
+plotname: y_mm_near_y_mm_far_left
+		P0018_PlotsCollection
+plotname: y_mm_near_y_mm_far_right
+		P0019_PlotsCollection
+plotname: x_mm_near_theta_x_near_local_rad_right
+		P0020_PlotsCollection
+plotname: text_analysis_cuts_start_here
+		P0021_PlotsCollection
+plotname: theta_x_star_rad_theta_y_star_rad_with_cut
+		P0021_PlotsCollection
+plotname: theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut
+		P0022_PlotsCollection
+plotname: theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut
+		P0023_PlotsCollection
+plotname: theta_x_star_rad_theta_y_star_rad_horizontal_with_cut
+		P0024_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_left_with_cut
+		P0025_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_right_with_cut
+		P0026_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1
+		P0027_PlotsCollection
+plotname: theta_y_star_left_rad_theta_y_star_right_rad_with_cut
+		P0028_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_2
+		P0029_PlotsCollection
+plotname: y_mm_near_dy_mm_left_with_cut
+		P0030_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_3
+		P0031_PlotsCollection
+plotname: y_mm_near_dy_mm_right_with_cut
+		P0032_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_4
+		P0033_PlotsCollection
+plotname: x_star_left_mm_x_star_right_mm_with_cut
+		P0034_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_5
+		P0035_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_with_cut
+		P0036_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_6
+		P0037_PlotsCollection
+plotname: x_mm_near_dx_mm_left_with_cut
+		P0038_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_7
+		P0039_PlotsCollection
+plotname: y_star_left_mm_y_star_right_mm_with_cut
+		P0040_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_8
+		P0041_PlotsCollection
+plotname: x_mm_near_dx_mm_right_with_cut
+		P0042_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_9
+		P0043_PlotsCollection
+plotname: text_analysis_cut_definitions_start_here
+		P0044_PlotsCollection
+plotname: theta_x_star_rad_theta_y_star_rad_with_cut
+		P0044_PlotsCollection
+plotname: theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+		P0045_PlotsCollection
+plotname: y_mm_near_dy_mm_left_define_cut
+		P0046_PlotsCollection
+plotname: y_mm_near_dy_mm_right_define_cut
+		P0047_PlotsCollection
+plotname: x_star_left_mm_x_star_right_mm_define_cut
+		P0048_PlotsCollection
+plotname: theta_x_star_left_rad_theta_x_star_right_rad_define_cut
+		P0049_PlotsCollection
+plotname: x_mm_near_dx_mm_left_define_cut
+		P0050_PlotsCollection
+plotname: y_star_left_mm_y_star_right_mm_define_cut
+		P0051_PlotsCollection
+plotname: x_mm_near_dx_mm_right_define_cut
+		P0052_PlotsCollection
+plotname: text_analysis_cut_definitions_end_here
+		P0053_PlotsCollection
+plotname: theta_y_star_left_rad_theta_y_star_right_rad
+		P0053_PlotsCollection
+plotname: y_star_left_mm_y_star_right_mm
+		P0054_PlotsCollection
+plotname: dN_dt_GeV2_left
+		P0055_PlotsCollection
+plotname: dN_dt_GeV2_right
+		P0056_PlotsCollection
+plotname: text_differential_cross_section
+		P0057_PlotsCollection
+plotname: dN_dt_GeV2
+		P0057_PlotsCollection
+plotname: dN_dt_GeV2_weighted
+		P0058_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected
+		P0059_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected
+		P0060_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected
+		P0061_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected
+		P0062_PlotsCollection
+plotname: dN_dt_GeV2_variable_bin_size
+		P0063_PlotsCollection
+plotname: dN_dt_GeV2_weighted_variable_bin_size
+		P0064_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected_variable_bin_size
+		P0065_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_variable_bin_size
+		P0066_PlotsCollection
+plotname: dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_pile_up_inefficiency_corrected_variable_bin_size
+		P0067_PlotsCollection
+plotname: theta_y_star_rad
+		P0068_PlotsCollection
+plotname: theta_x_star_rad
+		P0069_PlotsCollection
+plotname: theta_y_star_rad_weighted
+		P0070_PlotsCollection
+plotname: theta_x_star_rad_weighted
+		P0071_PlotsCollection
+plotname: theta_y_star_right_rad
+		P0072_PlotsCollection
+plotname: theta_y_star_left_rad
+		P0073_PlotsCollection
+plotname: phi_star_rad_theta_star_rad
+		P0074_PlotsCollection
+plotname: x_mm_y_mm_near_left
+		P0075_PlotsCollection
+plotname: x_mm_y_mm_far_left
+		P0076_PlotsCollection
+plotname: x_mm_y_mm_near_right
+		P0077_PlotsCollection
+plotname: x_mm_y_mm_far_right
+		P0078_PlotsCollection
+Input directory: root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/
+Tue Aug  8 13:21:57 CEST 2023
+Error: TProject::Execute: property tree is missing to validate topology !
+root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/output_LTRB.root
+output_LTRB.root
+Tue Aug  8 13:22:01 CEST 2023
+number_of_events_fullfill_conditions: 104089
+Trigger bits
+
+=====================
+First timestamp:1539526711
+Last timestamp:1539528559
+Start to print parameters: 
+==========================================================
+<begin> theta_x_star_rad_theta_y_star_rad_cut_block
+	<parameter> 	x1		-6e-05
+	<parameter> 	y1		0.0004
+	<parameter> 	x2		6e-05
+	<parameter> 	y2		0.0004
+	<parameter> range1_x		-6e-05
+	<parameter> range1_y		6.6565e-05
+	<parameter> range2_x		6e-05
+	<parameter> range2_y		6.6565e-05
+	<parameter> sigma		0.0002
+	<parameter> number_of_sigmas		1
+<end> theta_x_star_rad_theta_y_star_rad_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+	<parameter> 	x1		0.0004
+	<parameter> 	y1		-4e-05
+	<parameter> 	x2		0.0004
+	<parameter> 	y2		-9e-05
+	<parameter> range1_x		-6e-05
+	<parameter> range1_y		6.6565e-05
+	<parameter> range2_x		6e-05
+	<parameter> range2_y		6.6565e-05
+	<parameter> sigma		0.0002
+	<parameter> number_of_sigmas		1
+<end> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+	<parameter> 	x1		4e-05
+	<parameter> 	y1		-0.0004
+	<parameter> 	x2		9e-05
+	<parameter> 	y2		-0.0004
+	<parameter> range1_x		-6e-05
+	<parameter> range1_y		6.6565e-05
+	<parameter> range2_x		6e-05
+	<parameter> range2_y		6.6565e-05
+	<parameter> sigma		0.0002
+	<parameter> number_of_sigmas		1
+<end> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+
+<begin> theta_x_star_rad_theta_y_star_rad_cut_block
+	<parameter> 	x1		-6e-05
+	<parameter> 	y1		0.0004
+	<parameter> 	x2		6e-05
+	<parameter> 	y2		0.0004
+	<parameter> range1_x		-6e-05
+	<parameter> range1_y		6.6565e-05
+	<parameter> range2_x		6e-05
+	<parameter> range2_y		6.6565e-05
+	<parameter> sigma		0.0002
+	<parameter> number_of_sigmas		1
+<end> theta_x_star_rad_theta_y_star_rad_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_define_block
+	<parameter> 	x1		-0.0006
+	<parameter> 	y1		0.0006
+	<parameter> 	x2		0.0006
+	<parameter> 	y2		-0.0006
+	<parameter> range1_x		-0.0008
+	<parameter> range1_y		0.0008
+	<parameter> range2_x		0.0008
+	<parameter> range2_y		-0.0008
+	<parameter> sigma		8.39152e-06
+	<parameter> number_of_sigmas		4
+<end> theta_y_star_left_rad_theta_y_star_right_rad_cut_define_block
+
+<begin> y_mm_near_dy_mm_left_cut_define_block
+	<parameter> 	x1		-4.34046
+	<parameter> 	y1		0.250457
+	<parameter> 	x2		-13.4906
+	<parameter> 	y2		0.161253
+	<parameter> range1_x		-9.33107
+	<parameter> range1_y		-0.763575
+	<parameter> range2_x		-22
+	<parameter> range2_y		-2.6414
+	<parameter> sigma		0.1
+	<parameter> number_of_sigmas		4
+<end> y_mm_near_dy_mm_left_cut_define_block
+
+<begin> y_mm_near_dy_mm_right_cut_define_block
+	<parameter> 	x1		3.28467
+	<parameter> 	y1		0.0583257
+	<parameter> 	x2		11.3008
+	<parameter> 	y2		-0.0994968
+	<parameter> range1_x		2
+	<parameter> range1_y		0.763575
+	<parameter> range2_x		12
+	<parameter> range2_y		2.6414
+	<parameter> sigma		0.1
+	<parameter> number_of_sigmas		4
+<end> y_mm_near_dy_mm_right_cut_define_block
+
+<begin> x_star_left_mm_x_star_right_mm_cut_define_block
+	<parameter> 	x1		0.000272145
+	<parameter> 	y1		-0.000274497
+	<parameter> 	x2		-0.223978
+	<parameter> 	y2		-0.223979
+	<parameter> range1_x		0.2
+	<parameter> range1_y		0.2
+	<parameter> range2_x		0.03
+	<parameter> range2_y		0.03
+	<parameter> sigma		7.65185
+	<parameter> number_of_sigmas		4
+<end> x_star_left_mm_x_star_right_mm_cut_define_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_define_block
+	<parameter> 	x1		2.04076e-07
+	<parameter> 	y1		2.05671e-07
+	<parameter> 	x2		8.36704e-05
+	<parameter> 	y2		-8.33184e-05
+	<parameter> range1_x		0.0006
+	<parameter> range1_y		-1.8e-05
+	<parameter> range2_x		-0.0006
+	<parameter> range2_y		1.8e-05
+	<parameter> sigma		5.81138e-05
+	<parameter> number_of_sigmas		4
+<end> theta_x_star_left_rad_theta_x_star_right_rad_cut_define_block
+
+End of print parameters: 
+==========================================================
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=1993.03 FROM MIGRAD    STATUS=CONVERGED      62 CALLS          63 TOTAL
+                     EDM=6.82296e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.97724e+02   2.33149e+00   4.41115e-02  -1.18187e-06
+   2  Mean        -1.54301e-05   1.13955e-06   2.48080e-08   9.62374e+01
+   3  Sigma        1.00180e-04   7.20466e-07   4.40437e-05  -1.76702e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=207.044 FROM MIGRAD    STATUS=CONVERGED      90 CALLS          91 TOTAL
+                     EDM=6.67978e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     5.51212e+02   6.21983e+00   3.60444e-02  -7.00343e-05
+   2  Mean        -1.69878e-04   6.24200e-07   4.39645e-09   1.02051e+02
+   3  Sigma        6.71727e-05   4.31334e-07   1.05647e-05  -1.53828e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=187.595 FROM MIGRAD    STATUS=CONVERGED      77 CALLS          78 TOTAL
+                     EDM=4.14151e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     7.68923e+02   7.24519e+00   3.97152e-02  -1.52336e-05
+   2  Mean         1.86908e-04   5.40405e-07   3.61498e-09   2.17616e+01
+   3  Sigma        6.99646e-05   3.79923e-07   9.03999e-06  -4.03003e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=908.739 FROM MIGRAD    STATUS=CONVERGED      85 CALLS          86 TOTAL
+                     EDM=8.71838e-09    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.2 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     4.25968e+03   2.47151e+01  -1.03972e-01  -1.40875e-06
+   2  Mean        -1.27329e-04   1.66641e-07   5.92903e-12  -6.97691e+01
+   3  Sigma        3.70511e-05   1.35951e-07   6.56111e-06  -2.04455e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=256.844 FROM MIGRAD    STATUS=CONVERGED      57 CALLS          58 TOTAL
+                     EDM=7.76737e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.04460e+04   4.40909e+01   2.87097e-01  -4.84783e-06
+   2  Mean        -6.98947e-07   1.09135e-07   8.54235e-10   5.81893e+02
+   3  Sigma        3.10807e-05   7.30692e-08   5.02056e-06  -6.07464e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=575.517 FROM MIGRAD    STATUS=CONVERGED      87 CALLS          88 TOTAL
+                     EDM=4.71041e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.02390e+03   2.08193e+01   1.88918e-01  -5.95162e-05
+   2  Mean        -1.27449e-04   1.98062e-07   2.32227e-09   7.47633e+02
+   3  Sigma        3.71676e-05   1.62005e-07   1.09762e-05  -6.33006e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=472.683 FROM MIGRAD    STATUS=CONVERGED      74 CALLS          75 TOTAL
+                     EDM=1.86995e-10    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.5 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.02374e+03   2.07985e+01   7.21720e-02  -1.56874e-06
+   2  Mean        -1.27454e-04   1.97902e-07  -1.10777e-10  -1.45795e+01
+   3  Sigma        3.71168e-05   1.61227e-07  -6.45260e-07  -1.87032e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=361.075 FROM MIGRAD    STATUS=CONVERGED      58 CALLS          59 TOTAL
+                     EDM=1.65059e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.02395e+03   2.07812e+01   1.49953e-01   6.38059e-05
+   2  Mean        -1.27473e-04   1.97775e-07   1.83628e-09  -7.32225e+03
+   3  Sigma        3.70612e-05   1.60455e-07   9.53312e-06   9.17720e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=42.191 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=3.38034e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.90056e+01   1.94964e+00   4.90367e-03  -6.34884e-05
+   2  Mean         9.97363e-01   1.27694e-02   3.86371e-05   6.34979e-02
+   3  Sigma        2.24345e-01   9.71944e-03   3.13521e-05   3.73782e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=361.075 FROM MIGRAD    STATUS=CONVERGED      70 CALLS          71 TOTAL
+                     EDM=9.62421e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.02394e+03   2.07812e+01   1.49954e-01   5.06289e-05
+   2  Mean        -1.27473e-04   1.97775e-07   1.83629e-09  -5.46577e+03
+   3  Sigma        3.70612e-05   1.60455e-07   9.53323e-06   7.25988e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=361.075 FROM MIGRAD    STATUS=CONVERGED      58 CALLS          59 TOTAL
+                     EDM=1.65059e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.02395e+03   2.07812e+01   1.49953e-01   6.38059e-05
+   2  Mean        -1.27473e-04   1.97775e-07   1.83628e-09  -7.32225e+03
+   3  Sigma        3.70612e-05   1.60455e-07   9.53312e-06   9.17721e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=348.393 FROM MIGRAD    STATUS=CONVERGED      58 CALLS          59 TOTAL
+                     EDM=2.76911e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.10099e+03   2.04264e+01   1.51648e-01  -1.97042e-05
+   2  Mean        -1.26810e-04   1.95383e-07   1.76195e-09  -3.45873e+03
+   3  Sigma        3.58778e-05   1.38550e-07   9.16712e-06  -6.92914e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=348.393 FROM MIGRAD    STATUS=CONVERGED      58 CALLS          59 TOTAL
+                     EDM=2.76911e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.10099e+03   2.04264e+01   1.51648e-01  -1.97042e-05
+   2  Mean        -1.26810e-04   1.95383e-07   1.76195e-09  -3.45873e+03
+   3  Sigma        3.58778e-05   1.38550e-07   9.16712e-06  -6.92914e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=348.393 FROM MIGRAD    STATUS=CONVERGED      58 CALLS          59 TOTAL
+                     EDM=2.76911e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.10099e+03   2.04264e+01   1.51648e-01  -1.97042e-05
+   2  Mean        -1.26810e-04   1.95383e-07   1.76195e-09  -3.45873e+03
+   3  Sigma        3.58778e-05   1.38550e-07   9.16712e-06  -6.92915e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=348.393 FROM MIGRAD    STATUS=CONVERGED      58 CALLS          59 TOTAL
+                     EDM=2.76911e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.10099e+03   2.04264e+01   1.51648e-01  -1.97042e-05
+   2  Mean        -1.26810e-04   1.95383e-07   1.76195e-09  -3.45873e+03
+   3  Sigma        3.58778e-05   1.38550e-07   9.16712e-06  -6.92913e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=754.888 FROM MIGRAD    STATUS=CONVERGED      75 CALLS          76 TOTAL
+                     EDM=5.97639e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.28996e+02   1.85699e+00   2.08758e-02  -5.34853e-05
+   2  Mean        -4.78947e-05   2.36931e-06   2.65693e-08   1.64377e+01
+   3  Sigma        1.25676e-04   1.93899e-06   5.59095e-05   2.74622e-03
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=1529.32 FROM MIGRAD    STATUS=CONVERGED      66 CALLS          67 TOTAL
+                     EDM=5.04018e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     1.11954e+04   5.99355e+01   9.06447e-01  -1.43450e-05
+   2  Mean        -6.61128e-07   1.03285e-07   1.97271e-09  -6.04873e+03
+   3  Sigma        2.09693e-05   9.25504e-08   2.40083e-05  -5.85843e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=41.191 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=2.88013e-08    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     2.90057e+01   1.94963e+00   4.84472e-03  -3.43709e-05
+   2  Mean         9.97360e-01   1.27694e-02   3.81635e-05   1.54278e-02
+   3  Sigma        2.24344e-01   9.71932e-03   3.13459e-05   1.27750e-02
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+ FCN=348.393 FROM MIGRAD    STATUS=CONVERGED      68 CALLS          69 TOTAL
+                     EDM=2.57617e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.10099e+03   2.04264e+01   1.51648e-01  -2.43847e-05
+   2  Mean        -1.26810e-04   1.95383e-07   1.76196e-09  -3.07128e+03
+   3  Sigma        3.58778e-05   1.38550e-07   9.16713e-06  -1.81605e-01
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+TAnalysisPlot2D::SavePlot: I am here 1
+TAnalysisPlot2D::SavePlot: I am here 5
+TAnalysisPlot2D::SavePlot: I am here 6
+TAnalysisPlot2D::SavePlot: I am here 8
+Successfully completed.
