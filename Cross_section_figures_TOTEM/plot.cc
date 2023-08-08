@@ -182,12 +182,18 @@ void fit()
 {
 	string fit_function_name = "pol0" ;
 
-	sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "", "", 10, 20) ;
+	TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 10, 20) ;
+
+	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5, 20) ;
+	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5.1, 5.6) ;
+
 	sigma_total_graph_pp_OTHER->GetFunction(fit_function_name.c_str())->SetLineColor(kBlack) ;
+	
+	cout << ptr->Ndf() << endl ;
 }
 
 // TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
-TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 5, 25, 100, 30, 80) ;
+TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1, 25, 100, 30, 80) ;
 
 int post_process()
 {
@@ -247,7 +253,7 @@ int main(int argc, char *argv[])
   hist_2d->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;
 
   hist_2d->SetTitle("") ;
-  hist_2d->GetXaxis()->SetRangeUser(5, 25) ;
+  // hist_2d->GetXaxis()->SetRangeUser(5, 25) ;
   hist_2d->Draw() ;
 
   add_TOTEM() ;
