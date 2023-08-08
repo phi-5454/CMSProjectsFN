@@ -118,6 +118,8 @@ int add_PDG(int process)
   
   double POINT_NUMBER, PLAB, PLAB_MIN, PLAB_MAX, SIG, STA_ERRP, STA_ERRM, SY_ERP, SY_ERM ;
   string REF1, REF2, REF3, REF4, REF5, FLAG ;
+  
+  bool least_square_fit = true ;
 
   while(sigma_total_data >> POINT_NUMBER >> PLAB >> PLAB_MIN >> PLAB_MAX >> SIG >> STA_ERRP >> STA_ERRM >> SY_ERP >> SY_ERM >> REF1 >> REF2 >> REF3 >> REF4 >> REF5)
   {
@@ -129,6 +131,13 @@ int add_PDG(int process)
 
     double uncertainty_minus = sqrt((STA_ERRM*STA_ERRM) + (syst_minus_mb*syst_minus_mb)) ;
     double uncertainty_plus = sqrt((STA_ERRP*STA_ERRP) + (syst_plus_mb*syst_plus_mb)) ;
+
+  	if(least_square_fit)
+    {
+      cout << "here" << endl ;
+  		uncertainty_minus = 1.0 ;
+	  	uncertainty_plus = 1.0 ;
+    }
 
     if((process == process_ppbar) && (POINT_NUMBER == 442))
     {
