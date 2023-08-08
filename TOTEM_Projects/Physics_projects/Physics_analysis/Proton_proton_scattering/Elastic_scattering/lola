@@ -1,0 +1,31 @@
+Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7301/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Conventions/TOTEM/Trigger_bits.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_bottom_right_top.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Variable_descriptions.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/Plot_descriptions.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/Plot_descriptions/Plot_descriptions_diffraction.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/Plot_descriptions/Plot_descriptions_inefficiency.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/All.prj
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Plots/To_define_cuts.prj
+Begin of if setting part
+	Name of setting: project_subtask
+	setting_required_value: not
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Main_settings/Main_settings.prj
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Plots/Plots.prj
+Begin of if setting part
+	Name of setting: Fill_number
+	setting_required_value: 7301
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Cuts/Fill_7301/Cuts_test_left_bottom_right_top_4_sigma.prj
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Error: TLogFile::TLogFile: Log file already exists ! /afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts//Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_analysis.log

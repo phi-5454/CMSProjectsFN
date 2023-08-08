@@ -3,10 +3,10 @@
 <comment> cat new_definitions.txt  | sed 's/parameter/update_parameter/g' | sed 's/define\_//g' | sed 's/\-\-//g' 
 
 <begin> alignment_block
-                <parameter> RP_alignment_left_far__x_mm            -0.2943
-                <parameter> RP_alignment_left_near_x_mm            -0.8385 
-                <parameter> RP_alignment_right_far__x_mm           -0.5941
-                <parameter> RP_alignment_right_near_x_mm            0.2440
+                <parameter> RP_alignment_left_far__x_mm             0.0
+                <parameter> RP_alignment_left_near_x_mm             0.0 
+                <parameter> RP_alignment_right_far__x_mm            0.0
+                <parameter> RP_alignment_right_near_x_mm            0.0
 
                 <parameter> RP_alignment_left_near_y_mm             0.0
                 <parameter> RP_alignment_left_far__y_mm             0.0
