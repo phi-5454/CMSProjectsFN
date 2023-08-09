@@ -222,6 +222,34 @@
 		<setting>	x_variable												x_r_f_mm
 		<setting>	y_variable												y_r_f_mm
 	<end>	x_mm_y_mm_far_right_plot_block
+	
+	<begin>	x_mm_y_mm_near_left_aligned_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_l_n_aligned_mm
+		<setting>	y_variable												y_l_n_aligned_mm
+	<end>	x_mm_y_mm_near_left_aligned_plot_block
+
+	<begin>	x_mm_y_mm_far_left_aligned_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_l_f_aligned_mm
+		<setting>	y_variable												y_l_f_aligned_mm
+	<end>	x_mm_y_mm_far_left_aligned_plot_block
+
+	<begin>	x_mm_y_mm_near_right_aligned_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_r_n_aligned_mm
+		<setting>	y_variable												y_r_n_aligned_mm
+	<end>	x_mm_y_mm_near_right_aligned_plot_block
+
+	<begin>	x_mm_y_mm_far_right_aligned_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													x_mm_y_mm_type_block
+		<setting>	x_variable												x_r_f_aligned_mm
+		<setting>	y_variable												y_r_f_aligned_mm
+	<end>	x_mm_y_mm_far_right_aligned_plot_block
 
 	<begin>	x_mm_near_x_mm_far_left_plot_block
 		<parameter>	dimension												2.0

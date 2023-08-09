@@ -608,6 +608,16 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 	y_r_n_mm = a_y_r_n_mm ;
 	y_r_f_mm = a_y_r_f_mm ;
 
+	x_l_n_aligned_mm = a_x_l_n_mm ;
+	x_l_f_aligned_mm = a_x_l_f_mm ;
+	x_r_n_aligned_mm = a_x_r_n_mm ;
+	x_r_f_aligned_mm = a_x_r_f_mm ;
+
+	y_l_n_aligned_mm = a_y_l_n_mm ;
+	y_l_f_aligned_mm = a_y_l_f_mm ;
+	y_r_n_aligned_mm = a_y_r_n_mm ;
+	y_r_f_aligned_mm = a_y_r_f_mm ;
+
 	thx_l_n_rad = a_thx_l_n_rad ;
 	thx_l_f_rad = a_thx_l_f_rad ;
 	thx_r_n_rad = a_thx_r_n_rad ;

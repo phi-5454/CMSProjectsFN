@@ -41,6 +41,46 @@
 		<setting>	unit													mm
 	<end>	y_r_f_mm_variable_block
 
+	<begin> x_l_n_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               x_{left,aligned,near}
+      	 <setting>       unit                                                                                                    mm
+	<end>   x_l_n_aligned_mm_variable_block
+
+	<begin> y_l_n_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               y_{left,aligned,near}
+      	 <setting>       unit                                                                                                    mm
+	<end>   y_l_n_aligned_mm_variable_block
+
+	<begin> x_l_f_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               x_{left,aligned,far}
+      	 <setting>       unit                                                                                                    mm
+	<end>   x_l_f_aligned_mm_variable_block
+
+	<begin> y_l_f_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               y_{left,aligned,far}
+      	 <setting>       unit                                                                                                    mm
+	<end>   y_l_f_aligned_mm_variable_block
+
+	<begin> x_r_n_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               x_{left,aligned,near}
+      	 <setting>       unit                                                                                                    mm
+	<end>   x_r_n_aligned_mm_variable_block
+
+	<begin> y_r_n_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               y_{left,aligned,near}
+      	 <setting>       unit                                                                                                    mm
+	<end>   y_r_n_aligned_mm_variable_block
+
+	<begin> x_r_f_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               x_{left,aligned,far}
+      	 <setting>       unit                                                                                                    mm
+	<end>   x_r_f_aligned_mm_variable_block
+
+	<begin> y_r_f_aligned_mm_variable_block
+      	 <setting>       axis_name                                                                                               y_{left,aligned,far}
+      	 <setting>       unit                                                                                                    mm
+	<end>   y_r_f_aligned_mm_variable_block
+
 <section> ==================== Local differences and angles
 
 	<begin>	dx_left_mm_variable_block
