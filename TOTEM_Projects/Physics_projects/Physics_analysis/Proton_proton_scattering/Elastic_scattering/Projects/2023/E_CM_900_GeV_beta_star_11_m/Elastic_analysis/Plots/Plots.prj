@@ -36,7 +36,14 @@
 	<begin>	x_star_mm_x_star_mm_type_block
 		<update_parameter>			number_of_horizontal_bins						40
 		<update_parameter>			number_of_vertical_bins							40
+		<update_parameter>			horizontal_axis_boundary						2.0
+		<update_parameter>			vertical_axis_boundary							2.0
 	<end>	x_star_mm_x_star_mm_type_block
+
+        <begin> y_star_mm_y_star_mm_type_block
+                <update_parameter>                      horizontal_axis_boundary                                                2.0
+                <update_parameter>                      vertical_axis_boundary                                                  2.0
+        <end>   y_star_mm_y_star_mm_type_block
 	
 	<begin>	theta_x_rad_theta_x_right_rad_type_block
 		<update_parameter>			horizontal_axis_boundary						0.0002
