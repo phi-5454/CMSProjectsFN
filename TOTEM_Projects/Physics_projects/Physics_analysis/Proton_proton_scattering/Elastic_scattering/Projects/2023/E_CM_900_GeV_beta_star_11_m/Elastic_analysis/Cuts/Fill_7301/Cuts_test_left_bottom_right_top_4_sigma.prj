@@ -114,7 +114,7 @@
         <parameter> range1_y            -1.8e-05
         <parameter> range2_x            -6e-04
         <parameter> range2_y            1.8e-05
-        <parameter> sigma               5.81138e-05
+        <parameter> sigma               3.7e-05
         <parameter> number_of_sigmas            4
 <end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 

@@ -91,3 +91,8 @@
 		<update_parameter>	define_cut												0.0
 	<end>	x_far_right_mm_theta_x_rad_plot_block
 	
+
+        <begin> phi_star_rad_theta_star_rad_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  0.0015
+        <end>   phi_star_rad_theta_star_rad_type_block
+
