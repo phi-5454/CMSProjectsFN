@@ -134,9 +134,9 @@ int add_PDG(int process)
 
   	if(least_square_fit)
     {
-      cout << "here" << endl ;
-  		uncertainty_minus = 1.0 ;
-	  	uncertainty_plus = 1.0 ;
+      // cout << "here" << endl ;
+  		uncertainty_minus = 1.0 * sqrt(10.9422);
+	  	uncertainty_plus = 1.0 * sqrt(10.9422) ;
     }
 
     if((process == process_ppbar) && (POINT_NUMBER == 442))
