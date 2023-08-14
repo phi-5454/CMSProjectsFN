@@ -56,66 +56,6 @@ TH2D *flipHistogram(TH2D *histogram)
 }
 
 
-/*
-main()
-{
-	gStyle->SetLineScalePS(.3) ;
-	gStyle->SetOptFit(1111);
-
-	TFile *file_LBRT = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts/Generic.root") ;
-	TFile *file_LTRB = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/Generic.root") ;
-
-	TH2D *x_mm_y_mm_near_left_aligned_LBRT = ((TH2D *)(file_LBRT->Get("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned"))) ;
-	TH2D *x_mm_y_mm_near_left_aligned_LTRB = ((TH2D *)(file_LTRB->Get("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned"))) ;
-
-//	TH2D *x_mm_y_mm_near_left_aligned_LBRT = ((TH2D *)(file_LBRT->Get("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned"))) ;
-//	TH2D *x_mm_y_mm_near_left_aligned_LTRB = ((TH2D *)(file_LTRB->Get("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned"))) ;
-
-//	TH2D *x_mm_y_mm_near_left_aligned_LBRT = ((TH2D *)(file_LBRT->Get("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned"))) ;
-//	TH2D *x_mm_y_mm_near_left_aligned_LTRB = ((TH2D *)(file_LTRB->Get("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned"))) ;
-
-//	TH2D *x_mm_y_mm_near_left_aligned_LBRT = ((TH2D *)(file_LBRT->Get("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned"))) ;
-//	TH2D *x_mm_y_mm_near_left_aligned_LTRB = ((TH2D *)(file_LTRB->Get("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned"))) ;
-	
-	TH2D *x_mm_y_mm_near_left_aligned_combined = (TH2D *)x_mm_y_mm_near_left_aligned_LBRT->Clone("x_mm_y_mm_near_left_aligned_LBRT_combined") ;
-	x_mm_y_mm_near_left_aligned_combined->Add(x_mm_y_mm_near_left_aligned_LTRB) ;
-	TH2D *x_mm_y_mm_near_left_aligned_combined_rotated = flipHistogram(x_mm_y_mm_near_left_aligned_combined) ;
-	
-	c.SetLogz();
-	c.SetGridx() ;	
-	c.SetGridy() ;	
-
-	x_mm_y_mm_near_left_aligned_combined_rotated->SaveAs("plots/ElasticAlignment/x_mm_y_mm_near_left_aligned_combined.root") ;
-	TProfile *x_mm_y_mm_near_left_aligned_combined_rotated_profile = x_mm_y_mm_near_left_aligned_combined_rotated->ProfileX("prof_1") ;
-	
-	x_mm_y_mm_near_left_aligned_combined_rotated_profile->Fit("pol1", "S", "", -10, 10) ;
-	double misalignment_x_mm = x_mm_y_mm_near_left_aligned_combined_rotated_profile->GetFunction("pol1")->Eval(0.0) ;
-	cout << "misalignment_x_mm: " << misalignment_x_mm << endl ;
-	
-	x_mm_y_mm_near_left_aligned_combined_rotated->Draw("colz") ;
-	x_mm_y_mm_near_left_aligned_combined_rotated_profile->Draw("same") ;
-
-	c.SaveAs("plots/ElasticAlignment/x_mm_y_mm_near_left_aligned_combined_rotated_profile.root") ;
-	c.SaveAs("plots/ElasticAlignment/x_mm_y_mm_near_left_aligned_combined_rotated_profile.pdf") ;
-	
-	
-	
-	
-	TH1D *px1 = x_mm_y_mm_near_left_aligned_combined->ProjectionX("px1", 600, 660) ;
-	TH1D *px2 = x_mm_y_mm_near_left_aligned_combined->ProjectionX("px2", 366, 425) ;
-
-
-	px1->Draw() ;
-	px1->GetXaxis()->SetRangeUser(-10.0, 10.0) ;
-	px2->Draw("same") ;
-
-	c.SaveAs("plots/ElasticAlignment/px.root") ;
-	c.SaveAs("plots/ElasticAlignment/px.pdf") ;
-
-}
-*/
-
-
 TFile *file_LBRT = NULL ;
 TFile *file_LTRB = NULL ;
 
