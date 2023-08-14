@@ -75,3 +75,5 @@
 	<nsetting>	analysis_plot		x_mm_y_mm_far_left_aligned
 	<nsetting>	analysis_plot		x_mm_y_mm_near_right_aligned
 	<nsetting>	analysis_plot		x_mm_y_mm_far_right_aligned
+
+	<nsetting>	analysis_plot		dN_dt_aligned_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected
