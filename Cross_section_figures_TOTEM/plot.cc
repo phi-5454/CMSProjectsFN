@@ -135,8 +135,10 @@ int add_PDG(int process)
   	if(least_square_fit)
     {
       // cout << "here" << endl ;
-  		uncertainty_minus = 1.0 * sqrt(10.9422);
-	  	uncertainty_plus = 1.0 * sqrt(10.9422) ;
+  		uncertainty_minus = 1.0 * sqrt(23./61.);
+	  	uncertainty_plus = 1.0 * sqrt(23./61.);
+  		// uncertainty_minus = 1.0 ;
+	  	// uncertainty_plus = 1.0 ;
     }
 
     if((process == process_ppbar) && (POINT_NUMBER == 442))
@@ -190,10 +192,11 @@ int add_PDG(int process)
 void fit()
 {
 	string fit_function_name = "pol0" ;
+	//string fit_function_name = "pol1" ;
 
-	TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 10, 20) ;
+	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 10, 20) ;
 
-	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5, 20) ;
+	TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5, 20) ;
 	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5.1, 5.6) ;
 
 	sigma_total_graph_pp_OTHER->GetFunction(fit_function_name.c_str())->SetLineColor(kBlack) ;
