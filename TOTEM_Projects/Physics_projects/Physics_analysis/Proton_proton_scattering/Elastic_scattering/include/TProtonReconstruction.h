@@ -108,6 +108,8 @@ class TProtonReconstruction
 	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2 ;
 	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2 ;
 
+	double minus_t_aligned_GeV2 ;
+
 	double minus_t_from_theta_y_GeV2 ;
 
 	// Validity
@@ -532,6 +534,10 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &x_r_f_aligned_mm ; 
 	}
+	else if(variable_name.compare("minus_t_aligned_GeV2")==0)
+	{
+		return &minus_t_aligned_GeV2 ; 
+	}
 	else
 	{
                 cout << "The requested variable is not defined ! " << variable_name << endl ;
@@ -641,6 +647,31 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 
 		y_r_n_aligned_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
 		y_r_f_aligned_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
+
+		double dx_left_mm_aligned 	= (x_l_f_aligned_mm - x_l_n_aligned_mm) ;
+		double dx_right_mm_aligned 	= (x_r_f_aligned_mm - x_r_n_aligned_mm) ;
+
+		double theta_x_left_rad_aligned	= (dx_left_mm_aligned 	/ near_far_RP_units_distance_mm_Beam_2) ;
+		double theta_x_right_rad_aligned 	= (dx_right_mm_aligned	/ near_far_RP_units_distance_mm_Beam_1) ;
+
+		double x_star_left_mm_aligned  = ReconstructXStarMm(x_l_n_aligned_mm, x_l_f_aligned_mm, BeamOptics_Beam_2) ;
+		double x_star_right_mm_aligned = ReconstructXStarMm(x_r_n_aligned_mm, x_r_f_aligned_mm, BeamOptics_Beam_1) ;
+
+		double x_star_left_m_aligned  = (x_star_left_mm_aligned  / TConstants::conversion_factor_from_m_to_mm) ; 
+		double x_star_right_m_aligned = (x_star_right_mm_aligned / TConstants::conversion_factor_from_m_to_mm) ;
+
+		double theta_x_star_left_rad_aligned	= ReconstructThetaXStarRad(theta_x_left_rad_aligned,  x_star_left_m_aligned, BeamOptics_Beam_2) ;
+		double theta_x_star_right_rad_aligned	= ReconstructThetaXStarRad(theta_x_right_rad_aligned, x_star_right_m_aligned, BeamOptics_Beam_1) ;
+
+		double theta_y_star_left_rad_aligned	= ReconstructThetaYStarRad(y_l_n_aligned_mm, y_l_f_aligned_mm, BeamOptics_Beam_2) ;
+		double theta_y_star_right_rad_aligned	= ReconstructThetaYStarRad(y_r_n_aligned_mm, y_r_f_aligned_mm, BeamOptics_Beam_1) ;
+
+		double theta_x_star_rad_aligned = 0.5 * (theta_x_star_left_rad_aligned + ((-1.0)*theta_x_star_right_rad_aligned)) ;
+		double theta_y_star_rad_aligned = 0.5 * (theta_y_star_left_rad_aligned + ((-1.0)*theta_y_star_right_rad_aligned)) ;
+
+		double t_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_rad_aligned, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
+
+		minus_t_aligned_GeV2		= -t_aligned_GeV2 ;
 	}
 	
 	dx_left_mm 	= (x_l_f_mm - x_l_n_mm) ;
