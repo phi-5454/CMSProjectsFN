@@ -79,7 +79,7 @@ TAnalysisPlot1D::TAnalysisPlot1D(string name, string plot_collection_name, TProj
 
 		if(beam_divergence_corrected)
 		{
-			minus_t_y_GeV2_for_beam_divergence_acceptance_correction = ProtonReconstruction->GetReconstructedVariable("minus_t_y_GeV2") ;
+			minus_t_y_GeV2_for_beam_divergence_acceptance_correction = ProtonReconstruction->GetReconstructedVariable(plot_block->GetSettingValue("beam_divergence_parameter")) ;
 
 			if(ProjectParameters->IsSettingDefined("Inefficiency_3_out_of_4_RP"))
 			{
