@@ -393,6 +393,12 @@
 		<nsetting>	depends_on_variable										t_GeV2
 	<end>	minus_t_GeV2_variable_block
 
+	<begin>	minus_t_aligned_GeV2_variable_block
+		<setting>	axis_name												-t_{aligned}
+		<setting>	unit													GeV^{2}
+		<nsetting>	depends_on_variable										t_GeV2
+	<end>	minus_t_aligned_GeV2_variable_block
+
 	<begin>	minus_t_from_theta_y_GeV2_variable_block
 		<setting>	axis_name												-t
 		<setting>	unit													GeV^{2}
