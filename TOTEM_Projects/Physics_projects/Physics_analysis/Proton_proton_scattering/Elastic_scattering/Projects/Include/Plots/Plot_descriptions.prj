@@ -1445,6 +1445,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_right_near_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1456,6 +1457,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_left_near_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1467,6 +1469,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1478,6 +1481,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1490,6 +1494,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_right_far_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1504,6 +1509,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_left_far_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1516,6 +1522,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_without_left_far_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1555,6 +1562,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1564,6 +1572,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1574,6 +1583,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1581,6 +1591,21 @@
 		<parameter>	pile_up_inefficiency_corrected							1.0
 		<parameter>	to_be_saved_for_smart_merging							0.0
 	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+
+<comment> ********************************************
+<comment> Final t-distributions with alignment
+<comment> ********************************************
+	
+	<begin>	dN_dt_aligned_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_plot_block
+		<parameter>	dimension												1.0
+		<setting>	type													dN_dt_GeV2_type_block
+		<setting>	x_variable												minus_t_aligned_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
+		<parameter>	weighted												1.0
+		<parameter>	geometrical_acceptance_corrected						1.0
+		<parameter>	beam_divergence_corrected								1.0
+	<end>	dN_dt_aligned_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_plot_block
+
 
 <comment> ********************************************
 <comment> Final t-distributions variable bin size
@@ -1617,6 +1642,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
@@ -1628,6 +1654,7 @@
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block
 		<setting>	x_variable												minus_t_GeV2
+		<setting>	beam_divergence_parameter						minus_t_y_GeV2
 		<parameter>	weighted												1.0
 		<parameter>	geometrical_acceptance_corrected						1.0
 		<parameter>	beam_divergence_corrected								1.0
