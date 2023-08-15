@@ -261,7 +261,7 @@ void combine_and_fit_y(string name, double low, double high, int bins)
 	TFitResultPtr ptr = py1->Fit("gaus", "S", "", low, high) ;
 	py1->GetFunction("gaus")->SetLineColor(kBlue) ;
 	double mean = ptr->Parameter(1) ;
-	cout << "fit_resulty mean: " << mean << endl ;
+	cout << "fit_resulty mean: " << name << " " << mean << endl ;
 
 	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".root").c_str()) ;
 	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".pdf").c_str()) ;
