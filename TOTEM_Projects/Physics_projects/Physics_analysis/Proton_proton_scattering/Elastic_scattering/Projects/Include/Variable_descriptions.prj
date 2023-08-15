@@ -161,7 +161,6 @@
 		<setting>	unit													rad
 		<nsetting>	depends_on_variable										y_r_n_mm
 		<nsetting>	depends_on_variable										y_r_f_mm
-		
 	<end>	theta_y_star_right_rad_variable_block
 
 	<begin>	theta_y_star_right_near_rad_variable_block
@@ -303,12 +302,26 @@
 		<nsetting>	depends_on_variable										theta_x_star_right_rad
 	<end>	theta_x_star_rad_variable_block
 
+	<begin>	theta_x_star_rad_aligned_variable_block
+		<setting>	axis_name												#theta_{x,aligned}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_x_star_left_rad
+		<nsetting>	depends_on_variable										theta_x_star_right_rad
+	<end>	theta_x_star_rad_aligned_variable_block
+
 	<begin>	theta_y_star_rad_variable_block
 		<setting>	axis_name												#theta_{y}*
 		<setting>	unit													rad
 		<nsetting>	depends_on_variable										theta_y_star_left_rad
 		<nsetting>	depends_on_variable										theta_y_star_right_rad
 	<end>	theta_y_star_rad_variable_block
+
+	<begin>	theta_y_star_rad_aligned_variable_block
+		<setting>	axis_name												#theta_{y,aligned}*
+		<setting>	unit													rad
+		<nsetting>	depends_on_variable										theta_y_star_left_rad
+		<nsetting>	depends_on_variable										theta_y_star_right_rad
+	<end>	theta_y_star_rad_aligned_variable_block
 
 	<begin>	theta_star_rad_variable_block
 		<setting>	axis_name												#theta*

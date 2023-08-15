@@ -388,6 +388,13 @@
 		<setting>	x_variable												phi_star_without_left_far_rad
 		<setting>	y_variable												theta_star_without_left_far_rad
 	<end>	phi_star_without_left_far_rad_theta_x_star_right_rad_plot_block
+
+	<begin>	theta_x_star_rad_theta_y_star_aligned_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_x_star_rad_aligned
+		<setting>	y_variable												theta_y_star_rad_aligned
+	<end>	theta_x_star_rad_theta_y_star_aligned_rad_plot_block
 	
 <section> ====================	2D Plot descriptions with cuts
 
