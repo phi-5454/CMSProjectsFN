@@ -121,7 +121,93 @@ void combine_and_fit(string name, double low, double high, bool swap = false)
 void combine_and_fit_y(string name, double low, double high, int bins)
 {
 	TCanvas *c = new TCanvas() ;
+	
+	ifstream acceptance_cuts("data/acceptance_cuts_for_vertical_alignment/acceptance_cuts_for_vertical_alignment.txt") ;
+	
+	double LBRT_cut_y_mm_low = 0 ;
+	double LBRT_cut_y_mm_high = 0 ;
 
+	double LTRB_cut_y_mm_low = 0 ;
+	double LTRB_cut_y_mm_high = 0 ;
+	
+	// LBRT
+	
+	string arm = "" ;
+	string position = "" ;
+	double cut_position_rad = 0 ;
+	string diagonal = "" ;
+	double Ly_near = 0.0 ;
+	double Ly_far = 0.0 ;
+	double far_cut_mm = 0.0 ;
+	double near_cut_mm = 0.0 ;
+	
+	string selected_arm = "" ;
+	string selected_rp = "" ;
+	
+	if(name.compare("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned") == 0)
+	{
+		selected_arm = "left" ;
+		selected_rp =  "near" ;
+	} 
+	else if(name.compare("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned") == 0)
+	{
+		selected_arm = "left" ;
+		selected_rp =  "far" ;
+	}
+	else if(name.compare("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned") == 0)
+	{
+		selected_arm = "right" ;
+		selected_rp =  "near" ;
+	}
+	else if(name.compare("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned") == 0)
+	{
+		selected_arm = "right" ;
+		selected_rp =  "far" ;
+	}
+	else
+	{
+		exit(1) ;
+	}
+
+	
+	while(acceptance_cuts >> arm >> position >> cut_position_rad >> diagonal >> Ly_near >> Ly_far >> far_cut_mm >> near_cut_mm)
+	{
+		// cout << " " <<   arm << " " <<  position << " " <<  cut_position_rad << " " <<  diagonal << " " <<  Ly_near << " " <<  Ly_far << " " <<  far_cut_mm << " " <<  near_cut_mm << " " <<  endl ;
+
+		if(diagonal.compare("LBRT") == 0)
+		{
+			double sign_and_unit = 1e3 ;
+
+			if(selected_arm.compare("left")) sign_and_unit *= -1.0 ;
+
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("near") == 0) && (position.compare("low") == 0)) LBRT_cut_y_mm_low = sign_and_unit * near_cut_mm ;
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("near") == 0) && (position.compare("high") == 0)) LBRT_cut_y_mm_high = sign_and_unit * near_cut_mm ;
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("far") == 0) && (position.compare("low") == 0)) LBRT_cut_y_mm_low = sign_and_unit * far_cut_mm ;
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("far") == 0) && (position.compare("high") == 0)) LBRT_cut_y_mm_high = sign_and_unit * far_cut_mm ;
+		}
+
+		if(diagonal.compare("LTRB") == 0)
+		{
+			double sign_and_unit = 1e3 ;
+
+			if(selected_arm.compare("right")) sign_and_unit *= -1.0 ;
+
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("near") == 0) && (position.compare("low") == 0)) LTRB_cut_y_mm_low = sign_and_unit * near_cut_mm ;
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("near") == 0) && (position.compare("high") == 0)) LTRB_cut_y_mm_high = sign_and_unit * near_cut_mm ;
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("far") == 0) && (position.compare("low") == 0)) LTRB_cut_y_mm_low = sign_and_unit * far_cut_mm ;
+			if((arm.compare(selected_arm) == 0) && (selected_rp.compare("far") == 0) && (position.compare("high") == 0)) LTRB_cut_y_mm_high = sign_and_unit * far_cut_mm ;
+		}
+	}
+
+	cout <<  "LBRT_cut_y_mm_low " << LBRT_cut_y_mm_low << endl ;
+	cout <<  "LBRT_cut_y_mm_high " << LBRT_cut_y_mm_high << endl ;
+
+	cout << "LTRB_cut_y_mm_low " << LTRB_cut_y_mm_low << endl ;
+	cout << "LTRB_cut_y_mm_high " << LTRB_cut_y_mm_high << endl ;
+	cout << endl ;
+	
+
+	// return ;
 
 	TH2D *LBRT = ((TH2D *)(file_LBRT->Get(name.c_str()))) ;
 	TH2D *LTRB = ((TH2D *)(file_LTRB->Get(name.c_str()))) ;
@@ -141,17 +227,35 @@ void combine_and_fit_y(string name, double low, double high, int bins)
 
 	py1->SetLineColor(kRed) ;
 
-	py2->Draw() ;
-	py3->Draw("same") ;
-	py1->Draw("same") ;
-	py1->GetXaxis()->SetRangeUser(-30.0, 30.0) ;
+	//py2->Draw() ;
+	//py3->Draw("same") ;
+	py1->Draw("") ;
+	// py1->GetXaxis()->SetRangeUser(-30.0, 30.0) ;
 	
-	int nbins = py1->GetXaxis()->GetNbins() / 2.0 ;
+	int nbins = py1->GetXaxis()->GetNbins() ;
 	
-	for(int i = -bins ; i < bins ; ++i)
+	for(int i = 0 ; i < nbins ; ++i)
 	{
-		py1->SetBinContent(i + nbins, 0) ;
-		py1->SetBinError(i + nbins, 0) ;
+		double biny = py1->GetXaxis()->GetBinCenter(i) ;
+		// cout << biny << endl ;
+
+		if((LBRT_cut_y_mm_low < 0) && ((LBRT_cut_y_mm_high > biny) || ((biny > LBRT_cut_y_mm_low) && (biny < LTRB_cut_y_mm_low)) || (LTRB_cut_y_mm_high < biny)))
+		{
+			// cout << "here I am2" << endl ;
+			py1->SetBinContent(i, 0) ;
+			py1->SetBinError(i, 0) ;
+		}
+		
+		if((LBRT_cut_y_mm_low > 0) && ((LTRB_cut_y_mm_high > biny) || ((biny > LTRB_cut_y_mm_low) && (biny < LBRT_cut_y_mm_low)) || (LBRT_cut_y_mm_high < biny)))
+		{
+			cout << "here I am" << endl ;
+			py1->SetBinContent(i, 0) ;
+			py1->SetBinError(i, 0) ;
+		}
+
+
+
+
 	}
 	
 	TFitResultPtr ptr = py1->Fit("gaus", "S", "", low, high) ;
@@ -176,10 +280,10 @@ main()
 	file_LBRT = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts/Generic.root") ;
 	file_LTRB = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/Generic.root") ;
 
-	combine_and_fit("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned", -2.0, 2.0) ;
-	combine_and_fit("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned", -1.5, 1.5) ;
-	combine_and_fit("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned", -2.0, 2.0, true) ;
-	combine_and_fit("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned", -1.5, 1.5, true) ;
+	// combine_and_fit("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned", -2.0, 2.0) ;
+	// combine_and_fit("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned", -1.5, 1.5) ;
+	// combine_and_fit("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned", -2.0, 2.0, true) ;
+	// combine_and_fit("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned", -1.5, 1.5, true) ;
 
 	combine_and_fit_y("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned", -10.0, 10.0, 90) ;
 	combine_and_fit_y("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned", -10.0, 10.0,  90) ;
