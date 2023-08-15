@@ -107,7 +107,7 @@ class TProtonReconstruction
 	// t value
 
 	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2 ;
-	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2 ;
+	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2, minus_t_y_aligned_GeV2 ;
 
 	double minus_t_aligned_GeV2 ;
 
@@ -459,6 +459,10 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &minus_t_y_GeV2 ; 
 	}
+	else if(variable_name.compare("minus_t_y_aligned_GeV2")==0)
+	{
+		return &minus_t_y_aligned_GeV2 ; 
+	}
 	else if(variable_name.compare("minus_t_from_theta_y_GeV2")==0)
 	{
 		return &minus_t_from_theta_y_GeV2 ; 
@@ -679,8 +683,11 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 		theta_y_star_rad_aligned = 0.5 * (theta_y_star_left_rad_aligned + ((-1.0)*theta_y_star_right_rad_aligned)) ;
 
 		double t_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_rad_aligned, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
+  	double t_y_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(0, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
 
 		minus_t_aligned_GeV2		= -t_aligned_GeV2 ;
+  	minus_t_y_aligned_GeV2	= -t_y_aligned_GeV2 ;
+		
 	}
 	
 	dx_left_mm 	= (x_l_f_mm - x_l_n_mm) ;
