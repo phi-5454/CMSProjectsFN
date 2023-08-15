@@ -132,10 +132,18 @@ void combine_and_fit_y(string name, double low, double high, int bins)
 	cout << "vertmyname " << LBRT->GetName() << endl ;
 
 	TH1D *py1 = NULL ;
-
+	TH1D *py2 = NULL ;
+	TH1D *py3 = NULL ;
+	
 	py1 = combined->ProjectionY("py1") ; 
+	py2 = LBRT->ProjectionY("py2") ; 
+	py3 = LTRB->ProjectionY("py3") ; 
 
-	py1->Draw() ;
+	py1->SetLineColor(kRed) ;
+
+	py2->Draw() ;
+	py3->Draw("same") ;
+	py1->Draw("same") ;
 	py1->GetXaxis()->SetRangeUser(-30.0, 30.0) ;
 	
 	int nbins = py1->GetXaxis()->GetNbins() / 2.0 ;
@@ -147,6 +155,7 @@ void combine_and_fit_y(string name, double low, double high, int bins)
 	}
 	
 	TFitResultPtr ptr = py1->Fit("gaus", "S", "", low, high) ;
+	py1->GetFunction("gaus")->SetLineColor(kBlue) ;
 	double mean = ptr->Parameter(1) ;
 	cout << "fit_resulty mean: " << mean << endl ;
 
@@ -154,6 +163,8 @@ void combine_and_fit_y(string name, double low, double high, int bins)
 	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".pdf").c_str()) ;
 
 	delete py1 ;
+	delete py2 ;
+	delete py3 ;
 
 }
 
