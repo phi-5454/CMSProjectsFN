@@ -98,11 +98,11 @@ void combine_and_fit(string name, double low, double high, bool swap = false)
 	double avg = (mean_1 + mean_2) / 2.0 ;
 	double var = fabs(avg - mean_1) ;
 	
-	cout << "fit_result mean: " << mean_1 << endl ;
-	cout << "fit_result mean: " << mean_2 << endl ;
-	cout << "fit_result avg: " << avg << endl ;
-	cout << "fit_result var: " << var << endl ;
-	cout << "fit_result" << endl ;
+	cout << "fit_resultx mean: " << mean_1 << endl ;
+	cout << "fit_resultx mean: " << mean_2 << endl ;
+	cout << "fit_resultx avg: " << avg << endl ;
+	cout << "fit_resultx var: " << var << endl ;
+	cout << "fit_resultx" << endl ;
 
 	px1->Draw() ;
 	px1->GetXaxis()->SetRangeUser(-10.0, 10.0) ;
@@ -118,6 +118,45 @@ void combine_and_fit(string name, double low, double high, bool swap = false)
 
 }
 
+void combine_and_fit_y(string name, double low, double high, int bins)
+{
+	TCanvas *c = new TCanvas() ;
+
+
+	TH2D *LBRT = ((TH2D *)(file_LBRT->Get(name.c_str()))) ;
+	TH2D *LTRB = ((TH2D *)(file_LTRB->Get(name.c_str()))) ;
+	
+	TH2D *combined = (TH2D *)LBRT->Clone("clone") ;
+	combined->Add(LTRB) ;
+
+	cout << "vertmyname " << LBRT->GetName() << endl ;
+
+	TH1D *py1 = NULL ;
+
+	py1 = combined->ProjectionY("py1") ; 
+
+	py1->Draw() ;
+	py1->GetXaxis()->SetRangeUser(-30.0, 30.0) ;
+	
+	int nbins = py1->GetXaxis()->GetNbins() / 2.0 ;
+	
+	for(int i = -bins ; i < bins ; ++i)
+	{
+		py1->SetBinContent(i + nbins, 0) ;
+		py1->SetBinError(i + nbins, 0) ;
+	}
+	
+	TFitResultPtr ptr = py1->Fit("gaus", "S", "", low, high) ;
+	double mean = ptr->Parameter(1) ;
+	cout << "fit_resulty mean: " << mean << endl ;
+
+	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".root").c_str()) ;
+	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".pdf").c_str()) ;
+
+	delete py1 ;
+
+}
+
 main()
 {
 	gStyle->SetLineScalePS(.3) ;
@@ -130,4 +169,9 @@ main()
 	combine_and_fit("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned", -1.5, 1.5) ;
 	combine_and_fit("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned", -2.0, 2.0, true) ;
 	combine_and_fit("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned", -1.5, 1.5, true) ;
+
+	combine_and_fit_y("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned", -10.0, 10.0, 90) ;
+	combine_and_fit_y("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned", -10.0, 10.0,  90) ;
+	combine_and_fit_y("P0081_PlotsCollection_x_mm_y_mm_near_right_aligned", -9.0, 9.0,  70) ;
+	combine_and_fit_y("P0082_PlotsCollection_x_mm_y_mm_far_right_aligned",  -9.0, 9.0,  70) ;
 }
