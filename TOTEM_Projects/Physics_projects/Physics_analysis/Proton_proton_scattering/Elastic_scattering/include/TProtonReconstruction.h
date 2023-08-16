@@ -17,6 +17,7 @@ class TProtonReconstruction
 	double near_far_RP_units_distance_mm_Beam_2 ;
 
 	set<string> *list_of_excluded_variables ;
+	bool align_source ;
 
 	ULong64_t event_info_timestamp ;
 	UInt_t trigger_data_run_num ; 
@@ -124,7 +125,7 @@ class TProtonReconstruction
 	public:
 
 	TProtonReconstruction() ;
-	TProtonReconstruction(double, double, set<string> *) ;
+	TProtonReconstruction(double, double, set<string> *, bool) ;
 
 	void Print() ;
 	double ReconstructThetaYStarRad(double, double, TBeamOptics *) ;
@@ -164,7 +165,7 @@ TProtonReconstruction::TProtonReconstruction()
 {
 }
 
-TProtonReconstruction::TProtonReconstruction(double near_far_RP_units_distance_m_Beam_1 , double near_far_RP_units_distance_m_Beam_2 , set<string> *list_of_excluded_variables) : list_of_excluded_variables(list_of_excluded_variables)
+TProtonReconstruction::TProtonReconstruction(double near_far_RP_units_distance_m_Beam_1 , double near_far_RP_units_distance_m_Beam_2 , set<string> *list_of_excluded_variables, bool align_source) : list_of_excluded_variables(list_of_excluded_variables), align_source(align_source)
 {
 	near_far_RP_units_distance_mm_Beam_1 = (near_far_RP_units_distance_m_Beam_1 * TConstants::conversion_factor_from_m_to_mm) ;
 	near_far_RP_units_distance_mm_Beam_2 = (near_far_RP_units_distance_m_Beam_2 * TConstants::conversion_factor_from_m_to_mm) ;
@@ -668,6 +669,21 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 
 	if(RPAlignment != NULL)
 	{
+	  if(align_source)
+		{
+			x_l_n_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
+			x_l_f_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
+
+			x_r_n_mm += RPAlignment->Get_RP_alignment_right_near_x_mm() ;
+			x_r_f_mm += RPAlignment->Get_RP_alignment_right_far__x_mm() ;
+
+			y_l_n_mm += RPAlignment->Get_RP_alignment_left_near_y_mm() ;
+			y_l_f_mm += RPAlignment->Get_RP_alignment_left_far__y_mm() ;
+
+			y_r_n_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
+			y_r_f_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
+		}
+	
 		x_l_n_aligned_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
 		x_l_f_aligned_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
 

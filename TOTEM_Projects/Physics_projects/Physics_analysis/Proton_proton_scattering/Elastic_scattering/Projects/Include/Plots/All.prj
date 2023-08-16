@@ -81,4 +81,5 @@
 	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_aligned_rad
 	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_aligned_rad
 
+	<nsetting>	analysis_plot		dN_dt_aligned_GeV2_geometrical_acceptance_corrected
 	<nsetting>	analysis_plot		dN_dt_aligned_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected

@@ -564,7 +564,17 @@ void TProject::TestBeamProperties()
 		CollectDependenciesOfDetector(ProjectParameters->GetSettingValue("Inefficiency_2_out_of_4_RP_near"), 	list_of_excluded_variables) ;
 	}
 
-	ProtonReconstruction = new TProtonReconstruction(near_far_distance_m_beam_1, near_far_distance_m_beam_2, list_of_excluded_variables) ;
+	bool align_source = false ;
+	
+	if(ProjectParameters->IsSettingDefined("align_source_files"))
+	{
+		if(ProjectParameters->GetSettingValue("align_source_files").compare("yes") == 0)
+		{
+			align_source = true ;
+		}
+	}
+
+	ProtonReconstruction = new TProtonReconstruction(near_far_distance_m_beam_1, near_far_distance_m_beam_2, list_of_excluded_variables, align_source) ;
 }
 
 void TProject::CreatePlotsCollections()
