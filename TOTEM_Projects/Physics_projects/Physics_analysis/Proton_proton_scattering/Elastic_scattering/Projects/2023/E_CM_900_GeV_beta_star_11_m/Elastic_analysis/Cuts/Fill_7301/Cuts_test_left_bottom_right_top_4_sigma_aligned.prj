@@ -16,14 +16,14 @@
 
 <begin> theta_x_star_rad_theta_y_star_rad_cut_block
         <parameter>     x1              -6e-05
-        <parameter>     y1              -4.0e-04
+        <parameter>     y1              -0.00041527000
         <parameter>     x2              6e-05
-        <parameter>     y2              -4.0e-04
+        <parameter>     y2              -0.00041527000
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
         <parameter> range2_x            6e-05
         <parameter> range2_y            6.6565e-05
-        <parameter> sigma               2.0e-04
+        <parameter> sigma               0.00016939600
         <parameter> number_of_sigmas            1
 <end> theta_x_star_rad_theta_y_star_rad_cut_block
 
@@ -67,10 +67,10 @@
 <end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 <begin> y_mm_near_dy_mm_left_cut_block
-        <parameter>     x1              -4.34046   
-        <parameter>     y1              0.250457  
-        <parameter>     x2              -13.4906   
-        <parameter>     y2              0.161253  
+        <parameter>     x1            -4.41867  
+        <parameter>     y1            0.00681382
+        <parameter>     x2            -12.6303  
+        <parameter>     y2            -0.0922027
         <parameter> range1_x            -5
         <parameter> range1_y            0.1
         <parameter> range2_x            -10
@@ -80,10 +80,10 @@
 <end> y_mm_near_dy_mm_left_cut_block
 
 <begin> y_mm_near_dy_mm_right_cut_block
-        <parameter>     x1              3.28467 	  
-        <parameter>     y1              0.0583257    
-        <parameter>     x2              11.3008 	  
-        <parameter>     y2              -0.0994968   
+        <parameter>     x1           3.55839 	    
+        <parameter>     y1           -0.0857731     
+        <parameter>     x2           10.8316 	    
+        <parameter>     y2           -0.202425      
         <parameter> range1_x            2
         <parameter> range1_y            0.763575
         <parameter> range2_x            12
@@ -106,10 +106,10 @@
 <end> x_star_left_mm_x_star_right_mm_cut_block
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-        <parameter>     x1               -0.00034097
-        <parameter>     y1               0.000151261
-        <parameter>     x2               0.000504298
-        <parameter>     y2               -0.00067647
+        <parameter>     x1               -0.0003821  
+        <parameter>     y1               0.000437328 
+        <parameter>     x2               0.000611589 
+        <parameter>     y2               -0.000569076
         <parameter> range1_x            6e-04
         <parameter> range1_y            -1.8e-05
         <parameter> range2_x            -6e-04
