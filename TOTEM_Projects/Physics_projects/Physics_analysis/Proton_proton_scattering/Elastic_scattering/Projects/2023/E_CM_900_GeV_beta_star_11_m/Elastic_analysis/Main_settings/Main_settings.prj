@@ -50,5 +50,5 @@
 
 	<parameter>	pile_up_inefficiency_correction_percent		0.0
 
-	<parameter>		DoNotSaveEpsFiles						1.0
+	<parameter>		DoNotSaveEpsFiles						0.0
 	
