@@ -52,6 +52,9 @@ class TProtonReconstruction
 	double theta_x_star_left_rad, theta_x_star_right_rad ;
 	double theta_y_star_left_rad, theta_y_star_right_rad ;
 
+	double theta_x_star_left_rad_aligned, theta_x_star_right_rad_aligned ;
+	double theta_y_star_left_rad_aligned, theta_y_star_right_rad_aligned ;
+
 	double theta_y_star_left_near_rad ;
 	double theta_y_star_left_far_rad ;
 	double theta_y_star_right_near_rad ;
@@ -306,6 +309,22 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	else if(variable_name.compare("theta_y_star_left_rad")==0)
 	{
 		return &theta_y_star_left_rad ; 
+	}
+	else if(variable_name.compare("theta_x_star_left_aligned_rad")==0)
+	{
+		return &theta_x_star_left_rad_aligned ; 
+	}
+	else if(variable_name.compare("theta_x_star_right_aligned_rad")==0)
+	{
+		return &theta_x_star_right_rad_aligned ; 
+	}
+	else if(variable_name.compare("theta_y_star_left_aligned_rad")==0)
+	{
+		return &theta_y_star_left_rad_aligned ; 
+	}
+	else if(variable_name.compare("theta_y_star_right_aligned_rad")==0)
+	{
+		return &theta_y_star_right_rad_aligned ; 
 	}
 	else if(variable_name.compare("theta_y_star_rad")==0)
 	{
@@ -673,11 +692,11 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 		double x_star_left_m_aligned  = (x_star_left_mm_aligned  / TConstants::conversion_factor_from_m_to_mm) ; 
 		double x_star_right_m_aligned = (x_star_right_mm_aligned / TConstants::conversion_factor_from_m_to_mm) ;
 
-		double theta_x_star_left_rad_aligned	= ReconstructThetaXStarRad(theta_x_left_rad_aligned,  x_star_left_m_aligned, BeamOptics_Beam_2) ;
-		double theta_x_star_right_rad_aligned	= ReconstructThetaXStarRad(theta_x_right_rad_aligned, x_star_right_m_aligned, BeamOptics_Beam_1) ;
+		theta_x_star_left_rad_aligned	= ReconstructThetaXStarRad(theta_x_left_rad_aligned,  x_star_left_m_aligned, BeamOptics_Beam_2) ;
+		theta_x_star_right_rad_aligned	= ReconstructThetaXStarRad(theta_x_right_rad_aligned, x_star_right_m_aligned, BeamOptics_Beam_1) ;
 
-		double theta_y_star_left_rad_aligned	= ReconstructThetaYStarRad(y_l_n_aligned_mm, y_l_f_aligned_mm, BeamOptics_Beam_2) ;
-		double theta_y_star_right_rad_aligned	= ReconstructThetaYStarRad(y_r_n_aligned_mm, y_r_f_aligned_mm, BeamOptics_Beam_1) ;
+		theta_y_star_left_rad_aligned	= ReconstructThetaYStarRad(y_l_n_aligned_mm, y_l_f_aligned_mm, BeamOptics_Beam_2) ;
+		theta_y_star_right_rad_aligned	= ReconstructThetaYStarRad(y_r_n_aligned_mm, y_r_f_aligned_mm, BeamOptics_Beam_1) ;
 
 		theta_x_star_rad_aligned = 0.5 * (theta_x_star_left_rad_aligned + ((-1.0)*theta_x_star_right_rad_aligned)) ;
 		theta_y_star_rad_aligned = 0.5 * (theta_y_star_left_rad_aligned + ((-1.0)*theta_y_star_right_rad_aligned)) ;

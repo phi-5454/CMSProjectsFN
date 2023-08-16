@@ -329,6 +329,20 @@
 		<setting>	y_variable												theta_y_star_right_rad
 	<end>	theta_y_star_left_rad_theta_y_star_right_rad_plot_block
 
+	<begin>	theta_y_star_left_rad_theta_y_star_right_aligned_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
+		<setting>	x_variable												theta_y_star_left_aligned_rad
+		<setting>	y_variable												theta_y_star_right_aligned_rad
+	<end>	theta_y_star_left_rad_theta_y_star_right_aligned_rad_plot_block
+
+	<begin>	theta_x_star_left_rad_theta_x_star_right_aligned_rad_plot_block
+		<parameter>	dimension												2.0
+		<setting>	type													theta_x_star_rad_theta_x_star_rad_type_block
+		<setting>	x_variable												theta_x_star_left_aligned_rad
+		<setting>	y_variable												theta_x_star_right_aligned_rad
+	<end>	theta_x_star_left_rad_theta_x_star_right_aligned_rad_plot_block
+
 	<begin>	x_star_left_mm_x_star_right_mm_plot_block
 		<parameter>	dimension												2.0
 		<setting>	type													x_star_mm_x_star_mm_type_block
