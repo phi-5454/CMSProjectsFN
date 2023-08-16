@@ -9,7 +9,7 @@
 
 <update_parameter> CollectCutDiagnosticData					1.0
 
-<setting>       align_source_files     no
+<setting>       align_source_files     yes
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
 <update_parameter> MaxNumberOfEventsToAnalyze				60000
