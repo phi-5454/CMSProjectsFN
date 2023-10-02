@@ -155,7 +155,7 @@ int add_PDG(int process)
       if(STA_ERRP != STA_ERRM) cout << "asymstat " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (STA_ERRP/STA_ERRM) << " " << REF1 << " " << REF4 << endl ;
       if(SY_ERP != SY_ERM)     cout << "asymsyst " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (SY_ERP/SY_ERM)     << " " << REF1 << " " << REF4 << endl ;
 
-      if((energy >= 5) && (energy <= 20)) std::cout << "most: " << std::fixed << std::setprecision(2) << energy << " GeV\t " << REF1 << " " << REF4 << endl ;
+      if((energy >= 5) && (energy <= 20)) std::cout << "most: " << std::fixed << std::setprecision(2) << energy << " GeV\t " << REF1 << " " << REF4 << " " << std::setprecision(3) << 1000*(STA_ERRP/SIG) << endl ;
     }
 
     if((energy_unc_minus < 0) || (energy_unc_plus < 0))
