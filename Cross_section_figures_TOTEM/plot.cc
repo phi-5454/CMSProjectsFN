@@ -101,6 +101,24 @@ int add_TOTEM()
 const int process_pp    = 1 ;
 const int process_ppbar = 2 ;
 
+int fit_scenario = 0 ;
+
+const int fit_scenario_1_from_5_to_20_GeV  = 1 ;
+const int fit_scenario_2_from_5_to_15_GeV  = 2 ;
+const int fit_scenario_4_from_15_to_25_GeV = 4 ;
+const int fit_scenario_3_from_15_to_20_GeV = 3 ;
+
+double fit_low  = 0 ;
+double fit_high = 0 ;
+
+string postfix = "" ;
+
+// const string fit_function_name = "pol0" ;
+const string fit_function_name = "pol1" ;
+
+double my_NDF = 0.0 ;
+double FCN_value_with_uncertainty_1_on_points = 0.0 ;
+
 int add_PDG(int process)
 {
   bool test_uncertainties = true ;
@@ -120,7 +138,92 @@ int add_PDG(int process)
   string REF1, REF2, REF3, REF4, REF5, FLAG ;
   
   bool least_square_fit = true ;
+  
+  fit_scenario = fit_scenario_1_from_5_to_20_GeV ;
+  fit_scenario = fit_scenario_2_from_5_to_15_GeV ; 
+  fit_scenario = fit_scenario_3_from_15_to_20_GeV ;
+  fit_scenario = fit_scenario_4_from_15_to_25_GeV ;
 
+  if(fit_scenario == fit_scenario_1_from_5_to_20_GeV)
+  {
+    fit_low  =  5.0 ;
+    fit_high = 20.0 ;
+    
+    postfix = "1" ;
+
+    my_NDF = 61.0 ;
+
+    if(fit_function_name.compare("pol0") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 23.0 ;
+    }
+    else if(fit_function_name.compare("pol1") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 21.0541 ;
+    }
+  }
+  else if(fit_scenario == fit_scenario_2_from_5_to_15_GeV)
+  {
+    fit_low  =  5.0 ;
+    fit_high = 15.0 ;
+
+    postfix = "2" ;
+
+    my_NDF = 48.0 ;
+
+    if(fit_function_name.compare("pol0") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 16.4764 ;
+    }
+    else if(fit_function_name.compare("pol1") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 11.3775 ;
+    }
+  }
+  else if(fit_scenario == fit_scenario_3_from_15_to_20_GeV)
+  {
+    fit_low  = 15.0 ;
+    fit_high = 20.0 ;
+
+    postfix = "3" ;
+
+    my_NDF = 12.0 ;
+
+    if(fit_function_name.compare("pol0") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 6.27872 ;
+    }
+    else if(fit_function_name.compare("pol1") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 4.62413 ;
+    }
+  }
+  else if(fit_scenario == fit_scenario_4_from_15_to_25_GeV)
+  {
+    fit_low  = 15.0 ;
+    fit_high = 25.0 ;
+
+    postfix = "4" ;
+
+    my_NDF = 24.0 ;
+
+    if(fit_function_name.compare("pol0") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 13.6682 ;
+    }
+    else if(fit_function_name.compare("pol1") == 0)
+    {
+      FCN_value_with_uncertainty_1_on_points = 7.88967 ;
+    }
+  }
+  else
+  {
+    cout << "No such scenario!" << endl ;
+    exit(1) ;
+  }
+  
+  if(fit_function_name.compare("pol1") == 0) my_NDF = my_NDF - 1 ;
+  
   while(sigma_total_data >> POINT_NUMBER >> PLAB >> PLAB_MIN >> PLAB_MAX >> SIG >> STA_ERRP >> STA_ERRM >> SY_ERP >> SY_ERM >> REF1 >> REF2 >> REF3 >> REF4 >> REF5)
   {
 
@@ -131,12 +234,14 @@ int add_PDG(int process)
 
     double uncertainty_minus = sqrt((STA_ERRM*STA_ERRM) + (syst_minus_mb*syst_minus_mb)) ;
     double uncertainty_plus = sqrt((STA_ERRP*STA_ERRP) + (syst_plus_mb*syst_plus_mb)) ;
-
+    
+  
   	if(least_square_fit)
     {
       // cout << "here" << endl ;
-  		uncertainty_minus = 1.0 * sqrt(23./61.);
-	  	uncertainty_plus = 1.0 * sqrt(23./61.);
+  		uncertainty_minus = 1.0 * sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF);
+	  	uncertainty_plus = 1.0 *  sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF);
+      
   		// uncertainty_minus = 1.0 ;
 	  	// uncertainty_plus = 1.0 ;
     }
@@ -193,17 +298,22 @@ int add_PDG(int process)
 
 void fit()
 {
-	string fit_function_name = "pol0" ;
-	//string fit_function_name = "pol1" ;
 
 	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 10, 20) ;
+  
+  gStyle->SetOptStat(111111) ;    
+  gStyle->SetOptFit(111111) ;    
+  
 
-	TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5, 20) ;
+	TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", fit_low, fit_high) ;
 	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5.1, 5.6) ;
 
 	sigma_total_graph_pp_OTHER->GetFunction(fit_function_name.c_str())->SetLineColor(kBlack) ;
 	
-	cout << ptr->Ndf() << endl ;
+  cout << endl ;
+  cout << "Fit range: " << fit_low << " " << fit_high << endl ;
+	cout << "NDF in fit: " << ptr->Ndf() << " my_NDF: " << my_NDF << endl ;
+  cout << "Effective uncertainty: " << sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF) << " " << sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF) << endl ;
 }
 
 // TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
@@ -252,15 +362,14 @@ int post_process()
   c.SetLogx() ;
   
  
-  c.SaveAs("fig/sigma_total_graph.pdf") ;
-  c.SaveAs("fig/sigma_total_graph.root") ;
+  c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".pdf").c_str()) ;
+  c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".root").c_str()) ;
 }
 
 
 int main(int argc, char *argv[])
 {
   gStyle->SetLineScalePS(.3) ;
-  gStyle->SetOptStat(0) ;    
 
   hist_2d->GetXaxis()->SetTitle("#sqrt{s}  (GeV)") ;
   hist_2d->GetXaxis()->SetTitleOffset(1.2) ;
