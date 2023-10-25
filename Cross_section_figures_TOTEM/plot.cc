@@ -105,19 +105,23 @@ int fit_scenario = 0 ;
 
 const int fit_scenario_1_from_5_to_20_GeV  = 1 ;
 const int fit_scenario_2_from_5_to_15_GeV  = 2 ;
-const int fit_scenario_4_from_15_to_25_GeV = 4 ;
 const int fit_scenario_3_from_15_to_20_GeV = 3 ;
+const int fit_scenario_4_from_15_to_25_GeV = 4 ;
 
 double fit_low  = 0 ;
 double fit_high = 0 ;
 
 string postfix = "" ;
 
-// const string fit_function_name = "pol0" ;
-const string fit_function_name = "pol1" ;
+const string fit_function_name = "pol0" ;
+// const string fit_function_name = "pol1" ;
 
 double my_NDF = 0.0 ;
 double FCN_value_with_uncertainty_1_on_points = 0.0 ;
+
+bool randomize = false ;
+
+TRandom3 myrand ;
 
 int add_PDG(int process)
 {
@@ -140,10 +144,11 @@ int add_PDG(int process)
   bool least_square_fit = true ;
   
   fit_scenario = fit_scenario_1_from_5_to_20_GeV ;
-  fit_scenario = fit_scenario_2_from_5_to_15_GeV ; 
   fit_scenario = fit_scenario_3_from_15_to_20_GeV ;
   fit_scenario = fit_scenario_4_from_15_to_25_GeV ;
 
+  fit_scenario = fit_scenario_2_from_5_to_15_GeV ; 
+  
   if(fit_scenario == fit_scenario_1_from_5_to_20_GeV)
   {
     fit_low  =  5.0 ;
@@ -239,8 +244,22 @@ int add_PDG(int process)
   	if(least_square_fit)
     {
       // cout << "here" << endl ;
-  		uncertainty_minus = 1.0 * sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF);
-	  	uncertainty_plus = 1.0 *  sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF);
+      
+      double random_factor = 1.0 ; 
+      
+      
+  		uncertainty_minus = sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF);
+	  	uncertainty_plus =  sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF);
+
+      if(randomize)
+      {
+        random_factor = myrand.Gaus(0.0) * uncertainty_plus ;
+        SIG = SIG + random_factor ;
+      }
+      
+      // SIG = SIG ;
+
+      // cout << uncertainty_plus << endl ;
       
   		// uncertainty_minus = 1.0 ;
 	  	// uncertainty_plus = 1.0 ;
@@ -257,10 +276,17 @@ int add_PDG(int process)
 
     if(test_uncertainties)
     {
-      if(STA_ERRP != STA_ERRM) cout << "asymstat " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (STA_ERRP/STA_ERRM) << " " << REF1 << " " << REF4 << endl ;
-      if(SY_ERP != SY_ERM)     cout << "asymsyst " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (SY_ERP/SY_ERM)     << " " << REF1 << " " << REF4 << endl ;
+      if(STA_ERRP != STA_ERRM)
+      {
+        // cout << "asymstat " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (STA_ERRP/STA_ERRM) << " " << REF1 << " " << REF4 << endl ;
+      }
 
-      if((energy >= 5) && (energy <= 20)) std::cout << "most: " << std::fixed << std::setprecision(2) << energy << " GeV\t " << REF1 << " " << REF4 << " " << std::setprecision(3) << 1000*(STA_ERRP/SIG) << endl ;
+      if(SY_ERP != SY_ERM)
+      {
+        // cout << "asymsyst " << process << std::fixed << std::setprecision(3) << " " << PLAB << " " << energy << " " << (SY_ERP/SY_ERM)     << " " << REF1 << " " << REF4 << endl ;
+      }
+
+      // if((energy >= 5) && (energy <= 20)) std::cout << "most: " << std::fixed << std::setprecision(2) << energy << " GeV\t " << REF1 << " " << REF4 << " " << std::setprecision(3) << 1000*(STA_ERRP/SIG) << endl ;
     }
 
     if((energy_unc_minus < 0) || (energy_unc_plus < 0))
@@ -268,7 +294,7 @@ int add_PDG(int process)
       cout << "Error: wrong process" << endl ;
       exit(1) ;
     }
-
+    
     if(process == process_pp)
     {
       sigma_total_graph_pp_OTHER->AddPoint(energy, SIG) ;
@@ -301,12 +327,15 @@ void fit()
 
 	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 10, 20) ;
   
-  gStyle->SetOptStat(111111) ;    
+//  gStyle->SetOptStat(111111) ;    
+  gStyle->SetOptStat(0) ;
   gStyle->SetOptFit(111111) ;    
   
 
 	TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", fit_low, fit_high) ;
 	// TFitResultPtr ptr = sigma_total_graph_pp_OTHER->Fit(fit_function_name.c_str(), "S", "", 5.1, 5.6) ;
+  
+  cout << "ForParameterError: " << ptr->Parameter(0) << endl ;
 
 	sigma_total_graph_pp_OTHER->GetFunction(fit_function_name.c_str())->SetLineColor(kBlack) ;
 	
@@ -369,6 +398,10 @@ int post_process()
 
 int main(int argc, char *argv[])
 {
+  int myseed = atoi(argv[1]) ;
+
+  myrand.SetSeed(myseed) ;
+
   gStyle->SetLineScalePS(.3) ;
 
   hist_2d->GetXaxis()->SetTitle("#sqrt{s}  (GeV)") ;
