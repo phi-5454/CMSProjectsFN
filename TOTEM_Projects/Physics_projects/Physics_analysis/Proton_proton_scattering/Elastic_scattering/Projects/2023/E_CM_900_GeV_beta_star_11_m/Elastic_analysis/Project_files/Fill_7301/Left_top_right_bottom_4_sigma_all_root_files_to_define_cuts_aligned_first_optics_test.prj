@@ -1,0 +1,22 @@
+
+<setting>	Fill_number	7301
+
+<setting>	project_subtask							dsigma/dt
+
+<include>	/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
+<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_top_right_bottom.prj
+<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_top_right_bottom_4_sigma_aligned.prj
+
+<update_parameter> CollectCutDiagnosticData					1.0
+
+<update_setting>       MAD_X_twiss_beam_1                                              Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/Matched_optics/Beam_1/opticsproject.tfs
+<update_setting>       MAD_X_twiss_beam_2                                              Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/Matched_optics/Beam_2/opticsproject.tfs
+
+<setting>       align_source_files     yes
+
+<update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
+<update_parameter> MaxNumberOfEventsToAnalyze				60000
+
+<update_setting>	Input_directory			root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/
+
+<setting>			Output_directory		/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts_aligned_first_optics_test/
