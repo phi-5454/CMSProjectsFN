@@ -6,6 +6,9 @@
 <comment> ================ New cuts for new corrections: horizontal geom. acceptance and cuts divergence ==================
 
 <setting>		horizontal_geometrical_acceptance_cut_block				theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
+<setting>		horizontal_angular_left_acceptance_cut_block				theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
+<setting>		horizontal_angular_right_acceptance_cut_block			theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
+<setting>		horizontal_beam_divergence_cut_block						theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 <comment> ================ New cuts end ===================================================================================
 
@@ -15,7 +18,7 @@
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma_aligned_hor_cuts.prj
 
 <begin>	dN_dt_GeV2_type_block
-	<update_parameter>			number_of_horizontal_bins						1600
+	<update_parameter>			number_of_horizontal_bins						400
 <end>	dN_dt_GeV2_type_block
 
 <update_parameter> CollectCutDiagnosticData					1.0
