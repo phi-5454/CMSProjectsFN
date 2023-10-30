@@ -7,6 +7,10 @@
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_bottom_right_top.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma_aligned.prj
 
+<begin>	dN_dt_GeV2_type_block
+	<update_parameter>			number_of_horizontal_bins						1600
+<end>	dN_dt_GeV2_type_block
+
 <update_parameter> CollectCutDiagnosticData					1.0
 
 <update_setting>       MAD_X_twiss_beam_1                                              Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/Matched_optics/Beam_1/opticsproject.tfs
