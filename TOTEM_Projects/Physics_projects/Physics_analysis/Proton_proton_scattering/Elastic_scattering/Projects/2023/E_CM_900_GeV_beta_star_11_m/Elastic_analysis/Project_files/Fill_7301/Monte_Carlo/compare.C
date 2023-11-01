@@ -1,5 +1,20 @@
 void compare()
 {
+
+	const int scenario_1_no_beam_divergence_no_vertex_single_mc = 1 ;
+	
+	int scenario = scenario_1_no_beam_divergence_no_vertex_single_mc ;
+	
+	if(scenario == scenario_1_no_beam_divergence_no_vertex_single_mc)
+	{
+	}
+	else
+	{
+		cout << "There is no such scenario!" << endl ;
+		exit(1) ;
+	}
+
+
 	TFile *myfile_reference = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_mc_reference/Generic.root") ;
 	TFile *myfile_accep_corrected = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_mc/Generic.root") ;
 	
