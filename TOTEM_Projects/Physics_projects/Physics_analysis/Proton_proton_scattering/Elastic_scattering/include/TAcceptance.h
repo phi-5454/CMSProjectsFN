@@ -296,7 +296,7 @@ Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(D
 	double VisiblePhiPerDiagonalRadLeft  = (PhiMax - PhiMin) ;
 	double VisiblePhiPerDiagonalRadRight = (PhiMax - PhiMin) ;
 
-	if(theta_x_star_rad_left != 0)
+	if((theta_x_star_rad_left != 0) && (fabs(theta_x_star_rad_left) <= theta_star_rad))
 	{
 		double PhiMin_from_theta_x_star_rad_left = acos(fabs(theta_x_star_rad_left) / theta_star_rad) ;
 
@@ -307,7 +307,7 @@ Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(D
 		}
 	}
 
-	if(theta_x_star_rad_right != 0)
+	if((theta_x_star_rad_right != 0) && (fabs(theta_x_star_rad_right) <= theta_star_rad))
 	{
 		double PhiMin_from_theta_x_star_rad_right = acos(fabs(theta_x_star_rad_right) / theta_star_rad) ;
 
