@@ -62,10 +62,13 @@
 	<end_if_setting>
 
 <comment>		For Monte Carlos to test geometrical and beam divergence correction, remove the comments below accordingly 
-<comment>		<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad_with_cut
-<comment>		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut
-<comment>		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut
-<comment>  		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+<begin_if_setting>      project_subtask_switch_1         MonteCarlo_test_corrections
+			<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_rad_with_cut
+			<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_left_with_cut
+			<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_right_with_cut
+	  		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_define_cut
+<end_if_setting>
+
 
 <comment>		For Monte Carlos to test multitracks, remove the comments below accordingly
 <comment>	  		<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_rad_define_cut
