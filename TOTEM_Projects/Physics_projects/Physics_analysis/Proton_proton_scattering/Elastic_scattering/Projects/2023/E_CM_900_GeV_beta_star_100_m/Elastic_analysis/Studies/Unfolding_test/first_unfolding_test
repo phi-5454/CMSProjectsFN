@@ -1,0 +1,16 @@
+root -l
+gStyle->SetOptFit(1111);
+TCanvas c;
+TH1D hist("hist", "hist", 160, 0, 4) ;
+TH1D hist2("hist2", "hist2", 160, 0, 4) ;
+hist.Sumw2()
+hist2.Sumw2()
+TRandom3 myrand ;
+TF1 func("myfunc", "exp(-16.0*x)", 0, 4) ;
+for(int i = 0 ; i < 1e5 ; ++i) { double value = func.GetRandom() ; double value2 = (sqrt(value) / 450) ; double value5 = (myrand.Gaus()* 1.0*30e-6) ; double value3 = ((value2 + value5)*450) ; double value4 = (value3*value3) ; hist.Fill(value4) ; }
+for(int i = 0 ; i < 1e5 ; ++i) { double value = func.GetRandom() ; double value2 = (sqrt(value) / 450) ; double value5 = (myrand.Gaus()* 0.0*30e-6) ; double value3 = ((value2 + value5)*450) ; double value4 = (value3*value3) ; hist2.Fill(value4) ; }
+hist.Fit("expo", "", "", 0.01, 0.5)
+hist2.Fit("expo", "", "", 0.01, 0.5)
+hist.Draw()
+hist2.Draw("same")
+c.SetLogy()
