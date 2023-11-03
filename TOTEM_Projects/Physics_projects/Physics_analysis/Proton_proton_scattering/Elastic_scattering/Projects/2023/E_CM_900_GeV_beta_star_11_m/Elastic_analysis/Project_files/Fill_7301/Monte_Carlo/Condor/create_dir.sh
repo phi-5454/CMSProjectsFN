@@ -10,7 +10,7 @@ create_dirs() {
 	global_target_dir=$home_dir/$local_target_dir
 	global_eos_target_dir=$eos_dir/$local_target_dir
 	global_templatefile=$home_dir/$templatefile
-	number_of_particles=10000
+	number_of_particles=800000
 	#echo $global_templatefile
 	prefix=000
 
