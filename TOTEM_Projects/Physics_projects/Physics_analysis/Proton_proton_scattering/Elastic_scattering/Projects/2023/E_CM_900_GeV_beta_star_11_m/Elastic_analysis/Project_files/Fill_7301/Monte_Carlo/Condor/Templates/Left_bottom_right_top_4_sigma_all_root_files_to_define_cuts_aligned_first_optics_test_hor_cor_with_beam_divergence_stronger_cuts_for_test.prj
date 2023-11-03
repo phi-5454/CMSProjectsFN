@@ -1,6 +1,6 @@
 <setting>       project_subtask                                                                 MonteCarlo
 <comment> <setting>       MonteCarlo_task                                                                 unfolding
-<setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections_switch_off
+<setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections
 
 <setting>	Fill_number	7301
 
@@ -30,6 +30,15 @@
                 <update_parameter> RP_alignment_right_near_y_mm            0.0
 <end>   alignment_block
 
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+        <update_parameter> sigma               1.8e-04
+<end> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+        <update_parameter> sigma               1.8e-04
+<end> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+
+
 
 <begin>	dN_dt_GeV2_type_block
 	<update_parameter>			number_of_horizontal_bins						1600
@@ -52,8 +61,8 @@
         <parameter>             vertex_size_y_m                                                         0.0e-6
         <parameter>             max_number_of_phi_divisions                                     ZZZZ
         <parameter>             smooth_iterations       0
-        <parameter>             sigma_x_of_effective_beam_divergence_rad        0.0E-006
-        <parameter>             sigma_y_of_effective_beam_divergence_rad        0.0E-006
+        <parameter>             sigma_x_of_effective_beam_divergence_rad        32.0E-006
+        <parameter>             sigma_y_of_effective_beam_divergence_rad        32.0E-006
         <parameter>             seed XXXX
 <end>   MC_generator_settings_block
 
@@ -86,7 +95,7 @@
 <end>	MC_generator_optics_perturbations_block
 
 <setting>       align_source_files     yes
-<setting>       histogram_name_for_unfolding    P0026_PlotsCollection_dN_dt_GeV2_weighted
+<setting>       histogram_name_for_unfolding    P0030_PlotsCollection_dN_dt_GeV2_weighted
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
 <update_parameter> MaxNumberOfEventsToAnalyze				600000

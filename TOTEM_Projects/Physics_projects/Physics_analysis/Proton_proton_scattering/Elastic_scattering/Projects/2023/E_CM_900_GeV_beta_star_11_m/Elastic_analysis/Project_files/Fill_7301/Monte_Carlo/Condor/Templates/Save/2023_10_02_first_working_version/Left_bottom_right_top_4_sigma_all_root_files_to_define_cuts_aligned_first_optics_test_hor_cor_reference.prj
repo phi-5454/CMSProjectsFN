@@ -32,7 +32,7 @@
 
 
 <begin>	dN_dt_GeV2_type_block
-	<update_parameter>			number_of_horizontal_bins						1600
+	<update_parameter>			number_of_horizontal_bins						400
 <end>	dN_dt_GeV2_type_block
 
 <update_parameter> CollectCutDiagnosticData					0.0
@@ -50,7 +50,7 @@
         <parameter>             t_GeV2_distribution_upper_edge                          1.0
         <parameter>             vertex_size_x_m                                                         0.0e-6
         <parameter>             vertex_size_y_m                                                         0.0e-6
-        <parameter>             max_number_of_phi_divisions                                     ZZZZ
+        <parameter>             max_number_of_phi_divisions                                     400.0
         <parameter>             smooth_iterations       0
         <parameter>             sigma_x_of_effective_beam_divergence_rad        0.0E-006
         <parameter>             sigma_y_of_effective_beam_divergence_rad        0.0E-006

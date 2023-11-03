@@ -1,6 +1,6 @@
 <setting>       project_subtask                                                                 MonteCarlo
 <comment> <setting>       MonteCarlo_task                                                                 unfolding
-<setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections_switch_off
+<setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections
 
 <setting>	Fill_number	7301
 
@@ -86,7 +86,7 @@
 <end>	MC_generator_optics_perturbations_block
 
 <setting>       align_source_files     yes
-<setting>       histogram_name_for_unfolding    P0026_PlotsCollection_dN_dt_GeV2_weighted
+<setting>       histogram_name_for_unfolding    P0030_PlotsCollection_dN_dt_GeV2_weighted
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
 <update_parameter> MaxNumberOfEventsToAnalyze				600000
