@@ -47,7 +47,7 @@
         <parameter>             number_of_simulated_particles                           8
         <parameter>             number_of_simulated_background_particles        1
         <parameter>             t_GeV2_distribution_lower_edge                          0.0
-        <parameter>             t_GeV2_distribution_upper_edge                          1.0
+        <parameter>             t_GeV2_distribution_upper_edge                          0.1
         <parameter>             vertex_size_x_m                                                         0.0e-6
         <parameter>             vertex_size_y_m                                                         0.0e-6
         <parameter>             max_number_of_phi_divisions                                     ZZZZ
