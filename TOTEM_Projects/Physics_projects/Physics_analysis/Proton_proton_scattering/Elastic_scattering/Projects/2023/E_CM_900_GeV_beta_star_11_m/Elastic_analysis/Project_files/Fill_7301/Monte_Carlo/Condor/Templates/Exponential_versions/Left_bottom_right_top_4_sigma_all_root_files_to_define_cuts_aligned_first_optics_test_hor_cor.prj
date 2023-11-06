@@ -57,10 +57,10 @@
         <parameter>             seed XXXX
 <end>   MC_generator_settings_block
 
-<begin>	Exponential_fit_block_off
+<begin>	Exponential_fit_block
 	<parameter>		Constant      	2.363e7
 	<parameter>		Slope       	-1.69642e+01
-<end>	Exponential_fit_block_off
+<end>	Exponential_fit_block
 
 <comment> <parameter>             New_unfolding_method                    1.0
 
@@ -75,8 +75,8 @@
 <parameter>		track_right_far_dy_mm		0.0
 
 	
-<begin>	Flat_distribution_block
-<end>	Flat_distribution_block
+<begin>	Flat_distribution_block_off
+<end>	Flat_distribution_block_off
 
 <begin>	MC_generator_optics_perturbations_block
 	<parameter>	Beam_1_Ly_perturbation_percent			0.0
