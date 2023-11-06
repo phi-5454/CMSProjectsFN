@@ -285,7 +285,10 @@ Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(D
 	
 	if(theta_star_rad < theta_y_star_rad_min) return 0 ;
 	
-	double PhiMin = asin(theta_y_star_rad_min / theta_star_rad) ;
+	double PhiMin = 0.0 ;
+
+	if((theta_y_star_rad_min * theta_y_star_rad_max) > 0) PhiMin = asin(theta_y_star_rad_min / theta_star_rad) ; // if in MC the vertical acceptance cuts are switched off by setting large cuts
+
 	double PhiMax = (TMath::Pi() / 2.0) ;
 	
 	if(theta_star_rad > theta_y_star_rad_max)
