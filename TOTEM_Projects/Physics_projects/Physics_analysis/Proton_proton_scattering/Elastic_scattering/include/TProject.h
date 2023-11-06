@@ -4432,7 +4432,7 @@ void TProject::ExecuteMonteCarlo()
 	TH1D *minus_t_y_GeV2_distribution = new TH1D("minus_t_y_GeV2_distribution","minus_t_y_GeV2_distribution", 400, 0, t_GeV2_distribution_upper_edge) ;
 	TH1D *minus_t_y_GeV2_distribution_after_cuts = new TH1D("minus_t_y_GeV2_distribution_after_cuts","minus_t_y_GeV2_distribution_after_cuts", 400, 0, t_GeV2_distribution_upper_edge) ;
 
-	TH1D *difference_effective_beam_divergence_rad_x = new TH1D("difference_effective_beam_divergence_rad_x","difference_effective_beam_divergence_rad_x", 100, 0, 0) ;
+	TH1D *difference_effective_beam_divergence_rad_x = new TH1D("difference_effective_beam_divergence_rad_x","difference_effective_beam_divergence_rad_x", 100, -1000e-6, 1000e-6) ;
 	TH1D *difference_effective_beam_divergence_rad_y = new TH1D("difference_effective_beam_divergence_rad_y","difference_effective_beam_divergence_rad_y", 100, -1000e-6, 1000e-6) ;
 
 	TH1D *difference_theta_x_IP5_rad_rot = new TH1D("difference_theta_x_IP5_rad_rot","difference_theta_x_IP5_rad_rot", 100, 0, 0) ;
