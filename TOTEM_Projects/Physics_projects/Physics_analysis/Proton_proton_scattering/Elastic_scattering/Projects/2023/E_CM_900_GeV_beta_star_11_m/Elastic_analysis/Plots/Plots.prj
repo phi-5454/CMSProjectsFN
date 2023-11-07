@@ -4,9 +4,9 @@
         <end>   x_mm_near_dx_mm_left_type_block
 
         <begin> theta_x_star_rad_theta_x_star_rad_type_block
-                <update_parameter>                     horizontal_axis_boundary                                                0.0008
+                <update_parameter>                     horizontal_axis_boundary                                                0.0016
                 <update_parameter>                     number_of_horizontal_bins                                               200
-                <update_parameter>                     vertical_axis_boundary                                                  0.0008
+                <update_parameter>                     vertical_axis_boundary                                                  0.0016
                 <update_parameter>                     number_of_vertical_bins                                                 200
         <end>   theta_x_star_rad_theta_x_star_rad_type_block
 
@@ -36,11 +36,18 @@
 	<begin>	x_star_mm_x_star_mm_type_block
 		<update_parameter>			number_of_horizontal_bins						40
 		<update_parameter>			number_of_vertical_bins							40
+		<update_parameter>			horizontal_axis_boundary						2.0
+		<update_parameter>			vertical_axis_boundary							2.0
 	<end>	x_star_mm_x_star_mm_type_block
+
+        <begin> y_star_mm_y_star_mm_type_block
+                <update_parameter>                      horizontal_axis_boundary                                                2.0
+                <update_parameter>                      vertical_axis_boundary                                                  2.0
+        <end>   y_star_mm_y_star_mm_type_block
 	
 	<begin>	theta_x_rad_theta_x_right_rad_type_block
-		<update_parameter>			horizontal_axis_boundary						0.0002
-		<update_parameter>			vertical_axis_boundary							0.0002
+		<update_parameter>			horizontal_axis_boundary						0.0016
+		<update_parameter>			vertical_axis_boundary							0.0016
 	<end>	theta_x_rad_theta_x_right_rad_type_block
 
 	<begin>	theta_y_star_rad_theta_y_star_rad_type_block
@@ -84,3 +91,8 @@
 		<update_parameter>	define_cut												0.0
 	<end>	x_far_right_mm_theta_x_rad_plot_block
 	
+
+        <begin> phi_star_rad_theta_star_rad_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  0.0015
+        <end>   phi_star_rad_theta_star_rad_type_block
+

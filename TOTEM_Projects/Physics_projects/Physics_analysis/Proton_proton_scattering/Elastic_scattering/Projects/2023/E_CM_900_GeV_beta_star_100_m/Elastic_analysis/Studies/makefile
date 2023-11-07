@@ -1,4 +1,4 @@
-TARGETS = Match Lines
+TARGETS = Match Lines millepedeminitest ElasticAlignment
 FLAGS = -g0 -O3 -D__USE_XOPEN2K8
 
 DEPEND = include/*.h

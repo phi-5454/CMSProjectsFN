@@ -17,6 +17,7 @@ class TProtonReconstruction
 	double near_far_RP_units_distance_mm_Beam_2 ;
 
 	set<string> *list_of_excluded_variables ;
+	bool align_source ;
 
 	ULong64_t event_info_timestamp ;
 	UInt_t trigger_data_run_num ; 
@@ -24,6 +25,9 @@ class TProtonReconstruction
 
 	Double_t x_l_f_mm, x_l_n_mm, x_r_f_mm, x_r_n_mm ;
 	Double_t y_l_f_mm, y_l_n_mm, y_r_f_mm, y_r_n_mm ;
+
+	Double_t x_l_f_aligned_mm, x_l_n_aligned_mm, x_r_f_aligned_mm, x_r_n_aligned_mm ;
+	Double_t y_l_f_aligned_mm, y_l_n_aligned_mm, y_r_f_aligned_mm, y_r_n_aligned_mm ;
 
 	// Local angles
 
@@ -48,6 +52,9 @@ class TProtonReconstruction
 
 	double theta_x_star_left_rad, theta_x_star_right_rad ;
 	double theta_y_star_left_rad, theta_y_star_right_rad ;
+
+	double theta_x_star_left_rad_aligned, theta_x_star_right_rad_aligned ;
+	double theta_y_star_left_rad_aligned, theta_y_star_right_rad_aligned ;
 
 	double theta_y_star_left_near_rad ;
 	double theta_y_star_left_far_rad ;
@@ -80,6 +87,7 @@ class TProtonReconstruction
 	double minus_t_x_without_left_far_GeV2 ; 
 
 	double theta_x_star_rad, theta_y_star_rad ;
+	double theta_x_star_rad_aligned, theta_y_star_rad_aligned ;
 	
 	double theta_star_rad ;
 	double theta_star_without_right_far_rad ;
@@ -103,7 +111,9 @@ class TProtonReconstruction
 	// t value
 
 	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2 ;
-	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2 ;
+	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2, minus_t_y_aligned_GeV2 ;
+
+	double minus_t_aligned_GeV2 ;
 
 	double minus_t_from_theta_y_GeV2 ;
 
@@ -115,7 +125,7 @@ class TProtonReconstruction
 	public:
 
 	TProtonReconstruction() ;
-	TProtonReconstruction(double, double, set<string> *) ;
+	TProtonReconstruction(double, double, set<string> *, bool) ;
 
 	void Print() ;
 	double ReconstructThetaYStarRad(double, double, TBeamOptics *) ;
@@ -155,7 +165,7 @@ TProtonReconstruction::TProtonReconstruction()
 {
 }
 
-TProtonReconstruction::TProtonReconstruction(double near_far_RP_units_distance_m_Beam_1 , double near_far_RP_units_distance_m_Beam_2 , set<string> *list_of_excluded_variables) : list_of_excluded_variables(list_of_excluded_variables)
+TProtonReconstruction::TProtonReconstruction(double near_far_RP_units_distance_m_Beam_1 , double near_far_RP_units_distance_m_Beam_2 , set<string> *list_of_excluded_variables, bool align_source) : list_of_excluded_variables(list_of_excluded_variables), align_source(align_source)
 {
 	near_far_RP_units_distance_mm_Beam_1 = (near_far_RP_units_distance_m_Beam_1 * TConstants::conversion_factor_from_m_to_mm) ;
 	near_far_RP_units_distance_mm_Beam_2 = (near_far_RP_units_distance_m_Beam_2 * TConstants::conversion_factor_from_m_to_mm) ;
@@ -265,6 +275,10 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &theta_x_star_rad ; 
 	}
+	else if(variable_name.compare("theta_x_star_rad_aligned")==0)
+	{
+		return &theta_x_star_rad_aligned ; 
+	}
 	else if(variable_name.compare("theta_x_star_right_rad")==0)
 	{
 		return &theta_x_star_right_rad ; 
@@ -297,9 +311,29 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &theta_y_star_left_rad ; 
 	}
+	else if(variable_name.compare("theta_x_star_left_aligned_rad")==0)
+	{
+		return &theta_x_star_left_rad_aligned ; 
+	}
+	else if(variable_name.compare("theta_x_star_right_aligned_rad")==0)
+	{
+		return &theta_x_star_right_rad_aligned ; 
+	}
+	else if(variable_name.compare("theta_y_star_left_aligned_rad")==0)
+	{
+		return &theta_y_star_left_rad_aligned ; 
+	}
+	else if(variable_name.compare("theta_y_star_right_aligned_rad")==0)
+	{
+		return &theta_y_star_right_rad_aligned ; 
+	}
 	else if(variable_name.compare("theta_y_star_rad")==0)
 	{
 		return &theta_y_star_rad ; 
+	}
+	else if(variable_name.compare("theta_y_star_rad_aligned")==0)
+	{
+		return &theta_y_star_rad_aligned ; 
 	}
 	else if(variable_name.compare("theta_y_star_right_rad")==0)
 	{
@@ -445,6 +479,10 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &minus_t_y_GeV2 ; 
 	}
+	else if(variable_name.compare("minus_t_y_aligned_GeV2")==0)
+	{
+		return &minus_t_y_aligned_GeV2 ; 
+	}
 	else if(variable_name.compare("minus_t_from_theta_y_GeV2")==0)
 	{
 		return &minus_t_from_theta_y_GeV2 ; 
@@ -496,6 +534,42 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	else if(variable_name.compare("minus_t_x_without_left_far_GeV2")==0)
 	{
 		return &minus_t_x_without_left_far_GeV2 ; 
+	}
+	else if(variable_name.compare("y_l_n_aligned_mm")==0)
+	{
+		return &y_l_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_l_n_aligned_mm")==0)
+	{
+		return &x_l_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("y_l_f_aligned_mm")==0)
+	{
+		return &y_l_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_l_f_aligned_mm")==0)
+	{
+		return &x_l_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("y_r_n_aligned_mm")==0)
+	{
+		return &y_r_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_r_n_aligned_mm")==0)
+	{
+		return &x_r_n_aligned_mm ; 
+	}
+	else if(variable_name.compare("y_r_f_aligned_mm")==0)
+	{
+		return &y_r_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("x_r_f_aligned_mm")==0)
+	{
+		return &x_r_f_aligned_mm ; 
+	}
+	else if(variable_name.compare("minus_t_aligned_GeV2")==0)
+	{
+		return &minus_t_aligned_GeV2 ; 
 	}
 	else
 	{
@@ -573,6 +647,16 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 	y_r_n_mm = a_y_r_n_mm ;
 	y_r_f_mm = a_y_r_f_mm ;
 
+	x_l_n_aligned_mm = a_x_l_n_mm ;
+	x_l_f_aligned_mm = a_x_l_f_mm ;
+	x_r_n_aligned_mm = a_x_r_n_mm ;
+	x_r_f_aligned_mm = a_x_r_f_mm ;
+
+	y_l_n_aligned_mm = a_y_l_n_mm ;
+	y_l_f_aligned_mm = a_y_l_f_mm ;
+	y_r_n_aligned_mm = a_y_r_n_mm ;
+	y_r_f_aligned_mm = a_y_r_f_mm ;
+
 	thx_l_n_rad = a_thx_l_n_rad ;
 	thx_l_f_rad = a_thx_l_f_rad ;
 	thx_r_n_rad = a_thx_r_n_rad ;
@@ -585,17 +669,60 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 
 	if(RPAlignment != NULL)
 	{
-		x_l_n_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
-		x_l_f_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
+	  if(align_source)
+		{
+			x_l_n_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
+			x_l_f_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
 
-		x_r_n_mm += RPAlignment->Get_RP_alignment_right_near_x_mm() ;
-		x_r_f_mm += RPAlignment->Get_RP_alignment_right_far__x_mm() ;
+			x_r_n_mm += RPAlignment->Get_RP_alignment_right_near_x_mm() ;
+			x_r_f_mm += RPAlignment->Get_RP_alignment_right_far__x_mm() ;
 
-		y_l_n_mm += RPAlignment->Get_RP_alignment_left_near_y_mm() ;
-		y_l_f_mm += RPAlignment->Get_RP_alignment_left_far__y_mm() ;
+			y_l_n_mm += RPAlignment->Get_RP_alignment_left_near_y_mm() ;
+			y_l_f_mm += RPAlignment->Get_RP_alignment_left_far__y_mm() ;
 
-		y_r_n_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
-		y_r_f_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
+			y_r_n_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
+			y_r_f_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
+		}
+	
+		x_l_n_aligned_mm += RPAlignment->Get_RP_alignment_left_near_x_mm() ;
+		x_l_f_aligned_mm += RPAlignment->Get_RP_alignment_left_far__x_mm() ;
+
+		x_r_n_aligned_mm += RPAlignment->Get_RP_alignment_right_near_x_mm() ;
+		x_r_f_aligned_mm += RPAlignment->Get_RP_alignment_right_far__x_mm() ;
+
+		y_l_n_aligned_mm += RPAlignment->Get_RP_alignment_left_near_y_mm() ;
+		y_l_f_aligned_mm += RPAlignment->Get_RP_alignment_left_far__y_mm() ;
+
+		y_r_n_aligned_mm += RPAlignment->Get_RP_alignment_right_near_y_mm() ;
+		y_r_f_aligned_mm += RPAlignment->Get_RP_alignment_right_far__y_mm() ;
+
+		double dx_left_mm_aligned 	= (x_l_f_aligned_mm - x_l_n_aligned_mm) ;
+		double dx_right_mm_aligned 	= (x_r_f_aligned_mm - x_r_n_aligned_mm) ;
+
+		double theta_x_left_rad_aligned	= (dx_left_mm_aligned 	/ near_far_RP_units_distance_mm_Beam_2) ;
+		double theta_x_right_rad_aligned 	= (dx_right_mm_aligned	/ near_far_RP_units_distance_mm_Beam_1) ;
+
+		double x_star_left_mm_aligned  = ReconstructXStarMm(x_l_n_aligned_mm, x_l_f_aligned_mm, BeamOptics_Beam_2) ;
+		double x_star_right_mm_aligned = ReconstructXStarMm(x_r_n_aligned_mm, x_r_f_aligned_mm, BeamOptics_Beam_1) ;
+
+		double x_star_left_m_aligned  = (x_star_left_mm_aligned  / TConstants::conversion_factor_from_m_to_mm) ; 
+		double x_star_right_m_aligned = (x_star_right_mm_aligned / TConstants::conversion_factor_from_m_to_mm) ;
+
+		theta_x_star_left_rad_aligned	= ReconstructThetaXStarRad(theta_x_left_rad_aligned,  x_star_left_m_aligned, BeamOptics_Beam_2) ;
+		theta_x_star_right_rad_aligned	= ReconstructThetaXStarRad(theta_x_right_rad_aligned, x_star_right_m_aligned, BeamOptics_Beam_1) ;
+
+		theta_y_star_left_rad_aligned	= ReconstructThetaYStarRad(y_l_n_aligned_mm, y_l_f_aligned_mm, BeamOptics_Beam_2) ;
+		theta_y_star_right_rad_aligned	= ReconstructThetaYStarRad(y_r_n_aligned_mm, y_r_f_aligned_mm, BeamOptics_Beam_1) ;
+
+		theta_x_star_rad_aligned = 0.5 * (theta_x_star_left_rad_aligned + ((-1.0)*theta_x_star_right_rad_aligned)) ;
+		theta_y_star_rad_aligned = 0.5 * (theta_y_star_left_rad_aligned + ((-1.0)*theta_y_star_right_rad_aligned)) ;
+
+		double t_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_rad_aligned, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
+  	double t_y_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(0, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
+
+		minus_t_aligned_GeV2		= -t_aligned_GeV2 ;
+  	minus_t_y_aligned_GeV2	= -t_y_aligned_GeV2 ;
+		
 	}
 	
 	dx_left_mm 	= (x_l_f_mm - x_l_n_mm) ;

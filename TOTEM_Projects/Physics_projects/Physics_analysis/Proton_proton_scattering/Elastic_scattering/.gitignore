@@ -1,2 +1,9 @@
+ElasticAlignment
 analyse
 *.root
+*.aux
+*.log
+*.pdf
+*.toc
+MC*/fnemes.cc
+fnemes.cc

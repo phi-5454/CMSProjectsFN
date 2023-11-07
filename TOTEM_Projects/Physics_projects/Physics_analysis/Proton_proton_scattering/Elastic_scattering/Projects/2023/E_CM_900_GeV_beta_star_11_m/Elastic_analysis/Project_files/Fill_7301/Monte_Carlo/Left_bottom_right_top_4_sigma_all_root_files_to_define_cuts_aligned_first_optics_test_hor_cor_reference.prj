@@ -1,0 +1,99 @@
+<setting>       project_subtask                                                                 MonteCarlo
+<comment> <setting>       MonteCarlo_task                                                                 unfolding
+<setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections_switch_off
+
+<setting>	Fill_number	7301
+
+<comment> ================ New cuts for new corrections: horizontal geom. acceptance and cuts divergence ==================
+
+<comment> <setting>		horizontal_geometrical_acceptance_cut_block				theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
+<comment> <setting>		horizontal_angular_left_acceptance_cut_block				theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
+<comment> <setting>		horizontal_angular_right_acceptance_cut_block			theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
+<comment> <setting>		horizontal_beam_divergence_cut_block						theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+<comment> ================ New cuts end ===================================================================================
+
+
+<include>	/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
+<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_bottom_right_top.prj
+<include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma_aligned_hor_cuts.prj
+
+<begin> alignment_block
+                <update_parameter> RP_alignment_left_far__x_mm             0.0
+                <update_parameter> RP_alignment_left_near_x_mm             0.0
+                <update_parameter> RP_alignment_right_far__x_mm            0.0
+                <update_parameter> RP_alignment_right_near_x_mm            0.0
+
+                <update_parameter> RP_alignment_left_near_y_mm             0.0
+                <update_parameter> RP_alignment_left_far__y_mm             0.0
+                <update_parameter> RP_alignment_right_far__y_mm            0.0
+                <update_parameter> RP_alignment_right_near_y_mm            0.0
+<end>   alignment_block
+
+
+<begin>	dN_dt_GeV2_type_block
+	<update_parameter>			number_of_horizontal_bins						400
+<end>	dN_dt_GeV2_type_block
+
+<update_parameter> CollectCutDiagnosticData					0.0
+
+<update_setting>       MAD_X_twiss_beam_1                                              Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/Matched_optics/Beam_1/opticsproject.tfs
+<update_setting>       MAD_X_twiss_beam_2                                              Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/Matched_optics/Beam_2/opticsproject.tfs
+
+<parameter>             beam_momentum_perturbation_percent_beam_1       0
+<parameter>             beam_momentum_perturbation_percent_beam_2       0
+
+<begin> MC_generator_settings_block
+        <parameter>             number_of_simulated_particles                           8
+        <parameter>             number_of_simulated_background_particles        1
+        <parameter>             t_GeV2_distribution_lower_edge                          0.0
+        <parameter>             t_GeV2_distribution_upper_edge                          1.0
+        <parameter>             vertex_size_x_m                                                         0.0e-6
+        <parameter>             vertex_size_y_m                                                         0.0e-6
+        <parameter>             max_number_of_phi_divisions                                     4000000.0
+        <parameter>             smooth_iterations       0
+        <parameter>             sigma_x_of_effective_beam_divergence_rad        0.0E-006
+        <parameter>             sigma_y_of_effective_beam_divergence_rad        0.0E-006
+        <parameter>             seed 1
+<end>   MC_generator_settings_block
+
+<begin>	Exponential_fit_block_off
+	<parameter>		Constant      	2.363e7
+	<parameter>		Slope       	-1.69642e+01
+<end>	Exponential_fit_block_off
+
+<comment> <parameter>             New_unfolding_method                    1.0
+
+<parameter>		track_left_near_dx_mm		0.0
+<parameter>		track_left_far_dx_mm		0.0
+<parameter>		track_right_near_dx_mm		0.0
+<parameter>		track_right_far_dx_mm		0.0
+
+<parameter>		track_left_near_dy_mm		0.0
+<parameter>		track_left_far_dy_mm		0.0
+<parameter>		track_right_near_dy_mm		0.0
+<parameter>		track_right_far_dy_mm		0.0
+
+	
+<begin>	Flat_distribution_block
+<end>	Flat_distribution_block
+
+<begin>	MC_generator_optics_perturbations_block
+	<parameter>	Beam_1_Ly_perturbation_percent			0.0
+	<parameter>	Beam_1_dLxds_perturbation_percent		0.0
+	<parameter>	Beam_2_Ly_perturbation_percent			0.0
+	<parameter>	Beam_2_dLxds_perturbation_percent		0.0
+<end>	MC_generator_optics_perturbations_block
+
+<setting>       align_source_files     yes
+<setting>       histogram_name_for_unfolding    P0026_PlotsCollection_dN_dt_GeV2_weighted
+
+<update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
+<update_parameter> MaxNumberOfEventsToAnalyze				600000
+
+
+<parameter>     MC_without_weights                              1.0
+
+<update_setting>	Input_directory			root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Reduced_ntuples/7301/
+
+<setting>			Output_directory		/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_mc_reference/

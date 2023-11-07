@@ -1,0 +1,66 @@
+root [5] TBrowser r
+(TBrowser &) Name: Browser Title: ROOT Object Browser
+root [6] 
+root [6] 
+root [6] 
+root [6] TLine line(0.081, 1, 0.081, 7)
+(TLine &) Name: TLine Title: A line segment
+root [7] line.Draw("same")
+root [8] line.SetX1(0.0081)
+root [9] line.SetX2(0.0081)
+root [10] TLine line2(0.0729, 1, 0.0729, 7)
+(TLine &) Name: TLine Title: A line segment
+root [11] line2.Draw("same")
+root [12] TLine line2(0.0632, 1, 0.0632, 7)
+(TLine &) Name: TLine Title: A line segment
+root [13] TLine line2(0.0729, 1, 0.0729, 7)
+(TLine &) Name: TLine Title: A line segment
+root [14] TLine line32(0.0632, 1, 0.0632, 7)
+(TLine &) Name: TLine Title: A line segment
+root [15] line32.Draw("same")
+root [16] system("ls")
+compare     Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor.prj                                 makefile
+compare.C   Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_reference.prj                       plots
+compare.cc  Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_reference_with_beam_divergence.prj  theta_x_star_difference.root
+Condor      Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence.prj            theta_y_star_difference.root
+(int) 0
+root [17] 0.00015939600*450
+(double) 0.071728200
+root [18] pow((0.00015939600*450),2)
+(double) 0.0051449347
+root [19] double myt = pow((0.00015939600*450),2)
+(double) 0.0051449347
+root [20] line5.Draw("same")^C
+root [20] TLine line5(myt, 1, myt, 7)
+(TLine &) Name: TLine Title: A line segment
+root [21] line5.Draw("same")
+root [22] double myt = pow((0.00039527000 + 0.00015939600*450),2)
+(double) 0.0052017949
+root [23] TLine line6(myt, 1, myt, 7)
+(TLine &) Name: TLine Title: A line segment
+root [24] line6.Draw("same")
+root [25] double myt = pow((-0.00039527000 + 0.00015939600*450),2)
+(double) 0.0050883869
+root [26] TLine line7(myt, 1, myt, 7)
+(TLine &) Name: TLine Title: A line segment
+root [27] line7.Draw("same")
+root [28] 
+root [28] 
+root [28] double myt = pow((-0.00039527000 + 0.00015939600),2)
+(double) 5.5636544e-08
+root [29] TLine line8(myt, 1, myt, 7)
+(TLine &) Name: TLine Title: A line segment
+root [30] line8.Draw("same")
+root [31] double myt = pow(((-0.00039527000 + 0.00015939600)*450),2)
+(double) 0.011266400
+root [32] TLine line9(myt, 1, myt, 7)
+(TLine &) Name: TLine Title: A line segment
+root [33] line9.Draw("same")
+root [34] double myt = pow(((-0.00039527000 - 0.00015939600)*450),2)
+(double) 0.062300010
+root [35] TLine line10(myt, 1, myt, 7)
+(TLine &) Name: TLine Title: A line segment
+root [36] line10.Draw("same")
+root [37] Info in <TCanvas::SaveAs>: ROOT file /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7301/Monte_Carlo/plots/2023_11_01_basic_tests/basic_tests.root has been created
+Info in <TCanvas::Print>: pdf file /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7301/Monte_Carlo/plots/2023_11_01_basic_tests/basic_tests.pdf has been created
+

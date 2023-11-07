@@ -564,7 +564,17 @@ void TProject::TestBeamProperties()
 		CollectDependenciesOfDetector(ProjectParameters->GetSettingValue("Inefficiency_2_out_of_4_RP_near"), 	list_of_excluded_variables) ;
 	}
 
-	ProtonReconstruction = new TProtonReconstruction(near_far_distance_m_beam_1, near_far_distance_m_beam_2, list_of_excluded_variables) ;
+	bool align_source = false ;
+	
+	if(ProjectParameters->IsSettingDefined("align_source_files"))
+	{
+		if(ProjectParameters->GetSettingValue("align_source_files").compare("yes") == 0)
+		{
+			align_source = true ;
+		}
+	}
+
+	ProtonReconstruction = new TProtonReconstruction(near_far_distance_m_beam_1, near_far_distance_m_beam_2, list_of_excluded_variables, align_source) ;
 }
 
 void TProject::CreatePlotsCollections()
@@ -4407,7 +4417,7 @@ void TProject::ExecuteMonteCarlo()
 	MC_dN_dt_GeV2_reconstructed->Sumw2() ;
 	// MC_dN_dt_GeV2_acceptance_corrected->Sumw2() ;
 
-	TH1D *beam_divergence_rad_distribution = new TH1D("beam_divergence_rad_distribution","beam_divergence_rad_distribution", 100, 0, 0) ;
+	TH1D *beam_divergence_rad_distribution = new TH1D("beam_divergence_rad_distribution","beam_divergence_rad_distribution", 100, -1000e-6, 1000e-6) ;
 	TH1D *theta_y_IP5_rad_distribution = new TH1D("theta_y_IP5_rad_distribution","theta_y_IP5_rad_distribution", 100, -300e-6, 300e-6) ;
 	TH1D *theta_y_IP5_rad_distribution_left = new TH1D("theta_y_IP5_rad_distribution_left","theta_y_IP5_rad_distribution_left", 100, -300e-6, 300e-6) ;
 	TH1D *theta_y_IP5_rad_distribution_right = new TH1D("theta_y_IP5_rad_distribution_right","theta_y_IP5_rad_distribution_right", 100, -300e-6, 300e-6) ;
@@ -4422,8 +4432,8 @@ void TProject::ExecuteMonteCarlo()
 	TH1D *minus_t_y_GeV2_distribution = new TH1D("minus_t_y_GeV2_distribution","minus_t_y_GeV2_distribution", 400, 0, t_GeV2_distribution_upper_edge) ;
 	TH1D *minus_t_y_GeV2_distribution_after_cuts = new TH1D("minus_t_y_GeV2_distribution_after_cuts","minus_t_y_GeV2_distribution_after_cuts", 400, 0, t_GeV2_distribution_upper_edge) ;
 
-	TH1D *difference_effective_beam_divergence_rad_x = new TH1D("difference_effective_beam_divergence_rad_x","difference_effective_beam_divergence_rad_x", 100, 0, 0) ;
-	TH1D *difference_effective_beam_divergence_rad_y = new TH1D("difference_effective_beam_divergence_rad_y","difference_effective_beam_divergence_rad_y", 100, 0, 0) ;
+	TH1D *difference_effective_beam_divergence_rad_x = new TH1D("difference_effective_beam_divergence_rad_x","difference_effective_beam_divergence_rad_x", 100, -1000e-6, 1000e-6) ;
+	TH1D *difference_effective_beam_divergence_rad_y = new TH1D("difference_effective_beam_divergence_rad_y","difference_effective_beam_divergence_rad_y", 100, -1000e-6, 1000e-6) ;
 
 	TH1D *difference_theta_x_IP5_rad_rot = new TH1D("difference_theta_x_IP5_rad_rot","difference_theta_x_IP5_rad_rot", 100, 0, 0) ;
 	TH1D *difference_theta_y_IP5_rad_rot = new TH1D("difference_theta_y_IP5_rad_rot","difference_theta_y_IP5_rad_rot", 100, 0, 0) ;
@@ -4432,8 +4442,8 @@ void TProject::ExecuteMonteCarlo()
 	TH1D *MC_minus_t_left_GeV2_reconstructed_test_of_t_slice = new TH1D("MC_minus_t_left_GeV2_reconstructed_test_of_t_slice","MC_minus_t_left_GeV2_reconstructed_test_of_t_slice", 100, 0, 0) ;
 	TH1D *MC_minus_t_right_GeV2_reconstructed_test_of_t_slice = new TH1D("MC_minus_t_right_GeV2_reconstructed_test_of_t_slice","MC_minus_t_right_GeV2_reconstructed_test_of_t_slice", 100, 0, 0) ;
 
-	TH1D *difference_theta_x_IP5_rad_rot_with_beam_divergence = new TH1D("difference_theta_x_IP5_rad_rot_with_beam_divergence","difference_theta_x_IP5_rad_rot_with_beam_divergence", 100, 0, 0) ;
-	TH1D *difference_theta_y_IP5_rad_rot_with_beam_divergence = new TH1D("difference_theta_y_IP5_rad_rot_with_beam_divergence","difference_theta_y_IP5_rad_rot_with_beam_divergence", 100, 0, 0) ;
+	TH1D *difference_theta_x_IP5_rad_rot_with_beam_divergence = new TH1D("difference_theta_x_IP5_rad_rot_with_beam_divergence","difference_theta_x_IP5_rad_rot_with_beam_divergence", 100, -1000e-6, 1000e-6) ;
+	TH1D *difference_theta_y_IP5_rad_rot_with_beam_divergence = new TH1D("difference_theta_y_IP5_rad_rot_with_beam_divergence","difference_theta_y_IP5_rad_rot_with_beam_divergence", 100, -1000e-6, 1000e-6) ;
 
 	TH2D *minus_t_y_GeV2_minus_t_GeV2 = new TH2D("minus_t_y_GeV2_minus_t_GeV2","minus_t_y_GeV2_minus_t_GeV2", 400, 0, t_GeV2_distribution_upper_edge, 400, 0, t_GeV2_distribution_upper_edge) ;
 	TH2D *MC_minus_t_GeV2_minus_t_GeV2_reconstructed = new TH2D("MC_minus_t_GeV2_minus_t_GeV2_reconstructed","MC_minus_t_GeV2_minus_t_GeV2_reconstructed", 4000, 0, t_GeV2_distribution_upper_edge, 4000, 0, t_GeV2_distribution_upper_edge) ;

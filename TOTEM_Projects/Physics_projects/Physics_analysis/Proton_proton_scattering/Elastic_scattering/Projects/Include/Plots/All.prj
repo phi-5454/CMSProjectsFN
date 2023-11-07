@@ -70,4 +70,16 @@
 	<nsetting>	analysis_plot		x_mm_y_mm_far_left
 	<nsetting>	analysis_plot		x_mm_y_mm_near_right
 	<nsetting>	analysis_plot		x_mm_y_mm_far_right
-	  	
+
+	<nsetting>	analysis_plot		x_mm_y_mm_near_left_aligned
+	<nsetting>	analysis_plot		x_mm_y_mm_far_left_aligned
+	<nsetting>	analysis_plot		x_mm_y_mm_near_right_aligned
+	<nsetting>	analysis_plot		x_mm_y_mm_far_right_aligned
+
+	<nsetting>	analysis_plot		theta_x_star_rad_theta_y_star_aligned_rad
+
+	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_aligned_rad
+	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_aligned_rad
+
+	<nsetting>	analysis_plot		dN_dt_aligned_GeV2_geometrical_acceptance_corrected
+	<nsetting>	analysis_plot		dN_dt_aligned_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected
