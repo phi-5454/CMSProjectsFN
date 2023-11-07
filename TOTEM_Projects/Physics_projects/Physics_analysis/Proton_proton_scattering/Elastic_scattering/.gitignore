@@ -6,3 +6,4 @@ analyse
 *.pdf
 *.toc
 MC*/fnemes.cc
+fnemes.cc
