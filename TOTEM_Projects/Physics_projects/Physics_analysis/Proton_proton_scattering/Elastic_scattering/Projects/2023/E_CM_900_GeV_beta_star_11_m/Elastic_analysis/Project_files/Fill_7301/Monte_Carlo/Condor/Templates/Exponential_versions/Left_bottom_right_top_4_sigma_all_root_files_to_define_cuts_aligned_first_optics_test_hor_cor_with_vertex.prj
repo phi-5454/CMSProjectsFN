@@ -14,10 +14,23 @@
 
 <comment> ================ New cuts end ===================================================================================
 
+<nsetting>      analysis_plot           y_mm_near_dy_mm_right_with_cut
 
 <include>	/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_bottom_right_top.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma_aligned_hor_cuts.prj
+
+<nsetting>      analysis_plot           y_mm_near_dy_mm_right_with_cut
+
+<begin> y_mm_near_dy_mm_right_cut_block
+        <update_parameter>     x1           7.4932500
+        <update_parameter>     y1           -1
+        <update_parameter>     x2           7.4932500
+        <update_parameter>     y2           1
+        <update_parameter> sigma               3.3092500
+        <update_parameter> number_of_sigmas            0.915
+<end> y_mm_near_dy_mm_right_cut_block
+
 
 <begin> alignment_block
                 <update_parameter> RP_alignment_left_far__x_mm             0.0
@@ -87,7 +100,7 @@
 <end>	MC_generator_optics_perturbations_block
 
 <setting>       align_source_files     yes
-<setting>       histogram_name_for_unfolding    P0030_PlotsCollection_dN_dt_GeV2_weighted
+<setting>       histogram_name_for_unfolding    P0031_PlotsCollection_dN_dt_GeV2_weighted
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
 <update_parameter> MaxNumberOfEventsToAnalyze				600000

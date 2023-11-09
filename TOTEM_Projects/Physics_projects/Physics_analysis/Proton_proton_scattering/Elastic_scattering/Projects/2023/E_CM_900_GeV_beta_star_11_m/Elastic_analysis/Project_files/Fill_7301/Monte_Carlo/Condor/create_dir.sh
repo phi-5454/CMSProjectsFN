@@ -16,7 +16,7 @@ create_dirs() {
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	for i in `seq -w 0 99 `
+	for i in `seq -w 0 9 `
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i
@@ -38,7 +38,7 @@ create_dirs() {
 
 #create_dirs MC_reference_exp                              Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_reference.prj
 #create_dirs MC_reference_with_beam_divergence_exp         Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_reference_with_beam_divergence.prj
-create_dirs MC_exp                                        Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor.prj
+#create_dirs MC_exp                                        Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor.prj
 #create_dirs MC_with_beam_divergence_exp                   Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence.prj
 #create_dirs MC_with_beam_divergence_stronger_cuts_exp     Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence_stronger_cuts_for_test.prj
 
@@ -48,4 +48,8 @@ create_dirs MC_exp                                        Templates/Exponential_
 #create_dirs MC_with_beam_divergence_exp_hor                   Templates/Exponential_versions/With_horizontal_cuts_and_corrections/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence.prj
 #create_dirs MC_with_beam_divergence_stronger_cuts_exp_hor     Templates/Exponential_versions/With_horizontal_cuts_and_corrections/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence_stronger_cuts_for_test.prj
 
+#create_dirs MC_exp_hor_ver                                   Templates/Exponential_versions/With_horizontal_cuts_and_corrections/Combined_hor_and_ver/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor.prj
+#create_dirs MC_with_beam_divergence_exp_hor_ver              Templates/Exponential_versions/With_horizontal_cuts_and_corrections/Combined_hor_and_ver/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence.prj
 
+create_dirs MC_exp_with_vertex                                Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_vertex.prj
+create_dirs MC_exp_hor_with_vertex                            Templates/Exponential_versions/With_horizontal_cuts_and_corrections/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_vertex.prj
