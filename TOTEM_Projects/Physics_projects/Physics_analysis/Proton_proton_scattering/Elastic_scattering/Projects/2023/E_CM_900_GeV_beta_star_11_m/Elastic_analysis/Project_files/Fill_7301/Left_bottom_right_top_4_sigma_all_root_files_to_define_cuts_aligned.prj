@@ -2,6 +2,9 @@
 <setting>	Fill_number	7301
 
 <setting>	project_subtask							dsigma/dt
+<setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections_off
+<setting>       project_subtask_switch_2                                                        MonteCarlo_test_corrections_off
+
 
 <include>	/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7301/Reduced_ntuples_left_bottom_right_top.prj
