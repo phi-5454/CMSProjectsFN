@@ -223,6 +223,9 @@ void TProtonPair::GenerateParticles()
 
   theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
 
+  double dislocation_factor = 100e-6 ;
+  double dis_factor = 1.0 ;
+
   p_b1.theta_x_star =  (theta_star_rad * cos(phi_IP5_rad)) ;
   p_b1.theta_y_star =  (theta_star_rad * sin(phi_IP5_rad)) ;
 
@@ -232,7 +235,7 @@ void TProtonPair::GenerateParticles()
   double factor = 0.0 ;
   double factor_vtx = 0.0 ;
 
-  p_b1.x_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
+  p_b1.x_star = (dislocation_factor * dis_factor) + (factor_vtx * vertex_size_m * myrand.Gaus()) ;
   p_b1.y_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
 
   p_b2.x_star = p_b1.x_star ;
@@ -549,9 +552,12 @@ void test_aperture(vector<TAperture *> &vector_apertures)
 	gStyle->SetPadGridY(kTRUE);
 
   TCanvas c ;
+  TCanvas o ;
   
   for(int j = 0 ; j < vector_apertures.size() ; ++j)
   {
+    c.cd() ; 
+
     vector_apertures[j]->histogram->GetXaxis()->SetTitle("#theta_{x}* (rad)") ;
     vector_apertures[j]->histogram->GetYaxis()->SetTitle("#theta_{y}* (rad)") ;
 
@@ -563,6 +569,7 @@ void test_aperture(vector<TAperture *> &vector_apertures)
 
     vector_apertures[j]->histogram_t->Draw("") ;
     c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_t.root").c_str()) ;
+    vector_apertures[j]->histogram_t->SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_t_hist.root").c_str()) ;
 
     vector_apertures[j]->histogram_phi->Draw("") ;
     c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_phi.root").c_str()) ;
@@ -571,7 +578,14 @@ void test_aperture(vector<TAperture *> &vector_apertures)
     c.SaveAs(("plots/apeture_test/aperture_test_" + vector_apertures[j]->name + "_x_y.root").c_str()) ;
     
     cout << "statistics " << vector_apertures[j]->name << " " << vector_apertures[j]->histogram->GetEntries() << endl ;
+
+    o.cd() ;
+    if(j == 0) vector_apertures[j]->histogram_t->Draw("") ;
+    else vector_apertures[j]->histogram_t->Draw("same") ;
+    
   }
+
+  o.SaveAs("plots/apeture_test/aperture_test_summary_t.root") ;
   
   for(map<string, TH2D *>::iterator it = map_of_THorizontal_and_vertical_xy_histogram.begin() ; it != map_of_THorizontal_and_vertical_xy_histogram.end() ; ++it)
   {
