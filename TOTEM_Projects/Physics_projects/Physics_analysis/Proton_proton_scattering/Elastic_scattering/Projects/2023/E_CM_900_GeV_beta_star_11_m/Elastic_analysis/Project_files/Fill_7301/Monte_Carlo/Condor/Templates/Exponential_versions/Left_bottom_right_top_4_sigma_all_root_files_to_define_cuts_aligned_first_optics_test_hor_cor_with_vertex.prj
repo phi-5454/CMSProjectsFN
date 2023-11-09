@@ -1,16 +1,16 @@
 <setting>       project_subtask                                                                 MonteCarlo
 <comment> <setting>       MonteCarlo_task                                                                 unfolding
 <setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections
-<setting>       project_subtask_switch_2                                                        MonteCarlo_test_corrections
+<setting>       project_subtask_switch_2                                                        MonteCarlo_test_corrections_off
 
 <setting>	Fill_number	7301
 
 <comment> ================ New cuts for new corrections: horizontal geom. acceptance and cuts divergence ==================
 
-<setting>		horizontal_geometrical_acceptance_cut_block				theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
-<setting>		horizontal_angular_left_acceptance_cut_block				theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
-<setting>		horizontal_angular_right_acceptance_cut_block			theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
-<setting>		horizontal_beam_divergence_cut_block						theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+<comment> <setting>		horizontal_geometrical_acceptance_cut_block				theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
+<comment> <setting>		horizontal_angular_left_acceptance_cut_block				theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
+<comment> <setting>		horizontal_angular_right_acceptance_cut_block			theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
+<comment> <setting>		horizontal_beam_divergence_cut_block						theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 <comment> ================ New cuts end ===================================================================================
 
@@ -31,22 +31,10 @@
                 <update_parameter> RP_alignment_right_near_y_mm            0.0
 <end>   alignment_block
 
-<begin> theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
-    <update_parameter>     x1                              0.0e-06
-    <update_parameter>     x2                              0.0e-06
-<end>   theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
 
 <begin>	dN_dt_GeV2_type_block
 	<update_parameter>			number_of_horizontal_bins						1600
 <end>	dN_dt_GeV2_type_block
-
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
-        <update_parameter> sigma               42e-05
-<end> theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
-
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
-        <update_parameter> sigma               42e-05
-<end> theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
 
 <update_parameter> CollectCutDiagnosticData					0.0
 
@@ -65,8 +53,8 @@
         <parameter>             vertex_size_y_m                                                         0.0e-6
         <parameter>             max_number_of_phi_divisions                                     ZZZZ
         <parameter>             smooth_iterations       0
-        <parameter>             sigma_x_of_effective_beam_divergence_rad        32.0E-006
-        <parameter>             sigma_y_of_effective_beam_divergence_rad        32.0E-006
+        <parameter>             sigma_x_of_effective_beam_divergence_rad        0.0E-006
+        <parameter>             sigma_y_of_effective_beam_divergence_rad        0.0E-006
         <parameter>             seed XXXX
 <end>   MC_generator_settings_block
 
@@ -99,7 +87,7 @@
 <end>	MC_generator_optics_perturbations_block
 
 <setting>       align_source_files     yes
-<setting>       histogram_name_for_unfolding    P0033_PlotsCollection_dN_dt_GeV2_weighted
+<setting>       histogram_name_for_unfolding    P0030_PlotsCollection_dN_dt_GeV2_weighted
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
 <update_parameter> MaxNumberOfEventsToAnalyze				600000

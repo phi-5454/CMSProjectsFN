@@ -31,6 +31,7 @@
                 <update_parameter> RP_alignment_right_near_y_mm            0.0
 <end>   alignment_block
 
+
 <begin> theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
     <update_parameter>     x1                              0.0e-06
     <update_parameter>     x2                              0.0e-06
@@ -39,14 +40,6 @@
 <begin>	dN_dt_GeV2_type_block
 	<update_parameter>			number_of_horizontal_bins						1600
 <end>	dN_dt_GeV2_type_block
-
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
-        <update_parameter> sigma               42e-05
-<end> theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
-
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
-        <update_parameter> sigma               42e-05
-<end> theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
 
 <update_parameter> CollectCutDiagnosticData					0.0
 
@@ -65,8 +58,8 @@
         <parameter>             vertex_size_y_m                                                         0.0e-6
         <parameter>             max_number_of_phi_divisions                                     ZZZZ
         <parameter>             smooth_iterations       0
-        <parameter>             sigma_x_of_effective_beam_divergence_rad        32.0E-006
-        <parameter>             sigma_y_of_effective_beam_divergence_rad        32.0E-006
+        <parameter>             sigma_x_of_effective_beam_divergence_rad        0.0E-006
+        <parameter>             sigma_y_of_effective_beam_divergence_rad        0.0E-006
         <parameter>             seed XXXX
 <end>   MC_generator_settings_block
 
