@@ -224,7 +224,7 @@ void TProtonPair::GenerateParticles()
   theta_star_rad = theta_star_rad_from_t_GeV2(-minus_t_GeV2, beam_momentum_GeV) ;
 
   double dislocation_factor = 100e-6 ;
-  double dis_factor = 1.0 ;
+  double dis_factor = 0.0 ;
 
   p_b1.theta_x_star =  (theta_star_rad * cos(phi_IP5_rad)) ;
   p_b1.theta_y_star =  (theta_star_rad * sin(phi_IP5_rad)) ;
@@ -232,8 +232,8 @@ void TProtonPair::GenerateParticles()
   p_b2.theta_x_star = -(theta_star_rad * cos(phi_IP5_rad)) ;
   p_b2.theta_y_star = -(theta_star_rad * sin(phi_IP5_rad)) ;
 
-  double factor = 0.0 ;
-  double factor_vtx = 0.0 ;
+  double factor = 1.0 ;
+  double factor_vtx = 1.0 ;
 
   p_b1.x_star = (dislocation_factor * dis_factor) + (factor_vtx * vertex_size_m * myrand.Gaus()) ;
   p_b1.y_star = factor_vtx * vertex_size_m * myrand.Gaus() ;
