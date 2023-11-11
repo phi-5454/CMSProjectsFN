@@ -8,17 +8,17 @@
                 <parameter> RP_alignment_right_far__x_mm            -0.879717
                 <parameter> RP_alignment_right_near_x_mm            -0.126745
 
-                <parameter> RP_alignment_left_near_y_mm              0.00274931
-                <parameter> RP_alignment_left_far__y_mm             -0.250858
-                <parameter> RP_alignment_right_far__y_mm             0.191994
-                <parameter> RP_alignment_right_near_y_mm             0.324914
+                <parameter> RP_alignment_left_near_y_mm             0.9750
+                <parameter> RP_alignment_left_far__y_mm             0.6648
+                <parameter> RP_alignment_right_far__y_mm            -0.501094
+                <parameter> RP_alignment_right_near_y_mm            -0.452614
 <end>   alignment_block
 
 <begin> theta_x_star_rad_theta_y_star_rad_cut_block
         <parameter>     x1              -6e-05
-        <parameter>     y1              -0.00041527000
+        <parameter>     y1              -0.0003653330
         <parameter>     x2              6e-05
-        <parameter>     y2              -0.00041527000
+        <parameter>     y2              -0.0003653330
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
         <parameter> range2_x            6e-05
