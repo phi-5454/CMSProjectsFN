@@ -277,8 +277,13 @@ main()
 	gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
 
-	file_LBRT = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts/Generic.root") ;
-	file_LTRB = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/Generic.root") ;
+	// file_LBRT = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts/Generic.root") ;
+	// file_LTRB = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/Generic.root") ;
+
+	file_LBRT = TFile::Open("/eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test/Generic.root") ;
+	file_LTRB = TFile::Open("/eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts_aligned_first_optics_test/Generic.root") ;
+//	file_LBRT = TFile::Open("/eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Analysis_output_files/7302/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test/Generic.root") ;
+//	file_LTRB = TFile::Open("/eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Analysis_output_files/7302/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts_aligned_first_optics_test/Generic.root") ;
 
 	// combine_and_fit("P0079_PlotsCollection_x_mm_y_mm_near_left_aligned", -2.0, 2.0) ;
 	// combine_and_fit("P0080_PlotsCollection_x_mm_y_mm_far_left_aligned", -1.5, 1.5) ;
