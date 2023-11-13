@@ -9,6 +9,15 @@
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7302/Reduced_ntuples_left_top_right_bottom.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_top_right_bottom_4_sigma_aligned.prj
 
+<begin> x_mm_near_dx_mm_left_define_cut_plot_block
+	<update_parameter>      define_cut                                                                                              1.0
+<end>   x_mm_near_dx_mm_left_define_cut_plot_block
+
+<begin> x_mm_near_dx_mm_left_with_cut_plot_block
+        <update_parameter>      cut                                                                                                     1.0
+<end>   x_mm_near_dx_mm_left_with_cut_plot_block
+
+
 <begin>	dN_dt_GeV2_type_block
 	<update_parameter>			number_of_horizontal_bins						1600
 <end>	dN_dt_GeV2_type_block
@@ -19,6 +28,10 @@
 <update_setting>       MAD_X_twiss_beam_2                                              Projects/2023/E_CM_900_GeV_beta_star_11_m/General_settings/Optics/Matched_optics/Beam_2/opticsproject.tfs
 
 <setting>       align_source_files     yes
+
+<update_parameter>             DoNotSaveEpsFiles                                               0.0
+<parameter>                    WriteEverything                                                 0.0
+
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0
 <update_parameter> MaxNumberOfEventsToAnalyze				60000

@@ -158,14 +158,14 @@
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
 
 <begin> x_mm_near_dx_mm_left_cut_block
-        <parameter>      x1              -5
-        <parameter>      y1              1.5
-        <parameter>      x2              5
-        <parameter>      y2              -1.5
-        <parameter> range1_x             -0.2
+        <parameter>      x1               -4.36317
+        <parameter>      y1               1.4753  
+        <parameter>      x2               4.87952 
+        <parameter>      y2               -1.69945
+        <parameter> range1_x             -5
         <parameter> range1_y             0.2
-        <parameter> range2_x             0.2
+        <parameter> range2_x             5
         <parameter> range2_y             -0.2
-        <parameter> sigma                1
+        <parameter> sigma                0.15
         <parameter> number_of_sigmas             4
 <end> x_mm_near_dx_mm_left_cut_block
