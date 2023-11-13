@@ -445,12 +445,19 @@ void TAnalysisPlot1D::SavePlot()
 
 	string output_directory = ProjectParameters->GetSettingValue("Output_directory") ;
 
-	SaveEpsRootLatex(id, canvas, true, 1.0, false, true) ;	
+        bool save_only_canvas = true ;
+
+        if(ProjectParameters->GetParameterValue("WriteEverything") == 1.0)
+        {
+                save_only_canvas = false ;
+        }
+
+	if(!save_only_canvas) SaveEpsRootLatex(id, canvas, true, 1.0, false, true) ;	
 
 	string id_log = id + "_log" ;
 
 	canvas->SetLogy() ;
-	SaveEpsRootLatex(id_log, canvas, true, 1.0, false, true) ;	
+	if(!save_only_canvas) SaveEpsRootLatex(id_log, canvas, true, 1.0, false, true) ;	
 	canvas->SetLogy(0) ;
 
 	if((name.compare("dN_dt_GeV2") == 0) || (name.compare("dN_dt_GeV2_geometrical_acceptance_corrected") == 0) || (name.compare("dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected") == 0) || (name.compare("dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_pile_up_inefficiency_corrected") == 0))
@@ -537,7 +544,7 @@ void TAnalysisPlot1D::SavePlot()
 			canvas->SetLogy(0) ;
 
 			string id_exponential = id + "_exponential" ;
-			SaveEpsRootLatex(id_exponential, canvas, true, 1.0, false, true) ;
+			if(!save_only_canvas) SaveEpsRootLatex(id_exponential, canvas, true, 1.0, false, true) ;
 
 			// ===================== End of exponential fit
 
@@ -577,7 +584,7 @@ void TAnalysisPlot1D::SavePlot()
 			delta_dsigma_per_dt_graph->SetName(id_non_exp_test_graph.c_str()) ;
 			delta_dsigma_per_dt_graph->Write() ;
 
-			SaveEpsRootLatex(id_non_exp_test_graph, canvas, true, 1.0, false, true) ;
+			if(!save_only_canvas) SaveEpsRootLatex(id_non_exp_test_graph, canvas, true, 1.0, false, true) ;
 		}
 
 

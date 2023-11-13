@@ -528,7 +528,15 @@ void TAnalysisPlot2D::FitProfileAndCalculateChi2OfCutPlacement(TCanvas *canvas)
 	AnalysisCut->DrawCutOnRotatedPlot(-2*horizontal_axis_boundary, 2*horizontal_axis_boundary) ;
 
 	AlignmentWarning() ;
-	SaveEpsRootLatex(id + "_rotated_profile", canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, true) ;
+
+        bool save_only_canvas = true ;
+
+        if(ProjectParameters->GetParameterValue("WriteEverything") == 1.0)
+        {
+                save_only_canvas = false ;
+        }
+
+        if(!save_only_canvas) SaveEpsRootLatex(id + "_rotated_profile", canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, true) ;
 }
 
 void TAnalysisPlot2D::SavePlot()
@@ -576,7 +584,14 @@ void TAnalysisPlot2D::SavePlot()
 	DrawExtras() ;
 	AlignmentWarning() ;
 
-	SaveEpsRootLatex(id, canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, true) ;
+	bool save_only_canvas = true ;
+
+	if(ProjectParameters->GetParameterValue("WriteEverything") == 1.0)
+	{
+		save_only_canvas = false ;
+	}
+
+	if(!save_only_canvas) SaveEpsRootLatex(id, canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, true) ;
 	canvas->Write() ;
 
 	if(AnalysisCut != NULL)
@@ -593,7 +608,7 @@ void TAnalysisPlot2D::SavePlot()
 
 		double step = vertical_axis_boundary / 10 ;
 
-		SaveEpsRootLatex(id + "_rotated", canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, TConstants::NEW_LINE, true) ;
+		if(!save_only_canvas) SaveEpsRootLatex(id + "_rotated", canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, TConstants::NEW_LINE, true) ;
 
 		FitProfileAndCalculateChi2OfCutPlacement(canvas) ;
 
@@ -614,7 +629,7 @@ void TAnalysisPlot2D::SavePlot()
 		text.SetTextColor(kRed) ;
 		text.DrawLatex(0.2, 0.8, ("m =" + strs2.str() + "#pm" + strs3.str()).c_str()) ;
 
-		SaveEpsRootLatex(distance_from_cut_plot_within_range->GetTitle(), canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, true) ;
+		if(!save_only_canvas) SaveEpsRootLatex(distance_from_cut_plot_within_range->GetTitle(), canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, true) ;
 
 		// cout << "TAnalysisPlot2D::SavePlot: I am here 4" << endl ;
 
@@ -637,7 +652,7 @@ void TAnalysisPlot2D::SavePlot()
 			AnalysisCut->DrawCut() ;
 			text.DrawLatex(-horizontal_axis_boundary/2, vertical_axis_boundary/2, ("#sigma=" + str).c_str()) ;
 			
-			SaveEpsRootLatex(id + "_graph", canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, false) ;
+			if(!save_only_canvas) SaveEpsRootLatex(id + "_graph", canvas, TConstants::NO_BEGIN_END, TConstants::WIDTH_60_PERCENT, false, false) ;
 		}
 
 		if(define_cut) MoveCut() ;
@@ -655,7 +670,7 @@ void TAnalysisPlot2D::SavePlot()
 
 		if(ProjectParameters->GetParameterValue("CollectCutDiagnosticData") == 1.0)
 		{
-			SaveEpsRootLatex(id + "_cut_diagnostic_graph", canvas, true, 1.0, false, false) ;
+			if(!save_only_canvas) SaveEpsRootLatex(id + "_cut_diagnostic_graph", canvas, true, 1.0, false, false) ;
 		}
 	}
 
