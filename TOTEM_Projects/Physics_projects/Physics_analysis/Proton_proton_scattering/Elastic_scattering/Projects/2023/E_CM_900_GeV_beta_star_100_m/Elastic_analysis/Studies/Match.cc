@@ -101,7 +101,7 @@ class TAperture
     histogram_t = new TH1D((name + "_t").c_str(), (name + "_t").c_str(), 1000, 0, 10) ;
     histogram_phi = new TH1D((name + "_phi").c_str(), (name + "_phi").c_str(), 100, 0, 10) ;
 
-    histogram_x_y_mm = new TH2D("histogram_x_y_mm", "histogram_x_y_mm", 100, -1e-2, 1e-2,  100, -1e-2, 1e-2) ;
+    histogram_x_y_mm = new TH2D("histogram_x_y_m", "histogram_x_y_m", 100, -1e-1, 1e-1,  100, -1e-1, 1e-1) ;
   }
   
   int getrpDecId(double) ;
