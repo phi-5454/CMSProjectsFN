@@ -27,6 +27,8 @@ using namespace std;
 #include "TStyle.h"
 #include "TFitResult.h"
 
+const bool use_x_cuts_to_clarify_acceptance = true ;
+
 TH2D *flipHistogram(TH2D *histogram)
 {
 	int xbins = histogram->GetXaxis()->GetNbins() ;
@@ -225,14 +227,40 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 	TH1D *py2 = NULL ;
 	TH1D *py3 = NULL ;
 	
-	int bin1 = combined->GetXaxis()->FindBin(-2.0) ;
-	int bin2 = combined->GetXaxis()->FindBin( 2.0) ;
-	cout << "bin1 " << bin1 << endl ;
-	cout << "bin2 " << bin2 << endl ;
+	const double cut_in_x_mm = 2.0 ;
+	const double y_limit_mm = 20.0 ;
+	
+	int bin1 = combined->GetXaxis()->FindBin(-cut_in_x_mm) ;
+	int bin2 = combined->GetXaxis()->FindBin( cut_in_x_mm) ;
+	// cout << "bin1 " << bin1 << endl ;
+	// cout << "bin2 " << bin2 << endl ;
 	
 	// py1 = combined->ProjectionY("py1", bin1, bin2) ; 
-	// py1 = combined->ProjectionY("py1", bin1, bin2) ; 
-	py1 = combined->ProjectionY("py1") ; 
+	
+	if(use_x_cuts_to_clarify_acceptance)
+	{
+		py1 = combined->ProjectionY("py1", bin1, bin2) ; 
+	}
+	else
+	{
+		py1 = combined->ProjectionY("py1") ; 
+	}
+
+	TLine *line1 = new TLine( cut_in_x_mm, -y_limit_mm,  cut_in_x_mm, y_limit_mm) ;
+	TLine *line2 = new TLine(-cut_in_x_mm, -y_limit_mm, -cut_in_x_mm, y_limit_mm) ;
+	
+	line1->SetLineColor(kRed) ;
+	line2->SetLineColor(kRed) ;
+
+	line1->SetLineStyle(kDashed) ;
+	line2->SetLineStyle(kDashed) ;
+	
+	combined->Draw("colz") ;
+	line1->Draw("same") ;
+	line2->Draw("same") ;
+
+	c->SaveAs(("plots/ElasticAlignment/combined_" + name + "_with_cuts.pdf").c_str()) ;
+
 	py2 = LBRT->ProjectionY("py2") ; 
 	py3 = LTRB->ProjectionY("py3") ; 
 
