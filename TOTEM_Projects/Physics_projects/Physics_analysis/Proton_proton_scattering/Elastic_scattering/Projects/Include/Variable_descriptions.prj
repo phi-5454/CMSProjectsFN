@@ -62,22 +62,22 @@
 	<end>   y_l_f_aligned_mm_variable_block
 
 	<begin> x_r_n_aligned_mm_variable_block
-      	 <setting>       axis_name                                                                                               x_{left,aligned,near}
+      	 <setting>       axis_name                                                                                               x_{right,aligned,near}
       	 <setting>       unit                                                                                                    mm
 	<end>   x_r_n_aligned_mm_variable_block
 
 	<begin> y_r_n_aligned_mm_variable_block
-      	 <setting>       axis_name                                                                                               y_{left,aligned,near}
+      	 <setting>       axis_name                                                                                               y_{right,aligned,near}
       	 <setting>       unit                                                                                                    mm
 	<end>   y_r_n_aligned_mm_variable_block
 
 	<begin> x_r_f_aligned_mm_variable_block
-      	 <setting>       axis_name                                                                                               x_{left,aligned,far}
+      	 <setting>       axis_name                                                                                               x_{right,aligned,far}
       	 <setting>       unit                                                                                                    mm
 	<end>   x_r_f_aligned_mm_variable_block
 
 	<begin> y_r_f_aligned_mm_variable_block
-      	 <setting>       axis_name                                                                                               y_{left,aligned,far}
+      	 <setting>       axis_name                                                                                               y_{right,aligned,far}
       	 <setting>       unit                                                                                                    mm
 	<end>   y_r_f_aligned_mm_variable_block
 
