@@ -27,7 +27,7 @@ using namespace std;
 #include "TStyle.h"
 #include "TFitResult.h"
 
-const bool use_x_cuts_to_clarify_acceptance = true ;
+const bool use_x_cuts_to_clarify_acceptance = false ;
 
 TH2D *flipHistogram(TH2D *histogram)
 {
