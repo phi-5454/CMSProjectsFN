@@ -27,7 +27,7 @@ using namespace std;
 #include "TStyle.h"
 #include "TFitResult.h"
 
-const bool use_x_cuts_to_clarify_acceptance = false ;
+const bool use_x_cuts_to_clarify_acceptance = true ;
 
 TH2D *flipHistogram(TH2D *histogram)
 {
@@ -259,7 +259,7 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 	line1->Draw("same") ;
 	line2->Draw("same") ;
 
-	c->SaveAs(("plots/ElasticAlignment/combined_" + name + "_with_cuts.pdf").c_str()) ;
+	c->SaveAs(("plots/ElasticAlignment/combined_" + name + "_with_cuts.png").c_str()) ;
 
 	py2 = LBRT->ProjectionY("py2") ; 
 	py3 = LTRB->ProjectionY("py3") ; 
