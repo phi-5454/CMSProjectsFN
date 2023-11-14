@@ -19,9 +19,9 @@
         <parameter>     y1              -3.73392E-004
         <parameter>     x2              6e-05
         <parameter>     y2              -3.73392E-004
-        <parameter> range1_x            -6e-05
+        <parameter> range1_x            -1e-03
         <parameter> range1_y            6.6565e-05
-        <parameter> range2_x            6e-05
+        <parameter> range2_x            1e-03
         <parameter> range2_y            6.6565e-05
         <parameter> sigma               1.61338E-004
         <parameter> number_of_sigmas            1
