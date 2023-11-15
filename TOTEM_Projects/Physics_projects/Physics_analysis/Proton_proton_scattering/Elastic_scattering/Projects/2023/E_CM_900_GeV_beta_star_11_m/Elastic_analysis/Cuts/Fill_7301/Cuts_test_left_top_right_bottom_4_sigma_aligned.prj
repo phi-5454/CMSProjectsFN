@@ -54,10 +54,10 @@
 <end> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-        <parameter>     x1              -6e-04
-        <parameter>     y1              6e-04
-        <parameter>     x2              6e-04
-        <parameter>     y2              -6e-04
+        <parameter>     x1              6e-04
+        <parameter>     y1              -6e-04
+        <parameter>     x2              -6e-04
+        <parameter>     y2              6e-04
         <parameter> range1_x            -8e-04
         <parameter> range1_y            +8e-4
         <parameter> range2_x            +8e-4
