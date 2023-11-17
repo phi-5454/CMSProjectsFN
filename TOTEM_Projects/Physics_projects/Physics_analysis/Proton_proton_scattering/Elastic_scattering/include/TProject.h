@@ -55,7 +55,7 @@ class TProject : TAnalysisObject
 	void 	InitMonteCarlo(double &, double &, double &, double &, double &, double &, double &, double &) ;
 	string 	GenerateOutputFilenameWithPath(int, string) ;
 	void 	CreatePlotsCollections() ;
-	void 	FindCuts(TReducedNtuple *, string, TProjectInformation *) ;
+	void 	FindCuts(TReducedNtuple *, string, TProjectInformation *, int) ;
 	void 	TestBeamProperties() ;
 	void 	SetupAcceptanceCorrections() ;
 	string 	GetDetectorTopology(string) ;
@@ -5134,7 +5134,7 @@ void TProject::ExecuteMonteCarlo()
 	response_matrix_inverted.Print() ; // improve the dimensions
 }
 
-void TProject::FindCuts(TReducedNtuple *ntuple, string collection_name, TProjectInformation *ProjectInformation)
+void TProject::FindCuts(TReducedNtuple *ntuple, string collection_name, TProjectInformation *ProjectInformation, int index_of_root_file)
 {
 	int iteration = 1 ;
 	bool did_any_of_the_cuts_move = false ;
@@ -5143,7 +5143,7 @@ void TProject::FindCuts(TReducedNtuple *ntuple, string collection_name, TProject
 	{
 		cout << "Iteration : " << iteration << endl ;
 
-		ntuple->Loop(ProjectParameters, ProtonReconstruction, &PlotsCollections, collection_name, ProjectInformation, 0) ;
+		ntuple->Loop(ProjectParameters, ProtonReconstruction, &PlotsCollections, collection_name, ProjectInformation, index_of_root_file) ;
 
 		did_any_of_the_cuts_move = PlotsCollections["PlotsCollection"]->AdjustCuts() ;
 
@@ -5623,10 +5623,11 @@ int TProject::Execute()
 				{
 					ntuple->Loop(ProjectParameters, ProtonReconstruction, &PlotsCollections, collection_name, ProjectInformation, index_of_root_file) ;
 					generic_file->cd() ;
+					// FindCuts(ntuple, collection_name, ProjectInformation, index_of_root_file) ;
 				}
 				else if(ProjectParameters->GetSettingValue("project_subtask").compare("find_cuts") == 0)
 				{
-					FindCuts(ntuple, collection_name, ProjectInformation) ;
+					FindCuts(ntuple, collection_name, ProjectInformation, index_of_root_file) ;
 				}
 
 				delete ntuple ;

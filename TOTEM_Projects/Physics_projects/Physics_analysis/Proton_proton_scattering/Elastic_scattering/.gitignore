@@ -4,6 +4,7 @@ analyse
 *.aux
 *.log
 *.pdf
+*.png
 *.toc
 *.aux
 MC*/fnemes.cc
