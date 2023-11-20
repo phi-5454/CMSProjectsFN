@@ -5623,7 +5623,14 @@ int TProject::Execute()
 				{
 					ntuple->Loop(ProjectParameters, ProtonReconstruction, &PlotsCollections, collection_name, ProjectInformation, index_of_root_file) ;
 					generic_file->cd() ;
-					// FindCuts(ntuple, collection_name, ProjectInformation, index_of_root_file) ;
+
+					if(ProjectParameters->IsSettingDefined("project_subsubtask"))
+					{
+						if(ProjectParameters->GetSettingValue("project_subsubtask").compare("find_cuts") == 0)
+						{
+							FindCuts(ntuple, collection_name, ProjectInformation, index_of_root_file) ;
+						}
+					}
 				}
 				else if(ProjectParameters->GetSettingValue("project_subtask").compare("find_cuts") == 0)
 				{
