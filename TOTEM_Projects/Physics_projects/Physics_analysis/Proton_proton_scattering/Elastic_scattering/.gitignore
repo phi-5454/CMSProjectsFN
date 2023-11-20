@@ -7,5 +7,6 @@ analyse
 *.png
 *.toc
 *.aux
+*.out
 MC*/fnemes.cc
 fnemes.cc
