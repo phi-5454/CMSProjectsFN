@@ -96,3 +96,15 @@
                 <update_parameter>                     vertical_axis_boundary                                                  0.0015
         <end>   phi_star_rad_theta_star_rad_type_block
 
+        <begin> y_mm_near_dy_mm_left_type_block
+                <update_parameter>                     number_of_horizontal_bins                                               200
+                <update_parameter>                     number_of_vertical_bins                                                 200
+        <end>   y_mm_near_dy_mm_left_type_block
+
+        <begin> y_mm_near_dy_mm_right_type_block
+                <update_parameter>                     number_of_horizontal_bins                                               200
+                <update_parameter>                     number_of_vertical_bins                                                 200
+        <end>   y_mm_near_dy_mm_right_type_block
+
+
+
