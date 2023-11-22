@@ -181,7 +181,7 @@ void TAnalysisPlot::SaveEpsRootLatex(string fig_filename, TCanvas *canvas, bool 
 {
 	string output_directory = ProjectParameters->GetSettingValue("Output_directory") ;
 
-	canvas->SaveAs((output_directory + "/" + fig_filename + ".eps").c_str()) ;
+	canvas->SaveAs((output_directory + "/" + fig_filename + ".pdf").c_str()) ;
 
 	if( ProjectParameters->GetParameterValue("CollectCutDiagnosticData") == 1.0)
 	{
@@ -192,7 +192,7 @@ void TAnalysisPlot::SaveEpsRootLatex(string fig_filename, TCanvas *canvas, bool 
 	{
 		if(begin_end) ProjectParameters->GetLatexFile()->BeginFigure() ;
 
-		ProjectParameters->GetLatexFile()->IncludeGraphics(fig_filename + ".eps", width, new_line) ; 
+		ProjectParameters->GetLatexFile()->IncludeGraphics(fig_filename + ".pdf", width, new_line) ; 
 
 		if(begin_end) ProjectParameters->GetLatexFile()->EndFigure() ;
 	}
