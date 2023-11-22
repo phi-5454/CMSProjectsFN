@@ -2,21 +2,13 @@
 <setting>	Fill_number	7302
 
 <setting>	project_subtask							dsigma/dt
+<setting>       project_subsubtask                                              find_cutsa
 <setting>       project_subtask_switch_1                                                        MonteCarlo_test_corrections_off
 <setting>       project_subtask_switch_2                                                        MonteCarlo_test_corrections_off
 
 <include>	/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Input_files/Fill_7302/Reduced_ntuples_left_top_right_bottom.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Left_top_right_bottom_4_sigma_aligned.prj
-
-<begin> x_mm_near_dx_mm_left_define_cut_plot_block
-	<update_parameter>      define_cut                                                                                              1.0
-<end>   x_mm_near_dx_mm_left_define_cut_plot_block
-
-<begin> x_mm_near_dx_mm_left_with_cut_plot_block
-        <update_parameter>      cut                                                                                                     1.0
-<end>   x_mm_near_dx_mm_left_with_cut_plot_block
-
 
 <begin>	dN_dt_GeV2_type_block
 	<update_parameter>			number_of_horizontal_bins						1600
@@ -30,7 +22,7 @@
 <setting>       align_source_files     yes
 
 <update_parameter>             DoNotSaveEpsFiles                                               0.0
-<parameter>                    WriteEverything                                                 0.0
+<parameter>                    WriteEverything                                                 1.0
 
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0

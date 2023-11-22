@@ -169,3 +169,198 @@
         <parameter> sigma                0.15
         <parameter> number_of_sigmas             4
 <end> x_mm_near_dx_mm_left_cut_block
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+        <update_parameter>      x1              -0.0010229441
+        <update_parameter>      y1              0.001023751
+        <update_parameter>      x2              -0.23022004
+        <update_parameter>      y2              -0.21760955
+        <update_parameter> range1_x             -0.8
+        <update_parameter> range1_y             0.2
+        <update_parameter> range2_x             0.8
+        <update_parameter> range2_y             0.03
+        <update_parameter> sigma                0.095974694
+        <update_parameter> number_of_sigmas             4
+<end> x_star_left_mm_x_star_right_mm_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+        <update_parameter>      x1              -0.00041352339
+        <update_parameter>      y1              0.00045497528
+        <update_parameter>      x2              0.00063983261
+        <update_parameter>      y2              -0.00059534472
+        <update_parameter> range1_x             0.0006
+        <update_parameter> range1_y             -1.8e-05
+        <update_parameter> range2_x             -0.0006
+        <update_parameter> range2_y             1.8e-05
+        <update_parameter> sigma                3.6238219e-05
+        <update_parameter> number_of_sigmas             4
+<end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+        <update_parameter>      x1              0.0005968334
+        <update_parameter>      y1              -0.0006031666
+        <update_parameter>      x2              -0.00059785419
+        <update_parameter>      y2              0.0006021224
+        <update_parameter> range1_x             -0.0008
+        <update_parameter> range1_y             0.0008
+        <update_parameter> range2_x             0.0008
+        <update_parameter> range2_y             -0.0008
+        <update_parameter> sigma                3.0283506e-05
+        <update_parameter> number_of_sigmas             4
+<end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+        <update_parameter>      x1              11.891447
+        <update_parameter>      y1              0.10845042
+        <update_parameter>      x2              5.1766807
+        <update_parameter>      y2              0.044704535
+        <update_parameter> range1_x             6.5
+        <update_parameter> range1_y             -0.763575
+        <update_parameter> range2_x             11.5
+        <update_parameter> range2_y             -2.6414
+        <update_parameter> sigma                0.080108944
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_right_cut_block
+        <update_parameter>      x1              -10.219552
+        <update_parameter>      y1              0.18727569
+        <update_parameter>      x2              -3.8509572
+        <update_parameter>      y2              0.089294319
+        <update_parameter> range1_x             -6
+        <update_parameter> range1_y             0.763575
+        <update_parameter> range2_x             -9
+        <update_parameter> range2_y             2.6414
+        <update_parameter> sigma                0.076035523
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_right_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+        <update_parameter>      x1              11.891482
+        <update_parameter>      y1              0.10473339
+        <update_parameter>      x2              5.1766651
+        <update_parameter>      y2              0.046598715
+        <update_parameter> range1_x             6.5
+        <update_parameter> range1_y             -0.763575
+        <update_parameter> range2_x             10.5
+        <update_parameter> range2_y             -2.6414
+        <update_parameter> sigma                0.078773546
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_right_cut_block
+        <update_parameter>      x1              -10.219456
+        <update_parameter>      y1              0.19352484
+        <update_parameter>      x2              -3.8510765
+        <update_parameter>      y2              0.082421815
+        <update_parameter> range1_x             -6
+        <update_parameter> range1_y             0.763575
+        <update_parameter> range2_x             -9
+        <update_parameter> range2_y             2.6414
+        <update_parameter> sigma                0.075579033
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_right_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+        <update_parameter>      x1              11.891482
+        <update_parameter>      y1              0.10473339
+        <update_parameter>      x2              5.1766651
+        <update_parameter>      y2              0.046598715
+        <update_parameter> range1_x             6.5
+        <update_parameter> range1_y             -0.763575
+        <update_parameter> range2_x             10.5
+        <update_parameter> range2_y             -2.6414
+        <update_parameter> sigma                0.07876948
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+        <update_parameter>     x1              11.891523
+        <update_parameter>     y1              0.0999851
+        <update_parameter>     x2              5.1766422
+        <update_parameter>     y2              0.049784578
+        <update_parameter> range1_x            6.5
+        <update_parameter> range1_y            -0.763575
+        <update_parameter> range2_x            10.5
+        <update_parameter> range2_y            -2.6414
+        <update_parameter> sigma               0.078747558
+        <update_parameter> number_of_sigmas            4
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+        <update_parameter>      x1              0.00059709609
+        <update_parameter>      y1              -0.00060290622
+        <update_parameter>      x2              -0.00059470822
+        <update_parameter>      y2              0.00060523388
+        <update_parameter> range1_x             -0.0008
+        <update_parameter> range1_y             0.0008
+        <update_parameter> range2_x             0.0008
+        <update_parameter> range2_y             -0.0008
+        <update_parameter> sigma                2.8188481e-05
+        <update_parameter> number_of_sigmas             4
+<end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+        <update_parameter>      x1              11.891407
+        <update_parameter>      y1              0.11553505
+        <update_parameter>      x2              5.1764731
+        <update_parameter>      y2              0.072988717
+        <update_parameter> range1_x             6.5
+        <update_parameter> range1_y             -0.763575
+        <update_parameter> range2_x             10.5
+        <update_parameter> range2_y             -2.6414
+        <update_parameter> sigma                0.0796554
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_right_cut_block
+        <update_parameter>      x1              -10.219777
+        <update_parameter>      y1              0.17512691
+        <update_parameter>      x2              -3.8513975
+        <update_parameter>      y2              0.064023884
+        <update_parameter> range1_x             -6
+        <update_parameter> range1_y             0.763575
+        <update_parameter> range2_x             -9
+        <update_parameter> range2_y             2.6414
+        <update_parameter> sigma                0.073462816
+        <update_parameter> number_of_sigmas             4
+<end> y_mm_near_dy_mm_right_cut_block
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+        <update_parameter>      x1              -0.074586574
+        <update_parameter>      y1              0.078141785
+        <update_parameter>      x2              -0.30614709
+        <update_parameter>      y2              -0.13798678
+        <update_parameter> range1_x             -0.8
+        <update_parameter> range1_y             0.2
+        <update_parameter> range2_x             0.8
+        <update_parameter> range2_y             0.03
+        <update_parameter> sigma                0.094677932
+        <update_parameter> number_of_sigmas             4
+<end> x_star_left_mm_x_star_right_mm_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+        <update_parameter>      x1              -0.0004143068
+        <update_parameter>      y1              0.0004541896
+        <update_parameter>      x2              0.00064118607
+        <update_parameter>      y2              -0.00059398298
+        <update_parameter> range1_x             0.0006
+        <update_parameter> range1_y             -1.8e-05
+        <update_parameter> range2_x             -0.0006
+        <update_parameter> range2_y             1.8e-05
+        <update_parameter> sigma                3.5856744e-05
+        <update_parameter> number_of_sigmas             4
+<end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+        <update_parameter>      x1              -0.076209993
+        <update_parameter>      y1              0.079881119
+        <update_parameter>      x2              -0.30855724
+        <update_parameter>      y2              -0.13540146
+        <update_parameter> range1_x             -0.8
+        <update_parameter> range1_y             0.2
+        <update_parameter> range2_x             0.8
+        <update_parameter> range2_y             0.03
+        <update_parameter> sigma                0.094847066
+        <update_parameter> number_of_sigmas             4
+<end> x_star_left_mm_x_star_right_mm_cut_block
