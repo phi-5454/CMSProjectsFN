@@ -4510,7 +4510,7 @@ void TProject::ExecuteMonteCarlo()
 		MC_dN_dt_GeV2->Reset() ;
 		MC_dN_dt_GeV2_corrected->Reset() ;		
 
-		cout << "Iteration : " << iteration << endl ;
+		cerr << "Iteration : " << iteration << endl ;
 
 		if(iteration > max_number_of_generators)
 		{
@@ -5141,7 +5141,7 @@ void TProject::FindCuts(TReducedNtuple *ntuple, string collection_name, TProject
 
 	do
 	{
-		cout << "Iteration : " << iteration << endl ;
+		cerr << "Iteration : " << iteration << endl ;
 
 		ntuple->Loop(ProjectParameters, ProtonReconstruction, &PlotsCollections, collection_name, ProjectInformation, index_of_root_file) ;
 

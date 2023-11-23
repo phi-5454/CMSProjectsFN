@@ -1,0 +1,258 @@
+<begin>
+dN_dt_without_right_near_GeV2_plot_block
+<update_update_parameter>
+to_be_saved_for_smart_merging
+1.0
+<end>
+dN_dt_without_right_near_GeV2_plot_block
+<end_if_setting>
+Begin of if setting part
+	Name of setting: Inefficiency_3_out_of_4_RP
+	setting_required_value: XRPV.B6R5.B1
+Begin of if setting part
+
+<begin>
+dN_dt_without_left_near_GeV2_plot_block
+<update_update_parameter>
+to_be_saved_for_smart_merging
+1.0
+<end>
+dN_dt_without_left_near_GeV2_plot_block
+<end_if_setting>
+Begin of if setting part
+	Name of setting: Inefficiency_3_out_of_4_RP
+	setting_required_value: XRPV.B6L5.B2
+<update_setting>
+
+<begin>
+dN_dt_without_left_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+<update_update_parameter>
+to_be_saved_for_smart_merging
+1.0
+<end>
+dN_dt_without_left_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
+<end_if_setting>
+Begin of if setting part
+	Name of setting: Inefficiency_3_out_of_4_RP
+	setting_required_value: XRPV.D6L5.B2
+<update_setting>
+
+<begin>
+dN_dt_GeV2_right_plot_block
+<update_parameter>
+to_be_saved_for_smart_merging
+1.0
+<end>
+dN_dt_GeV2_right_plot_block
+<end_if_setting>
+Begin of if setting part
+	Name of setting: Inefficiency_3_out_of_4_RP
+	setting_required_value: XRPV.D6R5.B1
+<update_setting>
+
+<begin>
+dN_dt_GeV2_left_plot_block
+<update_parameter>
+to_be_saved_for_smart_merging
+1.0
+<end>
+dN_dt_GeV2_left_plot_block
+<end_if_setting>
+/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Main_settings/Main_settings.prj
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+Remove MaxNumberOfEventsToAnalyze at the end !
+
+<begin> theta_y_star_left_rad_theta_y_star_right_near_rad_cut_block
+	<update_parameter> 	x1		-0.00025448877
+	<update_parameter> 	y1		0.00023586753
+	<update_parameter> 	x2		0.00028449768
+	<update_parameter> 	y2		-0.00031972442
+	<update_parameter> range1_x		-0.00045
+	<update_parameter> range1_y		0.00045
+	<update_parameter> range2_x		-0.0005
+	<update_parameter> range2_y		0.0005
+	<update_parameter> sigma		2.9884557e-05
+	<update_parameter> number_of_sigmas		5
+<end> theta_y_star_left_rad_theta_y_star_right_near_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+	<update_parameter> 	x1		-5.8069598
+	<update_parameter> 	y1		0.25900661
+	<update_parameter> 	x2		-11.51396
+	<update_parameter> 	y2		0.089255646
+	<update_parameter> range1_x		-6
+	<update_parameter> range1_y		0
+	<update_parameter> range2_x		-11
+	<update_parameter> range2_y		0
+	<update_parameter> sigma		0.086717079
+	<update_parameter> number_of_sigmas		5
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+	<update_parameter> 	x1		-5.8064666
+	<update_parameter> 	y1		0.24242622
+	<update_parameter> 	x2		-11.513467
+	<update_parameter> 	y2		0.072675253
+	<update_parameter> range1_x		-6
+	<update_parameter> range1_y		0
+	<update_parameter> range2_x		-11
+	<update_parameter> range2_y		0
+	<update_parameter> sigma		0.086717079
+	<update_parameter> number_of_sigmas		5
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+	<update_parameter> 	x1		-5.8064666
+	<update_parameter> 	y1		0.24242622
+	<update_parameter> 	x2		-11.515723
+	<update_parameter> 	y2		0.1871112
+	<update_parameter> range1_x		-6
+	<update_parameter> range1_y		0
+	<update_parameter> range2_x		-11
+	<update_parameter> range2_y		0
+	<update_parameter> sigma		0.086717079
+	<update_parameter> number_of_sigmas		5
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_near_rad_cut_block
+	<update_parameter> 	x1		-8.3625848e-05
+	<update_parameter> 	y1		0.00035909238
+	<update_parameter> 	x2		0.00053338485
+	<update_parameter> 	y2		-0.00018343019
+	<update_parameter> range1_x		-7.75052e-05
+	<update_parameter> range1_y		8.03706e-05
+	<update_parameter> range2_x		8.10282e-05
+	<update_parameter> range2_y		-7.69824e-05
+	<update_parameter> sigma		4.5258588e-05
+	<update_parameter> number_of_sigmas		5
+<end> theta_x_star_left_rad_theta_x_star_right_near_rad_cut_block
+
+<begin> y_right_near_mm_dy_left_mm_cut_block
+	<update_parameter> 	x1		3.9685822
+	<update_parameter> 	y1		0.21449856
+	<update_parameter> 	x2		10.010456
+	<update_parameter> 	y2		0.19392977
+	<update_parameter> range1_x		6
+	<update_parameter> range1_y		-0.0210293
+	<update_parameter> range2_x		9
+	<update_parameter> range2_y		0.017372
+	<update_parameter> sigma		0.085453457
+	<update_parameter> number_of_sigmas		5
+<end> y_right_near_mm_dy_left_mm_cut_block
+
+<begin> y_right_near_mm_dy_left_mm_cut_block
+	<update_parameter> 	x1		3.9686921
+	<update_parameter> 	y1		0.24679364
+	<update_parameter> 	x2		10.010566
+	<update_parameter> 	y2		0.22622485
+	<update_parameter> range1_x		6
+	<update_parameter> range1_y		-0.0210293
+	<update_parameter> range2_x		9
+	<update_parameter> range2_y		0.017372
+	<update_parameter> sigma		0.085453457
+	<update_parameter> number_of_sigmas		5
+<end> y_right_near_mm_dy_left_mm_cut_block
+
+<begin> y_right_near_mm_dy_left_mm_cut_block
+	<update_parameter> 	x1		3.9686921
+	<update_parameter> 	y1		0.24679364
+	<update_parameter> 	x2		10.010287
+	<update_parameter> 	y2		0.18517638
+	<update_parameter> range1_x		6
+	<update_parameter> range1_y		-0.0210293
+	<update_parameter> range2_x		9
+	<update_parameter> range2_y		0.017372
+	<update_parameter> sigma		0.085453457
+	<update_parameter> number_of_sigmas		5
+<end> y_right_near_mm_dy_left_mm_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_near_rad_cut_block
+	<update_parameter> 	x1		-0.00025448877
+	<update_parameter> 	y1		0.00023586753
+	<update_parameter> 	x2		0.00028449768
+	<update_parameter> 	y2		-0.00031972442
+	<update_parameter> range1_x		-0.00045
+	<update_parameter> range1_y		0.00045
+	<update_parameter> range2_x		-0.0005
+	<update_parameter> range2_y		0.0005
+	<update_parameter> sigma		2.9884557e-05
+	<update_parameter> number_of_sigmas		5
+<end> theta_y_star_left_rad_theta_y_star_right_near_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+	<update_parameter> 	x1		-5.8064666
+	<update_parameter> 	y1		0.24242622
+	<update_parameter> 	x2		-11.515723
+	<update_parameter> 	y2		0.1871112
+	<update_parameter> range1_x		-6
+	<update_parameter> range1_y		0
+	<update_parameter> range2_x		-11
+	<update_parameter> range2_y		0
+	<update_parameter> sigma		0.082052087
+	<update_parameter> number_of_sigmas		5
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_near_rad_cut_block
+	<update_parameter> 	x1		-8.3625848e-05
+	<update_parameter> 	y1		0.00035909238
+	<update_parameter> 	x2		0.00053338485
+	<update_parameter> 	y2		-0.00018343019
+	<update_parameter> range1_x		-7.75052e-05
+	<update_parameter> range1_y		8.03706e-05
+	<update_parameter> range2_x		8.10282e-05
+	<update_parameter> range2_y		-7.69824e-05
+	<update_parameter> sigma		4.5258588e-05
+	<update_parameter> number_of_sigmas		5
+<end> theta_x_star_left_rad_theta_x_star_right_near_rad_cut_block
+
+<begin> y_right_near_mm_dy_left_mm_cut_block
+	<update_parameter> 	x1		3.9686921
+	<update_parameter> 	y1		0.24679364
+	<update_parameter> 	x2		10.010287
+	<update_parameter> 	y2		0.18517638
+	<update_parameter> range1_x		6
+	<update_parameter> range1_y		-0.0210293
+	<update_parameter> range2_x		9
+	<update_parameter> range2_y		0.017372
+	<update_parameter> sigma		0.085164392
+	<update_parameter> number_of_sigmas		5
+<end> y_right_near_mm_dy_left_mm_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_near_rad_cut_block
+	<update_parameter> 	x1		-0.00025448877
+	<update_parameter> 	y1		0.00023586753
+	<update_parameter> 	x2		0.00028449768
+	<update_parameter> 	y2		-0.00031972442
+	<update_parameter> range1_x		-0.00045
+	<update_parameter> range1_y		0.00045
+	<update_parameter> range2_x		-0.0005
+	<update_parameter> range2_y		0.0005
+	<update_parameter> sigma		2.9884557e-05
+	<update_parameter> number_of_sigmas		5
+<end> theta_y_star_left_rad_theta_y_star_right_near_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+	<update_parameter> 	x1		-5.8064666
+	<update_parameter> 	y1		0.24242622
+	<update_parameter> 	x2		-11.515723
+	<update_parameter> 	y2		0.1871112
+	<update_parameter> range1_x		-6
+	<update_parameter> range1_y		0
+	<update_parameter> range2_x		-11
+	<update_parameter> range2_y		0
+	<update_parameter> sigma		0.082052087
+	<update_parameter> number_of_sigmas		5
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_near_rad_cut_block
+	<update_parameter> 	x1		-8.3625848e-05
+	<update_parameter> 	y1		0.00035909238
+	<update_parameter> 	x2		0.00053338485
+	<update_parameter> 	y2		-0.00018343019
+	<update_parameter> range1_x		-7.75052e-05
+	<update_parameter> range1_y		8.03706e-05
+	<update_parameter> range2_x		8.10282e-05
+	<update_parameter> range2_y		-7.69824e-05
+	<update_parameter> sigma		4.5258588e-05
+	<update_parameter> number_of_s
