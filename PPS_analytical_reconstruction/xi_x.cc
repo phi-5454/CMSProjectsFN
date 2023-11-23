@@ -151,6 +151,7 @@ int main()
 
 		near_detector_xi_x->GetPoint(i, x, y) ;
 		near_detector_xi_x_inverse->SetPoint(i, y, x) ;
+		
 
 		far_detector_xi_x->GetPoint(i, x, y) ;
 		far_detector_xi_x_inverse->SetPoint(i, y, x) ;
