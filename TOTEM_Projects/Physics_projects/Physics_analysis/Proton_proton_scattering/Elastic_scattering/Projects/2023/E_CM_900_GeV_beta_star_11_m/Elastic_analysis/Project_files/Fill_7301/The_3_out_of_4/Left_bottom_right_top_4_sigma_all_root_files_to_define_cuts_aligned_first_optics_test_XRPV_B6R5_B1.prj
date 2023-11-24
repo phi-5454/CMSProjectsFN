@@ -1,5 +1,5 @@
 <setting>   project_subtask                         dsigma/dt
-<setting>   project_subsubtask                      find_cuts
+<setting>   project_subsubtask                      find_cutsa
 <setting>   project_subtask_switch_1                                                        MonteCarlo_test_corrections_off
 <setting>   project_subtask_switch_2                                                        MonteCarlo_test_corrections_off
 
@@ -7,17 +7,7 @@
 
 <setting>   Inefficiency_3_out_of_4_RP              XRPV.B6R5.B1
 
-<begin> alignment_block
-                <parameter> RP_alignment_left_far__x_mm             -0.0380692
-                <parameter> RP_alignment_left_near_x_mm             -0.383573
-                <parameter> RP_alignment_right_far__x_mm            -0.879717
-                <parameter> RP_alignment_right_near_x_mm            -0.126745
-
-                <parameter> RP_alignment_left_near_y_mm              0.00274931
-                <parameter> RP_alignment_left_far__y_mm             -0.250858
-                <parameter> RP_alignment_right_far__y_mm             0.191994
-                <parameter> RP_alignment_right_near_y_mm             0.324914
-<end>   alignment_block
+<include>   Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Main_settings/Alignment_constants.prj
 
 <include>   Projects/Include/Main_settings.prj
 <include>   Projects/Include/Variable_descriptions.prj

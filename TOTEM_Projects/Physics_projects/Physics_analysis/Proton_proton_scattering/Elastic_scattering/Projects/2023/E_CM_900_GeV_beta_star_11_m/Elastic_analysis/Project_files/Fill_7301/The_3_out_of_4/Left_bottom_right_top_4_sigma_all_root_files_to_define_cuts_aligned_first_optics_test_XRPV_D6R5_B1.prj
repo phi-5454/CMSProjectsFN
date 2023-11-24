@@ -5,6 +5,8 @@
 
 <setting>   Inefficiency_3_out_of_4_RP              XRPV.D6R5.B1
 
+<include>   Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Main_settings/Alignment_constants.prj
+
 <include>   Projects/Include/Main_settings.prj
 <include>   Projects/Include/Variable_descriptions.prj
 <include>   Projects/Include/Plots/Plot_descriptions.prj
