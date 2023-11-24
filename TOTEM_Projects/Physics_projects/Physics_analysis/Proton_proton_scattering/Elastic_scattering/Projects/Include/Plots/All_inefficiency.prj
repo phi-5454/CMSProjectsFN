@@ -373,6 +373,7 @@
 	<nsetting>	analysis_plot		text_analysis_cuts_start_here
 
 	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_y_star_left_rad_with_cut
+        <nsetting>      analysis_plot           theta_x_star_left_rad_theta_y_star_without_right_near_rad_with_cut
 	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_far_rad_left_with_cut
 	<nsetting>	analysis_plot		theta_y_star_left_rad_theta_y_star_right_far_rad_right_with_cut
 
