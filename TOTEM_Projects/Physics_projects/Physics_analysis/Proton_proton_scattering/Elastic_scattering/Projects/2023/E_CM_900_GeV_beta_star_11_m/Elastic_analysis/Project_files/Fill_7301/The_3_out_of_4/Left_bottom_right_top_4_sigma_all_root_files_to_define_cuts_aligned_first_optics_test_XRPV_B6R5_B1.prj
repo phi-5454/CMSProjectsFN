@@ -14,12 +14,16 @@
   	<nsetting>	analysis_plot		theta_y_star_left_far_rad
   	<nsetting>	analysis_plot		theta_y_star_right_near_rad
 	
-	<update_setting>	geometrical_acceptance_cut_block						theta_x_star_right_near_theta_y_star_without_right_far_rad_cut_block
+	<update_setting>	geometrical_acceptance_cut_block						theta_x_star_left_rad_theta_y_star_without_right_far_rad_cut_block
 	<setting>			horizontal_geometrical_acceptance_cut_block				theta_x_star_right_near_theta_y_star_without_right_far_rad_horizontal_cut_block
 
 	<begin>	theta_x_star_left_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
-		<update_parameter>	cut														0.0
+		<update_parameter>	cut														1.0
 	<end>	theta_x_star_left_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
+
+	<begin>	theta_x_star_right_near_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
+		<update_parameter>	cut														0.0
+   <end>	theta_x_star_right_near_rad_theta_y_star_without_right_far_rad_with_cut_plot_block
 	
 	<begin>	theta_x_star_left_rad_theta_x_star_right_near_rad_left_with_cut_plot_block
 		<update_parameter>	cut														0.0
