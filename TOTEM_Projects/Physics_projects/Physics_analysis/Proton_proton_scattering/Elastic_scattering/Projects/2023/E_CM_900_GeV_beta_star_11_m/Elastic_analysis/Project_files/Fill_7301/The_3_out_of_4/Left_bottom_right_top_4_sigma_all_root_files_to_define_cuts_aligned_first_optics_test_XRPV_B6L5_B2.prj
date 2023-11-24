@@ -649,9 +649,22 @@
         <update_parameter> range1_y            -0.0787815
         <update_parameter> range2_x            8.59284
         <update_parameter> range2_y            -0.204832
-        <update_parameter> sigma               0.076282949
+        <update_parameter> sigma               0.0791767
         <update_parameter> number_of_sigmas            4
 <end> y_mm_near_dy_mm_right_cut_block
+
+<begin> y_left_near_mm_dy_right_mm_cut_block
+        <update_parameter>     x1              -4.4048877
+        <update_parameter>     y1              -0.096761571
+        <update_parameter>     x2              -11.603942
+        <update_parameter>     y2              -0.2137508
+        <update_parameter> range1_x            -7.40544
+        <update_parameter> range1_y            -0.0630252
+        <update_parameter> range2_x            -10.6046
+        <update_parameter> range2_y            -0.173319
+        <update_parameter> sigma               0.0737315
+        <update_parameter> number_of_sigmas            4
+<end> y_left_near_mm_dy_right_mm_cut_block
 
 
 <comment> Cuts end
