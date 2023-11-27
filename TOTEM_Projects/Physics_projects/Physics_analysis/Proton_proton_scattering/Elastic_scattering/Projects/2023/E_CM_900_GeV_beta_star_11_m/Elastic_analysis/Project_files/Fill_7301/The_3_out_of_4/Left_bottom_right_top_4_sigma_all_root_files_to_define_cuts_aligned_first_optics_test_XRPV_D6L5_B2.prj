@@ -14,6 +14,7 @@
 <include>   Projects/Include/Plots/Plot_descriptions.prj
 <include>   Projects/Include/Plots/All_inefficiency.prj
 
+  	<nsetting>	analysis_plot		theta_y_star_without_left_near_rad
   	<nsetting>	analysis_plot		theta_y_star_left_far_rad
   	<nsetting>	analysis_plot		theta_y_star_right_far_rad
   	<nsetting>	analysis_plot		theta_y_star_right_near_rad
