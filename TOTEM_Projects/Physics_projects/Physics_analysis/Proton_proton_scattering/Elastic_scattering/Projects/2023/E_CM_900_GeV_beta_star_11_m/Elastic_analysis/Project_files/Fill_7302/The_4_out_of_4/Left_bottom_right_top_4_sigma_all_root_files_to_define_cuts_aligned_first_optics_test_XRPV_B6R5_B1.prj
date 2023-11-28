@@ -1,6 +1,6 @@
 <parameter>	Force_valid_4_tracks_in_3_out_of_4		 1.0
-<include>       /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7301/The_3_out_of_4/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_XRPV_B6R5_B1.prj
+<include>       /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7302/The_3_out_of_4/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_XRPV_B6R5_B1.prj
 
-<update_setting>                       Output_directory                /eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test_Force_valid_4_tracks_in_3_out_of_4_XRPV_B6R5_B1/
+<update_setting>                       Output_directory                /eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_11_m/Analysis_output_files/7302/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_aligned_first_optics_test_Force_valid_4_tracks_in_3_out_of_4_XRPV_B6R5_B1/
 
 
