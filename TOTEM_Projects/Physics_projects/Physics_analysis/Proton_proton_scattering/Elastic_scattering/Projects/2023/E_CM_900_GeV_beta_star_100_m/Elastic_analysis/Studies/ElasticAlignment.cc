@@ -27,7 +27,7 @@ using namespace std;
 #include "TStyle.h"
 #include "TFitResult.h"
 
-const bool use_x_cuts_to_clarify_acceptance = true ;
+const bool use_x_cuts_to_clarify_acceptance = false ;
 
 TH2D *flipHistogram(TH2D *histogram)
 {
@@ -216,6 +216,8 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 	TH2D *LBRT = ((TH2D *)(file_LBRT->Get(name.c_str()))) ;
 	TH2D *LTRB = ((TH2D *)(file_LTRB->Get(name.c_str()))) ;
 	
+	// if(fill == 7301) LBRT->Scale(1.0 / (1.0 - 0.025)) ;
+	if(fill == 7302) LTRB->Scale(1.0 / (1.0 - 0.190)) ;
 	TH2D *combined = (TH2D *)LBRT->Clone(name.c_str()) ;
 	combined->Add(LTRB) ;
 	
@@ -258,6 +260,11 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 	combined->Draw("colz") ;
 	line1->Draw("same") ;
 	line2->Draw("same") ;
+	
+	stringstream ss ;
+	ss << fill ;
+	
+	string prefix = ss.str() ;
 
 	c->SaveAs(("plots/ElasticAlignment/combined_" + name + "_with_cuts.png").c_str()) ;
 
@@ -268,9 +275,12 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 
 	//py2->Draw() ;
 	//py3->Draw("same") ;
+	TH1D *py1_before = (TH1D *)py1->Clone("") ;
+
 	py1->Draw("") ;
 	
-	py1->SaveAs(("plots/ElasticAlignment/projy_" + name + "_hist_before.root").c_str()) ;
+	py1->SaveAs(("plots/ElasticAlignment/projy_" + prefix + "_" + name + "_hist_before.root").c_str()) ;
+	c->SaveAs(("plots/ElasticAlignment/projy_" + prefix + "_" + name + "_hist_before.pdf").c_str()) ;
 	
 	// py1->GetXaxis()->SetRangeUser(-30.0, 30.0) ;
 	
@@ -308,16 +318,19 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 	}
 	
 	TFitResultPtr ptr = py1->Fit("gaus", "S", "", low, high) ;
-	py1->GetFunction("gaus")->SetLineColor(kBlue) ;
+	py1->GetFunction("gaus")->SetLineColor(kMagenta) ;
 	double mean = ptr->Parameter(1) ;
 	cout << "fit_resulty mean: " << name << " " << mean << endl ;
+	py1->Draw() ;
 	
 	py1->SetLineColor(kBlue) ;
-
-	py1->SaveAs(("plots/ElasticAlignment/projy_" + name + "_hist.root").c_str()) ;
-	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".root").c_str()) ;
-	c->SaveAs(("plots/ElasticAlignment/projy_" + name + ".pdf").c_str()) ;
-
+	
+	py1->SaveAs(("plots/ElasticAlignment/projy_" + prefix + "_" + name + "_hist.root").c_str()) ;
+	c->SaveAs(("plots/ElasticAlignment/projy_" + prefix + "_" + name + ".root").c_str()) ;
+	c->SaveAs(("plots/ElasticAlignment/projy_" + prefix + "_" + name + ".pdf").c_str()) ;
+	
+	
+	delete py1_before ;
 	delete py1 ;
 	delete py2 ;
 	delete py3 ;
@@ -332,7 +345,7 @@ main()
 	// file_LBRT = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts/Generic.root") ;
 	// file_LTRB = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_11_m/Analysis_output_files/7301/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts/Generic.root") ;
 	
-	int fill = 7301 ;
+	int fill = 7302 ;
 
 	if(fill == 7301)
 	{
