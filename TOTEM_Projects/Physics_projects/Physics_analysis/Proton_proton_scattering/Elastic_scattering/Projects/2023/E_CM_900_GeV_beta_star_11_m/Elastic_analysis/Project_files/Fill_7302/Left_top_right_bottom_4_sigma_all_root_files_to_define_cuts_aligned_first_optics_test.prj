@@ -22,7 +22,7 @@
 <setting>       align_source_files     yes
 
 <update_parameter>             DoNotSaveEpsFiles                                               0.0
-<parameter>                    WriteEverything                                                 1.0
+<parameter>                    WriteEverything                                                 0.0
 
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet			0.0

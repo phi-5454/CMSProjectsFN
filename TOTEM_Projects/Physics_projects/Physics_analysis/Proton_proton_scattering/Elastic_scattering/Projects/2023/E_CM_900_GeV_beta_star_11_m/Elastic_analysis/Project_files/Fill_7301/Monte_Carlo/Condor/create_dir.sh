@@ -10,13 +10,13 @@ create_dirs() {
 	global_target_dir=$home_dir/$local_target_dir
 	global_eos_target_dir=$eos_dir/$local_target_dir
 	global_templatefile=$home_dir/$templatefile
-	number_of_particles=3200000
+	number_of_particles=320000
 	#echo $global_templatefile
 	prefix=00
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	for i in `seq -w 0 9 `
+	for i in `seq -w 0 99`
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i
@@ -53,3 +53,8 @@ create_dirs() {
 
 #create_dirs MC_exp_with_vertex                                Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_vertex.prj
 #create_dirs MC_exp_hor_with_vertex                            Templates/Exponential_versions/With_horizontal_cuts_and_corrections/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_vertex.prj
+
+#create_dirs MC_with_beam_divergence_exp                   Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence_alignment.prj
+#create_dirs MC_with_beam_divergence_exp                   Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence_alignment_vertical.prj
+#create_dirs MC_with_beam_divergence_exp                   Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence_optics_Ly.prj
+create_dirs MC_with_beam_divergence_exp                   Templates/Exponential_versions/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_with_beam_divergence_optics_dLxds.prj

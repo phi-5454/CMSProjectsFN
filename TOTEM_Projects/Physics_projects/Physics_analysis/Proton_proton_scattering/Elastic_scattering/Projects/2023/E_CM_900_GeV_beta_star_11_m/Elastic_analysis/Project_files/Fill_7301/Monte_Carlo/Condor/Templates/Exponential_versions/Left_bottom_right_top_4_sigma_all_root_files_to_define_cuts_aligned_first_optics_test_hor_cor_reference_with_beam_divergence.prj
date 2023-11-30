@@ -31,6 +31,7 @@
                 <update_parameter> RP_alignment_right_near_y_mm            0.0
 <end>   alignment_block
 
+<parameter>                    WriteEverything                                                 0.0
 
 <begin>	dN_dt_GeV2_type_block
 	<update_parameter>			number_of_horizontal_bins						1600
@@ -60,7 +61,7 @@
 
 <begin>	Exponential_fit_block
 	<parameter>		Constant      	2.363e7
-	<parameter>		Slope       	-1.69642e+01
+	<parameter>		Slope       	-1.61077e+01
 <end>	Exponential_fit_block
 
 <comment> <parameter>             New_unfolding_method                    1.0
