@@ -217,7 +217,11 @@ void combine_and_fit_y(string name, double low, double high, int bins, int fill)
 	TH2D *LTRB = ((TH2D *)(file_LTRB->Get(name.c_str()))) ;
 	
 	// if(fill == 7301) LBRT->Scale(1.0 / (1.0 - 0.025)) ;
-	if(fill == 7302) LTRB->Scale(1.0 / (1.0 - 0.190)) ;
+	if(fill == 7302)
+	{
+		LBRT->Scale(1.0 / (1.0 - 0.220)) ;
+		LTRB->Scale(1.0 / (1.0 - 0.390)) ;
+	}
 	TH2D *combined = (TH2D *)LBRT->Clone(name.c_str()) ;
 	combined->Add(LTRB) ;
 	
