@@ -94,7 +94,7 @@ int add_TOTEM()
     }
   }
   
-  sigma_total_data.cclose() ;
+  sigma_total_data.close() ;
 
 }
 
