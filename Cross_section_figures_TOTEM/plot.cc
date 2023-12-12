@@ -351,7 +351,7 @@ int add_PDG(int process)
     }
   }
 
-  sigma_total_data.cclose() ;
+  sigma_total_data.close() ;
 
 }
 
