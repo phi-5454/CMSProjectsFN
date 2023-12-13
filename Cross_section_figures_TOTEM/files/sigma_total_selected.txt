@@ -1,0 +1,6 @@
+# energy    low      high   crosssection   unc+     unc-     collaboration
+2.76E+003   0.0      0.0     8.470E+001  3.30E+0 3.30E+0          TOTEM   selected
+7.00E+003   0.0      0.0     9.830E+001  2.80E+0 2.80E+0          TOTEM   selected
+8.00E+003   0.0      0.0     1.015E+002  2.10E+0 2.10E+0          TOTEM   selected
+1.30E+004   0.0      0.0     1.103E+002  3.50E+0 3.50E+0          TOTEM   selected
+
