@@ -58,21 +58,29 @@ TCanvas c ;
 int add_TOTEM()
 {
 
-  ifstream sigma_total_data("files/sigma_total.txt") ;
+  ifstream sigma_total_data("files/sigma_total_selected.txt") ;
   
   double energy, energy_unc_minus, energy_unc_plus, total_cross_section, uncertainty_plus, uncertainty_minus ;
   string type, collaboration, header ;
+  string selected ;
 
-  getline(sigma_total_data,header) ;
+  getline(sigma_total_data, header) ;
   
-  while(sigma_total_data >> energy >> energy_unc_minus >> energy_unc_plus >> total_cross_section >> uncertainty_plus >> uncertainty_minus >>  collaboration)
+  while(sigma_total_data >> energy >> energy_unc_minus >> energy_unc_plus >> total_cross_section >> uncertainty_plus >> uncertainty_minus >>  collaboration >> selected)
   {
+    if(selected.compare("not") == 0) continue ;
 
     if(collaboration.compare("TOTEM") == 0)
     {
-      sigma_total_graph_pp_TOTEM->AddPoint(energy, total_cross_section) ;
-      int index = sigma_total_graph_pp_TOTEM->GetN() - 1;
-      sigma_total_graph_pp_TOTEM->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+      // sigma_total_graph_pp_TOTEM->AddPoint(energy, total_cross_section) ;
+      // sigma_total_graph_pp_TOTEM->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+
+      sigma_total_graph_pp_OTHER->AddPoint(energy, total_cross_section) ;
+      int index = sigma_total_graph_pp_OTHER->GetN() - 1;
+      sigma_total_graph_pp_OTHER->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+      // for test
+      // sigma_total_graph_pp_OTHER->SetPointError(index, energy_unc_minus, energy_unc_plus, 10.0, 10.0) ;
+      cout <<  "ok" << endl ;
       
       compilation << energy << " " << total_cross_section << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " pp" << endl ;
     }
@@ -101,6 +109,7 @@ int add_TOTEM()
 const int process_pp    = 1 ;
 const int process_ppbar = 2 ;
 const int process_pp_selected_by_Ken = 3 ;
+const int process_pp_selected_by_Ken_all = 4 ;
 
 
 int fit_scenario = 0 ;
@@ -136,6 +145,7 @@ int add_PDG(int process)
   if(process == process_pp) data_file_name = "hepdata/pp_total.dat" ;
   else if(process == process_ppbar) data_file_name = "hepdata/pbarp_total.dat" ;
   else if(process == process_pp_selected_by_Ken) data_file_name = "hepdata/selected_measurments_from_Ken/rpp2022-pp_total_5_15.txt" ;
+  else if(process == process_pp_selected_by_Ken_all) data_file_name = "hepdata/selected_measurments_from_Ken/rpp2022-pp_total_5_15_all.txt" ;
   else
   {
     cout << "Unknown scenario!" << endl ;
@@ -203,6 +213,15 @@ int add_PDG(int process)
       if(fit_function_name.compare("pol0") == 0)
       {
         FCN_value_with_uncertainty_1_on_points = 3.141 ;
+      }
+    }
+    else if(process == process_pp_selected_by_Ken_all)
+    {
+      my_NDF = 44.0 ;
+
+      if(fit_function_name.compare("pol0") == 0)
+      {
+        FCN_value_with_uncertainty_1_on_points = 10.57 ;
       }
     }
     else if(process == process_ppbar)
@@ -328,11 +347,13 @@ int add_PDG(int process)
       exit(1) ;
     }
     
-    if((process == process_pp) || (process == process_pp_selected_by_Ken))
+    if((process == process_pp) || (process == process_pp_selected_by_Ken) || (process == process_pp_selected_by_Ken_all))
     {
       sigma_total_graph_pp_OTHER->AddPoint(energy, SIG) ;
       int index = sigma_total_graph_pp_OTHER->GetN() - 1 ;
       sigma_total_graph_pp_OTHER->SetPointError(index, energy_unc_minus, energy_unc_plus, uncertainty_minus, uncertainty_plus) ;
+      // for test
+      // sigma_total_graph_pp_OTHER->SetPointError(index, energy_unc_minus, energy_unc_plus, 10.0, 10.0) ;
 
       compilation << energy << " " << SIG << " " <<  uncertainty_minus << " " <<  uncertainty_plus << " pp" << endl ;
     }
@@ -376,10 +397,17 @@ void fit()
   cout << "Fit range: " << fit_low << " " << fit_high << endl ;
 	cout << "NDF in fit: " << ptr->Ndf() << " my_NDF: " << my_NDF << endl ;
   cout << "Effective uncertainty: " << sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF) << " " << sqrt(FCN_value_with_uncertainty_1_on_points/my_NDF) << endl ;
+  
+  // TF1 *fitfunc = new TF1("myf1", "([0]*log(x)*log(x))+([1]*log(x))+[2]", 1 , 20e3) ;
+  TF1 *fitfunc = new TF1("myf1", "([0]*log(x)*log(x))+([1]*log(x))+[2]", 1 , 20e3) ;
+	TFitResultPtr ptr2 = sigma_total_graph_pp_OTHER->Fit("myf1", "S", "", 1, 15e3) ;  
+  
+  cout << "Result:" << sigma_total_graph_pp_OTHER->GetFunction("myf1")->Eval(1.96e3) << endl ;
+  
 }
 
-// TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
-TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1, 25, 100, 30, 80) ;
+ TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1e0, 1e5, 100, 0, 380) ;
+// TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1, 25, 100, 30, 80) ;
 
 int post_process()
 {
@@ -425,6 +453,7 @@ int post_process()
   
  
   c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".pdf").c_str()) ;
+  c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".png").c_str()) ;
   c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".root").c_str()) ;
 }
 
@@ -445,10 +474,11 @@ int main(int argc, char *argv[])
   // hist_2d->GetXaxis()->SetRangeUser(5, 25) ;
   hist_2d->Draw() ;
 
-  add_TOTEM() ;
+  add_PDG(process_pp_selected_by_Ken_all) ;
 //  add_PDG(process_pp_selected_by_Ken) ;
-  add_PDG(process_pp) ;
-  add_PDG(process_ppbar) ;
+  add_TOTEM() ;
+//  add_PDG(process_pp) ;
+//  add_PDG(process_ppbar) ;
 
   fit() ;
   
