@@ -184,9 +184,9 @@ int main(int argc, char *argv[])
 	latex->SetTextFont(132) ;
 	latex->SetTextColor(kBlack) ;
 
-	latex->DrawLatex(.18, .84, ("a = " + ss[0].str() + " #pm " + ssc[0].str()).c_str()) ;
+	latex->DrawLatex(.18, .84, ("a = " + ss[2].str() + " #pm " + ssc[2].str()).c_str()) ;
 	latex->DrawLatex(.18, .74, ("b = " + ss[1].str() + " #pm " + ssc[1].str()).c_str()) ;
-	latex->DrawLatex(.18, .64, ("c = " + ss[2].str() + " #pm " + ssc[2].str()).c_str()) ;
+	latex->DrawLatex(.18, .64, ("c = " + ss[0].str() + " #pm " + ssc[0].str()).c_str()) ;
 
   graph->SaveAs("results/graph.root") ;
 
