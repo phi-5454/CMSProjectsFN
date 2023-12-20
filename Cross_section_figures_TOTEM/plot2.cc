@@ -21,7 +21,7 @@ using namespace std;
 #include "TLegend.h"
 #include "TCanvas.h"
 #include "TAxis.h"
-#include "TGraphAsymmErrors.h"
+#include "TGraphErrors.h"
 #include "TLatex.h"
 #include "TLine.h"
 #include "TMinuit.h"
@@ -53,11 +53,18 @@ class MyTPoint
 TF1 *func = NULL ;
 vector<MyTPoint *> points ;
 
+TGraphErrors *graph = NULL ;
+
+MyTPoint::MyTPoint(double energy, double sigtot, double uncertainty) : energy(energy), sigtot(sigtot), uncertainty_up(uncertainty), uncertainty_down(uncertainty)
+{
+
+}
+
 Double_t log_like_function(Double_t *x, Double_t *par)
 {
-        double f1 = par[0] * pow(log(x[0]), 2) ;
+        double f1 = par[0] * pow(log(x[0]), 0) ;
         double f2 = par[1] * pow(log(x[0]), 1) ;
-        double f3 = par[1] * pow(log(x[0]), 0) ;
+        double f3 = par[2] * pow(log(x[0]), 2) ;
 
         double f = f1 + f2 + f3 ;
 
@@ -80,8 +87,13 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 		chi2 += delta*delta ;
   }
 
+  cout << chi2 << endl ;
+
   f = chi2 ;
 }
+
+double par[4] ;
+double pare[4] ;
 
 void MinuitFit()
 {
@@ -93,28 +105,94 @@ void MinuitFit()
   arglist[0] = 1 ;
   gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
 
-  gMinuit2->mnparm(0, "constant", 27, 0.1, 0, 0, ierflg);
-  gMinuit2->mnparm(1, "slope",  -4.37008e-02, 0.1, 0, 0, ierflg);
-  gMinuit2->mnparm(2, "ratio",    0.15, 0.1, 0, 0, ierflg);
+  gMinuit2->mnparm(0, "a", 27, 0.1, 0, 0, ierflg);
+  gMinuit2->mnparm(1, "b", -4.37008e-02, 0.1, 0, 0, ierflg);
+  gMinuit2->mnparm(2, "c",  0.15, 0.1, 0, 0, ierflg);
 
   arglist[0] = 0 ;
   arglist[1] = 3 ;
   arglist[2] = 1 ;
 
-  func = new TF1("func",  log_like_function, 0.0, 13000.0, 3) ;
+  func = new TF1("func",  log_like_function, 0.0, 1400.0, 3) ;
 
   gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+  
+  gMinuit2->GetParameter(0, par[0], pare[0]) ;
+  gMinuit2->GetParameter(1, par[1], pare[1]) ;
+  gMinuit2->GetParameter(2, par[2], pare[2]) ;
+  
+  func->SetParameters(par[0], par[1], par[2]) ;
+  func->SetNpx(100000) ;
+}
+
+void init()
+{
+  gStyle->SetLineScalePS(.3) ;
+  graph = new TGraphErrors() ;
 }
 
 int main(int argc, char *argv[])
 {
+  init() ;
+
 	ifstream data("hepdata/most_relevant_points.txt") ;
 	
 	double energy, sigtot, sigtot_unc ;
+  
+  int n_points = 0 ;
 	
 	while(data >> energy >> sigtot >> sigtot_unc)
 	{
+    MyTPoint *p = new MyTPoint(energy, sigtot, sigtot_unc) ;
+    points.push_back(p) ;
+    
+    graph->SetPoint(n_points, energy, sigtot) ;
+    graph->SetPointError(n_points, 0, sigtot_unc) ;
+    
+    ++n_points ;
 	}
+  
+  MinuitFit() ;
+  
+  TCanvas *c = new TCanvas ;
+ 
+  c->cd() ;
+ 	c->SetLogx() ;
+
+  graph->Draw("ap") ;  
+	graph->GetXaxis()->SetTitle("#sqrt{s} (GeV)") ;
+	graph->GetXaxis()->SetTitleOffset(1.5) ;
+	graph->SetMarkerStyle(20) ;
+	graph->SetMarkerSize(0.8) ;
+  
+ 	graph->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;  
+  
+  func->Draw("same l") ;
+  
+  stringstream ss[4], ssc[4] ;
+
+  ss[0]  << std::setprecision(4) << par[0] ;
+  ssc[0] << std::setprecision(2) << pare[0] ;
+  ss[1]  << std::setprecision(4) << par[1] ;
+  ssc[1] << std::setprecision(2) << pare[1] ;
+  ss[2]  << std::setprecision(4) << par[2] ;
+  ssc[2] << std::setprecision(2) << pare[2] ;
+  
+	TLatex *latex = new TLatex() ;
+
+	latex->SetNDC() ;
+	latex->SetTextFont(132) ;
+	latex->SetTextColor(kBlack) ;
+
+	latex->DrawLatex(.18, .84, ("a = " + ss[0].str() + " #pm " + ssc[0].str()).c_str()) ;
+	latex->DrawLatex(.18, .74, ("b = " + ss[1].str() + " #pm " + ssc[1].str()).c_str()) ;
+	latex->DrawLatex(.18, .64, ("c = " + ss[2].str() + " #pm " + ssc[2].str()).c_str()) ;
+
+  graph->SaveAs("results/graph.root") ;
+
+  
+  c->SaveAs("results/c.root") ;
+  c->SaveAs("results/c.pdf") ;
 }
 
   
