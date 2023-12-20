@@ -104,6 +104,7 @@ int add_TOTEM()
   
   sigma_total_data.close() ;
 
+	return 0 ;
 }
 
 const int process_pp    = 1 ;
@@ -455,6 +456,8 @@ int post_process()
   c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".pdf").c_str()) ;
   c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".png").c_str()) ;
   c.SaveAs(("fig/sigma_total_graph_" + postfix + "_" + fit_function_name + ".root").c_str()) ;
+  
+  return 0 ;
 }
 
 
@@ -474,9 +477,9 @@ int main(int argc, char *argv[])
   // hist_2d->GetXaxis()->SetRangeUser(5, 25) ;
   hist_2d->Draw() ;
 
-  add_PDG(process_pp_selected_by_Ken_all) ;
+  // add_PDG(process_pp_selected_by_Ken_all) ;
 //  add_PDG(process_pp_selected_by_Ken) ;
-  add_TOTEM() ;
+   add_TOTEM() ;
 //  add_PDG(process_pp) ;
 //  add_PDG(process_ppbar) ;
 
