@@ -69,6 +69,8 @@ Double_t log_like_function(Double_t *x, Double_t *par)
         double f3 = par[2] * pow(log(x[0]), 2) ;
 
         double f = f1 + f2 + f3 ;
+		  
+		  // cout << "energy: " << x[0] << " " << f << endl ;
 
         return f ;
 }
@@ -118,7 +120,8 @@ void MinuitFit()
   arglist[1] = 3 ;
   arglist[2] = 1 ;
 
-  func = new TF1("func",  log_like_function, 0.0, 1400.0, 3) ;
+	double epsilon = 0.01 ;
+  func = new TF1("func",  log_like_function, epsilon, 1400.0, 3) ;
 
   gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
   
@@ -149,6 +152,8 @@ int main(int argc, char *argv[])
 	while(data >> energy >> sigtot >> sigtot_unc)
 	{
     if(constraint && (energy == 1.5)) sigtot_unc *= 1e6 ;
+	 
+	 if(constraint && ((energy == 0.5) || (energy == 1.5))) continue ;
 
     MyTPoint *p = new MyTPoint(energy, sigtot, sigtot_unc) ;
     points.push_back(p) ;
@@ -207,7 +212,8 @@ int main(int argc, char *argv[])
 	latex->DrawLatex(.18, .44, ("#sigma_{tot}(15 GeV) = " + cs.str()).c_str()) ;
 
   graph->SaveAs("results/graph.root") ;
-
+  c->cd() ;
+  func->SaveAs("results/func.root") ;
   
   c->SaveAs("results/c.root") ;
   c->SaveAs("results/c.pdf") ;
