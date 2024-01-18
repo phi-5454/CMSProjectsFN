@@ -37,6 +37,8 @@ using namespace std;
 
 #include <iomanip>
 
+bool constraint = true ;
+
 class MyTPoint
 {
 	public:	
@@ -84,9 +86,12 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
     double value = log_like_function(&energy, par) ;
 
 		double delta = (value - sigtot) / uncertainty_up ;
-		chi2 += delta*delta ;
-  }
 
+  	chi2 += delta*delta ;
+    
+    if(constraint && (energy == 1.5) && (value > 39.28)) chi2 += 1.0 ;
+  }
+  
   cout << chi2 << endl ;
 
   f = chi2 ;
@@ -143,6 +148,8 @@ int main(int argc, char *argv[])
 	
 	while(data >> energy >> sigtot >> sigtot_unc)
 	{
+    if(constraint && (energy == 1.5)) sigtot_unc *= 1e6 ;
+
     MyTPoint *p = new MyTPoint(energy, sigtot, sigtot_unc) ;
     points.push_back(p) ;
     
@@ -166,10 +173,19 @@ int main(int argc, char *argv[])
 	graph->SetMarkerSize(0.8) ;
   
  	graph->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;  
+ 	graph->GetYaxis()->SetRangeUser(0, 120.) ;
   
   func->Draw("same l") ;
   
   stringstream ss[4], ssc[4] ;
+  stringstream rs, cs ;
+  
+  double result = func->Eval(196.0) ;
+  cout << "result:" << result << endl ;
+  rs << std::setprecision(4) << result ;
+
+  double result2 = func->Eval(1.5) ;
+  cs << std::setprecision(4) << result2 ;
 
   ss[0]  << std::setprecision(4) << par[0] ;
   ssc[0] << std::setprecision(2) << pare[0] ;
@@ -187,6 +203,8 @@ int main(int argc, char *argv[])
 	latex->DrawLatex(.18, .84, ("a = " + ss[2].str() + " #pm " + ssc[2].str()).c_str()) ;
 	latex->DrawLatex(.18, .74, ("b = " + ss[1].str() + " #pm " + ssc[1].str()).c_str()) ;
 	latex->DrawLatex(.18, .64, ("c = " + ss[0].str() + " #pm " + ssc[0].str()).c_str()) ;
+	latex->DrawLatex(.18, .54, ("#sigma_{tot}(1.96 TeV) = " + rs.str()).c_str()) ;
+	latex->DrawLatex(.18, .44, ("#sigma_{tot}(15 GeV) = " + cs.str()).c_str()) ;
 
   graph->SaveAs("results/graph.root") ;
 
