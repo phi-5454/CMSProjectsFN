@@ -174,6 +174,10 @@ TCanvas *c = new TCanvas ;
 
 int counter = 0 ;
 
+TH1D *hist = new TH1D("hist", "hist", 1000, 0, 100) ;
+TH1D *hist2 = new TH1D("hist2", "hist2", 1000, 0, 100) ;
+TH1D *hist3 = new TH1D("hist3", "hist3", 1000, 0, 100) ;
+
 void test()
 {
   ifstream data("hepdata/most_relevant_points.txt") ;
@@ -204,11 +208,17 @@ void test()
   c->cd() ;
   c->SetLogx() ;
   
-  if(func->Eval(1.5) <= 39.28)
+  if(func->Eval(1.5) <= 39.3)
   {
     cout << "wasok: " << counter << endl ;
+    hist->Fill(func->Eval(1.5)) ;
+    
+    if(((func->Eval(1.5) > 39.2)) && (func->Eval(1.5) < 39.3)) hist2->Fill(func->Eval(196.0)) ;
+    // if((func->Eval(1.5) < 39.0) && ((func->Eval(1.5) > 38.9))) hist2->Fill(func->Eval(196.0)) ;
     // func->Draw("same l") ;
   }
+
+  hist3->Fill(func->Eval(1.5)) ;
   
   counter++ ;
   
@@ -254,7 +264,7 @@ int main(int argc, char *argv[])
 {
   init() ;
 
-  for(int i = 0 ; i < 1000 ; ++i) test() ;  
+  for(int i = 0 ; i < 100000 ; ++i) test() ;  
 
   // graph->SaveAs("results/graph.root") ;
   c->cd() ;
@@ -262,4 +272,8 @@ int main(int argc, char *argv[])
   
   // c->SaveAs("results/c.root") ;
   // c->SaveAs("results/c.pdf") ;
+  
+  hist->SaveAs("hist.root") ;
+  hist2->SaveAs("hist2.root") ;
+  hist3->SaveAs("hist3.root") ;
 }
