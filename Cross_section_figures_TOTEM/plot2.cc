@@ -167,10 +167,12 @@ void init()
   
 }
 
-double alpha = 0.0 ;
+double alpha = 1.0 ;
 TRandom3 myrand ;
 
 TCanvas *c = new TCanvas ;
+
+int counter = 0 ;
 
 void test()
 {
@@ -202,17 +204,26 @@ void test()
   c->cd() ;
   c->SetLogx() ;
   
-  func->Draw("same l") ;
+  if(func->Eval(1.5) <= 39.28)
+  {
+    cout << "wasok: " << counter << endl ;
+    // func->Draw("same l") ;
+  }
+  
+  counter++ ;
   
   stringstream ss[4], ssc[4] ;
   stringstream rs, cs ;
   
   double result = func->Eval(196.0) ;
-  cout << "result:" << result << endl ;
+  // cout << "result:" << result << endl ;
   rs << std::setprecision(4) << result ;
 
   double result2 = func->Eval(1.0) ;
-  cout << "result2:" << result2 << endl ;
+  // cout << "result2:" << result2 << endl ;
+
+  double result3 = func->Eval(1.5) ;
+  // cout << "result3:" << result3 << endl ;
 
   ss[0]  << std::setprecision(4) << par[0] ;
   ssc[0] << std::setprecision(2) << pare[0] ;
@@ -235,6 +246,8 @@ void test()
     latex->DrawLatex(.18, .54, ("#sigma_{tot}(1.96 TeV) = " + rs.str()).c_str()) ;
     latex->DrawLatex(.18, .44, ("#sigma_{tot}(15 GeV) = " + cs.str()).c_str()) ;
   }
+  
+  points.clear() ;
 }
   
 int main(int argc, char *argv[])
@@ -243,10 +256,10 @@ int main(int argc, char *argv[])
 
   for(int i = 0 ; i < 1000 ; ++i) test() ;  
 
-  graph->SaveAs("results/graph.root") ;
+  // graph->SaveAs("results/graph.root") ;
   c->cd() ;
-  func->SaveAs("results/func.root") ;
+  // func->SaveAs("results/func.root") ;
   
-  c->SaveAs("results/c.root") ;
-  c->SaveAs("results/c.pdf") ;
+  // c->SaveAs("results/c.root") ;
+  // c->SaveAs("results/c.pdf") ;
 }
