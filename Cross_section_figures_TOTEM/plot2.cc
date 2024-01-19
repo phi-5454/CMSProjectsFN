@@ -41,21 +41,19 @@ bool constraint = true ;
 
 class MyTPoint
 {
-	public:	
-	
-	double energy ;
-	double sigtot ;
-	double uncertainty_up ;
-	double uncertainty_down ;
+  public:  
+  
+  double energy ;
+  double sigtot ;
+  double uncertainty_up ;
+  double uncertainty_down ;
 
 
-	MyTPoint(double, double, double) ;
+  MyTPoint(double, double, double) ;
 } ;
 
 TF1 *func = NULL ;
 vector<MyTPoint *> points ;
-
-TGraphErrors *graph = NULL ;
 
 MyTPoint::MyTPoint(double energy, double sigtot, double uncertainty) : energy(energy), sigtot(sigtot), uncertainty_up(uncertainty), uncertainty_down(uncertainty)
 {
@@ -69,8 +67,8 @@ Double_t log_like_function(Double_t *x, Double_t *par)
         double f3 = par[2] * pow(log(x[0]), 2) ;
 
         double f = f1 + f2 + f3 ;
-		  
-		  // cout << "energy: " << x[0] << " " << f << endl ;
+      
+      // cout << "energy: " << x[0] << " " << f << endl ;
 
         return f ;
 }
@@ -78,23 +76,23 @@ Double_t log_like_function(Double_t *x, Double_t *par)
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
   double chi2 = 0 ;
-	
+  
   for(int i = 0 ; i < points.size() ; ++i)
   {
-		double energy = points[i]->energy ;
-		double sigtot = points[i]->sigtot ;
-		double uncertainty_up = points[i]->uncertainty_up ;
+    double energy = points[i]->energy ;
+    double sigtot = points[i]->sigtot ;
+    double uncertainty_up = points[i]->uncertainty_up ;
 
     double value = log_like_function(&energy, par) ;
 
-		double delta = (value - sigtot) / uncertainty_up ;
+    double delta = (value - sigtot) / uncertainty_up ;
 
-  	chi2 += delta*delta ;
+    chi2 += delta*delta ;
     
-    if(constraint && (energy == 1.5) && (value > 39.28)) chi2 += 1.0 ;
+    // if(constraint && (energy == 1.5) && (value > 39.28)) chi2 += 1.0 ;
   }
   
-  cout << chi2 << endl ;
+  // cout << chi2 << endl ;
 
   f = chi2 ;
 }
@@ -120,7 +118,7 @@ void MinuitFit()
   arglist[1] = 3 ;
   arglist[2] = 1 ;
 
-	double epsilon = 0.01 ;
+  double epsilon = 0.01 ;
   func = new TF1("func",  log_like_function, epsilon, 1400.0, 3) ;
 
   gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
@@ -133,52 +131,76 @@ void MinuitFit()
   func->SetNpx(100000) ;
 }
 
+TGraphErrors *graph = new TGraphErrors() ;
+
 void init()
 {
   gStyle->SetLineScalePS(.3) ;
-  graph = new TGraphErrors() ;
-}
-
-int main(int argc, char *argv[])
-{
-  init() ;
-
-	ifstream data("hepdata/most_relevant_points.txt") ;
-	
-	double energy, sigtot, sigtot_unc ;
+  
+  ifstream data("hepdata/most_relevant_points.txt") ;
+  
+  double energy, sigtot, sigtot_unc ;
   
   int n_points = 0 ;
-	
-	while(data >> energy >> sigtot >> sigtot_unc)
-	{
-    if(constraint && (energy == 1.5)) sigtot_unc *= 1e6 ;
-	 
-	 if(constraint && ((energy == 0.5) || (energy == 1.5))) continue ;
-
-    MyTPoint *p = new MyTPoint(energy, sigtot, sigtot_unc) ;
-    points.push_back(p) ;
-    
+  
+  while(data >> energy >> sigtot >> sigtot_unc)
+  {
+    if(constraint)
+    {
+       if((energy == 0.5) || (energy == 1.5)) continue ;
+    }
+   
     graph->SetPoint(n_points, energy, sigtot) ;
     graph->SetPointError(n_points, 0, sigtot_unc) ;
     
     ++n_points ;
-	}
+  }
+
+  graph->Draw("ap") ;  
+  graph->GetXaxis()->SetTitle("#sqrt{s} (GeV)") ;
+  graph->GetXaxis()->SetTitleOffset(1.5) ;
+  graph->SetMarkerStyle(20) ;
+  graph->SetMarkerSize(0.8) ;
+
+  graph->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;  
+  graph->GetYaxis()->SetRangeUser(0, 120.) ;
+  
+}
+
+double alpha = 0.0 ;
+TRandom3 myrand ;
+
+TCanvas *c = new TCanvas ;
+
+void test()
+{
+  ifstream data("hepdata/most_relevant_points.txt") ;
+  
+  double energy, sigtot, sigtot_unc ;
+  
+  int n_points = 0 ;
+  
+  while(data >> energy >> sigtot >> sigtot_unc)
+  {
+    double perturb = myrand.Gaus() ;
+
+    if(constraint)
+    {
+      if((energy == 0.5) || (energy == 1.5)) continue ;
+      
+      if(energy > 200.0) sigtot += (alpha * sigtot_unc * perturb) ;
+    }
+   
+    MyTPoint *p = new MyTPoint(energy, sigtot, sigtot_unc) ;
+    points.push_back(p) ;
+  }
+  
+  data.close() ;
   
   MinuitFit() ;
   
-  TCanvas *c = new TCanvas ;
- 
   c->cd() ;
- 	c->SetLogx() ;
-
-  graph->Draw("ap") ;  
-	graph->GetXaxis()->SetTitle("#sqrt{s} (GeV)") ;
-	graph->GetXaxis()->SetTitleOffset(1.5) ;
-	graph->SetMarkerStyle(20) ;
-	graph->SetMarkerSize(0.8) ;
-  
- 	graph->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;  
- 	graph->GetYaxis()->SetRangeUser(0, 120.) ;
+  c->SetLogx() ;
   
   func->Draw("same l") ;
   
@@ -189,8 +211,8 @@ int main(int argc, char *argv[])
   cout << "result:" << result << endl ;
   rs << std::setprecision(4) << result ;
 
-  double result2 = func->Eval(1.5) ;
-  cs << std::setprecision(4) << result2 ;
+  double result2 = func->Eval(1.0) ;
+  cout << "result2:" << result2 << endl ;
 
   ss[0]  << std::setprecision(4) << par[0] ;
   ssc[0] << std::setprecision(2) << pare[0] ;
@@ -198,18 +220,28 @@ int main(int argc, char *argv[])
   ssc[1] << std::setprecision(2) << pare[1] ;
   ss[2]  << std::setprecision(4) << par[2] ;
   ssc[2] << std::setprecision(2) << pare[2] ;
+
+  if(!constraint) 
+  {
+    TLatex *latex = new TLatex() ;
+
+    latex->SetNDC() ;
+    latex->SetTextFont(132) ;
+    latex->SetTextColor(kBlack) ;
+
+    latex->DrawLatex(.18, .84, ("a = " + ss[2].str() + " #pm " + ssc[2].str()).c_str()) ;
+    latex->DrawLatex(.18, .74, ("b = " + ss[1].str() + " #pm " + ssc[1].str()).c_str()) ;
+    latex->DrawLatex(.18, .64, ("c = " + ss[0].str() + " #pm " + ssc[0].str()).c_str()) ;
+    latex->DrawLatex(.18, .54, ("#sigma_{tot}(1.96 TeV) = " + rs.str()).c_str()) ;
+    latex->DrawLatex(.18, .44, ("#sigma_{tot}(15 GeV) = " + cs.str()).c_str()) ;
+  }
+}
   
-	TLatex *latex = new TLatex() ;
+int main(int argc, char *argv[])
+{
+  init() ;
 
-	latex->SetNDC() ;
-	latex->SetTextFont(132) ;
-	latex->SetTextColor(kBlack) ;
-
-	latex->DrawLatex(.18, .84, ("a = " + ss[2].str() + " #pm " + ssc[2].str()).c_str()) ;
-	latex->DrawLatex(.18, .74, ("b = " + ss[1].str() + " #pm " + ssc[1].str()).c_str()) ;
-	latex->DrawLatex(.18, .64, ("c = " + ss[0].str() + " #pm " + ssc[0].str()).c_str()) ;
-	latex->DrawLatex(.18, .54, ("#sigma_{tot}(1.96 TeV) = " + rs.str()).c_str()) ;
-	latex->DrawLatex(.18, .44, ("#sigma_{tot}(15 GeV) = " + cs.str()).c_str()) ;
+  for(int i = 0 ; i < 1000 ; ++i) test() ;  
 
   graph->SaveAs("results/graph.root") ;
   c->cd() ;
@@ -218,5 +250,3 @@ int main(int argc, char *argv[])
   c->SaveAs("results/c.root") ;
   c->SaveAs("results/c.pdf") ;
 }
-
-  
