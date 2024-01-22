@@ -190,11 +190,13 @@ void test()
   double energy, sigtot, sigtot_unc ;
   
   int n_points = 0 ;
+
+  points.clear() ;
   
   while(data >> energy >> sigtot >> sigtot_unc)
   {
     double perturb = myrand->Gaus() ;
-    cout << "gaus" << perturb << endl ;
+    // cout << "gaus" << perturb << endl ;
 
     if(constraint)
     {
@@ -204,7 +206,7 @@ void test()
     MyTPoint *p = new MyTPoint(energy, sigtot, sigtot_unc) ;
     points.push_back(p) ;
   }
-  
+
   data.close() ;
   
   MinuitFit() ;
@@ -260,8 +262,6 @@ void test()
     latex->DrawLatex(.18, .54, ("#sigma_{tot}(1.96 TeV) = " + rs.str()).c_str()) ;
     latex->DrawLatex(.18, .44, ("#sigma_{tot}(15 GeV) = " + cs.str()).c_str()) ;
   }
-  
-  points.clear() ;
 }
   
 int main(int argc, char *argv[])
