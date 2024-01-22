@@ -106,9 +106,14 @@ void MinuitFit()
   gMinuit2->SetFCN(fcn);
 
   Double_t arglist[10];
+
+  arglist[0] = -1 ;
   Int_t ierflg = 0 ;
+  gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+
   arglist[0] = 1 ;
   gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
+
 
   gMinuit2->mnparm(0, "a", 27, 0.1, 0, 0, ierflg);
   gMinuit2->mnparm(1, "b", -4.37008e-02, 0.1, 0, 0, ierflg);
@@ -210,7 +215,7 @@ void test()
   
   if(func->Eval(1.5) <= 39.3)
   {
-    cout << "wasok: " << counter << endl ;
+    // cout << "wasok: " << counter << endl ;
     hist->Fill(func->Eval(1.5)) ;
     
     if(((func->Eval(1.5) > 39.2)) && (func->Eval(1.5) < 39.3)) hist2->Fill(func->Eval(196.0)) ;
