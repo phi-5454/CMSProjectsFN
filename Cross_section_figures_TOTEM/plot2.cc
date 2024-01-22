@@ -93,9 +93,6 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
   f = chi2 ;
 }
 
-double par[4] ;
-double pare[4] ;
-
 void MinuitFit()
 {
   TMinuit *gMinuit2 = new TMinuit(10);
@@ -123,12 +120,15 @@ void MinuitFit()
   func = new TF1("func",  log_like_function, epsilon, 1400.0, 3) ;
 
   gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+
+  double func_par[4] ;
+  double func_pare[4] ;
   
-  gMinuit2->GetParameter(0, par[0], pare[0]) ;
-  gMinuit2->GetParameter(1, par[1], pare[1]) ;
-  gMinuit2->GetParameter(2, par[2], pare[2]) ;
+  gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
+  gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
+  gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
   
-  func->SetParameters(par[0], par[1], par[2]) ;
+  func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
   func->SetNpx(100000) ;
 }
 
@@ -181,6 +181,9 @@ TH1D *hist3 = new TH1D("hist3", "hist3", 1000, 0, 100) ;
 
 void test()
 {
+  double func_par[4] ;
+  double func_pare[4] ;
+
   ifstream data("hepdata/most_relevant_points.txt") ;
   
   double energy, sigtot, sigtot_unc ;
@@ -236,12 +239,12 @@ void test()
   double result3 = func->Eval(1.5) ;
   // cout << "result3:" << result3 << endl ;
 
-  ss[0]  << std::setprecision(4) << par[0] ;
-  ssc[0] << std::setprecision(2) << pare[0] ;
-  ss[1]  << std::setprecision(4) << par[1] ;
-  ssc[1] << std::setprecision(2) << pare[1] ;
-  ss[2]  << std::setprecision(4) << par[2] ;
-  ssc[2] << std::setprecision(2) << pare[2] ;
+  ss[0]  << std::setprecision(4) << func_par[0] ;
+  ssc[0] << std::setprecision(2) << func_pare[0] ;
+  ss[1]  << std::setprecision(4) << func_par[1] ;
+  ssc[1] << std::setprecision(2) << func_par[1] ;
+  ss[2]  << std::setprecision(4) << func_par[2] ;
+  ssc[2] << std::setprecision(2) << func_pare[2] ;
 
   if(!constraint) 
   {
