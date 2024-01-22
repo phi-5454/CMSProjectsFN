@@ -142,6 +142,12 @@ void init()
   
   ifstream data(filename.c_str()) ;
   
+  if(!data.is_open())
+  {
+    cout << "Data file cannot be opened to read for graph" << endl ;
+    exit(1) ;
+  }
+  
   double energy, sigtot, sigtot_unc ;
   
   int n_points = 0 ;
@@ -186,6 +192,12 @@ void test()
   double func_pare[4] ;
 
   ifstream data(filename.c_str()) ;
+  
+  if(!data.is_open())
+  {
+    cout << "Data file cannot be opened to read for fit" << endl ;
+    exit(1) ;
+  }
   
   double energy, sigtot, sigtot_unc ;
   
@@ -303,4 +315,6 @@ int main(int argc, char *argv[])
   hist->SaveAs("hist.root") ;
   hist2->SaveAs("hist2.root") ;
   hist3->SaveAs("hist3.root") ;
+  
+  cout << "Finished successfully" << endl ;
 }
