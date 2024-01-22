@@ -129,7 +129,7 @@ void MinuitFit()
   gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
   
   func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
-  func->SetNpx(100000) ;
+  func->SetNpx(100) ;
 }
 
 TGraphErrors *graph = new TGraphErrors() ;
