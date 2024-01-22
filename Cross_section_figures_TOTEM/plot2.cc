@@ -90,8 +90,6 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
     chi2 += delta*delta ;
   }
   
-  // cout << chi2 << endl ;
-
   f = chi2 ;
 }
 
