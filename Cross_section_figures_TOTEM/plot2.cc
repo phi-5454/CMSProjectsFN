@@ -88,8 +88,6 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
     double delta = (value - sigtot) / uncertainty_up ;
 
     chi2 += delta*delta ;
-    
-    // if(constraint && (energy == 1.5) && (value > 39.28)) chi2 += 1.0 ;
   }
   
   // cout << chi2 << endl ;
