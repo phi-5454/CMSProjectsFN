@@ -312,9 +312,12 @@ int main(int argc, char *argv[])
   // c->SaveAs("results/c.root") ;
   // c->SaveAs("results/c.pdf") ;
   
-  hist->SaveAs("hist.root") ;
-  hist2->SaveAs("hist2.root") ;
-  hist3->SaveAs("hist3.root") ;
+  stringstream seed_string ;
+  seed_string << myseed ;
+  
+  hist->SaveAs(("results/hist1_" + seed_string.str() + ".root").c_str()) ;
+  hist2->SaveAs(("results/hist2_" + seed_string.str() + ".root").c_str()) ;
+  hist3->SaveAs(("results/hist3_" + seed_string.str() + ".root").c_str()) ;
   
   cout << "Finished successfully" << endl ;
 }
