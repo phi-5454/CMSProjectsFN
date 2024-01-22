@@ -134,11 +134,13 @@ void MinuitFit()
 
 TGraphErrors *graph = new TGraphErrors() ;
 
+const string filename = "hepdata/most_relevant_points_v2.txt" ;
+
 void init()
 {
   gStyle->SetLineScalePS(.3) ;
   
-  ifstream data("hepdata/most_relevant_points.txt") ;
+  ifstream data(filename.c_str()) ;
   
   double energy, sigtot, sigtot_unc ;
   
@@ -148,7 +150,6 @@ void init()
   {
     if(constraint)
     {
-       if((energy == 0.5) || (energy == 1.5)) continue ;
     }
    
     graph->SetPoint(n_points, energy, sigtot) ;
@@ -169,7 +170,7 @@ void init()
 }
 
 double alpha = 1.0 ;
-TRandom3 myrand ;
+TRandom3 *myrand ;
 
 TCanvas *c = new TCanvas ;
 
@@ -184,7 +185,7 @@ void test()
   double func_par[4] ;
   double func_pare[4] ;
 
-  ifstream data("hepdata/most_relevant_points.txt") ;
+  ifstream data(filename.c_str()) ;
   
   double energy, sigtot, sigtot_unc ;
   
@@ -192,12 +193,11 @@ void test()
   
   while(data >> energy >> sigtot >> sigtot_unc)
   {
-    double perturb = myrand.Gaus() ;
+    double perturb = myrand->Gaus() ;
+    cout << "gaus" << perturb << endl ;
 
     if(constraint)
     {
-      if((energy == 0.5) || (energy == 1.5)) continue ;
-      
       if(energy > 200.0) sigtot += (alpha * sigtot_unc * perturb) ;
     }
    
@@ -266,9 +266,33 @@ void test()
   
 int main(int argc, char *argv[])
 {
+  /*
+  cout << argc << endl ;
+  cout << argv[0] << endl ;
+  cout << argv[1] << endl ;
+  cout << argv[2] << endl ;
+  exit(1) ;
+  */
+  
+
+  if(argc != 3) 
+  {
+    cout << "Please provide the seed and number of particles (arg 1 2)" << endl ;
+    exit(1) ;
+  }
+
+  const int myseed = atoi(argv[1]) ;
+  const int particles = atoi(argv[2]) ;
+
+  myrand = new TRandom3() ;
+  myrand->SetSeed(myseed) ;
+  
+  cout << "seed " << myseed << endl ;
+  cout << "particles " << particles << endl << endl ;
+
   init() ;
 
-  for(int i = 0 ; i < 100000 ; ++i) test() ;  
+  for(int i = 0 ; i < particles ; ++i) test() ;  
 
   // graph->SaveAs("results/graph.root") ;
   c->cd() ;
