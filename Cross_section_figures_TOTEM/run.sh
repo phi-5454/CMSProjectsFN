@@ -1,8 +1,15 @@
 ./plot2 1 100000 &> /dev/null &
 ./plot2 2 100000 &> /dev/null &
+./plot2 3 100000 &> /dev/null &
+./plot2 4 100000 &> /dev/null &
 wait
-hadd hist1.root results/hist1_*
-hadd hist2.root results/hist2_*
-hadd hist3.root results/hist3_*
+./plot2 5 100000 &> /dev/null &
+./plot2 6 100000 &> /dev/null &
+./plot2 7 100000 &> /dev/null &
+./plot2 8 100000 &> /dev/null &
+wait
+hadd -f hist1.root results/hist1_*
+hadd -f hist2.root results/hist2_*
+hadd -f hist3.root results/hist3_*
 
 
