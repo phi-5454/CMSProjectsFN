@@ -102,6 +102,7 @@ const int process_pp    = 1 ;
 const int process_ppbar = 2 ;
 const int process_pp_selected_by_Ken = 3 ;
 const int process_pp_selected_by_Ken_all = 4 ;
+const int process_pp_selected_by_Ken_Foley = 5 ;
 
 int fit_scenario = 0 ;
 
@@ -137,6 +138,7 @@ int add_PDG(int process)
   else if(process == process_ppbar) data_file_name = "hepdata/pbarp_total.dat" ;
   else if(process == process_pp_selected_by_Ken) data_file_name = "hepdata/selected_measurments_from_Ken/rpp2022-pp_total_5_15.txt" ;
   else if(process == process_pp_selected_by_Ken_all) data_file_name = "hepdata/selected_measurments_from_Ken/rpp2022-pp_total_5_15_all.txt" ;
+  else if(process == process_pp_selected_by_Ken_Foley) data_file_name = "hepdata/selected_measurments_from_Ken/rpp2022-pp_total_5_15_with_Foley.txt" ;
   else
   {
     cout << "Unknown scenario!" << endl ;
@@ -150,7 +152,7 @@ int add_PDG(int process)
   double POINT_NUMBER, PLAB, PLAB_MIN, PLAB_MAX, SIG, STA_ERRP, STA_ERRM, SY_ERP, SY_ERM ;
   string REF1, REF2, REF3, REF4, REF5, FLAG ;
   
-  bool least_square_fit = false ;
+  bool least_square_fit = true ;
   bool least_square_fit_obtain_FCN_for_unc_1 = false ;
   
   fit_scenario = fit_scenario_1_from_5_to_20_GeV ;
@@ -213,6 +215,15 @@ int add_PDG(int process)
       if(fit_function_name.compare("pol0") == 0)
       {
         FCN_value_with_uncertainty_1_on_points = 10.57 ;
+      }
+    }
+    else if(process == process_pp_selected_by_Ken_Foley)
+    {
+      my_NDF = 14.0 ;
+
+      if(fit_function_name.compare("pol0") == 0)
+      {
+        FCN_value_with_uncertainty_1_on_points = 3.31357 ;
       }
     }
     else if(process == process_ppbar)
@@ -338,7 +349,7 @@ int add_PDG(int process)
       exit(1) ;
     }
     
-    if((process == process_pp) || (process == process_pp_selected_by_Ken) || (process == process_pp_selected_by_Ken_all))
+    if((process == process_pp) || (process == process_pp_selected_by_Ken) || (process == process_pp_selected_by_Ken_all) || (process == process_pp_selected_by_Ken_Foley))
     {
       sigma_total_graph_pp_OTHER->AddPoint(energy, SIG) ;
       int index = sigma_total_graph_pp_OTHER->GetN() - 1 ;
@@ -456,8 +467,11 @@ int main(int argc, char *argv[])
   hist_2d->Draw() ;
 
   add_TOTEM() ;
+
+//  add_PDG(process_pp_selected_by_Ken) ;
 //  add_PDG(process_pp_selected_by_Ken_all) ;  
-  add_PDG(process_pp_selected_by_Ken) ;
+  add_PDG(process_pp_selected_by_Ken_Foley) ;  
+
 //  add_PDG(process_pp) ;
   add_PDG(process_ppbar) ;
 
