@@ -152,7 +152,7 @@ int add_PDG(int process)
   double POINT_NUMBER, PLAB, PLAB_MIN, PLAB_MAX, SIG, STA_ERRP, STA_ERRM, SY_ERP, SY_ERM ;
   string REF1, REF2, REF3, REF4, REF5, FLAG ;
   
-  bool least_square_fit = false ;
+  bool least_square_fit = true ;
   bool least_square_fit_obtain_FCN_for_unc_1 = false ;
   
   fit_scenario = fit_scenario_1_from_5_to_20_GeV ;

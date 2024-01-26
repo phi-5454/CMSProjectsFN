@@ -175,7 +175,7 @@ void init()
   
 }
 
-double alpha = 1.0 ;
+double alpha = 0.0 ;
 TRandom3 *myrand ;
 
 TCanvas *c = new TCanvas ;
@@ -244,7 +244,7 @@ void test()
   stringstream rs, cs ;
   
   double result = func->Eval(196.0) ;
-  // cout << "result:" << result << endl ;
+  cout << "result:" << result << endl ;
   rs << std::setprecision(4) << result ;
 
   double result2 = func->Eval(1.0) ;
