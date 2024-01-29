@@ -175,16 +175,16 @@ void init()
   
 }
 
-double alpha = 0.0 ;
+double alpha = 1.0 ;
 TRandom3 *myrand ;
 
 TCanvas *c = new TCanvas ;
 
 int counter = 0 ;
 
-TH1D *hist = new TH1D("hist", "hist", 1000, 0, 100) ;
-TH1D *hist2 = new TH1D("hist2", "hist2", 1000, 0, 100) ;
-TH1D *hist3 = new TH1D("hist3", "hist3", 1000, 0, 100) ;
+TH1D *hist = new TH1D("hist", "hist", 4000, 0, 100) ;
+TH1D *hist2 = new TH1D("hist2", "hist2", 4000, 0, 100) ;
+TH1D *hist3 = new TH1D("hist3", "hist3", 4000, 0, 100) ;
 
 void test()
 {
@@ -231,9 +231,7 @@ void test()
     // cout << "wasok: " << counter << endl ;
     hist->Fill(func->Eval(1.5)) ;
     
-    if(((func->Eval(1.5) > 39.2)) && (func->Eval(1.5) < 39.3)) hist2->Fill(func->Eval(196.0)) ;
-    // if((func->Eval(1.5) < 39.0) && ((func->Eval(1.5) > 38.9))) hist2->Fill(func->Eval(196.0)) ;
-    // func->Draw("same l") ;
+    if(((func->Eval(1.5) > 39.275)) && (func->Eval(1.5) < 39.3)) hist2->Fill(func->Eval(196.0)) ;
   }
 
   hist3->Fill(func->Eval(1.5)) ;
@@ -244,7 +242,7 @@ void test()
   stringstream rs, cs ;
   
   double result = func->Eval(196.0) ;
-  cout << "result:" << result << endl ;
+  // cout << "result:" << result << endl ;
   rs << std::setprecision(4) << result ;
 
   double result2 = func->Eval(1.0) ;
