@@ -186,6 +186,9 @@ TH1D *hist = new TH1D("hist", "hist", 4000, 0, 100) ;
 TH1D *hist2 = new TH1D("hist2", "hist2", 4000, 0, 100) ;
 TH1D *hist3 = new TH1D("hist3", "hist3", 4000, 0, 100) ;
 
+TH1D *hist4 = new TH1D("hist4", "hist4", 4000, 0, 100) ;
+
+
 void test()
 {
   double func_par[4] ;
@@ -231,7 +234,11 @@ void test()
     // cout << "wasok: " << counter << endl ;
     hist->Fill(func->Eval(1.5)) ;
     
-    if(((func->Eval(1.5) > 39.275)) && (func->Eval(1.5) < 39.3)) hist2->Fill(func->Eval(196.0)) ;
+    if(((func->Eval(1.5) > 39.275)) && (func->Eval(1.5) < 39.3))
+    {
+      hist2->Fill(func->Eval(196.0)) ;
+      hist4->Fill(func->Eval(0.5)) ;
+    }
   }
 
   hist3->Fill(func->Eval(1.5)) ;
@@ -316,6 +323,8 @@ int main(int argc, char *argv[])
   hist->SaveAs(("results/hist1_" + seed_string.str() + ".root").c_str()) ;
   hist2->SaveAs(("results/hist2_" + seed_string.str() + ".root").c_str()) ;
   hist3->SaveAs(("results/hist3_" + seed_string.str() + ".root").c_str()) ;
+
+  hist4->SaveAs(("results/hist4_" + seed_string.str() + ".root").c_str()) ;
   
   cout << "Finished successfully" << endl ;
 }
