@@ -4,3 +4,5 @@ results
 *.pdf
 *.png
 *.root
+plot2
+plot_repro

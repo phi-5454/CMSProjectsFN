@@ -21,5 +21,6 @@ wait
 hadd -f hist1.root results/hist1_*
 hadd -f hist2.root results/hist2_*
 hadd -f hist3.root results/hist3_*
+hadd -f hist4.root results/hist4_*
 
 
