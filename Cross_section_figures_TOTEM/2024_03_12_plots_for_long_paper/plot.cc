@@ -56,9 +56,6 @@ const int scenario_prelim_2 = 2 ;
 int plot_sigtot(int scenario)
 {
 
-	TH2D *hist_2d = NULL ;
-   TF1 *func = NULL ;
-
 	string myfilename = "data/TOTEM_D0_14_PRL_preliminary_1_cross_section.txt" ;
 	string myplotname = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.pdf" ;
 	
@@ -79,16 +76,11 @@ int plot_sigtot(int scenario)
 		ap = 2.29419079175536 ;
 
    	TeV_to_GeV = 1.0e3 ;
-      hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1000, 14000, 100, 75, 115) ;	
-      func = new TF1("func",  log_like_function, 10, 14000, 3) ;	
 
 	}
-	else
-	{
-      hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1, 14, 100, 75, 115) ;	
-      func = new TF1("func",  log_like_function, epsilon, 14, 3) ;	
 
-	}
+   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1.0 * TeV_to_GeV, 14.0 * TeV_to_GeV, 100, 75, 115) ;	
+   TF1 *func = new TF1("func", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 3) ;	
 
    gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
