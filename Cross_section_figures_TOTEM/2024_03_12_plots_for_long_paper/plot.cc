@@ -158,6 +158,7 @@ int plot_dsdt()
 
    TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0.45, 1.0, 100, 0.005, 0.1) ;	
 
+	hist_2d->SetTitle("") ;
 	TGraphErrors *graph = new TGraphErrors ;
 
 	graph->SetMarkerStyle(20) ;
@@ -171,7 +172,7 @@ int plot_dsdt()
 	while(data >> t_value >> t_unc >> dsdt >> dsdt_unc >> norm_plus >> norm_minus)
 	{
 		graph->SetPoint(i, t_value, dsdt) ;
-		graph->SetPointError(i, t_unc, dsdt_unc) ;
+		graph->SetPointError(i, 0, dsdt_unc) ;
 		
 		++i ;
 	}
