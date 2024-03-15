@@ -149,9 +149,18 @@ int plot_sigtot(int scenario)
 
 int plot_dsdt()
 {
+	TCanvas c ;
+	c.SetLogy() ;
+
+   gStyle->SetLineScalePS(.3) ;
+	gStyle->SetOptFit(1111);
+	gStyle->SetOptStat("");
+
    TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0.45, 1.0, 100, 0.005, 0.1) ;	
 
 	TGraphErrors *graph = new TGraphErrors ;
+
+	graph->SetMarkerStyle(20) ;
 
 	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_dsdt.txt") ;
 
@@ -163,19 +172,22 @@ int plot_dsdt()
 	{
 		graph->SetPoint(i, t_value, dsdt) ;
 		graph->SetPointError(i, t_unc, dsdt_unc) ;
+		
+		++i ;
 	}
 	
 	hist_2d->Draw() ;
-	hist_2d->GetXaxis()->SetTitle("t (TeV)") ;
-	hist_2d->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;
+	hist_2d->GetXaxis()->SetTitle("|t| (GeV^{2})") ;
+	hist_2d->GetYaxis()->SetTitle("d#sigma/dt (mb/GeV^{2})") ;
 
 	graph->Draw("same p") ;
-	
+
+   c.SaveAs("fig/TOTEM_D0_14_PRL_preliminary_1_dsdt.pdf") ;
 }
 
 int main(int argc, char *argv[])
 {
-	plot_sigtot(scenario_prelim_1) ;
-	plot_sigtot(scenario_prelim_2) ;
+	// plot_sigtot(scenario_prelim_1) ;
+	// plot_sigtot(scenario_prelim_2) ;
 	plot_dsdt() ;
 }
