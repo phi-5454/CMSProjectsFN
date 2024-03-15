@@ -160,10 +160,15 @@ int plot_dsdt()
 
 	hist_2d->SetTitle("") ;
 	TGraphErrors *graph = new TGraphErrors ;
+	TGraphErrors *graph2 = new TGraphErrors ;
 
 	graph->SetMarkerStyle(20) ;
+	graph2->SetMarkerStyle(20) ;
 
-	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_dsdt.txt") ;
+	graph->SetMarkerColor(kBlue) ;
+	graph2->SetMarkerColor(kRed) ;
+
+ 	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_dsdt.txt") ;
 
 	double t_value , t_unc , dsdt , dsdt_unc , norm_plus , norm_minus ;
 
@@ -177,18 +182,37 @@ int plot_dsdt()
 		++i ;
 	}
 	
+	data.close() ;
+
+	ifstream data2("data/TOTEM_D0_14_PRL_preliminary_1_dsdt_extrapolated.txt") ;
+
+	i = 0 ;
+	
+	double chi2start ;
+
+	while(data2 >> t_value >> dsdt >> dsdt_unc >> chi2start)
+	{
+		graph2->SetPoint(i, t_value, dsdt) ;
+		graph2->SetPointError(i, 0, dsdt_unc) ;
+		
+		++i ;
+	}
+	
+	data2.close() ;
+	
 	hist_2d->Draw() ;
 	hist_2d->GetXaxis()->SetTitle("|t| (GeV^{2})") ;
 	hist_2d->GetYaxis()->SetTitle("d#sigma/dt (mb/GeV^{2})") ;
 
 	graph->Draw("same p") ;
+	graph2->Draw("same p") ;
 
    c.SaveAs("fig/TOTEM_D0_14_PRL_preliminary_1_dsdt.pdf") ;
 }
 
 int main(int argc, char *argv[])
 {
-	// plot_sigtot(scenario_prelim_1) ;
-	// plot_sigtot(scenario_prelim_2) ;
+	plot_sigtot(scenario_prelim_1) ;
+	plot_sigtot(scenario_prelim_2) ;
 	plot_dsdt() ;
 }
