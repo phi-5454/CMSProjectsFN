@@ -50,8 +50,10 @@ Double_t log_like_function(Double_t *x, Double_t *par)
         return f ;
 }
 
+const int scenario_prelim_1 = 1 ;
+const int scenario_prelim_2 = 2 ;
 
-int main(int argc, char *argv[])
+int plot_sigtot(int scenario)
 {
    gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
@@ -69,8 +71,17 @@ int main(int argc, char *argv[])
 	graph_1p96->SetMarkerStyle(20) ;
 
 	graph_1p96->SetMarkerColor(kBlue) ;
+
+	string myfilename = "data/TOTEM_D0_14_PRL_preliminary_1_cross_section.txt" ;
+	string myplotname = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.pdf" ;
 	
-	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_cross_section.txt") ;
+	if(scenario ==  scenario_prelim_2)
+	{
+		myfilename = "data/TOTEM_D0_14_PRL_preliminary_2_cross_section.txt" ;
+		myplotname = "fig/TOTEM_D0_14_PRL_preliminary_2_cross_section.pdf" ;
+	}
+	
+	ifstream data(myfilename.c_str()) ;
 	
 	string word ;
 	
@@ -80,7 +91,7 @@ int main(int argc, char *argv[])
 	
 	while(data >> energy >> sigtot >> sigtotunc)
 	{
-		cout << energy << endl ;
+		cout << energy << " " << sigtot << " " << sigtotunc << endl ;
 
 		if(energy == 1.96)
 		{
@@ -111,5 +122,16 @@ int main(int argc, char *argv[])
 	func->SetRange(1.5, 15) ;
 	func->Draw("same l") ;
 
-	c.SaveAs("fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.pdf") ;
+	c.SaveAs(myplotname.c_str()) ;
+
+	delete hist_2d ;
+	delete graph ;
+	delete graph_1p96 ;
+	delete func ;
+}
+
+int main(int argc, char *argv[])
+{
+	plot_sigtot(scenario_prelim_1) ;
+	plot_sigtot(scenario_prelim_2) ;
 }
