@@ -62,6 +62,8 @@ int plot_sigtot(int scenario)
 	double cp = 73.75607 ;
 	double bp = 8.41508 ;
 	double ap = 2.29419 ;
+	
+	string axis_title = "#sqrt{s} (TeV)" ;
 
    double epsilon = 0.01 ;
 	double TeV_to_GeV = 1.0 ;
@@ -76,6 +78,8 @@ int plot_sigtot(int scenario)
 		ap = 2.29419079175536 ;
 
    	TeV_to_GeV = 1.0e3 ;
+
+		axis_title = "#sqrt{s} (GeV)" ;
 
 	}
 
@@ -127,7 +131,7 @@ int plot_sigtot(int scenario)
    func->SetNpx(100) ;	
 
 	hist_2d->Draw() ;
-	hist_2d->GetXaxis()->SetTitle("#sqrt{s} (TeV)") ;
+	hist_2d->GetXaxis()->SetTitle(axis_title.c_str()) ;
 	hist_2d->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;
 
 	graph->Draw("same p") ;
@@ -143,8 +147,35 @@ int plot_sigtot(int scenario)
 	delete func ;
 }
 
+int plot_dsdt()
+{
+   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0.45, 1.0, 100, 0.005, 0.1) ;	
+
+	TGraphErrors *graph = new TGraphErrors ;
+
+	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_dsdt.txt") ;
+
+	double t_value , t_unc , dsdt , dsdt_unc , norm_plus , norm_minus ;
+
+	int i = 0 ;
+
+	while(data >> t_value >> t_unc >> dsdt >> dsdt_unc >> norm_plus >> norm_minus)
+	{
+		graph->SetPoint(i, t_value, dsdt) ;
+		graph->SetPointError(i, t_unc, dsdt_unc) ;
+	}
+	
+	hist_2d->Draw() ;
+	hist_2d->GetXaxis()->SetTitle("t (TeV)") ;
+	hist_2d->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;
+
+	graph->Draw("same p") ;
+	
+}
+
 int main(int argc, char *argv[])
 {
 	plot_sigtot(scenario_prelim_1) ;
 	plot_sigtot(scenario_prelim_2) ;
+	plot_dsdt() ;
 }
