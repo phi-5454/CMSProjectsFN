@@ -15,10 +15,13 @@
 		<update_parameter>			number_of_vertical_bins							40
 	<end>	x_star_mm_x_star_mm_type_block
 	
-	<begin>	theta_x_star_rad_theta_x_star_rad_type_block
-		<update_parameter>			number_of_horizontal_bins						200
-		<update_parameter>			number_of_vertical_bins							200
-	<end>	theta_x_star_rad_theta_x_star_rad_type_block
+        <begin> theta_x_star_rad_theta_x_star_rad_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                0.0008
+                <update_parameter>                     number_of_horizontal_bins                                               200
+                <update_parameter>                     vertical_axis_boundary                                                  0.0008
+                <update_parameter>                     number_of_vertical_bins                                                 200
+        <end>   theta_x_star_rad_theta_x_star_rad_type_block
+
 	
 	<begin>	theta_x_rad_theta_x_right_rad_type_block
 		<update_parameter>			horizontal_axis_boundary						0.0002
