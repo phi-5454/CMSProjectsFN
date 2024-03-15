@@ -45,7 +45,7 @@ Double_t log_like_function(Double_t *x, Double_t *par)
 
         double f = f1 + f2 + f3 ;
       
-      // cout << "energy: " << x[0] << " " << f << endl ;
+        cout << "energy: " << x[0] << " " << f << endl ;
 
         return f ;
 }
@@ -55,6 +55,41 @@ const int scenario_prelim_2 = 2 ;
 
 int plot_sigtot(int scenario)
 {
+
+	TH2D *hist_2d = NULL ;
+   TF1 *func = NULL ;
+
+	string myfilename = "data/TOTEM_D0_14_PRL_preliminary_1_cross_section.txt" ;
+	string myplotname = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.pdf" ;
+	
+	double cp = 73.75607 ;
+	double bp = 8.41508 ;
+	double ap = 2.29419 ;
+
+   double epsilon = 0.01 ;
+	double TeV_to_GeV = 1.0 ;
+	
+	if(scenario ==  scenario_prelim_2)
+	{
+		myfilename = "data/TOTEM_D0_14_PRL_preliminary_2_cross_section.txt" ;
+		myplotname = "fig/TOTEM_D0_14_PRL_preliminary_2_cross_section.pdf" ;
+
+		cp = 125.098837177212 ;
+		bp = -23.2803355035864 ;
+		ap = 2.29419079175536 ;
+
+   	TeV_to_GeV = 1.0e3 ;
+      hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1000, 14000, 100, 75, 115) ;	
+      func = new TF1("func",  log_like_function, 10, 14000, 3) ;	
+
+	}
+	else
+	{
+      hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1, 14, 100, 75, 115) ;	
+      func = new TF1("func",  log_like_function, epsilon, 14, 3) ;	
+
+	}
+
    gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
 	gStyle->SetOptStat("");
@@ -64,7 +99,6 @@ int plot_sigtot(int scenario)
 	
 	TCanvas c ;
 	
-	TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1, 14, 100, 75, 115) ;	
 	hist_2d->SetTitle("") ;
 
 	graph->SetMarkerStyle(20) ;
@@ -72,15 +106,6 @@ int plot_sigtot(int scenario)
 
 	graph_1p96->SetMarkerColor(kBlue) ;
 
-	string myfilename = "data/TOTEM_D0_14_PRL_preliminary_1_cross_section.txt" ;
-	string myplotname = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.pdf" ;
-	
-	if(scenario ==  scenario_prelim_2)
-	{
-		myfilename = "data/TOTEM_D0_14_PRL_preliminary_2_cross_section.txt" ;
-		myplotname = "fig/TOTEM_D0_14_PRL_preliminary_2_cross_section.pdf" ;
-	}
-	
 	ifstream data(myfilename.c_str()) ;
 	
 	string word ;
@@ -106,11 +131,7 @@ int plot_sigtot(int scenario)
 		}
 	}
 
-   double epsilon = 0.01 ;
-	TF1 *func = new TF1("func",  log_like_function, epsilon, 14, 3) ;	
-	
-	
-   func->SetParameters(73.75607, 8.41508, 2.29419) ;
+   func->SetParameters(cp, bp, ap) ;
    func->SetNpx(100) ;	
 
 	hist_2d->Draw() ;
@@ -119,7 +140,7 @@ int plot_sigtot(int scenario)
 
 	graph->Draw("same p") ;
 	graph_1p96->Draw("same p") ;
-	func->SetRange(1.5, 15) ;
+	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
 
 	c.SaveAs(myplotname.c_str()) ;
