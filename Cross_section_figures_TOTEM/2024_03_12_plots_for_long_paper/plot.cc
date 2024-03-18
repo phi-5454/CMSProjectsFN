@@ -114,7 +114,7 @@ int plot_sigtot(int scenario)
 	{
 		cout << energy << " " << sigtot << " " << sigtotunc << endl ;
 
-		if(energy == 1.96)
+		if(energy == 1.96 * TeV_to_GeV)
 		{
 			graph_1p96->SetPoint(0, energy, sigtot) ;
 			graph_1p96->SetPointError(0, 0, sigtotunc) ;
