@@ -43,7 +43,7 @@ Double_t log_like_function(Double_t *x, Double_t *par)
         double f2 = par[1] * pow(log(x[0]), 1) ;
         double f3 = par[2] * pow(log(x[0]), 2) ;
 
-        double f = f1 + f2 + f3 ;
+        double f = par[3] * (f1 + f2 + f3) ;
       
         cout << "energy: " << x[0] << " " << f << endl ;
 
@@ -95,7 +95,10 @@ int plot_sigtot(int scenario)
 	}
 
    TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1.0 * TeV_to_GeV, 14.0 * TeV_to_GeV, 100, 75, 115) ;	
-   TF1 *func = new TF1("func", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 3) ;	
+
+   TF1 *func = new TF1("func", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
+   TF1 *func_p = new TF1("func_p", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
+   TF1 *func_m = new TF1("func_m", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
 
    gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
@@ -109,7 +112,8 @@ int plot_sigtot(int scenario)
 	hist_2d->SetTitle("") ;
 
 	graph->SetMarkerStyle(20) ;
-	graph_1p96->SetMarkerStyle(20) ;
+	graph_1p96->SetMarkerStyle(29) ;
+	graph_1p96->SetMarkerSize(1.4) ;
 
 	graph_1p96->SetMarkerColor(kBlue) ;
 
@@ -137,9 +141,23 @@ int plot_sigtot(int scenario)
 			++i ;
 		}
 	}
+	
+	double uncertainy_factor = 1.01 ;
 
-   func->SetParameters(cp, bp, ap) ;
+   func->SetParameters(cp, bp, ap, 1.0) ;
+   func_p->SetParameters(cp, bp, ap, uncertainy_factor) ;
+   func_m->SetParameters(cp, bp, ap, 1.0 / uncertainy_factor) ;
+
    func->SetNpx(100) ;	
+   func_p->SetNpx(100) ;	
+   func_m->SetNpx(100) ;	
+
+   func->SetLineColor(kRed) ;	
+   func_p->SetLineColor(kMagenta) ;	
+   func_m->SetLineColor(kMagenta) ;	
+
+   func_p->SetLineStyle(kDashed) ;
+   func_m->SetLineStyle(kDashed) ;
 
 	hist_2d->Draw() ;
 	hist_2d->GetXaxis()->SetTitle(axis_title.c_str()) ;
@@ -149,12 +167,14 @@ int plot_sigtot(int scenario)
 	graph_1p96->Draw("same p") ;
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
+	func_p->Draw("same l") ;
+	func_m->Draw("same l") ;
 	
 	TLegend *legend = new TLegend(0.12, 0.65, 0.5, 0.88) ;
 	
 	legend->AddEntry(graph, "TOTEM measurements", "pe") ;
 	legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
-	legend->AddEntry(func, "fit", "l") ;
+	legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
 	
 	legend->Draw("same") ;
 
@@ -185,7 +205,8 @@ int plot_dsdt()
 	TGraphErrors *graph2 = new TGraphErrors ;
 
 	graph->SetMarkerStyle(20) ;
-	graph2->SetMarkerStyle(20) ;
+	graph2->SetMarkerStyle(22) ;
+	graph2->SetMarkerSize(1.1) ;
 
 	graph->SetMarkerColor(kBlue) ;
 	graph2->SetMarkerColor(kRed) ;
