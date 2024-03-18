@@ -240,7 +240,10 @@ void TAnalysisCut2D::DrawCut()
 	plus_cut_line->Draw() ;
 	minus_cut_line->Draw() ;
 	
+	bool hollow_ellipse = true ;
+
 	TEllipse *p1_circle = new TEllipse(p1.GetX(), p1.GetY(), sigma/5) ;
+	if(hollow_ellipse) p1_circle->SetFillStyle(0) ;
 	p1_circle->SetFillColor(kRed) ;
 	p1_circle->SetLineColor(kRed) ;
 	p1_circle->Draw() ;
@@ -252,6 +255,7 @@ void TAnalysisCut2D::DrawCut()
 	// Range points and lines
 
 	TEllipse *range1_circle = new TEllipse(range1.GetX(), range1.GetY(), sigma/5) ;
+	if(hollow_ellipse) range1_circle->SetFillStyle(0) ;
 	range1_circle->SetFillColor(kBlue) ;
 	range1_circle->SetLineColor(kBlue) ;
 	range1_circle->Draw() ;
@@ -262,6 +266,7 @@ void TAnalysisCut2D::DrawCut()
 
 
 	TEllipse *range2_circle = new TEllipse(range2.GetX(), range2.GetY(), sigma/5) ;
+	if(hollow_ellipse) range2_circle->SetFillStyle(0) ;
 	range2_circle->SetFillColor(kBlue) ;
 	range2_circle->SetLineColor(kBlue) ;
 	range2_circle->Draw() ;
