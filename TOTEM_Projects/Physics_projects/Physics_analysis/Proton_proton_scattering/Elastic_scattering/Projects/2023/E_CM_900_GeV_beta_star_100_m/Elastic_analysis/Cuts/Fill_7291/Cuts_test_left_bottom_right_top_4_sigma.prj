@@ -28,15 +28,15 @@
 <end> theta_x_star_rad_theta_y_star_rad_cut_block
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
-        <parameter>     x1              -6.29538e-05
+        <parameter>     x1              -8.2338E-05
         <parameter>     y1              -4e-05
-        <parameter>     x2              -6.29538e-05
+        <parameter>     x2              -8.2338E-05
         <parameter>     y2              -9e-05
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
         <parameter> range2_x            6e-05
         <parameter> range2_y            6.6565e-05
-        <parameter> sigma               3.41774e-05
+        <parameter> sigma               5.3538E-005
         <parameter> number_of_sigmas            1
 <end> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
 
