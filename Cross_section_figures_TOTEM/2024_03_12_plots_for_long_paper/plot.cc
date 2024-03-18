@@ -53,6 +53,17 @@ Double_t log_like_function(Double_t *x, Double_t *par)
 const int scenario_prelim_1 = 1 ;
 const int scenario_prelim_2 = 2 ;
 
+void mydraw()
+{
+   TLatex *latex = new TLatex() ;
+
+   latex->SetNDC() ;
+   latex->SetTextFont(132) ;
+   latex->SetTextColor(kBlack) ;
+	
+	latex->DrawLatex(.7, .14, "TOTEM-D0") ;
+}
+
 int plot_sigtot(int scenario)
 {
 
@@ -138,6 +149,16 @@ int plot_sigtot(int scenario)
 	graph_1p96->Draw("same p") ;
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
+	
+	TLegend *legend = new TLegend(0.12, 0.65, 0.5, 0.88) ;
+	
+	legend->AddEntry(graph, "TOTEM measurements", "pe") ;
+	legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
+	legend->AddEntry(func, "fit", "l") ;
+	
+	legend->Draw("same") ;
+
+	mydraw() ;	
 
 	c.SaveAs(myplotname.c_str()) ;
 
@@ -145,6 +166,7 @@ int plot_sigtot(int scenario)
 	delete graph ;
 	delete graph_1p96 ;
 	delete func ;
+	delete legend ;
 }
 
 int plot_dsdt()
@@ -206,6 +228,15 @@ int plot_dsdt()
 
 	graph->Draw("same p") ;
 	graph2->Draw("same p") ;
+
+	TLegend *legend = new TLegend(0.4, 0.65, 0.88, 0.88) ;
+	
+	legend->AddEntry(graph, "p#bar{p}", "pe") ;
+	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
+	
+	legend->Draw("same") ;
+
+	mydraw() ;
 
    c.SaveAs("fig/TOTEM_D0_14_PRL_preliminary_1_dsdt.pdf") ;
 }
