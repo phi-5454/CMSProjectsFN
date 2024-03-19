@@ -15,9 +15,9 @@
 <end>   alignment_block
 
 <begin> theta_x_star_rad_theta_y_star_rad_cut_block
-        <parameter>     x1              -6e-05
+        <parameter>     x1              -8e-04
         <parameter>     y1              -8.0433E-005
-        <parameter>     x2              6e-05
+        <parameter>     x2              8e-04
         <parameter>     y2              -8.0433E-005
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
@@ -29,9 +29,9 @@
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
         <parameter>     x1              -8.2338E-05
-        <parameter>     y1              -4e-05
+        <parameter>     y1              -2e-04
         <parameter>     x2              -8.2338E-05
-        <parameter>     y2              -9e-05
+        <parameter>     y2              2e-04
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
         <parameter> range2_x            6e-05
@@ -41,9 +41,9 @@
 <end> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
-        <parameter>     x1              4e-05
+        <parameter>     x1             -2e-04
         <parameter>     y1              7.9460E-005
-        <parameter>     x2              9e-05
+        <parameter>     x2              2e-04
         <parameter>     y2              7.9460E-005
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
