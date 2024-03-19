@@ -64,6 +64,8 @@ void mydraw()
 	latex->DrawLatex(.7, .14, "TOTEM-D0") ;
 }
 
+const double axis_title_size = (0.035*1.2) ;
+
 int plot_sigtot(int scenario)
 {
 
@@ -162,6 +164,9 @@ int plot_sigtot(int scenario)
 	hist_2d->Draw() ;
 	hist_2d->GetXaxis()->SetTitle(axis_title.c_str()) ;
 	hist_2d->GetYaxis()->SetTitle("#sigma_{tot} (mb)") ;
+
+	hist_2d->GetXaxis()->SetTitleSize(axis_title_size) ;
+	hist_2d->GetYaxis()->SetTitleSize(axis_title_size) ;
 
 	graph->Draw("same p") ;
 	graph_1p96->Draw("same p") ;
@@ -265,6 +270,10 @@ int plot_dsdt()
 	hist_2d->GetXaxis()->SetTitle("|t| (GeV^{2})") ;
 	hist_2d->GetYaxis()->SetTitle("d#sigma/dt (mb/GeV^{2})") ;
 
+	hist_2d->GetXaxis()->SetTitleSize(axis_title_size) ;
+	hist_2d->GetYaxis()->SetTitleSize(axis_title_size) ;
+	// cout << "titlesize " << hist_2d->GetXaxis()->GetTitleSize() ;
+
 	graph->Draw("same p") ;
 	graph2->Draw("same p") ;
 
@@ -278,8 +287,9 @@ int plot_dsdt()
 
 	TLegend *legend = new TLegend(0.4, 0.65, 0.88, 0.88) ;
 	
-	legend->AddEntry(graph, "p#bar{p}", "pe") ;
+	legend->AddEntry(graph, "p#bar{p} measurement by D0 at #sqrt{s}=1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
+	legend->AddEntry(graph_band_up, "band width (#pm 1 #sigma)", "l") ;
 	
 	legend->Draw("same") ;
 
