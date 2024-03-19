@@ -123,3 +123,15 @@
                 <update_parameter>                     number_of_vertical_bins                                                 200
         <end>   x_mm_near_dx_mm_left_type_block
 
+        <begin> x_star_mm_type_block
+                <update_parameter>                     horizontal_axis_left_boundary                                   -5
+                <update_parameter>                     horizontal_axis_right_boundary                                  5
+                <update_parameter>                     number_of_horizontal_bins                                               500
+        <end>   x_star_mm_type_block
+
+        <begin> y_star_mm_type_block
+                <update_parameter>                     horizontal_axis_left_boundary                                   -5
+                <update_parameter>                     horizontal_axis_right_boundary                                  5
+                <update_parameter>                     number_of_horizontal_bins                                               500
+        <end>   y_star_mm_type_block
+

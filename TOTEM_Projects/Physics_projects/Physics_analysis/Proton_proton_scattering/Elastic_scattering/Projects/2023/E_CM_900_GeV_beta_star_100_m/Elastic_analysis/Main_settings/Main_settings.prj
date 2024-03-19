@@ -4,7 +4,7 @@
 
 	<parameter>	SaveReducedBinaryDataset				0.0
 	<parameter>	SaveRuns								0.0
-	<parameter>	CollectCutDiagnosticData				0.0
+	<parameter>	CollectCutDiagnosticData				1.0
 	
 	<setting>	project_task							analyze
 
