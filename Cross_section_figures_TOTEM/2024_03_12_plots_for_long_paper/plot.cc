@@ -203,6 +203,8 @@ int plot_dsdt()
 	hist_2d->SetTitle("") ;
 	TGraphErrors *graph = new TGraphErrors ;
 	TGraphErrors *graph2 = new TGraphErrors ;
+	TGraphErrors *graph_band_up = new TGraphErrors ;
+	TGraphErrors *graph_band_down = new TGraphErrors ;
 
 	graph->SetMarkerStyle(20) ;
 	graph2->SetMarkerStyle(22) ;
@@ -243,12 +245,36 @@ int plot_dsdt()
 	
 	data2.close() ;
 	
+	ifstream data3("data/TOTEM_D0_14_PRL_preliminary_1_dsdt_extrapolated_uncertainty_band.txt") ;
+
+	i = 0 ;
+
+	double dsdt_down, dsdt_up, f_norm_down, f_norm_up ;
+
+	while(data3 >> t_value >> dsdt_down >> dsdt_up >> f_norm_down >> f_norm_up)
+	{
+		graph_band_up->SetPoint(i, t_value, dsdt_up) ;
+		graph_band_down->SetPoint(i, t_value, dsdt_down) ;
+
+		++i ;
+	}
+
+	data3.close() ;
+
 	hist_2d->Draw() ;
 	hist_2d->GetXaxis()->SetTitle("|t| (GeV^{2})") ;
 	hist_2d->GetYaxis()->SetTitle("d#sigma/dt (mb/GeV^{2})") ;
 
 	graph->Draw("same p") ;
 	graph2->Draw("same p") ;
+
+	graph_band_up->Draw("same l") ;
+	graph_band_down->Draw("same l") ;
+	
+	graph_band_up->SetLineColor(kRed) ;
+	graph_band_down->SetLineColor(kRed) ;
+	graph_band_up->SetLineStyle(kDashed) ;
+	graph_band_down->SetLineStyle(kDashed) ;
 
 	TLegend *legend = new TLegend(0.4, 0.65, 0.88, 0.88) ;
 	
