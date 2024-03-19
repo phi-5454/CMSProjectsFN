@@ -94,6 +94,8 @@
 
         <begin> y_mm_near_dy_mm_left_type_block
                 <update_parameter>                     vertical_axis_boundary                                                  5
+		<update_parameter>			number_of_vertical_bins						        3200
+		<update_parameter>			number_of_horizontal_bins						3200
         <end>   y_mm_near_dy_mm_left_type_block
 
         <begin> y_mm_far_dy_mm_left_type_block

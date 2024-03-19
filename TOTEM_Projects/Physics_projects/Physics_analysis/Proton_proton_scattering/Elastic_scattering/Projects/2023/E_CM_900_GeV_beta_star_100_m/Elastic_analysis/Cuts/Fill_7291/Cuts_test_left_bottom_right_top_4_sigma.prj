@@ -75,7 +75,7 @@
         <parameter> range1_y            -0.763575
         <parameter> range2_x            -22
         <parameter> range2_y            -2.6414
-        <parameter> sigma               0.06
+        <parameter> sigma               0.07
         <parameter> number_of_sigmas            4
 <end> y_mm_near_dy_mm_left_cut_block
 
@@ -88,7 +88,7 @@
         <parameter> range1_y            0.763575
         <parameter> range2_x            16.8349
         <parameter> range2_y            2.6414
-        <parameter> sigma               0.06
+        <parameter> sigma               0.07
         <parameter> number_of_sigmas            4
 <end> y_mm_near_dy_mm_right_cut_block
 
