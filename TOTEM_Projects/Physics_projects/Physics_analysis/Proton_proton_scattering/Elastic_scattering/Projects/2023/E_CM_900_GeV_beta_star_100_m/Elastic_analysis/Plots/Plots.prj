@@ -92,3 +92,18 @@
                 <update_parameter>                     vertical_axis_boundary                                                  15
         <end>   y_star_mm_y_star_mm_type_block
 
+        <begin> y_mm_near_dy_mm_left_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+        <end>   y_mm_near_dy_mm_left_type_block
+
+        <begin> y_mm_far_dy_mm_left_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+        <end>   y_mm_far_dy_mm_left_type_block
+
+        <begin> y_mm_near_dy_mm_right_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+        <end>   y_mm_near_dy_mm_right_type_block
+
+        <begin> y_mm_far_dy_mm_right_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+        <end>   y_mm_far_dy_mm_right_type_block
