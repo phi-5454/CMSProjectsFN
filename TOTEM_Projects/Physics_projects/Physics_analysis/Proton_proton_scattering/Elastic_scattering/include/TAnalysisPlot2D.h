@@ -371,7 +371,11 @@ bool TAnalysisPlot2D::MoveCut()
 {
 	bool DidCutMove = false ;
 
-	if(profile->GetEntries() != 0 && define_cut)
+	std::cout << "Move cuts" << endl ;
+
+        bool do_fit = false ;
+
+	if(profile->GetEntries() != 0 && define_cut && do_fit)
 	{
 		TFitResultPtr fitresult = profile->Fit("pol1","S") ;
 		const int y_axis = 2 ;
@@ -446,7 +450,7 @@ void TAnalysisPlot2D::FitProfileAndCalculateChi2OfCutPlacement(TCanvas *canvas)
 	gStyle->SetOptStat("nemrou");	
 	gStyle->SetOptFit(1111);
 
-	bool do_fit = true ;
+	bool do_fit = false ;
 
 	if(define_cut && (profile->GetEntries() != 0) && do_fit)
 	{
