@@ -54,15 +54,15 @@
 <end> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-        <parameter>     x1              -7.01915e-05
-        <parameter>     y1              6.96676e-05
-        <parameter>     x2              -3.11768e-05
-        <parameter>     y2              3.09198e-05
+        <parameter>     x1              -0.0001089
+        <parameter>     y1              0.000107
+        <parameter>     x2              -5.332E-5
+        <parameter>     y2              5.156E-5
         <parameter> range1_x            -8.04034e-05
         <parameter> range1_y            8.03904e-05
         <parameter> range2_x            -4.34808e-05
         <parameter> range2_y            4.30028e-05
-        <parameter> sigma               1.39152e-06
+        <parameter> sigma               5.798E-06
         <parameter> number_of_sigmas            4
 <end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
@@ -93,10 +93,10 @@
 <end> y_mm_near_dy_mm_right_cut_block
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-        <parameter>     x1              0.000272145
-        <parameter>     y1              -0.000274497
-        <parameter>     x2              -0.223978
-        <parameter>     y2              -0.223979
+        <parameter>     x1              2.57458
+        <parameter>     y1              -3.05352
+        <parameter>     x2              0.982501
+        <parameter>     y2              -4.88335
         <parameter> range1_x            0.2
         <parameter> range1_y            0.2
         <parameter> range2_x            0.03
@@ -110,11 +110,11 @@
         <parameter>     y1              2.3233E-05
         <parameter>     x2              0.0004558
         <parameter>     y2              -0.0005757
-        <parameter> range1_x            -8.04034e-05
-        <parameter> range1_y            8.03904e-05
-        <parameter> range2_x            -4.34808e-05
-        <parameter> range2_y            4.30028e-05
-        <parameter> sigma               5.324E-05
+        <parameter> range1_x            -58.04034e-05
+        <parameter> range1_y            58.03904e-05
+        <parameter> range2_x            54.34808e-05
+        <parameter> range2_y            -54.30028e-05
+        <parameter> sigma               25.88E-06
         <parameter> number_of_sigmas            4
 <end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 

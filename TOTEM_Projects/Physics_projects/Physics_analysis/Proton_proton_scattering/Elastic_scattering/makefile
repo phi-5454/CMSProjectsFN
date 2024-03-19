@@ -13,5 +13,5 @@ info:
 clean:
 	rm -rf MC
 
-$(TARGETS) : %: %.cc
+$(TARGETS) : %: %.cc include/*.h
 	g++ -std=c++11 -Wall -Woverloaded-virtual -Wconversion $(FLAGS) `root-config --cflags` -I/usr/include/root -I$(ROOTSYS)/include -L$(ROOTSYS)/lib `root-config --libs` -lMinuit -I. -ldl -pthread $< -o $@
