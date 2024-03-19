@@ -97,11 +97,11 @@
         <parameter>     y1              -3.05352
         <parameter>     x2              0.982501
         <parameter>     y2              -4.88335
-        <parameter> range1_x            0.2
-        <parameter> range1_y            0.2
-        <parameter> range2_x            0.03
-        <parameter> range2_y            0.03
-        <parameter> sigma               0.00765185e3
+        <parameter> range1_x            -6.0
+        <parameter> range1_y            -6.0
+        <parameter> range2_x            6.0
+        <parameter> range2_y            6.0
+        <parameter> sigma               0.5
         <parameter> number_of_sigmas            4
 <end> x_star_left_mm_x_star_right_mm_cut_block
 
