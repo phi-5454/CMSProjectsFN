@@ -1,0 +1,171 @@
+<comment> useful commands
+<comment> ./analyse Projects/2015/E_CM_13_TeV_beta_star_90_m_2015_10_13_to_18/Elastic_analysis/Project_files/Fill_4495/Split/Left_bottom_right_top_4_sigma_0000.prj | grep "<begin>" -A 11 > new_definitions.txt
+<comment> cat new_definitions.txt  | sed 's/parameter/update_parameter/g' | sed 's/define\_//g' | sed 's/\-\-//g' 
+
+<begin> alignment_block
+                <parameter> RP_alignment_left_far__x_mm             -0.0380692
+                <parameter> RP_alignment_left_near_x_mm             -0.383573
+                <parameter> RP_alignment_right_far__x_mm            -0.879717
+                <parameter> RP_alignment_right_near_x_mm            -0.126745
+
+                <parameter> RP_alignment_left_near_y_mm              0.00274931
+                <parameter> RP_alignment_left_far__y_mm             -0.250858
+                <parameter> RP_alignment_right_far__y_mm             0.191994
+                <parameter> RP_alignment_right_near_y_mm             0.324914
+<end>   alignment_block
+
+<begin> theta_x_star_rad_theta_y_star_rad_cut_block
+        <parameter>     x1              -6e-05
+        <parameter>     y1              4.0e-04
+        <parameter>     x2              6e-05
+        <parameter>     y2              4.0e-04
+        <parameter> range1_x            -6e-05
+        <parameter> range1_y            6.6565e-05
+        <parameter> range2_x            6e-05
+        <parameter> range2_y            6.6565e-05
+        <parameter> sigma               2.0e-04
+        <parameter> number_of_sigmas            1
+<end> theta_x_star_rad_theta_y_star_rad_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+        <parameter>     x1              4.0e-04
+        <parameter>     y1              -4e-04
+        <parameter>     x2              4.0e-04
+        <parameter>     y2              -9e-04
+        <parameter> range1_x            -6e-05
+        <parameter> range1_y            6.6565e-05
+        <parameter> range2_x            6e-05
+        <parameter> range2_y            6.6565e-05
+        <parameter> sigma               2.0e-04
+        <parameter> number_of_sigmas            1
+<end> theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+        <parameter>     x1              4e-04
+        <parameter>     y1              -4e-04
+        <parameter>     x2              9e-04
+        <parameter>     y2              -4e-04
+        <parameter> range1_x            -6e-05
+        <parameter> range1_y            6.6565e-05
+        <parameter> range2_x            6e-05
+        <parameter> range2_y            6.6565e-05
+        <parameter> sigma               2.0e-04
+        <parameter> number_of_sigmas            1
+<end> theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+        <parameter>     x1              -6e-04
+        <parameter>     y1              6e-04
+        <parameter>     x2              6e-04
+        <parameter>     y2              -6e-04
+        <parameter> range1_x            -8e-04
+        <parameter> range1_y            +8e-4
+        <parameter> range2_x            +8e-4
+        <parameter> range2_y            -8e-4
+        <parameter> sigma               3.2e-05
+        <parameter> number_of_sigmas            4
+<end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+        <parameter>     x1              2.81543  
+        <parameter>     y1              0.26075  
+        <parameter>     x2              11.9265  
+        <parameter>     y2              0.349954
+        <parameter> range1_x            -9.33107
+        <parameter> range1_y            -0.763575
+        <parameter> range2_x            -22
+        <parameter> range2_y            -2.6414
+        <parameter> sigma               0.1
+        <parameter> number_of_sigmas            4
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_right_cut_block
+        <parameter>     x1                -10.9599 	    
+        <parameter>     y1                0.346639 	    
+        <parameter>     x2                -3.91977 	    
+        <parameter>     y2                0.194181
+        <parameter> range1_x            2
+        <parameter> range1_y            0.763575
+        <parameter> range2_x            12
+        <parameter> range2_y            2.6414
+        <parameter> sigma               0.1
+        <parameter> number_of_sigmas            4
+<end> y_mm_near_dy_mm_right_cut_block
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+        <parameter>     x1              0.000272145
+        <parameter>     y1              -0.000274497
+        <parameter>     x2              -0.223978
+        <parameter>     y2              -0.223979
+        <parameter> range1_x            0.2
+        <parameter> range1_y            0.2
+        <parameter> range2_x            0.03
+        <parameter> range2_y            0.03
+        <parameter> sigma               0.00765185e3
+        <parameter> number_of_sigmas            4
+<end> x_star_left_mm_x_star_right_mm_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+        <parameter>     x1               -0.00034097
+        <parameter>     y1               0.000151261
+        <parameter>     x2               0.000504298
+        <parameter>     y2               -0.00067647
+        <parameter> range1_x            6e-04
+        <parameter> range1_y            -1.8e-05
+        <parameter> range2_x            -6e-04
+        <parameter> range2_y            1.8e-05
+        <parameter> sigma               3.7e-05
+        <parameter> number_of_sigmas            4
+<end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+<begin> theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
+    <parameter>     y1                              4.66501999999999932e-04
+    <parameter>     y2                              -4.66501999999999932e-04
+    <parameter>     x1                              0.0e-04
+    <parameter>     x2                              0.0e-04
+    <parameter>     range1_x                       -60e-06
+    <parameter>     range1_y                        66.565e-06
+    <parameter>     range2_x                        60e-06
+    <parameter>     range2_y                        66.565e-06
+    <parameter>     sigma                           1.0e-03
+    <parameter>     number_of_sigmas                1
+<end>   theta_x_star_rad_theta_y_star_rad_horizontal_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
+        <parameter>     x1              0.0
+        <parameter>     y1              0.00023546798
+        <parameter>     x2              0.0
+        <parameter>     y2              -0.00032491695
+        <parameter> range1_x            -7.75052e-05
+        <parameter> range1_y            8.03706e-05
+        <parameter> range2_x            8.10282e-05
+        <parameter> range2_y            -7.69824e-05
+        <parameter> sigma               0.00853289
+        <parameter> number_of_sigmas            1
+<end>   theta_x_star_left_rad_theta_x_star_right_rad_left_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
+        <parameter>     x1              0.00023546798
+        <parameter>     y1              0.0
+        <parameter>     x2              -0.00032491695
+        <parameter>     y2              0.0
+        <parameter> range1_x            -7.75052e-05
+        <parameter> range1_y            8.03706e-05
+        <parameter> range2_x            8.10282e-05
+        <parameter> range2_y            -7.69824e-05
+        <parameter> sigma               0.00806757
+        <parameter> number_of_sigmas            1
+<end>   theta_x_star_left_rad_theta_x_star_right_rad_right_cut_block
+
+<begin> x_mm_near_dx_mm_left_cut_block
+        <parameter>      x1              -5
+        <parameter>      y1              1.5
+        <parameter>      x2              5
+        <parameter>      y2              -1.5
+        <parameter> range1_x             -0.2
+        <parameter> range1_y             0.2
+        <parameter> range2_x             0.2
+        <parameter> range2_y             -0.2
+        <parameter> sigma                1
+        <parameter> number_of_sigmas             4
+<end> x_mm_near_dx_mm_left_cut_block
