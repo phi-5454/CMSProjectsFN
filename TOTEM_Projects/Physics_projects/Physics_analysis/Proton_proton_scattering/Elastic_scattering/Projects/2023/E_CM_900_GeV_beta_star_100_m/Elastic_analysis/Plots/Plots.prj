@@ -48,7 +48,7 @@
 	<end>	x_mm_near_dx_mm_left_with_cut_plot_block
 
 	<begin>	x_mm_near_dx_mm_right_with_cut_plot_block
-		<update_parameter>	cut														0.0
+		<update_parameter>	cut														1.0
 	<end>	x_mm_near_dx_mm_right_with_cut_plot_block
 
 	<begin>	y_star_left_mm_y_star_right_mm_define_cut_plot_block
@@ -56,7 +56,7 @@
 	<end>	y_star_left_mm_y_star_right_mm_define_cut_plot_block
 	
 	<begin>	x_mm_near_dx_mm_right_define_cut_plot_block
-		<update_parameter>	define_cut												0.0
+		<update_parameter>	define_cut												1.0
 	<end>	x_mm_near_dx_mm_right_define_cut_plot_block
 
 	<begin>	x_mm_near_dx_mm_left_define_cut_plot_block
