@@ -52,10 +52,10 @@
   		<nsetting>	analysis_plot		y_mm_near_dy_mm_left_define_cut
 		<nsetting>	analysis_plot		y_mm_near_dy_mm_right_define_cut
 		<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_define_cut
-		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_define_cut
 	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_define_cut
 	  	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm_define_cut
 	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_define_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_define_cut
 
 		<nsetting>	analysis_plot		text_analysis_cut_definitions_end_here
 		
