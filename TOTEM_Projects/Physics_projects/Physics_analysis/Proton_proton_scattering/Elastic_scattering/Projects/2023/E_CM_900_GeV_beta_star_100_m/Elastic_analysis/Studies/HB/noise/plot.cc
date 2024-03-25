@@ -93,6 +93,21 @@ main()
 			double int2 = hist9->Integral() ;
 			
 			cout << "ratio " << word << " " << (int2 / int1) << endl ;
+
+			TH1D *hist10 = ((TH1D *)myroot->Get("P0027_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1")) ;
+			TH1D *hist11 = ((TH1D *)myroot->Get("P0028_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_with_cut")) ;
+P0030_PlotsCollection_y_mm_near_dy_mm_left_with_cut
+P0032_PlotsCollection_y_mm_near_dy_mm_right_with_cut
+P0034_PlotsCollection_x_star_left_mm_x_star_right_mm_with_cut
+
+			hist10->Draw("colz") ;
+			c.SaveAs(("fig/fig_x_" + word + ".png").c_str()) ;		
+
+			hist11->Draw("colz") ;
+			c.SaveAs(("fig/fig_y_" + word + ".png").c_str()) ;		
+
 		}
+	
+
 	}
 }
