@@ -29,7 +29,7 @@
 	  	<nsetting>	analysis_plot		x_star_left_mm_x_star_right_mm_with_cut
 		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_5
 
-		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_with_cut
+	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_with_cut
 		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_6
 
 	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_left_with_cut
@@ -38,7 +38,7 @@
 	  	<nsetting>	analysis_plot		y_star_left_mm_y_star_right_mm_with_cut
 	  	<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_8
 
-	  	<nsetting>	analysis_plot		x_mm_near_dx_mm_right_with_cut
+		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_with_cut
 		<nsetting>	analysis_plot		theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_9
 
 <comment>		<nsetting>	analysis_plot		x_star_mm_x_star_right_mm_with_cut_test_only
