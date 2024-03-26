@@ -172,8 +172,8 @@ int plot_sigtot(int scenario)
 	graph_1p96->Draw("same p") ;
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
-	func_p->Draw("same l") ;
-	func_m->Draw("same l") ;
+	// func_p->Draw("same l") ;
+	// func_m->Draw("same l") ;
 	
 	TLegend *legend = new TLegend(0.12, 0.65, 0.5, 0.88) ;
 	
