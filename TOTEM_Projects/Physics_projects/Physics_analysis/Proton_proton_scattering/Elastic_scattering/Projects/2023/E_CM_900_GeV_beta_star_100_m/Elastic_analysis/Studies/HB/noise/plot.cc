@@ -37,8 +37,8 @@ using namespace std;
 
 #include <iomanip>
 
-const string diag_LBRT = "DIAGONAL_LEFT_TOP_RIGHT_BOTTOM" ;
-const string diag_LTRB = "DIAGONAL_LEFT_BOTTOM_RIGHT_TOP" ;
+const string diag_LBRT = "DIAGONAL_LEFT_BOTTOM_RIGHT_TOP" ;
+const string diag_LTRB = "DIAGONAL_LEFT_TOP_RIGHT_BOTTOM" ;
 const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/" ;
 const string basic_path_2 = "/All_root_files_to_define_cuts_run_" ;
 
@@ -154,29 +154,36 @@ void test(string histoname)
 	cout << histoname << " finalminmeanperrms: " << minmeanperrms << endl ;
 }
 
-void test2(string filename, string histoname)
+void test2(string filename, string histoname, ofstream &project_file2)
 {
 	TFile *myroot = TFile::Open(filename.c_str()) ;
-
-	TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
-
-	if(hist != NULL)
-	{
-		double myRMS = hist->GetRMS(2) ;
-		
-		int length = histoname.length() - 11 - 22 ;
-		string cut_name = histoname.substr(22, length) + "_cut_block" ;
-		
-		string spacing = "" ;
-		for(int j = 0 ; j < 50 - length ; ++j) spacing += " " ;
-
-		cout << "<begin> " << cut_name << endl ;
-		cout << "  <update_parameter> sigma " << myRMS << endl ;
-		cout << "<end>   " << cut_name << endl << endl ;
-		
-	}
 	
-	myroot->Close() ;
+	if(myroot != NULL)
+	{
+		cout << filename << "ok" << endl ;
+
+		TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
+
+		project_file2 << endl << endl ;
+
+		if(hist != NULL)
+		{
+			double myRMS = hist->GetRMS(2) ;
+
+			int length = histoname.length() - 11 - 22 ;
+			string cut_name = histoname.substr(22, length) + "_cut_block" ;
+
+			string spacing = "" ;
+			for(int j = 0 ; j < 50 - length ; ++j) spacing += " " ;
+
+			project_file2 << "<begin> " << cut_name << endl ;
+			project_file2 << "  <update_parameter> sigma " << myRMS << endl ;
+			project_file2 << "<end>   " << cut_name << endl << endl ;
+
+		}
+
+		myroot->Close() ;
+	}
 }
 
 int main()
@@ -204,8 +211,15 @@ int main()
 		
 		ifstream project_file((basic_path_3 + basic_path_4_LBRT + word + ".prj" ).c_str()) ;
 		ofstream project_file2((basic_path_3 + basic_path_4_LBRT + word + "_new.prj" ).c_str()) ;
+		string myline ;
 
-		for(int i = 0 ; i < plotnames.size() ; ++i) test2(actual_filename, plotnames[i]) ;
+		while(getline(project_file, myline)) 
+		{
+			// cout << myline << endl ;
+			project_file2 << myline << endl ;
+		}
+
+		for(int i = 0 ; i < plotnames.size() ; ++i) test2(actual_filename, plotnames[i], project_file2) ;
 		
 		project_file.close() ;
 		project_file2.close() ;
