@@ -37,10 +37,22 @@ using namespace std;
 
 #include <iomanip>
 
-const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_run_" ;
+// const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_run_" ;
+const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts_run_" ;
 
-main()
+void test(string histoname)
 {
+
+	vector<string> plotnames ;
+	plotnames.push_back("P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated") ;
+	plotnames.push_back("P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated") ;
+	plotnames.push_back("P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated") ;
+	plotnames.push_back("P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated") ;
+	plotnames.push_back("P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated") ;
+	plotnames.push_back("P0050_PlotsCollection_y_star_left_mm_y_star_right_mm_define_cut_rotated") ;
+	plotnames.push_back("P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated") ;
+	plotnames.push_back("P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated") ;
+
    gErrorIgnoreLevel = kWarning ;
 
 	string files = "../../../../General_settings/List_of_runs.txt" ;
@@ -51,6 +63,9 @@ main()
 	
 	TCanvas c ;
 //	c.SetLogy() ;			
+
+  double maxmeanperrms = 0 ;		
+  double minmeanperrms = 1e10 ;		
 	
 	while(myfiles >>  word)
 	{
@@ -71,7 +86,7 @@ main()
 		TH1D *hist7 = ((TH1D *)myroot->Get("P0039_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_7_distance_from_cut")) ;
 		TH1D *hist8 = ((TH1D *)myroot->Get("P0041_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_8_distance_from_cut")) ;
 		TH1D *hist9 = ((TH1D *)myroot->Get("P0043_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_9_distance_from_cut")) ;
-		
+
 		
 		if(hist1 != NULL)
 		{
@@ -96,9 +111,27 @@ main()
 
 			TH1D *hist10 = ((TH1D *)myroot->Get("P0027_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1")) ;
 			TH1D *hist11 = ((TH1D *)myroot->Get("P0028_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_with_cut")) ;
-P0030_PlotsCollection_y_mm_near_dy_mm_left_with_cut
-P0032_PlotsCollection_y_mm_near_dy_mm_right_with_cut
-P0034_PlotsCollection_x_star_left_mm_x_star_right_mm_with_cut
+// P0030_PlotsCollection_y_mm_near_dy_mm_left_with_cut
+// P0032_PlotsCollection_y_mm_near_dy_mm_right_with_cut
+// P0034_PlotsCollection_x_star_left_mm_x_star_right_mm_with_cut
+// P0036_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_with_cut
+
+
+			TH1D *hist12 = ((TH1D *)myroot->Get((histoname + "_rotated").c_str())) ;
+			TH1D *hist13 = ((TH1D *)myroot->Get(histoname.c_str())) ;
+			
+			int entries = hist13->GetEntries() ;
+			cout << histoname << "entries " << entries << endl ;
+			
+			// cout << "mean " << hist12->GetMean(2)<< endl ;
+			// cout << "RMS " << hist12->GetRMS(2)<< endl ;
+
+			double meanperrms = fabs(hist12->GetMean(2)/hist12->GetRMS(2)) ;
+			
+			if(maxmeanperrms < meanperrms) maxmeanperrms = meanperrms ;
+			if(minmeanperrms > meanperrms) minmeanperrms = meanperrms ;
+
+			cout << "meanperrms: " << meanperrms << endl ;
 
 			hist10->Draw("colz") ;
 			c.SaveAs(("fig/fig_x_" + word + ".png").c_str()) ;		
@@ -107,7 +140,28 @@ P0034_PlotsCollection_x_star_left_mm_x_star_right_mm_with_cut
 			c.SaveAs(("fig/fig_y_" + word + ".png").c_str()) ;		
 
 		}
-	
 
 	}
+
+	cout << histoname << " finalmaxmeanperrms: " << maxmeanperrms << endl ;
+	cout << histoname << " finalminmeanperrms: " << minmeanperrms << endl ;
+}
+
+int main()
+{
+
+	vector<string> plotnames ;
+	plotnames.push_back("P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut") ;
+	plotnames.push_back("P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut") ;
+	plotnames.push_back("P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut") ;
+	plotnames.push_back("P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut") ;
+	plotnames.push_back("P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut") ;
+	plotnames.push_back("P0050_PlotsCollection_y_star_left_mm_y_star_right_mm_define_cut") ;
+	plotnames.push_back("P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut") ;
+	plotnames.push_back("P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut") ;
+
+   gErrorIgnoreLevel = kWarning ;
+	
+	for(int i = 0 ; i < plotnames.size() ; ++i) test(plotnames[i]) ;
+
 }
