@@ -37,8 +37,15 @@ using namespace std;
 
 #include <iomanip>
 
-// const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_run_" ;
-const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM/All_root_files_to_define_cuts_run_" ;
+const string diag_LBRT = "DIAGONAL_LEFT_TOP_RIGHT_BOTTOM" ;
+const string diag_LTRB = "DIAGONAL_LEFT_BOTTOM_RIGHT_TOP" ;
+const string basic_path = "/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/" ;
+const string basic_path_2 = "/All_root_files_to_define_cuts_run_" ;
+
+const string basic_path_3 = "/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Per_run/" ;
+
+const string basic_path_4_LBRT = "Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_" ;
+const string basic_path_4_LTRB = "Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_" ;
 
 void test(string histoname)
 {
@@ -193,9 +200,16 @@ int main()
 
 	while(myfiles >>  word)
 	{
-		string actual_filename = basic_path + word + "/Generic.root" ;
+		string actual_filename = basic_path + diag_LBRT + basic_path_2 + word + "/Generic.root" ;
+		
+		ifstream project_file((basic_path_3 + basic_path_4_LBRT + word + ".prj" ).c_str()) ;
+		ofstream project_file2((basic_path_3 + basic_path_4_LBRT + word + "_new.prj" ).c_str()) ;
 
 		for(int i = 0 ; i < plotnames.size() ; ++i) test2(actual_filename, plotnames[i]) ;
+		
+		project_file.close() ;
+		project_file2.close() ;
+
 		cout << endl ;
 	}
 }
