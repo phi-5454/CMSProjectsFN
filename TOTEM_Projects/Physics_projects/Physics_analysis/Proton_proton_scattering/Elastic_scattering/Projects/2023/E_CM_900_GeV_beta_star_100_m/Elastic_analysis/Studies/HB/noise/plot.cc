@@ -147,6 +147,31 @@ void test(string histoname)
 	cout << histoname << " finalminmeanperrms: " << minmeanperrms << endl ;
 }
 
+void test2(string filename, string histoname)
+{
+	TFile *myroot = TFile::Open(filename.c_str()) ;
+
+	TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
+
+	if(hist != NULL)
+	{
+		double myRMS = hist->GetRMS(2) ;
+		
+		int length = histoname.length() - 11 - 22 ;
+		string cut_name = histoname.substr(22, length) + "_cut_block" ;
+		
+		string spacing = "" ;
+		for(int j = 0 ; j < 50 - length ; ++j) spacing += " " ;
+
+		cout << "<begin> " << cut_name << endl ;
+		cout << "  <update_parameter> sigma " << myRMS << endl ;
+		cout << "<end>   " << cut_name << endl << endl ;
+		
+	}
+	
+	myroot->Close() ;
+}
+
 int main()
 {
 
@@ -156,12 +181,21 @@ int main()
 	plotnames.push_back("P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut") ;
 	plotnames.push_back("P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut") ;
 	plotnames.push_back("P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut") ;
-	plotnames.push_back("P0050_PlotsCollection_y_star_left_mm_y_star_right_mm_define_cut") ;
+	// plotnames.push_back("P0050_PlotsCollection_y_star_left_mm_y_star_right_mm_define_cut") ;
 	plotnames.push_back("P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut") ;
 	plotnames.push_back("P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut") ;
 
-   gErrorIgnoreLevel = kWarning ;
-	
-	for(int i = 0 ; i < plotnames.size() ; ++i) test(plotnames[i]) ;
 
+	string files = "../../../../General_settings/List_of_runs.txt" ;
+
+	string word ;
+	ifstream myfiles(files) ;
+
+	while(myfiles >>  word)
+	{
+		string actual_filename = basic_path + word + "/Generic.root" ;
+
+		for(int i = 0 ; i < plotnames.size() ; ++i) test2(actual_filename, plotnames[i]) ;
+		cout << endl ;
+	}
 }
