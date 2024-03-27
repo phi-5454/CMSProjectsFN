@@ -212,6 +212,7 @@ int plot_dsdt()
 	TGraphErrors *graph_band_up = new TGraphErrors ;
 	TGraphErrors *graph_band_down = new TGraphErrors ;
 	TGraphAsymmErrors *graph_center = new TGraphAsymmErrors ;
+	TGraphAsymmErrors *graph_center2 = new TGraphAsymmErrors ;
 
 	graph->SetMarkerStyle(20) ;
 	graph2->SetMarkerStyle(22) ;
@@ -223,6 +224,10 @@ int plot_dsdt()
 	graph_center->SetMarkerStyle(22) ;
 	graph_center->SetMarkerSize(1.0) ;
 	graph_center->SetMarkerColor(kRed) ;
+
+	graph_center2->SetMarkerStyle(22) ;
+	graph_center2->SetMarkerSize(1.0) ;
+	graph_center2->SetMarkerColor(kRed) ;
 
  	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_dsdt.txt") ;
 
@@ -276,6 +281,7 @@ int plot_dsdt()
 	ifstream data3("data/TOTEM_D0_14_PRL_preliminary_1_dsdt_extrapolated_uncertainty_band.txt") ;
 
 	i = 0 ;
+	int j = 0 ;
 
 	while(data3 >> t_value >> dsdt_down >> dsdt_up >> f_norm_down >> f_norm_up)
 	{
@@ -284,8 +290,19 @@ int plot_dsdt()
 
 
 		double myx, myy ;
+
 		graph_center->GetPoint(i, myx, myy) ;
 		graph_center->SetPointError(i, 0, 0, myy - f_norm_down, f_norm_up - myy) ;
+
+		double myx2, myy2 ;
+		graph2->GetPoint(j, myx2, myy2) ;
+
+		if(myx == myx2)
+		{
+			graph_center2->SetPoint(j, myx, myy) ;
+			graph_center2->SetPointError(j, 0, 0, myy - f_norm_down, f_norm_up - myy) ;
+			++j ;
+		}
 
 		++i ;
 	}
@@ -308,7 +325,7 @@ int plot_dsdt()
 	graph_band_up->Draw("same l") ;
 	graph_band_down->Draw("same l") ;
 	
-	graph_center->Draw("same p") ;
+	graph_center2->Draw("same p") ;
 	
 	graph_band_up->SetLineColor(kRed) ;
 	graph_band_down->SetLineColor(kRed) ;
