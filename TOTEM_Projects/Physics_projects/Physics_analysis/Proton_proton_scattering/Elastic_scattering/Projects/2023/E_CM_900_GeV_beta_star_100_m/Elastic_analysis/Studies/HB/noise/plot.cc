@@ -154,6 +154,60 @@ void test(string histoname)
 	cout << histoname << " finalminmeanperrms: " << minmeanperrms << endl ;
 }
 
+bool test3(string filename, string histoname, string prj_filename)
+{
+	TFile *myroot = TFile::Open(filename.c_str()) ;
+	bool found = false ;
+	
+	if(myroot != NULL)
+	{
+		// cout << filename << "ok" << endl ;
+
+		TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
+		
+		if(hist != NULL)
+		{
+			double myRMS = hist->GetRMS(2) ;
+			myroot->Close() ;
+			
+			ifstream project_file(prj_filename.c_str()) ;
+		   // cout << prj_filename << " ok" << endl ;
+			
+			string word = "" ;
+			int length = histoname.length() - 11 - 22 ;
+			string cut_name = histoname.substr(22, length) + "_cut_block" ;
+			double RMS_in_prj_file = myRMS ;
+			
+			while(project_file >> word)
+			{
+				if(word.compare(cut_name) == 0)
+				{
+							project_file >> word ;
+							project_file >> word ;
+							project_file >> RMS_in_prj_file ;
+
+							// cout << "found " << RMS_in_prj_file << endl ;
+							
+							while(project_file >> word) if(word.compare("<end>")) break ;
+				}
+			}
+			
+			if((fabs(RMS_in_prj_file - myRMS) / RMS_in_prj_file) > 0.01)
+			{
+				found = true ;
+				cout << "here" << endl ;
+			}
+			
+			
+			project_file.close() ;
+		}
+		
+		
+	}
+	
+	return found ;
+}
+
 void test2(string filename, string histoname, ofstream &project_file2)
 {
 	TFile *myroot = TFile::Open(filename.c_str()) ;
@@ -186,6 +240,7 @@ void test2(string filename, string histoname, ofstream &project_file2)
 	}
 }
 
+
 int main()
 {
 
@@ -199,31 +254,54 @@ int main()
 	plotnames.push_back("P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut") ;
 	plotnames.push_back("P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut") ;
 
+	const int iteration = 1 ;
+
+   string post_fix1 = "" ;	
+	string post_fix2 = "_new" ;	
 
 	string files = "../../../../General_settings/List_of_runs.txt" ;
 
 	string word ;
 	ifstream myfiles(files) ;
 
+	for(int i = 1 ; i < iteration ; ++i)
+	{
+		post_fix1 += "_new" ;
+		post_fix2 += "_new" ;
+	}
+
 	while(myfiles >>  word)
 	{
+		
+	
 		string actual_filename = basic_path + diag_LBRT + basic_path_2 + word + "/Generic.root" ;
+		string prj_filename = (basic_path_3 + basic_path_4_LBRT + word + post_fix1 + ".prj" ) ;
+		string prj_filename_new = (basic_path_3 + basic_path_4_LBRT + word + post_fix2 + ".prj" ) ;
 		
-		ifstream project_file((basic_path_3 + basic_path_4_LBRT + word + ".prj" ).c_str()) ;
-		ofstream project_file2((basic_path_3 + basic_path_4_LBRT + word + "_new.prj" ).c_str()) ;
-		string myline ;
+		bool mytest = false ;
 
-		while(getline(project_file, myline)) 
-		{
-			// cout << myline << endl ;
-			project_file2 << myline << endl ;
+		for(int i = 0 ; i < plotnames.size() ; ++i) mytest |= test3(actual_filename, plotnames[i], prj_filename) ;
+		
+		if(mytest) cout << "To be corrected: " << word << endl ;
+
+		if(false)
+		{		
+			ifstream project_file(prj_filename.c_str()) ;
+			ofstream project_file2(prj_filename_new.c_str()) ;
+			string myline ;
+
+			while(getline(project_file, myline)) 
+			{
+				// cout << myline << endl ;
+				project_file2 << myline << endl ;
+			}
+
+			if(mytest) for(int i = 0 ; i < plotnames.size() ; ++i) test2(actual_filename, plotnames[i], project_file2) ;
+
+			project_file.close() ;
+			project_file2.close() ;
+
+			cout << endl ;
 		}
-
-		for(int i = 0 ; i < plotnames.size() ; ++i) test2(actual_filename, plotnames[i], project_file2) ;
-		
-		project_file.close() ;
-		project_file2.close() ;
-
-		cout << endl ;
 	}
 }
