@@ -22,6 +22,7 @@ using namespace std;
 #include "TCanvas.h"
 #include "TAxis.h"
 #include "TGraphErrors.h"
+#include "TGraphAsymmErrors.h"
 #include "TLatex.h"
 #include "TLine.h"
 #include "TMinuit.h"
@@ -179,7 +180,7 @@ int plot_sigtot(int scenario)
 	
 	legend->AddEntry(graph, "TOTEM measurements", "pe") ;
 	legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
-	legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
+	// legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
 	
 	legend->Draw("same") ;
 
@@ -210,6 +211,7 @@ int plot_dsdt()
 	TGraphErrors *graph2 = new TGraphErrors ;
 	TGraphErrors *graph_band_up = new TGraphErrors ;
 	TGraphErrors *graph_band_down = new TGraphErrors ;
+	TGraphAsymmErrors *graph_center = new TGraphAsymmErrors ;
 
 	graph->SetMarkerStyle(20) ;
 	graph2->SetMarkerStyle(22) ;
@@ -217,6 +219,10 @@ int plot_dsdt()
 
 	graph->SetMarkerColor(kBlue) ;
 	graph2->SetMarkerColor(kRed) ;
+	
+	graph_center->SetMarkerStyle(22) ;
+	graph_center->SetMarkerSize(1.0) ;
+	graph_center->SetMarkerColor(kRed) ;
 
  	ifstream data("data/TOTEM_D0_14_PRL_preliminary_1_dsdt.txt") ;
 
@@ -249,22 +255,44 @@ int plot_dsdt()
 	}
 	
 	data2.close() ;
+
+	ifstream data4("data/TOTEM_D0_14_PRL_preliminary_1_dsdt_extrapolated_uncertainty_center.txt") ;
+
+	i = 0 ;
+
+
+	double dsdt_down, dsdt_up, f_norm_down, f_norm_up ;
+	double dummy ;
+
+	while(data4 >> t_value >> dsdt >> dsdt_up >> dsdt_down >> dummy >> dummy)
+	{
+		graph_center->SetPoint(i, t_value, dsdt) ;
+
+		++i ;
+	}
+
+	data4.close() ;
 	
 	ifstream data3("data/TOTEM_D0_14_PRL_preliminary_1_dsdt_extrapolated_uncertainty_band.txt") ;
 
 	i = 0 ;
-
-	double dsdt_down, dsdt_up, f_norm_down, f_norm_up ;
 
 	while(data3 >> t_value >> dsdt_down >> dsdt_up >> f_norm_down >> f_norm_up)
 	{
 		graph_band_up->SetPoint(i, t_value, dsdt_up) ;
 		graph_band_down->SetPoint(i, t_value, dsdt_down) ;
 
+
+		double myx, myy ;
+		graph_center->GetPoint(i, myx, myy) ;
+		graph_center->SetPointError(i, 0, 0, myy - f_norm_down, f_norm_up - myy) ;
+
 		++i ;
 	}
 
 	data3.close() ;
+	
+
 
 	hist_2d->Draw() ;
 	hist_2d->GetXaxis()->SetTitle("|t| (GeV^{2})") ;
@@ -275,10 +303,12 @@ int plot_dsdt()
 	// cout << "titlesize " << hist_2d->GetXaxis()->GetTitleSize() ;
 
 	graph->Draw("same p") ;
-	graph2->Draw("same p") ;
+	// graph2->Draw("same p") ;
 
 	graph_band_up->Draw("same l") ;
 	graph_band_down->Draw("same l") ;
+	
+	graph_center->Draw("same p") ;
 	
 	graph_band_up->SetLineColor(kRed) ;
 	graph_band_down->SetLineColor(kRed) ;
