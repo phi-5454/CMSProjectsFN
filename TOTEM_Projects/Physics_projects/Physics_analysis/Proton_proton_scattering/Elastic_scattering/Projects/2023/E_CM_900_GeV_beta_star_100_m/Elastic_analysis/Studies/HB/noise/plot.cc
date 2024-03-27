@@ -47,6 +47,8 @@ const string basic_path_3 = "/afs/cern.ch/work/f/fnemes/main_workspace_github_ss
 const string basic_path_4_LBRT = "Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_" ;
 const string basic_path_4_LTRB = "Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_" ;
 
+TCanvas *main_canvas = NULL ;
+
 void test(string histoname)
 {
 
@@ -154,19 +156,44 @@ void test(string histoname)
 	cout << histoname << " finalminmeanperrms: " << minmeanperrms << endl ;
 }
 
-bool test3(string filename, string histoname, string prj_filename)
+bool test3(string filename, string histoname, string prj_filename, string run_number)
 {
 	TFile *myroot = TFile::Open(filename.c_str()) ;
 	bool found = false ;
 	
 	bool cut_is_present_in_file = false ;
 	
+	const bool save_figs = true ;
+
 	if(myroot != NULL)
 	{
 		// cout << filename << "ok" << endl ;
 
+		TCanvas *hist_basic = ((TCanvas *)myroot->Get((histoname + "_canvas").c_str())) ;
 		TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
 		
+		if(save_figs && (hist != NULL))
+		{
+			if(main_canvas == NULL)
+			{
+				cout << "No canvas" << endl ;
+				exit(1) ;
+			}
+
+
+			hist_basic->Draw("colz") ;
+			hist_basic->SaveAs(("fig/" + run_number + histoname + ".png").c_str()) ;
+
+			main_canvas->cd() ;
+			hist->Draw("colz") ;
+
+			int nbins = hist->GetYaxis()->GetNbins() ;
+			double lo = fabs(hist->GetYaxis()->GetBinCenter(1) * 0.2) ;
+
+			hist->GetYaxis()->SetRangeUser(-lo, lo) ;
+			main_canvas->SaveAs(("fig/" + run_number + histoname + "_rotated" + ".png").c_str()) ;
+		}
+
 		if(hist != NULL)
 		{
 			double myRMS = hist->GetRMS(2) ;
@@ -254,6 +281,9 @@ void test2(string filename, string histoname, ofstream &project_file2)
 
 int main()
 {
+	main_canvas = new TCanvas() ;
+	main_canvas->SetGridx() ;
+	main_canvas->SetGridy() ;
 
 	vector<string> plotnames ;
 	plotnames.push_back("P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut") ;
@@ -291,7 +321,7 @@ int main()
 		
 		bool mytest = false ;
 
-		for(int i = 0 ; i < plotnames.size() ; ++i) mytest |= test3(actual_filename, plotnames[i], prj_filename) ;
+		for(int i = 0 ; i < plotnames.size() ; ++i) mytest |= test3(actual_filename, plotnames[i], prj_filename, word) ;
 		
 		if(mytest) cout << "To be corrected: " << word << endl ;
 

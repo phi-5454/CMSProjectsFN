@@ -1,0 +1,268 @@
+\documentclass{beamer}
+
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx,epstopdf}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{wasysym}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+
+\usepackage{listings}
+
+\usetheme{Warsaw}
+\setbeamertemplate{footline}{\hspace{2mm} \insertshorttitle \hspace{20mm}  \insertframenumber/\inserttotalframenumber}
+\setbeamertemplate{navigation symbols}{}
+
+\title[TOTEM Physics Analysis meeting, 900 GeV high-$\beta^{*}$ for CNI analysis]{\scriptsize Elastic selection for $\sqrt{s}=900$~GeV high $\beta^{*}$\\ (4$\sigma$ cuts)}
+
+\author{F. Nemes\\\vspace{1mm} \tiny on behalf of the analyzers}
+
+\begin{document}
+
+\begin{frame}
+        \titlepage
+\end{frame}
+
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0045_PlotsCollection_theta_y_star_left_rad_theta_y_star_right_rad_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0046_PlotsCollection_y_mm_near_dy_mm_left_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0047_PlotsCollection_y_mm_near_dy_mm_right_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0048_PlotsCollection_x_star_left_mm_x_star_right_mm_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0049_PlotsCollection_x_mm_near_dx_mm_left_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0051_PlotsCollection_x_mm_near_dx_mm_right_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+\begin{frame}\tiny
+        \begin{block}{Plots}
+		  \centering
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324458P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324460P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324461P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324462P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324464P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324465P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324467P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324469P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324471P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324485P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324498P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324509P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324513P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324517P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324518P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324519P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324520P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324524P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324526P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324527P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324528P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324529P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324530P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324531P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324532P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}\\
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324534P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324535P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+                \includegraphics[trim = 0mm 0mm 0mm 0mm, clip,width=0.19\linewidth]{../324536P0052_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_define_cut_rotated.png}
+
+        \end{block}
+\end{frame}
+
+\end{document}
+
