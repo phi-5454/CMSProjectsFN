@@ -168,6 +168,11 @@ bool test3(string filename, string histoname, string prj_filename)
 		if(hist != NULL)
 		{
 			double myRMS = hist->GetRMS(2) ;
+			double myMean = hist->GetMean(2) ;
+			double ratio = fabs(myMean / myRMS) ;
+
+			if(ratio > 0.2) cout << "ratio " << ratio << " " << filename << endl ;
+
 			myroot->Close() ;
 			
 			ifstream project_file(prj_filename.c_str()) ;
