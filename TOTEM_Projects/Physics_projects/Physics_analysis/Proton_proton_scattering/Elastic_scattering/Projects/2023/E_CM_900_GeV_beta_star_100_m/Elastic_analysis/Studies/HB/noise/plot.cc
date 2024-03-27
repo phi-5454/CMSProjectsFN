@@ -159,6 +159,8 @@ bool test3(string filename, string histoname, string prj_filename)
 	TFile *myroot = TFile::Open(filename.c_str()) ;
 	bool found = false ;
 	
+	bool cut_is_present_in_file = false ;
+	
 	if(myroot != NULL)
 	{
 		// cout << filename << "ok" << endl ;
@@ -187,6 +189,9 @@ bool test3(string filename, string histoname, string prj_filename)
 			{
 				if(word.compare(cut_name) == 0)
 				{
+				
+							cut_is_present_in_file = true ;
+
 							project_file >> word ;
 							project_file >> word ;
 							project_file >> RMS_in_prj_file ;
@@ -206,9 +211,10 @@ bool test3(string filename, string histoname, string prj_filename)
 			
 			project_file.close() ;
 		}
-		
-		
+			
 	}
+	
+	if(!cut_is_present_in_file) cout << "Warning: cut is absent fir " << histoname << " in " << prj_filename << endl ;
 	
 	return found ;
 }
