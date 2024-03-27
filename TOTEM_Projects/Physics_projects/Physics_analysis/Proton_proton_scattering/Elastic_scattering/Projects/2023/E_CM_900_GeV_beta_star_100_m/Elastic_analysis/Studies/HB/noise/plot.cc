@@ -171,7 +171,7 @@ bool test3(string filename, string histoname, string prj_filename)
 			double myMean = hist->GetMean(2) ;
 			double ratio = fabs(myMean / myRMS) ;
 
-			if(ratio > 0.2) cout << "ratio " << ratio << " " << filename << endl ;
+			if(ratio > 0.2) cout << "ratio " << ratio << " " << prj_filename << endl ;
 
 			myroot->Close() ;
 			
