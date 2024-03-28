@@ -324,6 +324,7 @@ int main()
 		for(int i = 0 ; i < plotnames.size() ; ++i) mytest |= test3(actual_filename, plotnames[i], prj_filename, word) ;
 		
 		if(mytest) cout << "To be corrected: " << word << endl ;
+		if(!mytest) cout << "Allright " << word << endl ;
 
 		if(false)
 		{		
