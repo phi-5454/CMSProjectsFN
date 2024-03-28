@@ -16,9 +16,9 @@
 
 <begin> theta_x_star_rad_theta_y_star_rad_cut_block
         <parameter>     x1              -8e-04
-        <parameter>     y1              8.0433E-005
+        <parameter>     y1              8.4217200e-05
         <parameter>     x2              8e-04
-        <parameter>     y2              8.0433E-005
+        <parameter>     y2              8.4217200e-05
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
         <parameter> range2_x            6e-05
