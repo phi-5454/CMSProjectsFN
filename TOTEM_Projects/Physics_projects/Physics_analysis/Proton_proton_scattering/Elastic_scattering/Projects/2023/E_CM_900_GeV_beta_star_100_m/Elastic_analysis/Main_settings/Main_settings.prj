@@ -19,6 +19,9 @@
 	<setting>	MAD_X_twiss_beam_1						Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/Optics/LHC_nominal/Beam_1/opticsproject.tfs
 	<setting>	MAD_X_twiss_beam_2						Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/Optics/LHC_nominal/Beam_2/opticsproject.tfs
 
+        <update_setting>       MAD_X_twiss_beam_1                                              Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/Optics/Matched_optics/Beam_1/opticsproject.tfs
+        <update_setting>       MAD_X_twiss_beam_2                                              Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/Optics/Matched_optics/Beam_2/opticsproject.tfs
+
 	<setting>	Log_file_name							AnalyzeDsigmaOverDt.log
 
 <section> ==================== Acceptance settings
