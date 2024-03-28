@@ -163,7 +163,7 @@ bool test3(string filename, string histoname, string prj_filename, string run_nu
 	
 	bool cut_is_present_in_file = false ;
 	
-	const bool save_figs = true ;
+	const bool save_figs = false ;
 
 	if(myroot != NULL)
 	{
