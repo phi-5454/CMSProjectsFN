@@ -315,9 +315,9 @@ int main()
 	{
 		
 	
-		string actual_filename = basic_path + diag_LBRT + basic_path_2 + word + "/Generic.root" ;
-		string prj_filename = (basic_path_3 + basic_path_4_LBRT + word + post_fix1 + ".prj" ) ;
-		string prj_filename_new = (basic_path_3 + basic_path_4_LBRT + word + post_fix2 + ".prj" ) ;
+		string actual_filename = basic_path + diag_LTRB + basic_path_2 + word + "/Generic.root" ;
+		string prj_filename = (basic_path_3 + basic_path_4_LTRB + word + post_fix1 + ".prj" ) ;
+		string prj_filename_new = (basic_path_3 + basic_path_4_LTRB + word + post_fix2 + ".prj" ) ;
 		
 		bool mytest = false ;
 
