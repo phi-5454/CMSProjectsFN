@@ -118,9 +118,9 @@
         <parameter>      y1              0.77571901
         <parameter>      x2              23.305831
         <parameter>      y2              2.9764192
-        <parameter> range1_x             4.96611
+        <parameter> range1_x             8.96611
         <parameter> range1_y             0.783394
-        <parameter> range2_x             23.3055
+        <parameter> range2_x             20.3055
         <parameter> range2_y             2.97919
         <parameter> sigma                0.074387452
         <parameter> number_of_sigmas             4
@@ -131,9 +131,9 @@
         <parameter>      y1              -2.4078795
         <parameter>      x2              -5.6714695
         <parameter>      y2              -0.45058293
-        <parameter> range1_x             -22.0933
+        <parameter> range1_x             -20.0933
         <parameter> range1_y             -2.4188
-        <parameter> range2_x             -5.66997
+        <parameter> range2_x             -8.66997
         <parameter> range2_y             -0.463175
         <parameter> sigma                0.06569858
         <parameter> number_of_sigmas             4
