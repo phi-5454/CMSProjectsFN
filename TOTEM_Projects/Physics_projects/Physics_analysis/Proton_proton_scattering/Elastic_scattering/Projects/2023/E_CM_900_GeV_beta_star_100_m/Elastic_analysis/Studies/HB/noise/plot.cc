@@ -84,6 +84,8 @@ void test(string histoname)
 		
 		std::cout << actual_filename << endl ;
 		
+		if(access(actual_filename.c_str(), F_OK) != 0) continue ;
+
 		TFile *myroot = TFile::Open(actual_filename.c_str()) ;
 		
 		TH1D *hist1 = ((TH1D *)myroot->Get("P0027_PlotsCollection_theta_x_star_left_rad_theta_x_star_right_rad_draw_cut_1_distance_from_cut")) ;
@@ -278,6 +280,7 @@ void test2(string filename, string histoname, ofstream &project_file2)
 	}
 }
 
+const string what_to_check = "LTRB" ;
 
 int main()
 {
@@ -311,22 +314,33 @@ int main()
 		post_fix2 += "_new" ;
 	}
 
+	string path_1 = diag_LBRT ;
+	string path_2 = basic_path_4_LBRT ;
+
+	if(what_to_check.compare("LTRB") == 0)
+	{
+		path_1 = diag_LTRB ;
+		path_2 = basic_path_4_LTRB ;
+	}
+
 	while(myfiles >>  word)
 	{
-		
-	
-		string actual_filename = basic_path + diag_LTRB + basic_path_2 + word + "/Generic.root" ;
-		string prj_filename = (basic_path_3 + basic_path_4_LTRB + word + post_fix1 + ".prj" ) ;
-		string prj_filename_new = (basic_path_3 + basic_path_4_LTRB + word + post_fix2 + ".prj" ) ;
-		
+
+		string actual_filename = basic_path + path_1 + basic_path_2 + word + "/Generic.root" ;
+		string prj_filename = (basic_path_3 + path_2 + word + post_fix1 + ".prj" ) ;
+		string prj_filename_new = (basic_path_3 + path_2 + word + post_fix2 + ".prj" ) ;
+
+      if(access(actual_filename.c_str(), F_OK) != 0) continue ;
+      if(access(prj_filename.c_str(), F_OK) != 0) continue ;
+
 		bool mytest = false ;
 
 		for(int i = 0 ; i < plotnames.size() ; ++i) mytest |= test3(actual_filename, plotnames[i], prj_filename, word) ;
 		
 		if(mytest) cout << "To be corrected: " << word << endl ;
-		if(!mytest) cout << "Allright " << word << endl ;
+		if(!mytest) cout << "Allright " << word << " " << prj_filename << endl ;
 
-		if(false)
+		if(false && mytest)
 		{		
 			ifstream project_file(prj_filename.c_str()) ;
 			ofstream project_file2(prj_filename_new.c_str()) ;
