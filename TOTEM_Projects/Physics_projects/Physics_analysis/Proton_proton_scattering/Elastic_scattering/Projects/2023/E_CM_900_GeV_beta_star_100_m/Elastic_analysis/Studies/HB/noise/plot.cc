@@ -280,7 +280,7 @@ void test2(string filename, string histoname, ofstream &project_file2)
 	}
 }
 
-const string what_to_check = "LTRB" ;
+const string what_to_check = "LBRT" ;
 
 int main()
 {
