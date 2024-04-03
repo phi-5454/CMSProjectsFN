@@ -47,3 +47,171 @@
 <begin> x_mm_near_dx_mm_right_cut_block
         <update_parameter> sigma                0.082539709
 <end> x_mm_near_dx_mm_right_cut_block
+
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+  <update_parameter> sigma 6.51936e-06
+<end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_left_cut_block
+  <update_parameter> sigma 0.0761439
+<end>   y_mm_near_dy_mm_left_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_right_cut_block
+  <update_parameter> sigma 0.0686267
+<end>   y_mm_near_dy_mm_right_cut_block
+
+
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+  <update_parameter> sigma 0.360332
+<end>   x_star_left_mm_x_star_right_mm_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_left_cut_block
+  <update_parameter> sigma 0.101298
+<end>   x_mm_near_dx_mm_left_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_right_cut_block
+  <update_parameter> sigma 0.093491
+<end>   x_mm_near_dx_mm_right_cut_block
+
+
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+  <update_parameter> sigma 2.29035e-05
+<end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+  <update_parameter> sigma 6.98253e-06
+<end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_left_cut_block
+  <update_parameter> sigma 0.0784516
+<end>   y_mm_near_dy_mm_left_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_right_cut_block
+  <update_parameter> sigma 0.0708982
+<end>   y_mm_near_dy_mm_right_cut_block
+
+
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+  <update_parameter> sigma 0.364216
+<end>   x_star_left_mm_x_star_right_mm_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_left_cut_block
+  <update_parameter> sigma 0.104861
+<end>   x_mm_near_dx_mm_left_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_right_cut_block
+  <update_parameter> sigma 0.0980165
+<end>   x_mm_near_dx_mm_right_cut_block
+
+
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+  <update_parameter> sigma 2.31063e-05
+<end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+  <update_parameter> sigma 7.22697e-06
+<end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_left_cut_block
+  <update_parameter> sigma 0.0795339
+<end>   y_mm_near_dy_mm_left_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_right_cut_block
+  <update_parameter> sigma 0.0716087
+<end>   y_mm_near_dy_mm_right_cut_block
+
+
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+  <update_parameter> sigma 0.366229
+<end>   x_star_left_mm_x_star_right_mm_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_left_cut_block
+  <update_parameter> sigma 0.106169
+<end>   x_mm_near_dx_mm_left_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_right_cut_block
+  <update_parameter> sigma 0.099267
+<end>   x_mm_near_dx_mm_right_cut_block
+
+
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+  <update_parameter> sigma 2.31558e-05
+<end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+  <update_parameter> sigma 7.30129e-06
+<end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_left_cut_block
+  <update_parameter> sigma 0.0800866
+<end>   y_mm_near_dy_mm_left_cut_block
+
+
+
+<begin> y_mm_near_dy_mm_right_cut_block
+  <update_parameter> sigma 0.0720452
+<end>   y_mm_near_dy_mm_right_cut_block
+
+
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+  <update_parameter> sigma 0.366967
+<end>   x_star_left_mm_x_star_right_mm_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_left_cut_block
+  <update_parameter> sigma 0.106681
+<end>   x_mm_near_dx_mm_left_cut_block
+
+
+
+<begin> x_mm_near_dx_mm_right_cut_block
+  <update_parameter> sigma 0.0998435
+<end>   x_mm_near_dx_mm_right_cut_block
+
+
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+  <update_parameter> sigma 2.3195e-05
+<end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
