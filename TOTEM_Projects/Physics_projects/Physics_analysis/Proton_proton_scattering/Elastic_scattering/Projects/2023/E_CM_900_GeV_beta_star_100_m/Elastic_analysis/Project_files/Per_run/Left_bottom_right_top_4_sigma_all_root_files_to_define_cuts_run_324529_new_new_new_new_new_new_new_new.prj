@@ -344,42 +344,42 @@
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.44066e-05
+  <update_parameter> sigma 7.14162e-06
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.126268
+  <update_parameter> sigma 0.0904835
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0717659
+  <update_parameter> sigma 0.0676123
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 1.94236
+  <update_parameter> sigma 0.43459
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.37974
+  <update_parameter> sigma 0.108419
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.354563
+  <update_parameter> sigma 0.108006
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.94735e-05
+  <update_parameter> sigma 2.28621e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
