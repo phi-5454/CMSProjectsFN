@@ -6,7 +6,7 @@
 <setting>       project_subtask_switch_2                                        MonteCarlo_test_corrections_off
 
 <include>	/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
-<include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_bottom_right_top_324526.prj
+<include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_bottom_right_top_324524.prj
 <include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma.prj
 
 <update_parameter> CollectCutDiagnosticData					1.0
@@ -16,7 +16,7 @@
 
 <update_setting>	Input_directory			root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_100_m/Reduced_ntuples/
 
-<setting>			Output_directory		/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_run_324526/
+<setting>			Output_directory		/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_run_324524/
 
 	
 
@@ -50,420 +50,336 @@
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 7.24069e-06
+  <update_parameter> sigma 7.82394e-06
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.0893029
+  <update_parameter> sigma 0.0914339
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0703272
+  <update_parameter> sigma 0.0683236
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 0.436306
+  <update_parameter> sigma 0.441536
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.109755
+  <update_parameter> sigma 0.116962
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.10762
+  <update_parameter> sigma 0.113035
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.30013e-05
+  <update_parameter> sigma 2.30232e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 9.99682e-06
+  <update_parameter> sigma 1.13735e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.105623
+  <update_parameter> sigma 0.110983
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0696398
+  <update_parameter> sigma 0.0682343
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 0.507939
+  <update_parameter> sigma 0.52882
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.140909
+  <update_parameter> sigma 0.155426
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.137832
+  <update_parameter> sigma 0.149347
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.36242e-05
+  <update_parameter> sigma 2.35961e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 1.47203e-05
+  <update_parameter> sigma 1.68196e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.119232
+  <update_parameter> sigma 0.124241
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0688315
+  <update_parameter> sigma 0.0676349
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 0.597475
+  <update_parameter> sigma 0.655467
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.187848
+  <update_parameter> sigma 0.209914
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.187054
+  <update_parameter> sigma 0.212777
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.43787e-05
+  <update_parameter> sigma 2.42863e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.07292e-05
+  <update_parameter> sigma 2.20242e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.128994
+  <update_parameter> sigma 0.129284
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0684782
+  <update_parameter> sigma 0.068255
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 0.72948
+  <update_parameter> sigma 0.840629
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.249117
+  <update_parameter> sigma 0.278344
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.252208
+  <update_parameter> sigma 0.281699
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.56623e-05
+  <update_parameter> sigma 2.57111e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.29848e-05
+  <update_parameter> sigma 2.32916e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.130115
+  <update_parameter> sigma 0.127479
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0690278
+  <update_parameter> sigma 0.0693031
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 0.913082
+  <update_parameter> sigma 1.11057
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.311079
+  <update_parameter> sigma 0.334384
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.308582
+  <update_parameter> sigma 0.320804
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.7307e-05
+  <update_parameter> sigma 2.72577e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.39891e-05
+  <update_parameter> sigma 2.39048e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.128444
+  <update_parameter> sigma 0.124433
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0699935
+  <update_parameter> sigma 0.070414
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 1.16395
+  <update_parameter> sigma 1.48
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.345888
+  <update_parameter> sigma 0.358981
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.330152
+  <update_parameter> sigma 0.337532
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.86607e-05
+  <update_parameter> sigma 2.83227e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.44701e-05
+  <update_parameter> sigma 2.41981e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.12645
+  <update_parameter> sigma 0.122101
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0702781
+  <update_parameter> sigma 0.0710628
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 1.51696
+  <update_parameter> sigma 2.00652
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.363361
+  <update_parameter> sigma 0.380112
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.343344
+  <update_parameter> sigma 0.353175
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.92694e-05
+  <update_parameter> sigma 2.87004e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
 
 
 <begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.47e-05
+  <update_parameter> sigma 2.43014e-05
 <end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.125003
+  <update_parameter> sigma 0.120822
 <end>   y_mm_near_dy_mm_left_cut_block
 
 
 
 <begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0707278
+  <update_parameter> sigma 0.0718411
 <end>   y_mm_near_dy_mm_right_cut_block
 
 
 
 <begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 1.99493
+  <update_parameter> sigma 2.54
 <end>   x_star_left_mm_x_star_right_mm_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.381114
+  <update_parameter> sigma 0.393601
 <end>   x_mm_near_dx_mm_left_cut_block
 
 
 
 <begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.358217
+  <update_parameter> sigma 0.368309
 <end>   x_mm_near_dx_mm_right_cut_block
 
 
 
 <begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.94912e-05
-<end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-
-
-
-<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.4821e-05
-<end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-
-
-
-<begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.123909
-<end>   y_mm_near_dy_mm_left_cut_block
-
-
-
-<begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0714543
-<end>   y_mm_near_dy_mm_right_cut_block
-
-
-
-<begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 2.50543
-<end>   x_star_left_mm_x_star_right_mm_cut_block
-
-
-
-<begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.392014
-<end>   x_mm_near_dx_mm_left_cut_block
-
-
-
-<begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.372091
-<end>   x_mm_near_dx_mm_right_cut_block
-
-
-
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.97477e-05
-<end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-
-
-
-<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-  <update_parameter> sigma 2.47908e-05
-<end>   theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-
-
-
-<begin> y_mm_near_dy_mm_left_cut_block
-  <update_parameter> sigma 0.123545
-<end>   y_mm_near_dy_mm_left_cut_block
-
-
-
-<begin> y_mm_near_dy_mm_right_cut_block
-  <update_parameter> sigma 0.0718332
-<end>   y_mm_near_dy_mm_right_cut_block
-
-
-
-<begin> x_star_left_mm_x_star_right_mm_cut_block
-  <update_parameter> sigma 2.7736
-<end>   x_star_left_mm_x_star_right_mm_cut_block
-
-
-
-<begin> x_mm_near_dx_mm_left_cut_block
-  <update_parameter> sigma 0.392857
-<end>   x_mm_near_dx_mm_left_cut_block
-
-
-
-<begin> x_mm_near_dx_mm_right_cut_block
-  <update_parameter> sigma 0.37432
-<end>   x_mm_near_dx_mm_right_cut_block
-
-
-
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-  <update_parameter> sigma 2.99099e-05
+  <update_parameter> sigma 2.89818e-05
 <end>   theta_x_star_left_rad_theta_x_star_right_rad_cut_block
 
