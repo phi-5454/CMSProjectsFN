@@ -374,5 +374,54 @@ int main()
 
 			cout << endl ;
 		}
+
+		bool produce_shortened_prj_file = true ;
+
+		if(produce_shortened_prj_file)
+		{
+			string prj_filename = (basic_path_3 + path_2 + word + post_fix1 + ".prj" ) ;
+			string prj_filename_new = (basic_path_3 + path_2 + word + "_shortened.prj" ) ;
+
+			const string text_to_find = "theta_y_star_left_rad_theta_y_star_right_rad_cut_block" ;
+
+			ifstream project_file(prj_filename.c_str()) ;
+
+			string word ;
+			int line_count = 0 ;
+
+			int pattern_begin_position = 0 ;
+			int pattern_end_position = 0 ;
+
+			string myline ;
+
+			std::size_t found ;
+			while(getline(project_file, myline))
+			{
+				line_count++ ;
+				if(myline.find(text_to_find) != string::npos)
+				{
+					cout << "Pattern found " << endl ;
+					pattern_begin_position = pattern_end_position ;
+					pattern_end_position = line_count ;
+				}
+			}
+
+			cout << "pattern_begin_position " << prj_filename << "  " << pattern_begin_position << endl ;
+
+			ofstream project_file2(prj_filename_new.c_str()) ;
+			project_file.close() ;
+			project_file.open(prj_filename.c_str()) ;
+
+			const int min_line = 20 ;
+
+			line_count = 0 ;
+
+			while(getline(project_file, myline))
+			{
+				// cout << myline << endl ;
+				++line_count ;
+				if((line_count < min_line) || (line_count > (pattern_begin_position - 1))) project_file2 << myline << endl ;
+			}
+		}
 	}
 }
