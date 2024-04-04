@@ -309,7 +309,52 @@ int plot_dsdt()
 
 	data3.close() ;
 	
+	cout << endl << "Table D0" << endl << endl ;
 
+	for(int i = 0 ; i < graph->GetN() ; ++i)
+	{
+		double x, y, y_unc ;
+
+		graph->GetPoint(i, x, y) ;
+		y_unc = graph->GetErrorY(i) ;
+
+		if((x >= 0.4977680) && (x <= 0.9591980)) cout << std::setprecision(15) << "\t" << x << "   " << y << "\t" << y_unc << endl ;
+	}
+
+	cout << endl << "Extrapolation center and its uncertainy" << endl << endl ;
+
+	for(int i = 0 ; i < graph_center2->GetN() ; ++i)
+	{
+		double x, y, y_unc_h, y_unc_l ;
+
+		graph_center2->GetPoint(i, x, y) ;
+		y_unc_h = graph_center2->GetErrorYhigh(i) ;
+		y_unc_l = graph_center2->GetErrorYlow(i) ;
+
+		cout << std::setprecision(6) << "\t" <<  x << "   " << y << "\t" << y_unc_h << "\t" << y_unc_l << endl ;
+	}
+
+	cout << endl << "Band up" << endl << endl ;
+
+	for(int i = 0 ; i < graph_band_up->GetN() ; ++i)
+	{
+		double x, y ;
+
+		graph_band_up->GetPoint(i, x, y) ;
+
+		cout << std::setprecision(6) << "\t" <<  x << " \t" << y << endl ;
+	}
+
+	cout << endl << "Band down" << endl << endl ;
+
+	for(int i = 0 ; i < graph_band_down->GetN() ; ++i)
+	{
+		double x, y ;
+
+		graph_band_down->GetPoint(i, x, y) ;
+
+		cout << std::setprecision(6) << "\t" <<  x << " \t" << y << endl ;
+	}
 
 	hist_2d->Draw() ;
 	hist_2d->GetXaxis()->SetTitle("|t| (GeV^{2})") ;
