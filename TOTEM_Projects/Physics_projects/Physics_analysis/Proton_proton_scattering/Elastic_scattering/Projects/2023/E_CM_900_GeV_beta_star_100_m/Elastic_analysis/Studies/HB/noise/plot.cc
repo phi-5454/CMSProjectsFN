@@ -84,7 +84,11 @@ void test(string histoname)
 		
 		std::cout << actual_filename << endl ;
 		
-		if(access(actual_filename.c_str(), F_OK) != 0) continue ;
+		if(access(actual_filename.c_str(), F_OK) != 0)
+		{
+			cout << "Warning: file missing " << actual_filename << endl ;
+			continue ;
+		}
 
 		TFile *myroot = TFile::Open(actual_filename.c_str()) ;
 		
@@ -174,6 +178,8 @@ bool test3(string filename, string histoname, string prj_filename, string run_nu
 		TCanvas *hist_basic = ((TCanvas *)myroot->Get((histoname + "_canvas").c_str())) ;
 		TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
 		
+		if(hist == NULL) found = true ;
+
 		if(save_figs && (hist != NULL))
 		{
 			if(main_canvas == NULL)
@@ -330,8 +336,17 @@ int main()
 		string prj_filename = (basic_path_3 + path_2 + word + post_fix1 + ".prj" ) ;
 		string prj_filename_new = (basic_path_3 + path_2 + word + post_fix2 + ".prj" ) ;
 
-      if(access(actual_filename.c_str(), F_OK) != 0) continue ;
-      if(access(prj_filename.c_str(), F_OK) != 0) continue ;
+      if(access(actual_filename.c_str(), F_OK) != 0)
+		{
+			cout << "Warning: file missing " << actual_filename << endl ;
+			continue ;
+		}
+
+      if(access(prj_filename.c_str(), F_OK) != 0)
+		{
+			cout << "Warning: file missing " << prj_filename << endl ;
+			continue ;
+		}
 
 		bool mytest = false ;
 
