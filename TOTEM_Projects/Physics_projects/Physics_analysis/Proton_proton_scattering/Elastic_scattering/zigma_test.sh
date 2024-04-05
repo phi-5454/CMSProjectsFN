@@ -47,7 +47,12 @@ do
 		echo "ok"
 	fi
 
-
+        valami=`grep x_star_left_mm_x_star_right_mm_cut_block    $i | wc | awk '{ print $1}'`
+        if [[ "$valami"=="2" ]]; then
+                :
+        else
+                echo "ok"
+        fi
 
 done
 
