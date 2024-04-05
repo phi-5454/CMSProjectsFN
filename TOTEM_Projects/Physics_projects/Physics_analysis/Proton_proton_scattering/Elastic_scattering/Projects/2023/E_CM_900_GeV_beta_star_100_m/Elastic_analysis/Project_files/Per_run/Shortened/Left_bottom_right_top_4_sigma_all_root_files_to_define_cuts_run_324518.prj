@@ -1,0 +1,47 @@
+
+<setting> Fill_number 7291
+
+<setting> project_subtask dsigma/dt
+<setting> project_subtask_switch_1 MonteCarlo_test_corrections_off
+<setting> project_subtask_switch_2 MonteCarlo_test_corrections_off
+
+<include> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
+<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_bottom_right_top_324518.prj
+<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma.prj
+
+<update_parameter> CollectCutDiagnosticData 1.0
+
+<update_parameter> MaxNumberOfEventsToAnalyzeIsSet 0.0
+<update_parameter> MaxNumberOfEventsToAnalyze 60000
+
+<update_setting> Input_directory root://eostotem.cern.ch//eos/cms/store/group/phys_diffraction/fnemes/E_CM_900_GeV/Beta_star_100_m/Reduced_ntuples/
+
+<setting> Output_directory /afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP/All_root_files_to_define_cuts_run_324518/
+
+<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+ <update_parameter> sigma 5.5146918e-06
+<end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+
+<begin> y_mm_near_dy_mm_left_cut_block
+ <update_parameter> sigma 0.070760591
+<end> y_mm_near_dy_mm_left_cut_block
+
+<begin> y_mm_near_dy_mm_right_cut_block
+ <update_parameter> sigma 0.070546498
+<end> y_mm_near_dy_mm_right_cut_block
+
+<begin> x_mm_near_dx_mm_left_cut_block
+ <update_parameter> sigma 0.088836697
+<end> x_mm_near_dx_mm_left_cut_block
+
+<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+ <update_parameter> sigma 2.233234e-05
+<end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+
+<begin> x_star_left_mm_x_star_right_mm_cut_block
+ <update_parameter> sigma 0.36872621
+<end> x_star_left_mm_x_star_right_mm_cut_block
+
+<begin> x_mm_near_dx_mm_right_cut_block
+ <update_parameter> sigma 0.087658532
+<end> x_mm_near_dx_mm_right_cut_block
