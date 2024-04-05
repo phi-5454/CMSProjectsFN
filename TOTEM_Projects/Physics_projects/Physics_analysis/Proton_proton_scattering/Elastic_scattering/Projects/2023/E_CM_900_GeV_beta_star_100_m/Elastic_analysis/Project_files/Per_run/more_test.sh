@@ -1,0 +1,8 @@
+./test_sigmas.sh theta_x_star_left_rad_theta_x_star_right_rad_cut_block
+./test_sigmas.sh theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+./test_sigmas.sh x_mm_near_dx_mm_left_cut_block
+./test_sigmas.sh x_mm_near_dx_mm_right_cut_block
+./test_sigmas.sh y_mm_near_dy_mm_left_cut_block
+./test_sigmas.sh y_mm_near_dy_mm_right_cut_block
+./test_sigmas.sh x_star_left_mm_x_star_right_mm_cut_block
+
