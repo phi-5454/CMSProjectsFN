@@ -288,6 +288,27 @@ void test2(string filename, string histoname, ofstream &project_file2)
 
 const string what_to_check = "LBRT" ;
 
+void format(string &myline)
+{
+	size_t pos = myline.find("\t") ;
+
+	while(pos != string::npos)
+	{
+		myline.replace(pos, 1, " ") ;
+
+		pos = myline.find("\t") ;
+	}
+
+	pos = myline.find("  ") ;
+
+	while(pos != string::npos)
+	{
+		myline.replace(pos, 2, " ") ;
+
+		pos = myline.find("  ") ;
+	}
+}
+
 int main()
 {
 	main_canvas = new TCanvas() ;
@@ -380,7 +401,8 @@ int main()
 		if(produce_shortened_prj_file)
 		{
 			string prj_filename = (basic_path_3 + path_2 + word + post_fix1 + ".prj" ) ;
-			string prj_filename_new = (basic_path_3 + path_2 + word + "_shortened.prj" ) ;
+			string prj_filename_new = (basic_path_3 + "/Shortened/" + path_2  + word + ".prj" ) ;
+			cout << "Shortened " << prj_filename_new << endl ;
 
 			const string text_to_find = "theta_y_star_left_rad_theta_y_star_right_rad_cut_block" ;
 
@@ -412,15 +434,34 @@ int main()
 			project_file.close() ;
 			project_file.open(prj_filename.c_str()) ;
 
-			const int min_line = 20 ;
+			const int min_line = 21 ;
 
 			line_count = 0 ;
+			int empty_line_count = 0 ;
 
 			while(getline(project_file, myline))
 			{
 				// cout << myline << endl ;
 				++line_count ;
-				if((line_count < min_line) || (line_count > (pattern_begin_position - 1))) project_file2 << myline << endl ;
+
+				if((line_count < min_line) || (line_count > (pattern_begin_position - 1)))
+				{
+					if(myline.length() == 0)
+					{
+						// cout << "space" << endl ;
+						++empty_line_count ;
+					}
+					else
+					{
+						empty_line_count = 0 ;
+					}
+
+					if(empty_line_count <= 1)
+					{
+						format(myline) ;
+						project_file2 << myline << endl ;
+					}
+				}
 			}
 		}
 	}
