@@ -286,7 +286,7 @@ void test2(string filename, string histoname, ofstream &project_file2)
 	}
 }
 
-const string what_to_check = "LTRB" ;
+const string what_to_check = "LBRT" ;
 
 void format(string &myline)
 {
@@ -396,7 +396,7 @@ int main()
 			cout << endl ;
 		}
 
-		bool produce_shortened_prj_file = true ;
+		bool produce_shortened_prj_file = false ;
 
 		if(produce_shortened_prj_file)
 		{
