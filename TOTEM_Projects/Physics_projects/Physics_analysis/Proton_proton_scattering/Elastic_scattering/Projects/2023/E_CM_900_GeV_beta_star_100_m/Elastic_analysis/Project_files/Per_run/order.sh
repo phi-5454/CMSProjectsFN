@@ -9,4 +9,5 @@ do
 	grep "begin.*x_mm_near_dx_mm_right_cut_block" $i -A2 >> Ordered/$i ; echo >> Ordered/$i
 	grep "begin.*y_mm_near_dy_mm_left_cut_block" $i -A2 >> Ordered/$i ; echo >> Ordered/$i
 	grep "begin.*y_mm_near_dy_mm_right_cut_block" $i -A2 >> Ordered/$i ; echo >> Ordered/$i
+	grep "begin.*x_star_left_mm_x_star_right_mm_cut_block" $i -A2 >> Ordered/$i ; echo >> Ordered/$i
 done
