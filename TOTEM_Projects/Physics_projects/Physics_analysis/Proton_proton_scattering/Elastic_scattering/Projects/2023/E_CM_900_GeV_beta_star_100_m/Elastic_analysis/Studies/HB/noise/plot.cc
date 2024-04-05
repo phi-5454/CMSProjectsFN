@@ -169,7 +169,7 @@ bool test3(string filename, string histoname, string prj_filename, string run_nu
 	
 	bool cut_is_present_in_file = false ;
 	
-	const bool save_figs = false ;
+	const bool save_figs = true ;
 
 	if(myroot != NULL)
 	{
@@ -177,6 +177,7 @@ bool test3(string filename, string histoname, string prj_filename, string run_nu
 
 		TCanvas *hist_basic = ((TCanvas *)myroot->Get((histoname + "_canvas").c_str())) ;
 		TH2D *hist = ((TH2D *)myroot->Get((histoname + "_rotated").c_str())) ;
+		TH1D *hist_1d = ((TH1D *)myroot->Get((histoname + "_distance_from_cut").c_str())) ;
 		
 		if(hist == NULL) found = true ;
 
@@ -200,6 +201,32 @@ bool test3(string filename, string histoname, string prj_filename, string run_nu
 
 			hist->GetYaxis()->SetRangeUser(-lo, lo) ;
 			main_canvas->SaveAs(("fig/" + run_number + histoname + "_rotated" + ".png").c_str()) ;
+
+			hist_1d->Draw() ;
+
+			cout << histoname.substr(0, 5) << endl ;
+
+			if(histoname.substr(0, 5).compare("P0045") == 0)
+			{
+				hist_1d->GetXaxis()->SetRangeUser(-5e-5, 5e-5) ;
+			}
+
+			if((histoname.substr(0, 5).compare("P0046") == 0)  || (histoname.substr(0, 5).compare("P0047") == 0) || (histoname.substr(0, 5).compare("P0049") == 0)|| (histoname.substr(0, 5).compare("P0051") == 0))
+			{
+				hist_1d->GetXaxis()->SetRangeUser(-0.6, 0.6) ;
+			}
+
+			if(histoname.substr(0, 5).compare("P0048") == 0)
+			{
+				hist_1d->GetXaxis()->SetRangeUser(-2.4, 2.4) ;
+			}
+
+			if(histoname.substr(0, 5).compare("P0052") == 0)
+			{
+				hist_1d->GetXaxis()->SetRangeUser(-2e-4, 2e-4) ;
+			}
+
+			main_canvas->SaveAs(("fig/" + run_number + histoname + "_distance_from_cut" + ".png").c_str()) ;
 		}
 
 		if(hist != NULL)
@@ -286,7 +313,7 @@ void test2(string filename, string histoname, ofstream &project_file2)
 	}
 }
 
-const string what_to_check = "LBRT" ;
+const string what_to_check = "LTRB" ;
 
 void format(string &myline)
 {
