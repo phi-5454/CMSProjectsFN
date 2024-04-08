@@ -392,7 +392,7 @@ int plot_dsdt()
 
 int main(int argc, char *argv[])
 {
-	plot_sigtot(scenario_prelim_1) ;
+	// plot_sigtot(scenario_prelim_1) ;
 	plot_sigtot(scenario_prelim_2) ;
-	plot_dsdt() ;
+	// plot_dsdt() ;
 }
