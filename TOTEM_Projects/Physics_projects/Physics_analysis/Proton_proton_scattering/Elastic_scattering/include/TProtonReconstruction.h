@@ -127,7 +127,7 @@ class TProtonReconstruction
 	public:
 
 	TProtonReconstruction() ;
-	TProtonReconstruction(double, double, set<string> *, bool) ;
+	TProtonReconstruction(double, double, set<string> *, bool, bool) ;
 
 	void Print() ;
 	double ReconstructThetaYStarRad(double, double, TBeamOptics *) ;
@@ -167,7 +167,7 @@ TProtonReconstruction::TProtonReconstruction()
 {
 }
 
-TProtonReconstruction::TProtonReconstruction(double near_far_RP_units_distance_m_Beam_1 , double near_far_RP_units_distance_m_Beam_2 , set<string> *list_of_excluded_variables, bool align_source) : list_of_excluded_variables(list_of_excluded_variables), align_source(align_source), use_vertex_for_theta_x_star(use_vertex_for_theta_x_star)
+TProtonReconstruction::TProtonReconstruction(double near_far_RP_units_distance_m_Beam_1 , double near_far_RP_units_distance_m_Beam_2 , set<string> *list_of_excluded_variables, bool align_source, bool use_vertex_for_theta_x_star) : list_of_excluded_variables(list_of_excluded_variables), align_source(align_source), use_vertex_for_theta_x_star(use_vertex_for_theta_x_star)
 {
 	near_far_RP_units_distance_mm_Beam_1 = (near_far_RP_units_distance_m_Beam_1 * TConstants::conversion_factor_from_m_to_mm) ;
 	near_far_RP_units_distance_mm_Beam_2 = (near_far_RP_units_distance_m_Beam_2 * TConstants::conversion_factor_from_m_to_mm) ;

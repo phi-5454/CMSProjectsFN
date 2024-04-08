@@ -565,7 +565,6 @@ void TProject::TestBeamProperties()
 	}
 
 	bool align_source = false ;
-	
 	if(ProjectParameters->IsSettingDefined("align_source_files"))
 	{
 		if(ProjectParameters->GetSettingValue("align_source_files").compare("yes") == 0)
@@ -574,7 +573,17 @@ void TProject::TestBeamProperties()
 		}
 	}
 
-	ProtonReconstruction = new TProtonReconstruction(near_far_distance_m_beam_1, near_far_distance_m_beam_2, list_of_excluded_variables, align_source) ;
+        bool use_vertex_for_theta_x_star = true ;
+
+        if(ProjectParameters->IsSettingDefined("use_vertex_for_theta_x_star"))
+        {
+                if(ProjectParameters->GetSettingValue("use_vertex_for_theta_x_star").compare("no") == 0)
+                {
+                        use_vertex_for_theta_x_star = false ;
+                }
+        }
+
+	ProtonReconstruction = new TProtonReconstruction(near_far_distance_m_beam_1, near_far_distance_m_beam_2, list_of_excluded_variables, align_source, use_vertex_for_theta_x_star) ;
 }
 
 void TProject::CreatePlotsCollections()
