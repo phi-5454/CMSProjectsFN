@@ -18,31 +18,3 @@
 
 <setting> Output_directory /afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324465/
 
-<begin> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
- <update_parameter> sigma 2.26937e-05
-<end> theta_x_star_left_rad_theta_x_star_right_rad_cut_block
-
-<begin> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
- <update_parameter> sigma 6.28552e-06
-<end> theta_y_star_left_rad_theta_y_star_right_rad_cut_block
-
-<begin> x_mm_near_dx_mm_left_cut_block
- <update_parameter> sigma 0.100023
-<end> x_mm_near_dx_mm_left_cut_block
-
-<begin> x_mm_near_dx_mm_right_cut_block
- <update_parameter> sigma 0.0916267
-<end> x_mm_near_dx_mm_right_cut_block
-
-<begin> y_mm_near_dy_mm_left_cut_block
- <update_parameter> sigma 0.0759652
-<end> y_mm_near_dy_mm_left_cut_block
-
-<begin> y_mm_near_dy_mm_right_cut_block
- <update_parameter> sigma 0.0682412
-<end> y_mm_near_dy_mm_right_cut_block
-
-<begin> x_star_left_mm_x_star_right_mm_cut_block
- <update_parameter> sigma 0.354819
-<end> x_star_left_mm_x_star_right_mm_cut_block
-
