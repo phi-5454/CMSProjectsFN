@@ -333,10 +333,14 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &theta_y_star_right_rad_aligned ; 
 	}
-	else if(variable_name.compare("theta_y_star_rad")==0)
+	else if(variable_name.compare("theta_y_star_far_rad")==0)
 	{
-		return &theta_y_star_rad ; 
+		return &theta_y_star_far_rad ;
 	}
+        else if(variable_name.compare("theta_y_star_rad")==0)
+        {
+                return &theta_y_star_rad ;
+        }
 	else if(variable_name.compare("theta_y_star_rad_aligned")==0)
 	{
 		return &theta_y_star_rad_aligned ; 
