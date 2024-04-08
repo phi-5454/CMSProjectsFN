@@ -1585,6 +1585,12 @@
 		<setting>	x_variable												minus_t_GeV2
 	<end>	dN_dt_GeV2_plot_block
 
+        <begin> dN_dt_far_GeV2_plot_block
+                <parameter>     dimension                                                                                               1.0
+                <setting>       type                                                                                                    dN_dt_GeV2_type_block
+                <setting>       x_variable                                                                                              minus_t_far_GeV2
+        <end>   dN_dt_far_GeV2_plot_block
+
 	<begin>	dN_dt_GeV2_weighted_plot_block
 		<parameter>	dimension												1.0
 		<setting>	type													dN_dt_GeV2_type_block

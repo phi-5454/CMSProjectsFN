@@ -112,7 +112,7 @@ class TProtonReconstruction
 
 	// t value
 
-	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2, t_left_far_GeV2, t_right_far_GeV2 ;
+	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2, t_left_far_GeV2, t_right_far_GeV2, t_far_GeV2 ;
 	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2, minus_t_y_aligned_GeV2 ;
 
 	double minus_t_aligned_GeV2 ;
@@ -727,11 +727,11 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 		theta_x_star_rad_aligned = 0.5 * (theta_x_star_left_rad_aligned + ((-1.0)*theta_x_star_right_rad_aligned)) ;
 		theta_y_star_rad_aligned = 0.5 * (theta_y_star_left_rad_aligned + ((-1.0)*theta_y_star_right_rad_aligned)) ;
 
-		double t_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_rad_aligned, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
-  	double t_y_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(0, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
+                double t_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_rad_aligned, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
+                double t_y_aligned_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(0, theta_y_star_rad_aligned, BeamOptics_Beam_1) ;
 
-		minus_t_aligned_GeV2		= -t_aligned_GeV2 ;
-  	minus_t_y_aligned_GeV2	= -t_y_aligned_GeV2 ;
+                minus_t_aligned_GeV2 = -t_aligned_GeV2 ;
+                minus_t_y_aligned_GeV2	= -t_y_aligned_GeV2 ;
 		
 	}
 	
@@ -835,6 +835,8 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 
         t_left_far_GeV2  = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_left_far_rad, theta_y_star_left_far_rad, BeamOptics_Beam_2) ;
         t_right_far_GeV2 = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_right_far_rad, theta_y_star_right_far_rad, BeamOptics_Beam_1) ;
+
+        t_far_GeV2  = ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_far_rad, theta_y_star_far_rad, BeamOptics_Beam_2) ;
 
 	minus_t_without_right_near_GeV2  = -ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_left_rad, theta_y_star_without_right_near_rad, BeamOptics_Beam_2) ;
 	minus_t_without_right_far_GeV2   = -ReconstructFourMomentumTransferSquaredGeV2(theta_x_star_left_rad, theta_y_star_without_right_far_rad, BeamOptics_Beam_2) ;
