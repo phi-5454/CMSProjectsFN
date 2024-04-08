@@ -112,7 +112,7 @@ class TProtonReconstruction
 
 	// t value
 
-	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2, t_left_far_GeV2, t_right_far_GeV2, t_far_GeV2 ;
+	double t_left_GeV2, t_right_GeV2, t_GeV2, t_y_GeV2, t_left_far_GeV2, t_right_far_GeV2, t_far_GeV2, minus_t_far_GeV2 ;
 	double minus_t_left_GeV2, minus_t_right_GeV2, minus_t_GeV2, minus_t_y_GeV2, minus_t_y_aligned_GeV2 ;
 
 	double minus_t_aligned_GeV2 ;
@@ -233,6 +233,10 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &minus_t_GeV2 ; 
 	}
+        else if(variable_name.compare("minus_t_far_GeV2")==0)
+        {
+                return &minus_t_far_GeV2 ;
+        }
 	else if(variable_name.compare("theta_star_rad")==0)
 	{
 		return &theta_star_rad ; 
@@ -847,6 +851,8 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 	minus_t_left_GeV2	= -t_left_GeV2 ;
 	minus_t_right_GeV2	= -t_right_GeV2 ;
 	minus_t_y_GeV2		= -t_y_GeV2 ;
+
+	minus_t_far_GeV2 = -t_far_GeV2 ;
 
 	double theta_y_star_left_from_theta_y_rad = theta_y_left_rad / BeamOptics_Beam_2->Get_transport_matrix_far_vertical().dLyds() ;
 	double theta_y_star_right_from_theta_y_rad = theta_y_right_rad / BeamOptics_Beam_1->Get_transport_matrix_far_vertical().dLyds() ;
