@@ -2770,6 +2770,10 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 						exit(1) ;
 					}
 				}
+				else if(a_2_far_RP_analysis)
+                                {
+					track_valid = track_left_far_valid && track_right_far_valid ;
+                                }
 				else track_valid = (track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid) ;
 
 				// cout << track_left_far_valid << "  " << track_left_near_valid << " " << track_right_far_valid << "  " << track_right_near_valid << endl ;
