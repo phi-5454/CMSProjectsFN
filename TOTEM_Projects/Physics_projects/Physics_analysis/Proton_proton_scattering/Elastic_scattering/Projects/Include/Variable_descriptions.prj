@@ -302,6 +302,13 @@
 		<nsetting>	depends_on_variable										theta_x_star_right_rad
 	<end>	theta_x_star_rad_variable_block
 
+        <begin> theta_x_star_far_rad_variable_block
+                <setting>       axis_name                                                                                               #theta_{x,far}*
+                <setting>       unit                                                                                                    rad
+                <nsetting>      depends_on_variable                                                                             x_l_f_mm
+                <nsetting>      depends_on_variable                                                                             x_r_f_mm
+        <end>   theta_x_star_far_rad_variable_block
+
 	<begin>	theta_x_star_rad_aligned_variable_block
 		<setting>	axis_name												#theta_{x,aligned}*
 		<setting>	unit													rad
