@@ -119,14 +119,20 @@ int plot_sigtot(int scenario)
 
 	TGraphErrors *graph = new TGraphErrors ;
 	TGraphErrors *graph_1p96 = new TGraphErrors ;
+	TGraph *graph_10_GeV = new TGraph ;
 	
 	hist_2d->SetTitle("") ;
 
 	graph->SetMarkerStyle(20) ;
+
 	graph_1p96->SetMarkerStyle(29) ;
 	graph_1p96->SetMarkerSize(1.4) ;
 
+	graph_10_GeV->SetMarkerStyle(29) ;
+	graph_10_GeV->SetMarkerSize(1.4) ;
+
 	graph_1p96->SetMarkerColor(kBlue) ;
+	graph_10_GeV->SetMarkerColor(kRed) ;
 
 	ifstream data(myfilename.c_str()) ;
 	
@@ -156,9 +162,7 @@ int plot_sigtot(int scenario)
 	
 	if(scenario ==  scenario_prelim_2)
 	{
-		graph->SetPoint(i, 10, 38.69) ;
-		graph->SetPointError(i, 0, 0) ;
-	   ++i ;
+		graph_10_GeV->SetPoint(0, 10, 38.69) ;
    }
 
 	double uncertainy_factor = 1.01 ;
@@ -187,6 +191,7 @@ int plot_sigtot(int scenario)
 
 	graph->Draw("same p") ;
 	graph_1p96->Draw("same p") ;
+	if(scenario ==  scenario_prelim_2) graph_10_GeV->Draw("same p") ;
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
 
@@ -196,8 +201,9 @@ int plot_sigtot(int scenario)
 	
 	TLegend *legend = new TLegend(0.12, 0.65, 0.5, 0.88) ;
 	
-	legend->AddEntry(graph, "TOTEM measurements", "pe") ;
+	legend->AddEntry(graph, "TOTEM measurements", "p") ;
 	legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
+	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_10_GeV, "constraint", "p") ;
 	// legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
 	
 	legend->Draw("same") ;
