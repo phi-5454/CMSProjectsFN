@@ -8,7 +8,7 @@
 
 <setting>       align_source_files     yes
 <setting>       use_vertex_for_theta_x_star     no
-<parameter>     2_far_RP_analysis               1.0
+<parameter>     a_2_far_RP_analysis               1.0
 
 
 <begin_if_setting>	Fill_number		7291
