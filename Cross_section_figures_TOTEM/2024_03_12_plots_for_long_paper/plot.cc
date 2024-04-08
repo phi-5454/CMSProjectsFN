@@ -85,8 +85,12 @@ int plot_sigtot(int scenario)
 	double low_limit = 1.0 * TeV_to_GeV ;
 	double y_low_limit = 75 ;
 
+	TCanvas c ;
+
 	if(scenario ==  scenario_prelim_2)
 	{
+		c.SetLogx() ;
+
 		myfilename = "data/TOTEM_D0_14_PRL_preliminary_2_cross_section.txt" ;
 		myplotname = "fig/TOTEM_D0_14_PRL_preliminary_2_cross_section.pdf" ;
 
@@ -115,8 +119,6 @@ int plot_sigtot(int scenario)
 
 	TGraphErrors *graph = new TGraphErrors ;
 	TGraphErrors *graph_1p96 = new TGraphErrors ;
-	
-	TCanvas c ;
 	
 	hist_2d->SetTitle("") ;
 
@@ -188,7 +190,7 @@ int plot_sigtot(int scenario)
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
 
-	if(scenario ==  scenario_prelim_2) func->SetRange(0.001 * TeV_to_GeV, 15 * TeV_to_GeV) ;
+	if(scenario ==  scenario_prelim_2) func->SetRange(1.0 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	// func_p->Draw("same l") ;
 	// func_m->Draw("same l") ;
 	
