@@ -50,6 +50,11 @@ class TProtonReconstruction
 	double theta_x_star_left_near_rad ;
 	double theta_x_star_left_far_rad ;
 
+        double theta_x_star_right_far_no_vtx_rad ;
+        double theta_x_star_right_near_no_vtx_rad ;
+        double theta_x_star_left_near_no_vtx_rad ;
+        double theta_x_star_left_far_no_vtx_rad ;
+
 	double theta_x_star_left_rad, theta_x_star_right_rad ;
 	double theta_y_star_left_rad, theta_y_star_right_rad ;
 
@@ -766,6 +771,11 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 	theta_x_star_right_near_rad = 	ReconstructThetaXStarRadFromPosition(x_r_n_mm, x_star_left_mm,  (BeamOptics_Beam_1->Get_transport_matrix_near_vertical().Lx_m()), BeamOptics_Beam_1) ;
 	theta_x_star_left_near_rad = 	ReconstructThetaXStarRadFromPosition(x_l_n_mm, x_star_right_mm, (BeamOptics_Beam_2->Get_transport_matrix_near_vertical().Lx_m()), BeamOptics_Beam_2) ;
 	theta_x_star_left_far_rad =	ReconstructThetaXStarRadFromPosition(x_l_f_mm, x_star_right_mm, (BeamOptics_Beam_2->Get_transport_matrix_far_vertical().Lx_m()),  BeamOptics_Beam_2) ;
+
+        theta_x_star_right_far_no_vtx_rad =    ReconstructThetaXStarRadFromPosition(x_r_f_mm, 0.0,  (BeamOptics_Beam_1->Get_transport_matrix_far_vertical().Lx_m()),  BeamOptics_Beam_1) ;
+        theta_x_star_right_near_no_vtx_rad =   ReconstructThetaXStarRadFromPosition(x_r_n_mm, 0.0,  (BeamOptics_Beam_1->Get_transport_matrix_near_vertical().Lx_m()), BeamOptics_Beam_1) ;
+        theta_x_star_left_near_no_vtx_rad =    ReconstructThetaXStarRadFromPosition(x_l_n_mm, 0.0, (BeamOptics_Beam_2->Get_transport_matrix_near_vertical().Lx_m()), BeamOptics_Beam_2) ;
+        theta_x_star_left_far_no_vtx_rad =     ReconstructThetaXStarRadFromPosition(x_l_f_mm, 0.0, (BeamOptics_Beam_2->Get_transport_matrix_far_vertical().Lx_m()),  BeamOptics_Beam_2) ;
 
 	// Average of arms
 
