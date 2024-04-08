@@ -82,6 +82,9 @@ int plot_sigtot(int scenario)
    double epsilon = 0.01 ;
 	double TeV_to_GeV = 1.0 ;
 	
+	double low_limit = 1.0 * TeV_to_GeV ;
+	double y_low_limit = 75 ;
+
 	if(scenario ==  scenario_prelim_2)
 	{
 		myfilename = "data/TOTEM_D0_14_PRL_preliminary_2_cross_section.txt" ;
@@ -95,9 +98,12 @@ int plot_sigtot(int scenario)
 
 		axis_title = "#sqrt{s} (GeV)" ;
 
+		low_limit = 0.001 * TeV_to_GeV ;
+		y_low_limit = 30 ;
+
 	}
 
-   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 1.0 * TeV_to_GeV, 14.0 * TeV_to_GeV, 100, 75, 115) ;	
+   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, low_limit, 14.0 * TeV_to_GeV, 100, y_low_limit, 115) ;	
 
    TF1 *func = new TF1("func", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
    TF1 *func_p = new TF1("func_p", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
@@ -146,6 +152,13 @@ int plot_sigtot(int scenario)
 		}
 	}
 	
+	if(scenario ==  scenario_prelim_2)
+	{
+		graph->SetPoint(i, 10, 38.69) ;
+		graph->SetPointError(i, 0, 0) ;
+	   ++i ;
+   }
+
 	double uncertainy_factor = 1.01 ;
 
    func->SetParameters(cp, bp, ap, 1.0) ;
@@ -174,6 +187,8 @@ int plot_sigtot(int scenario)
 	graph_1p96->Draw("same p") ;
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
+
+	if(scenario ==  scenario_prelim_2) func->SetRange(0.001 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	// func_p->Draw("same l") ;
 	// func_m->Draw("same l") ;
 	
@@ -393,7 +408,7 @@ int plot_dsdt()
 
 int main(int argc, char *argv[])
 {
-	// plot_sigtot(scenario_prelim_1) ;
+	plot_sigtot(scenario_prelim_1) ;
 	plot_sigtot(scenario_prelim_2) ;
 	// plot_dsdt() ;
 }
