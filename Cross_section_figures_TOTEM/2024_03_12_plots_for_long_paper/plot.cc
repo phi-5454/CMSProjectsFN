@@ -140,7 +140,8 @@ int plot_sigtot(int scenario)
 		else
 		{
 			graph->SetPoint(i, energy, sigtot) ;
-			graph->SetPointError(i, 0, sigtotunc) ;
+			if(scenario ==  scenario_prelim_2) graph->SetPointError(i, 0, 0) ;
+			else graph->SetPointError(i, 0, sigtotunc) ;
 			++i ;
 		}
 	}
