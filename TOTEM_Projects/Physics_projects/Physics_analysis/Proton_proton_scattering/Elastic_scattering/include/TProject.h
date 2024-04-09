@@ -619,7 +619,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_21_x, track_rp_25_x, track_rp_120_x, track_rp_124_x, track_rp_21_y, track_rp_25_y, track_rp_120_y, track_rp_124_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_BOTTOM_RIGHT_TOP << endl ;
 
@@ -646,7 +646,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_20_x, track_rp_24_x, track_rp_121_x, track_rp_125_x, track_rp_20_y, track_rp_24_y, track_rp_121_y, track_rp_125_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_TOP_RIGHT_BOTTOM << endl ;
 
@@ -681,7 +681,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_5_x, track_rp_25_x, track_rp_104_x, track_rp_124_x, track_rp_5_y, track_rp_25_y, track_rp_104_y, track_rp_124_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_BOTTOM_RIGHT_TOP << endl ;
 
@@ -708,7 +708,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_20_x, track_rp_4_x, track_rp_105_x, track_rp_125_x, track_rp_20_y, track_rp_4_y, track_rp_105_y, track_rp_125_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_TOP_RIGHT_BOTTOM << endl ;
 
@@ -3163,7 +3163,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 						track_left_near_y, track_left_far_y, track_right_near_y, track_right_far_y,
 						track_left_near_thx, track_left_far_thx, track_right_near_thx, track_right_far_thx,
 						track_left_near_thy, track_left_far_thy, track_right_near_thy, track_right_far_thy,
-						ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+						ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), number_of_valid_tracks) ;
 
 					bool status = (*PlotsCollections)["PlotsCollection"]->Test(ProtonReconstruction, probability_of_candidate) ;
 					// if(ProjectParameters->GetParameterValue("SaveRuns") == 1.0) (*PlotsCollections)[collection_per_run_name]->Fill(ProtonReconstruction) ;
@@ -3204,7 +3204,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 							track_left_near_y, track_left_far_y, track_right_near_y, track_right_far_y,
 							track_left_near_thx, track_left_far_thx, track_right_near_thx, track_right_far_thx,
 							track_left_near_thy, track_left_far_thy, track_right_near_thy, track_right_far_thy,
-							ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+							ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), number_of_valid_tracks) ;
 
 					bool status = (*PlotsCollections)["PlotsCollection"]->Test(ProtonReconstruction, probability_of_candidate) ;
 					// if(ProjectParameters->GetParameterValue("SaveRuns") == 1.0) (*PlotsCollections)[collection_per_run_name]->Fill(ProtonReconstruction) ;
@@ -4745,7 +4745,7 @@ void TProject::ExecuteMonteCarlo()
 					double zero = 0.0 ;
 
 					ProtonReconstruction->Reconstruct(event_info_timestamp, 0, 0, track_left_near_x_mm, track_left_far_x_mm, track_right_near_x_mm, track_right_far_x_mm, track_left_near_y_mm, track_left_far_y_mm, track_right_near_y_mm, track_right_far_y_mm,
-					zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+					zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), 4) ;
 
 					// Check out reconstructed variables
 
@@ -4935,7 +4935,7 @@ void TProject::ExecuteMonteCarlo()
 								track_right_far_y_mm  = vector_of_coordinates_of_segments[iterator_over_track_segments_4][7] ;
 
 								ProtonReconstruction->Reconstruct(event_info_timestamp, 0, 0, track_left_near_x_mm, track_left_far_x_mm, track_right_near_x_mm, track_right_far_x_mm, track_left_near_y_mm, track_left_far_y_mm, track_right_near_y_mm, track_right_far_y_mm,
-								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), 4) ;
 
 								bool status = PlotsCollections["PlotsCollection"]->Fill(ProtonReconstruction, MC_weight) ;
 
@@ -4965,7 +4965,7 @@ void TProject::ExecuteMonteCarlo()
 								track_right_far_y_mm  = vector_of_coordinates_of_segments[0][7] ;
 
 								ProtonReconstruction->Reconstruct(event_info_timestamp, 0, 0, track_left_near_x_mm, track_left_far_x_mm, track_right_near_x_mm, track_right_far_x_mm, track_left_near_y_mm, track_left_far_y_mm, track_right_near_y_mm, track_right_far_y_mm,
-								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), 4) ;
 
 								bool status = PlotsCollections["PlotsCollection"]->Fill(ProtonReconstruction, MC_weight) ;
 
