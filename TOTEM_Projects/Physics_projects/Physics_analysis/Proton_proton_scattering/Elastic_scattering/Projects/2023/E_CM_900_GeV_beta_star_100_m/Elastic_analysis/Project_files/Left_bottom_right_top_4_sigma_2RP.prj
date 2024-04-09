@@ -12,7 +12,7 @@
 
 
 <begin_if_setting>	Fill_number		7291
-	<include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Fill_7291/Cuts_test_left_bottom_right_top_4_sigma.prj
+	<include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Fill_7291/Cuts_test_left_bottom_right_top_4_sigma_2RP.prj
 <end_if_setting>
 
 <parameter>	ReducedBinaryDataset	2.0
