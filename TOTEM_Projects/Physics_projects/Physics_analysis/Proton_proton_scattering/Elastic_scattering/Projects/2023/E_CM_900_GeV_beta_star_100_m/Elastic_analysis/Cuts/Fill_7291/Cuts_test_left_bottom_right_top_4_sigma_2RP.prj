@@ -92,6 +92,18 @@
         <parameter> number_of_sigmas            1
 <end>   theta_x_star_left_far_rad_theta_x_star_right_far_rad_left_cut_block
 
+<begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_right_cut_block
+        <parameter>     x1              0.00023546798
+        <parameter>     y1              -0.0004
+        <parameter>     x2              -0.00032491695
+        <parameter>     y2              -0.0004
+        <parameter> range1_x            -7.75052e-05
+        <parameter> range1_y            8.03706e-05
+        <parameter> range2_x            8.10282e-05
+        <parameter> range2_y            -7.69824e-05
+        <parameter> sigma               0.000806757
+        <parameter> number_of_sigmas            1
+<end>   theta_x_star_left_far_rad_theta_x_star_right_far_rad_right_cut_block
 
 
 
