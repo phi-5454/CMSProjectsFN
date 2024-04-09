@@ -1,7 +1,7 @@
-<setting>               geometrical_acceptance_cut_block                                theta_x_star_rad_theta_y_star_rad_cut_block
-<comment> <setting>               vertical_angular_left_acceptance_cut_block              theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block
-<comment> <setting>               vertical_angular_right_acceptance_cut_block             theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block
-<comment> <setting>               vertical_beam_divergence_cut_block                              theta_y_star_left_rad_theta_y_star_right_rad_cut_block
+<update_setting>               geometrical_acceptance_cut_block                                theta_x_star_far_rad_theta_y_star_far_rad_cut_block
+<update_setting>               vertical_angular_left_acceptance_cut_block                      theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
+<update_setting>               vertical_angular_right_acceptance_cut_block                     theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
+<update_setting>               vertical_beam_divergence_cut_block                              theta_y_star_left_far_rad_theta_y_star_right_far_rad_cut_block
 
 <include>	Projects/Include/Variable_descriptions.prj
 <include>	Projects/Include/Plots/Plot_descriptions.prj
