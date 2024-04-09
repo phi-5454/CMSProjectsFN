@@ -2665,6 +2665,13 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
                 if(ProjectParameters->GetParameterValue("a_2_far_RP_analysis") == 1.0) a_2_far_RP_analysis = true ;
         }
 
+        bool a_combined_2_and_4_RP_analysis = false ;
+
+        if(ProjectParameters->IsParameterDefined("a_combined_2_and_4_RP_analysis"))
+        {
+                if(ProjectParameters->GetParameterValue("a_combined_2_and_4_RP_analysis") == 1.0) a_combined_2_and_4_RP_analysis = true ;
+        }
+
 	if(ProjectParameters->IsParameterDefined("inefficiency_different_sector_2_4"))
 	{
 		inefficiency_different_sector_2_4 = ProjectParameters->GetParameterValue("inefficiency_different_sector_2_4") ;
