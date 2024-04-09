@@ -8,6 +8,7 @@ analyse
 *.toc
 *.aux
 *.out
+*.swp
 MC*/fnemes.cc
 new_definitions.txt
 new_definitions_2.txt
