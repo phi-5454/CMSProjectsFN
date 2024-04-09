@@ -2752,6 +2752,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 			{
 
 				bool track_valid = false ;
+				int number_of_valid_tracks = 0 ;
 
 				if(ProjectParameters->IsSettingDefined("Inefficiency_3_out_of_4_RP") && (!Force_valid_4_tracks_in_3_out_of_4))
 				{
@@ -2781,6 +2782,14 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
                                 {
 					track_valid = track_left_far_valid && track_right_far_valid ;
                                 }
+				else if(a_combined_2_and_4_RP_analysis)
+				{
+					number_of_valid_tracks = 4 ;
+
+					if(track_left_far_valid && track_right_far_valid) number_of_valid_tracks = 2 ;
+
+					track_valid = (track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid) || (track_left_far_valid && track_right_far_valid) ;
+				}
 				else track_valid = (track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid) ;
 
 				// cout << track_left_far_valid << "  " << track_left_near_valid << " " << track_right_far_valid << "  " << track_right_near_valid << endl ;
