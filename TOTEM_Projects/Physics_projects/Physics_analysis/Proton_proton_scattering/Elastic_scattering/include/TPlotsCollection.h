@@ -152,22 +152,14 @@ bool TPlotsCollection::Fill(TProtonReconstruction *ProtonReconstruction, double 
 	const bool test = false ;
 	bool status = true ;
 
-        int number_of_valid_tracks = ProtonReconstruction->GetNumberOfValidTracks() ;
-	// cout << number_of_valid_tracks << endl ;
-
 	for(vector_of_PTAnalysisPlot_type::iterator it = vector_of_PTAnalysisPlot.begin() ; it != vector_of_PTAnalysisPlot.end() ; ++it)
 	{
 		(*it)->Fill(weight, test) ;
 		
-		cout << "hello " << (*it)->GetNumNeededRPs() << " " << number_of_valid_tracks << endl ;
-
-                if(number_of_valid_tracks ==  (*it)->GetNumNeededRPs())
+		if(!((*it)->GetFillStatus()))
 		{
-			if(!((*it)->GetFillStatus()))
-			{
-				status = false ;
-				break ;
-			}
+			status = false ;
+			break ;
 		}
 	}
 
@@ -179,19 +171,14 @@ bool TPlotsCollection::Test(TProtonReconstruction *ProtonReconstruction, double 
 	const bool test = true ;
 	bool status = true ;
 
-	int number_of_valid_tracks = ProtonReconstruction->GetNumberOfValidTracks() ;
-
 	for(vector_of_PTAnalysisPlot_type::iterator it = vector_of_PTAnalysisPlot.begin() ; it != vector_of_PTAnalysisPlot.end() ; ++it)
 	{
 		(*it)->Fill(weight, test) ;
-
-		if(number_of_valid_tracks ==  (*it)->GetNumNeededRPs())
+		
+		if(!((*it)->GetFillStatus()))
 		{
-			if(!((*it)->GetFillStatus()))
-			{
-				status = false ;
-				break ;
-			}
+			status = false ;
+			break ;
 		}
 	}
 

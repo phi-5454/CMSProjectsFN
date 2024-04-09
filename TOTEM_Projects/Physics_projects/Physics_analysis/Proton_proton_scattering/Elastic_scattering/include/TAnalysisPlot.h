@@ -51,7 +51,6 @@ class TAnalysisPlot : public TAnalysisObject
 	void SaveEpsRootLatex(string , TCanvas *, bool, double, bool, bool) ;
 	
 	int GetDimension() { return dimension ; } ;
-	int GetNumNeededRPs() { return 4 ; } ;
 	virtual void PrintCutCoordinates() {} ;
 
 	void AlignmentWarning() ;
