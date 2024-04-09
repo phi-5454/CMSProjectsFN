@@ -2752,7 +2752,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 			{
 
 				bool track_valid = false ;
-				int number_of_valid_tracks = 0 ;
+				int number_of_valid_tracks = 4 ;
 
 				if(ProjectParameters->IsSettingDefined("Inefficiency_3_out_of_4_RP") && (!Force_valid_4_tracks_in_3_out_of_4))
 				{

@@ -123,6 +123,7 @@ class TProtonReconstruction
 	
 	bool valid ;
 	bool elastic ;
+	int number_of_valid_tracks ;
 	
 	public:
 
@@ -161,6 +162,8 @@ class TProtonReconstruction
 	const bool *GetElasticPointer() ;
 	const UInt_t *GetTriggerDataRunNum() ;
 	const UInt_t *GetTriggerDataEventNum() ;
+
+	int GetNumberOfValidTracks() { return number_of_valid_tracks ; } ;
 } ;
 
 TProtonReconstruction::TProtonReconstruction()
@@ -680,6 +683,8 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 	thy_l_f_rad = a_thy_l_f_rad ;
 	thy_r_n_rad = a_thy_r_n_rad ;
 	thy_r_f_rad = a_thy_r_f_rad ;
+
+	number_of_valid_tracks = number_of_RPs ;
 
 	if(RPAlignment != NULL)
 	{
