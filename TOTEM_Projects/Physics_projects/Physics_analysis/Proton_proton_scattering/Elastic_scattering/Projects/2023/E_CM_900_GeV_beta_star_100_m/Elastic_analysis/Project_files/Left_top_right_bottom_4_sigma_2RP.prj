@@ -1,3 +1,7 @@
+<update_setting>               geometrical_acceptance_cut_block                                theta_x_star_far_rad_theta_y_star_far_rad_cut_block
+<update_setting>               vertical_angular_left_acceptance_cut_block                      theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
+<update_setting>               vertical_angular_right_acceptance_cut_block                     theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
+<update_setting>               vertical_beam_divergence_cut_block                              theta_y_star_left_far_rad_theta_y_star_right_far_rad_cut_block
 
 <include>	Projects/Include/Variable_descriptions.prj
 <include>	Projects/Include/Plots/Plot_descriptions.prj
@@ -11,7 +15,7 @@
 <parameter>     a_2_far_RP_analysis               1.0
 
 <begin_if_setting>	Fill_number		7291
-	<include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Fill_7291/Cuts_test_left_top_right_bottom_4_sigma.prj
+	<include>	Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Fill_7291/Cuts_test_left_top_right_bottom_4_sigma_2RP.prj
 <end_if_setting>
 
 <parameter>	ReducedBinaryDataset	2.0

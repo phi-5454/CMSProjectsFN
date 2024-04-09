@@ -1,0 +1,41 @@
+<comment> useful commands
+<comment> ./analyse Projects/2015/E_CM_13_TeV_beta_star_90_m_2015_10_13_to_18/Elastic_analysis/Project_files/Fill_4495/Split/Left_bottom_right_top_4_sigma_0000.prj | grep "<begin>" -A 11 > new_definitions.txt
+<comment> cat new_definitions.txt  | sed 's/parameter/parameter/g' | sed 's/define\_//g' | sed 's/\-\-//g' 
+
+<begin> alignment_block
+                <parameter> RP_alignment_left_far__x_mm             0.0
+                <parameter> RP_alignment_left_near_x_mm             0.0
+                <parameter> RP_alignment_right_far__x_mm            0.0
+                <parameter> RP_alignment_right_near_x_mm            0.0
+
+                <parameter> RP_alignment_left_near_y_mm             0.0
+                <parameter> RP_alignment_left_far__y_mm             0.0
+                <parameter> RP_alignment_right_far__y_mm            0.0
+                <parameter> RP_alignment_right_near_y_mm            0.0
+<end>   alignment_block
+
+<begin> theta_x_star_far_rad_theta_y_star_far_rad_cut_block
+        <parameter>     x1              -8e-04
+        <parameter>     y1              8.4217200e-05
+        <parameter>     x2              8e-04
+        <parameter>     y2              8.4217200e-05
+        <parameter> range1_x            -6e-05
+        <parameter> range1_y            6.6565e-05
+        <parameter> range2_x            6e-05
+        <parameter> range2_y            6.6565e-05
+        <parameter> sigma               5.2260E-005
+        <parameter> number_of_sigmas            1
+<end> theta_x_star_far_rad_theta_y_star_far_rad_cut_block
+
+<begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
+        <parameter>     x1              8.3537600e-05
+        <parameter>     y1              -2e-04
+        <parameter>     x2              8.3537600e-05
+        <parameter>     y2              2e-04
+        <parameter> range1_x            -6e-05
+        <parameter> range1_y            6.6565e-05
+        <parameter> range2_x            6e-05
+        <parameter> range2_y            6.6565e-05
+        <parameter> sigma               5.2338400e-05
+        <parameter> number_of_sigmas            1
+<end> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
