@@ -442,6 +442,15 @@
 		<setting>	cut_name												theta_x_star_rad_theta_y_star_rad_horizontal_cut	
 	<end>	theta_x_star_rad_theta_y_star_rad_horizontal_with_cut_plot_block
 
+        <begin> theta_x_star_far_rad_theta_y_star_far_rad_horizontal_with_cut_plot_block
+                <parameter>     dimension                                                                                               2.0
+                <setting>       type                                                                                                    theta_x_star_rad_theta_y_star_rad_type_block
+                <setting>       x_variable                                                                                              theta_x_star_far_rad
+                <setting>       y_variable                                                                                              theta_y_star_far_rad
+                <parameter>     cut                                                                                                             1.0
+                <setting>       cut_name                                                                                                theta_x_star_far_rad_theta_y_star_far_rad_horizontal_cut
+        <end>   theta_x_star_far_rad_theta_y_star_far_rad_horizontal_with_cut_plot_block
+
 	<begin>	theta_x_star_rad_theta_y_star_rad_with_cut_plot_block
 		<parameter>	dimension												2.0
 		<setting>	type													theta_x_star_rad_theta_y_star_rad_type_block
