@@ -6,6 +6,8 @@
         <nsetting>      analysis_plot           theta_x_star_left_far_rad_theta_x_star_right_far_rad
 
         <nsetting>      analysis_plot           theta_x_star_far_rad_theta_y_star_far_rad_with_cut
-        <nsetting>      analysis_plot           theta_x_star_far_rad_theta_y_star_far_rad
+
+        <nsetting>      analysis_plot           theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_with_cut
+        <nsetting>      analysis_plot           theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_with_cut
 
         <nsetting>      analysis_plot           dN_dt_far_GeV2
