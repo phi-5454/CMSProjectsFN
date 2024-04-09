@@ -2786,7 +2786,13 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 				{
 					number_of_valid_tracks = 4 ;
 
-					if(track_left_far_valid && track_right_far_valid) number_of_valid_tracks = 2 ;
+					if(!(track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid))
+					{
+						if(track_left_far_valid && track_right_far_valid)
+						{
+							 number_of_valid_tracks = 2 ;
+						}
+					}
 
 					track_valid = (track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid) || (track_left_far_valid && track_right_far_valid) ;
 				}
