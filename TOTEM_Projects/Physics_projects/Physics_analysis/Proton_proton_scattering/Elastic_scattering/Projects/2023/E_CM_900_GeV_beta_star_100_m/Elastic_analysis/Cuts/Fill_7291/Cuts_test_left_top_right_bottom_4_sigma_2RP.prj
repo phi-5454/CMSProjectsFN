@@ -1,6 +1,6 @@
 <comment> useful commands
 <comment> ./analyse Projects/2015/E_CM_13_TeV_beta_star_90_m_2015_10_13_to_18/Elastic_analysis/Project_files/Fill_4495/Split/Left_bottom_right_top_4_sigma_0000.prj | grep "<begin>" -A 11 > new_definitions.txt
-<comment> cat new_definitions.txt  | sed 's/parameter/parameter/g' | sed 's/define\_//g' | sed 's/\-\-//g' 
+<comment> cat new_definitions.txt  | sed 's/parameter/update_parameter/g' | sed 's/define\_//g' | sed 's/\-\-//g' 
 
 <begin> alignment_block
                 <parameter> RP_alignment_left_far__x_mm             0.0
