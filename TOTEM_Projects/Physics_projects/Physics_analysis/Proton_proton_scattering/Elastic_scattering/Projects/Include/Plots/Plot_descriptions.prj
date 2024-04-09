@@ -1000,6 +1000,15 @@
 		<setting>	cut_name												theta_y_star_left_rad_theta_y_star_right_rad_cut
 	<end>	theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
 
+        <begin> theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
+                <parameter>     dimension                                                                                               2.0
+                <setting>       type                                                                                                    theta_y_star_rad_theta_y_star_rad_type_block
+                <setting>       x_variable                                                                                              theta_y_star_left_rad
+                <setting>       y_variable                                                                                              theta_y_star_right_rad
+                <parameter>     define_cut                                                                                              1.0
+                <setting>       cut_name                                                                                                theta_y_star_left_rad_theta_y_star_right_rad_cut
+        <end>   theta_y_star_left_rad_theta_y_star_right_rad_define_cut_plot_block
+
 	<begin>	theta_y_star_left_rad_theta_y_star_right_far_rad_define_cut_plot_block
 		<parameter>	dimension												2.0
 		<setting>	type													theta_y_star_rad_theta_y_star_rad_type_block
