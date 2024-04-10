@@ -123,6 +123,7 @@ class TProtonReconstruction
 	
 	bool valid ;
 	bool elastic ;
+	int number_of_valid_tracks ;
 	
 	public:
 
@@ -141,7 +142,7 @@ class TProtonReconstruction
 	void Reconstruct(ULong64_t event_info_timestamp, UInt_t trigger_data_run_num, UInt_t trigger_data_event_num,
 	 double x_l_n_mm, double x_l_f_mm, double x_r_n_mm, double x_r_f_mm, double y_l_n_mm, double y_l_f_mm, double y_r_n_mm, double y_r_f_mm,
 							  double thx_l_n_mm, double thx_l_f_mm, double thx_r_n_mm, double thx_r_f_mm, double thy_l_n_mm, double thy_l_f_mm, double thy_r_n_mm, double thy_r_f_mm,
-							  TBeamOptics *BeamOptics_Beam_1, TBeamOptics *BeamOptics_Beam_2, TRPAlignment *) ;
+							  TBeamOptics *BeamOptics_Beam_1, TBeamOptics *BeamOptics_Beam_2, TRPAlignment *, int) ;
 
 	bool IsValid() { return (valid == true) ; } ;
 
@@ -161,6 +162,8 @@ class TProtonReconstruction
 	const bool *GetElasticPointer() ;
 	const UInt_t *GetTriggerDataRunNum() ;
 	const UInt_t *GetTriggerDataEventNum() ;
+
+	int GetNumberOfValidTracks() { return number_of_valid_tracks ; } ;
 } ;
 
 TProtonReconstruction::TProtonReconstruction()
@@ -642,7 +645,7 @@ double TProtonReconstruction::ReconstructThetaXStarRadFromPosition(double x_mm, 
 void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_t a_trigger_data_run_num, UInt_t a_trigger_data_event_num,
 	double a_x_l_n_mm, double a_x_l_f_mm, double a_x_r_n_mm, double a_x_r_f_mm, double a_y_l_n_mm, double a_y_l_f_mm, double a_y_r_n_mm, double a_y_r_f_mm,
 	double a_thx_l_n_rad, double a_thx_l_f_rad, double a_thx_r_n_rad, double a_thx_r_f_rad, double a_thy_l_n_rad, double a_thy_l_f_rad, double a_thy_r_n_rad, double a_thy_r_f_rad,
-	TBeamOptics *BeamOptics_Beam_1, TBeamOptics *BeamOptics_Beam_2, TRPAlignment *RPAlignment)
+	TBeamOptics *BeamOptics_Beam_1, TBeamOptics *BeamOptics_Beam_2, TRPAlignment *RPAlignment,  int number_of_RPs)
 {
 	valid = false ;
 	elastic = false ;
@@ -680,6 +683,8 @@ void TProtonReconstruction::Reconstruct(ULong64_t a_event_info_timestamp,  UInt_
 	thy_l_f_rad = a_thy_l_f_rad ;
 	thy_r_n_rad = a_thy_r_n_rad ;
 	thy_r_f_rad = a_thy_r_f_rad ;
+
+	number_of_valid_tracks = number_of_RPs ;
 
 	if(RPAlignment != NULL)
 	{

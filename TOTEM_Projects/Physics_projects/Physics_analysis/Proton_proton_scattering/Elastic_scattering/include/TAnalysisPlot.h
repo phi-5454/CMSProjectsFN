@@ -11,6 +11,7 @@ class TAnalysisPlot : public TAnalysisObject
 	protected:
 
 	int dimension ;
+	int number_of_needed_RPs ;
 
 	TAnalysisCut *AnalysisCut ;
 	TProjectParameters *ProjectParameters ;
@@ -53,11 +54,13 @@ class TAnalysisPlot : public TAnalysisObject
 	int GetDimension() { return dimension ; } ;
 	virtual void PrintCutCoordinates() {} ;
 
+        int GetNumNeededRPs() { return number_of_needed_RPs ; } ;
+
 	void AlignmentWarning() ;
 } ;
 
 TAnalysisPlot::TAnalysisPlot(string name, string id, TProjectParameters *ProjectParameters, TProtonReconstruction *ProtonReconstruction) : TAnalysisObject(name, id), AnalysisCut(NULL), ProjectParameters(ProjectParameters),
-		text_before(""), text_after(""), dimension(0), fill_status(false), apply_cut(false), define_cut(false), draw_cut(false), weighted(false), geometrical_acceptance_corrected(false), beam_divergence_corrected(false), horizontal_beam_divergence_corrected(false),
+		text_before(""), text_after(""), dimension(0), number_of_needed_RPs(4), fill_status(false), apply_cut(false), define_cut(false), draw_cut(false), weighted(false), geometrical_acceptance_corrected(false), beam_divergence_corrected(false), horizontal_beam_divergence_corrected(false),
 		pile_up_inefficiency_corrected(false), to_be_saved_for_smart_merging(false), variable_bin_size(false), variable_bin_size_description("")
 {
 	string plot_block_name = name + "_plot_block" ;
@@ -141,6 +144,12 @@ TAnalysisPlot::TAnalysisPlot(string name, string id, TProjectParameters *Project
 				}
 
 			}
+		}
+
+		if(plot_block->IsParameterDefined("number_of_needed_RPs"))
+		{
+                        number_of_needed_RPs = plot_block->GetParameterValue("number_of_needed_RPs") ;
+			cout << "changingrpnumber for " << name << " " << number_of_needed_RPs << endl ;
 		}
 
 	}

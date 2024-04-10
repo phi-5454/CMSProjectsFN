@@ -34,4 +34,4 @@ wait
 ./analyse Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Per_run_2RP/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324535$1.prj &> /dev/null &
 wait
 ./analyse Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Per_run_2RP/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536$1.prj &> /dev/null &
-
+wait

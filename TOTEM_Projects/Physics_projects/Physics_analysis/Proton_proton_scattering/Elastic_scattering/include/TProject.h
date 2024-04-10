@@ -619,7 +619,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_21_x, track_rp_25_x, track_rp_120_x, track_rp_124_x, track_rp_21_y, track_rp_25_y, track_rp_120_y, track_rp_124_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_BOTTOM_RIGHT_TOP << endl ;
 
@@ -646,7 +646,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_20_x, track_rp_24_x, track_rp_121_x, track_rp_125_x, track_rp_20_y, track_rp_24_y, track_rp_121_y, track_rp_125_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_TOP_RIGHT_BOTTOM << endl ;
 
@@ -681,7 +681,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_5_x, track_rp_25_x, track_rp_104_x, track_rp_124_x, track_rp_5_y, track_rp_25_y, track_rp_104_y, track_rp_124_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_BOTTOM_RIGHT_TOP << endl ;
 
@@ -708,7 +708,7 @@ TProtonReconstruction TotemNtuple::ProtonReconstruction(Long64_t ientry, int dia
 			ProtonReconstruction->Reconstruct(event_info_timestamp, trigger_data_run_num, trigger_data_event_num,
 				track_rp_20_x, track_rp_4_x, track_rp_105_x, track_rp_125_x, track_rp_20_y, track_rp_4_y, track_rp_105_y, track_rp_125_y,
 				zero, zero, zero, zero, zero, zero, zero, zero, 
-				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment()) ;
+				BeamOptics_Beam_1, BeamOptics_Beam_2, ProjectParameters->GetRPAlignment(), 4) ;
 
 			// cout << DIAGONAL_LEFT_TOP_RIGHT_BOTTOM << endl ;
 
@@ -2660,9 +2660,28 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 
         bool a_2_far_RP_analysis = false ;
 
+	vector<UInt_t> vector_rejected_events ;
+
         if(ProjectParameters->IsParameterDefined("a_2_far_RP_analysis"))
         {
                 if(ProjectParameters->GetParameterValue("a_2_far_RP_analysis") == 1.0) a_2_far_RP_analysis = true ;
+
+		if(ProjectParameters->IsSettingDefined("file_rejected_events"))
+		{
+			string filename = ProjectParameters->GetSettingValue("file_rejected_events") ;
+			ifstream file_rejected_events(filename.c_str()) ;
+
+			string word, tmp_event_num ;
+
+			while(file_rejected_events >> word >> word >> word >> tmp_event_num >> word)
+			{
+				UInt_t tmp_event_num_i = atoi(tmp_event_num.c_str())  ;
+				cout << "tmp_event_num " << tmp_event_num << endl ;
+				vector_rejected_events.push_back(tmp_event_num_i) ;
+			}
+
+			file_rejected_events.close() ;
+		}
         }
 
 	if(ProjectParameters->IsParameterDefined("inefficiency_different_sector_2_4"))
@@ -2694,6 +2713,12 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 		fChain->GetEntry(jentry);
 		
 		// cout << "run_num_event_num " << trigger_data_run_num << "  " << trigger_data_event_num << endl ; 
+
+		if(std::find(vector_rejected_events.begin(), vector_rejected_events.end(), trigger_data_event_num) != vector_rejected_events.end())
+		{
+			cout << "nowcont" << endl ;
+			continue ;
+		}
 		
 		// cout << "." << endl ;
 
@@ -2745,6 +2770,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 			{
 
 				bool track_valid = false ;
+				int number_of_valid_tracks = 4 ;
 
 				if(ProjectParameters->IsSettingDefined("Inefficiency_3_out_of_4_RP") && (!Force_valid_4_tracks_in_3_out_of_4))
 				{
@@ -2773,6 +2799,11 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 				else if(a_2_far_RP_analysis)
                                 {
 					track_valid = track_left_far_valid && track_right_far_valid ;
+
+					if(!(track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid))
+					{
+						number_of_valid_tracks = 2 ;
+					}
                                 }
 				else track_valid = (track_left_far_valid && track_left_near_valid && track_right_far_valid && track_right_near_valid) ;
 
@@ -3141,7 +3172,7 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 						track_left_near_y, track_left_far_y, track_right_near_y, track_right_far_y,
 						track_left_near_thx, track_left_far_thx, track_right_near_thx, track_right_far_thx,
 						track_left_near_thy, track_left_far_thy, track_right_near_thy, track_right_far_thy,
-						ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+						ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), number_of_valid_tracks) ;
 
 					bool status = (*PlotsCollections)["PlotsCollection"]->Test(ProtonReconstruction, probability_of_candidate) ;
 					// if(ProjectParameters->GetParameterValue("SaveRuns") == 1.0) (*PlotsCollections)[collection_per_run_name]->Fill(ProtonReconstruction) ;
@@ -3182,14 +3213,14 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 							track_left_near_y, track_left_far_y, track_right_near_y, track_right_far_y,
 							track_left_near_thx, track_left_far_thx, track_right_near_thx, track_right_far_thx,
 							track_left_near_thy, track_left_far_thy, track_right_near_thy, track_right_far_thy,
-							ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+							ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), number_of_valid_tracks) ;
 
 					bool status = (*PlotsCollections)["PlotsCollection"]->Test(ProtonReconstruction, probability_of_candidate) ;
 					// if(ProjectParameters->GetParameterValue("SaveRuns") == 1.0) (*PlotsCollections)[collection_per_run_name]->Fill(ProtonReconstruction) ;
 
 					if(status)
 					{
-						// cout << "Accepted elastic event: " << trigger_data_run_num << " " << trigger_data_event_num << "  probability_of_candidate:" << probability_of_candidate << endl ;
+						cout << "Accepted elastic event: " << trigger_data_run_num << " " << trigger_data_event_num << "  probability_of_candidate:" << probability_of_candidate << endl ;
 						number_of_elastic_1++ ;
 						// cout << "root_file_index_and_event_number: " << index_of_root_file << "  " << trigger_data_event_num << " " << track_right_near_y <<  " " << track_right_far_y <<  " " << track_left_near_y <<  " " << track_left_far_y << endl ;
 					}
@@ -4727,7 +4758,7 @@ void TProject::ExecuteMonteCarlo()
 					double zero = 0.0 ;
 
 					ProtonReconstruction->Reconstruct(event_info_timestamp, 0, 0, track_left_near_x_mm, track_left_far_x_mm, track_right_near_x_mm, track_right_far_x_mm, track_left_near_y_mm, track_left_far_y_mm, track_right_near_y_mm, track_right_far_y_mm,
-					zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+					zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), 4) ;
 
 					// Check out reconstructed variables
 
@@ -4917,7 +4948,7 @@ void TProject::ExecuteMonteCarlo()
 								track_right_far_y_mm  = vector_of_coordinates_of_segments[iterator_over_track_segments_4][7] ;
 
 								ProtonReconstruction->Reconstruct(event_info_timestamp, 0, 0, track_left_near_x_mm, track_left_far_x_mm, track_right_near_x_mm, track_right_far_x_mm, track_left_near_y_mm, track_left_far_y_mm, track_right_near_y_mm, track_right_far_y_mm,
-								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), 4) ;
 
 								bool status = PlotsCollections["PlotsCollection"]->Fill(ProtonReconstruction, MC_weight) ;
 
@@ -4947,7 +4978,7 @@ void TProject::ExecuteMonteCarlo()
 								track_right_far_y_mm  = vector_of_coordinates_of_segments[0][7] ;
 
 								ProtonReconstruction->Reconstruct(event_info_timestamp, 0, 0, track_left_near_x_mm, track_left_far_x_mm, track_right_near_x_mm, track_right_far_x_mm, track_left_near_y_mm, track_left_far_y_mm, track_right_near_y_mm, track_right_far_y_mm,
-								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment()) ;
+								zero, zero, zero, zero, zero, zero, zero, zero, ProjectParameters->GetBeam_1_Optics(), ProjectParameters->GetBeam_2_Optics(), ProjectParameters->GetRPAlignment(), 4) ;
 
 								bool status = PlotsCollections["PlotsCollection"]->Fill(ProtonReconstruction, MC_weight) ;
 

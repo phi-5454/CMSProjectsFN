@@ -338,6 +338,7 @@
 
         <begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_y_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_y_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_right_far_rad
@@ -352,6 +353,7 @@
 
         <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_x_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_x_star_right_far_rad
@@ -398,6 +400,7 @@
 
         <begin> theta_x_star_far_rad_theta_y_star_far_rad_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_far_rad
@@ -444,6 +447,7 @@
 
         <begin> theta_x_star_far_rad_theta_y_star_far_rad_horizontal_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_far_rad
@@ -462,6 +466,7 @@
 
         <begin> theta_x_star_far_rad_theta_y_star_far_rad_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_far_rad
@@ -489,6 +494,7 @@
 
         <begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_y_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_y_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_right_far_rad
@@ -507,6 +513,7 @@
 
         <begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_y_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_y_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_right_far_rad
@@ -525,6 +532,7 @@
 
         <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_x_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_x_star_right_far_rad
@@ -543,6 +551,7 @@
 
         <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_left_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_x_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_x_star_right_far_rad
@@ -561,6 +570,7 @@
 
         <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_right_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_x_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_x_star_right_far_rad
@@ -579,6 +589,7 @@
 
         <begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_with_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_y_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_y_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_right_far_rad
@@ -993,6 +1004,7 @@
 
         <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_define_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_x_star_rad_theta_x_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_x_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_x_star_right_far_rad
@@ -1011,6 +1023,7 @@
 
         <begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_define_cut_plot_block
                 <parameter>     dimension                                                                                               2.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    theta_y_star_rad_theta_y_star_rad_type_block
                 <setting>       x_variable                                                                                              theta_y_star_left_far_rad
                 <setting>       y_variable                                                                                              theta_y_star_right_far_rad
@@ -1677,6 +1690,7 @@
 
         <begin> dN_dt_far_GeV2_plot_block
                 <parameter>     dimension                                                                                               1.0
+                <parameter>     number_of_needed_RPs                                                                                    2.0
                 <setting>       type                                                                                                    dN_dt_GeV2_type_block
                 <setting>       x_variable                                                                                              minus_t_far_GeV2
         <end>   dN_dt_far_GeV2_plot_block

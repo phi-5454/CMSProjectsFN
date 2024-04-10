@@ -152,14 +152,19 @@ bool TPlotsCollection::Fill(TProtonReconstruction *ProtonReconstruction, double 
 	const bool test = false ;
 	bool status = true ;
 
+        int number_of_valid_tracks = ProtonReconstruction->GetNumberOfValidTracks() ;
+
 	for(vector_of_PTAnalysisPlot_type::iterator it = vector_of_PTAnalysisPlot.begin() ; it != vector_of_PTAnalysisPlot.end() ; ++it)
 	{
-		(*it)->Fill(weight, test) ;
-		
-		if(!((*it)->GetFillStatus()))
+		if(number_of_valid_tracks >=  (*it)->GetNumNeededRPs())
 		{
-			status = false ;
-			break ;
+			(*it)->Fill(weight, test) ;
+		
+			if(!((*it)->GetFillStatus()))
+			{
+				status = false ;
+				break ;
+			}
 		}
 	}
 
@@ -171,14 +176,20 @@ bool TPlotsCollection::Test(TProtonReconstruction *ProtonReconstruction, double 
 	const bool test = true ;
 	bool status = true ;
 
+        int number_of_valid_tracks = ProtonReconstruction->GetNumberOfValidTracks() ;
+
 	for(vector_of_PTAnalysisPlot_type::iterator it = vector_of_PTAnalysisPlot.begin() ; it != vector_of_PTAnalysisPlot.end() ; ++it)
 	{
-		(*it)->Fill(weight, test) ;
+                if(number_of_valid_tracks >=  (*it)->GetNumNeededRPs())
+                {
+
+			(*it)->Fill(weight, test) ;
 		
-		if(!((*it)->GetFillStatus()))
-		{
-			status = false ;
-			break ;
+			if(!((*it)->GetFillStatus()))
+			{
+				status = false ;
+				break ;
+			}
 		}
 	}
 
