@@ -11,6 +11,7 @@
 #include "TMath.h"
 #include "TLine.h"
 #include "TLatex.h"
+#include "TGraph.h"
 
 #include "TProjectParameters.h"
 
@@ -274,6 +275,10 @@ double dphi_for_test ;
 
 TGraph *acceptance_frame = NULL ;
 
+double accep_based_on_frame(double theta_star_rad)
+{
+}
+
 Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(Double_t *pt_GeV2, Double_t *par)
 {
 	Double_t beam_1_momentum 	= par[0] ;
@@ -284,6 +289,11 @@ Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(D
 
 	Double_t t_GeV2 = -(*pt_GeV2) ;
 	double theta_star_rad = theta_star_rad_from_t_GeV2(t_GeV2, beam_1_momentum) ;
+
+	if(acceptance_frame != NULL)
+	{
+		return accep_based_on_frame(theta_star_rad) ;
+	}
 	
 	if(theta_star_rad < theta_y_star_rad_min) return 0 ;
 	
