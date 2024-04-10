@@ -277,6 +277,28 @@ TGraph *acceptance_frame = NULL ;
 
 double accep_based_on_frame(double theta_star_rad)
 {
+	int number_of_points = acceptance_frame->GetN() ;
+
+	if(number_of_points < 3)
+	{
+		cout << "There has to be at least 3 points for an acceptance frame" << endl ;
+		exit(1) ;
+	}
+
+	double x1, y1 ;
+	acceptance_frame->GetPoint(0, x1, y1) ;
+
+	for(int i = 1 ; i < number_of_points ; ++i)
+	{
+		double x2, y2 ;
+	        acceptance_frame->GetPoint(i, x2, y2) ;
+
+		double m = (y2 - y1) / (x2 - x1) ;
+		double b = y1 - m * x1 ;
+
+		x1 = x2 ;
+		y1 = y2 ;
+	}
 }
 
 Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(Double_t *pt_GeV2, Double_t *par)
