@@ -3193,6 +3193,10 @@ void TReducedNtuple::Loop(TProjectParameters *ProjectParameters, TProtonReconstr
 						number_of_elastic_1++ ;
 						// cout << "root_file_index_and_event_number: " << index_of_root_file << "  " << trigger_data_event_num << " " << track_right_near_y <<  " " << track_right_far_y <<  " " << track_left_near_y <<  " " << track_left_far_y << endl ;
 					}
+					else
+					{
+						cout << "Rejected event: " << trigger_data_run_num << " " << trigger_data_event_num << "  probability_of_candidate:" << probability_of_candidate << endl ;
+					}
 
 					ProtonReconstruction->SetElastic(status) ;
 
