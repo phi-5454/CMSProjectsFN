@@ -72,6 +72,8 @@ int plot_sigtot(int scenario)
 
 	string myfilename = "data/TOTEM_D0_14_PRL_preliminary_1_cross_section.txt" ;
 	string myplotname = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.pdf" ;
+	string myplotname2 = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.root" ;
+	string myplotname3 = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.png" ;
 	
 	double cp = 73.75607 ;
 	double bp = 8.41508 ;
@@ -93,6 +95,8 @@ int plot_sigtot(int scenario)
 
 		myfilename = "data/TOTEM_D0_14_PRL_preliminary_2_cross_section.txt" ;
 		myplotname = "fig/TOTEM_D0_14_PRL_preliminary_2_cross_section.pdf" ;
+		myplotname2 = "fig/TOTEM_D0_14_PRL_preliminary_2_cross_section.root" ;
+		myplotname3 = "fig/TOTEM_D0_14_PRL_preliminary_1_cross_section.png" ;
 
 		cp = 125.098837177212 ;
 		bp = -23.2803355035864 ;
@@ -119,8 +123,8 @@ int plot_sigtot(int scenario)
 
 	TGraphErrors *graph = new TGraphErrors ;
 	TGraphErrors *graph_1p96 = new TGraphErrors ;
-	TGraph *graph_10_GeV = new TGraph ;
-	
+	TGraphErrors *graph_10_GeV = new TGraphErrors ;
+
 	hist_2d->SetTitle("") ;
 
 	graph->SetMarkerStyle(20) ;
@@ -163,6 +167,7 @@ int plot_sigtot(int scenario)
 	if(scenario ==  scenario_prelim_2)
 	{
 		graph_10_GeV->SetPoint(0, 10, 38.69) ;
+		graph_10_GeV->SetPointError(0, 0.0, 0.4865) ;
    }
 
 	double uncertainy_factor = 1.01 ;
@@ -191,7 +196,20 @@ int plot_sigtot(int scenario)
 
 	graph->Draw("same p") ;
 	graph_1p96->Draw("same p") ;
-	if(scenario ==  scenario_prelim_2) graph_10_GeV->Draw("same p") ;
+	if(scenario ==  scenario_prelim_2)
+	{
+		graph_10_GeV->Draw("same p") ;
+
+		double mylength = 2.0 ;
+
+		const double limit_at_15_GeV = 39.3 ;
+
+		TLine *myline = new TLine(15 -mylength, limit_at_15_GeV, 15 + mylength, limit_at_15_GeV) ;
+		myline->SetLineWidth(14) ;
+
+		myline->Draw("same") ;
+	}
+
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
 
@@ -211,6 +229,8 @@ int plot_sigtot(int scenario)
 	mydraw() ;	
 
 	c.SaveAs(myplotname.c_str()) ;
+	c.SaveAs(myplotname2.c_str()) ;
+	c.SaveAs(myplotname3.c_str()) ;
 
 	delete hist_2d ;
 	delete graph ;
@@ -224,7 +244,7 @@ int plot_dsdt()
 	TCanvas c ;
 	c.SetLogy() ;
 
-   gStyle->SetLineScalePS(.3) ;
+   gStyle->SetLineScalePS(.5) ;
 	gStyle->SetOptFit(1111);
 	gStyle->SetOptStat("");
 
