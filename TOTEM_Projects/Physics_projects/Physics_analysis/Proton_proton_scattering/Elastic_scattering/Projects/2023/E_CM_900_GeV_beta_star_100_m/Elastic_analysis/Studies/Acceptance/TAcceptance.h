@@ -11,6 +11,7 @@
 #include "TMath.h"
 #include "TLine.h"
 #include "TLatex.h"
+#include "TGraph.h"
 
 #include "TProjectParameters.h"
 
@@ -272,6 +273,43 @@ Double_t beam_divergence_correction_factor(Double_t *pt_GeV2, Double_t *par)
 double theta_star_result_for_test ;
 double dphi_for_test ;
 
+vector<double> xvalues ;
+vector<double> yvalues ;
+
+double accep_based_on_frame(double theta_star_rad)
+{
+	int number_of_points = xvalues.size() ;
+
+	if(number_of_points < 3)
+	{
+		cout << "There has to be at least 3 points for an acceptance frame" << endl ;
+		exit(1) ;
+	}
+
+	double x1, y1 ;
+	x1 = xvalues[0] ;
+	y1 = yvalues[0] ;
+
+	for(int i = 1 ; i < number_of_points ; ++i)
+	{
+		cout << x1 << endl ;
+		double x2, y2 ;
+
+		x2 = xvalues[i] ;
+		y2 = yvalues[i] ;
+
+		double m = (y2 - y1) / (x2 - x1) ;
+		double b = y1 - m * x1 ;
+
+		x1 = x2 ;
+		y1 = y2 ;
+
+	}
+
+	cout << "an acceptance computed" << endl ;
+
+}
+
 Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(Double_t *pt_GeV2, Double_t *par)
 {
 	Double_t beam_1_momentum 	= par[0] ;
@@ -282,6 +320,11 @@ Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(D
 
 	Double_t t_GeV2 = -(*pt_GeV2) ;
 	double theta_star_rad = theta_star_rad_from_t_GeV2(t_GeV2, beam_1_momentum) ;
+
+	if(xvalues.size() != 0)
+	{
+		// double value = accep_based_on_frame(theta_star_rad) ;
+	}
 	
 	if(theta_star_rad < theta_y_star_rad_min) return 0 ;
 	
