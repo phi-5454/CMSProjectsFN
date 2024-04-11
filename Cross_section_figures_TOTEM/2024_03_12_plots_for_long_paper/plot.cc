@@ -25,6 +25,7 @@ using namespace std;
 #include "TGraphAsymmErrors.h"
 #include "TLatex.h"
 #include "TLine.h"
+#include "TArrow.h"
 #include "TMinuit.h"
 #include "TStyle.h"
 
@@ -207,13 +208,18 @@ int plot_sigtot(int scenario)
 		TLine *myline = new TLine(15 -mylength, limit_at_15_GeV, 15 + mylength, limit_at_15_GeV) ;
 		myline->SetLineWidth(14) ;
 
+		TArrow *myarrow = new TArrow(15, limit_at_15_GeV, 15, limit_at_15_GeV - 2*mylength,0.01, "|>") ;
+		myarrow->SetAngle(40) ;
+		myarrow->SetLineWidth(2) ;
+
 		myline->Draw("same") ;
+		myarrow->Draw("") ;
 	}
 
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
 
-	if(scenario ==  scenario_prelim_2) func->SetRange(1.0 * TeV_to_GeV, 15 * TeV_to_GeV) ;
+	if(scenario ==  scenario_prelim_2) func->SetRange(1.96 * TeV_to_GeV, 13 * TeV_to_GeV) ;
 	// func_p->Draw("same l") ;
 	// func_m->Draw("same l") ;
 	
