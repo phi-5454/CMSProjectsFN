@@ -245,6 +245,17 @@ int plot_sigtot(int scenario)
 		
 		TGraph *graph_for_plot = ((TGraph *)afile->Get("graph_for_plot")) ;
 		graph_for_plot->Draw("same") ;
+		
+		double anx = 1960 ;
+		double avalue = graph_for_plot->Eval(anx) ;
+		double avalue_2 = 80.4579 ;
+
+		TArrow *myarrow2 = new TArrow(1960, avalue, 1960, avalue_2, 0.01, "<|>") ;
+		myarrow2->SetAngle(40) ;
+		myarrow2->SetLineWidth(14) ;
+		myarrow2->SetLineColor(6) ;
+		myarrow2->Draw("") ;
+		
 	}
 
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
