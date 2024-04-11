@@ -223,6 +223,10 @@ int plot_sigtot(int scenario)
 
 	graph->Draw("same p") ;
 	graph_1p96->Draw("same p") ;
+
+	TGraph *graph_for_plot = NULL ;
+	TArrow *myarrow2 = NULL ;
+
 	if(scenario ==  scenario_prelim_2)
 	{
 		graph_10_GeV->Draw("same p") ;
@@ -243,14 +247,14 @@ int plot_sigtot(int scenario)
 		
 		TFile *afile = TFile::Open("./fit_test/graph.root") ;
 		
-		TGraph *graph_for_plot = ((TGraph *)afile->Get("graph_for_plot")) ;
+		graph_for_plot = ((TGraph *)afile->Get("graph_for_plot")) ;
 		graph_for_plot->Draw("same") ;
 		
 		double anx = 1960 ;
 		double avalue = graph_for_plot->Eval(anx) ;
 		double avalue_2 = 80.4579 ;
 
-		TArrow *myarrow2 = new TArrow(1960, avalue, 1960, avalue_2, 0.01, "<|>") ;
+		myarrow2 = new TArrow(1960, avalue, 1960, avalue_2, 0.01, "<|>") ;
 		myarrow2->SetAngle(40) ;
 		myarrow2->SetLineWidth(14) ;
 		myarrow2->SetLineColor(6) ;
@@ -271,6 +275,8 @@ int plot_sigtot(int scenario)
 	legend->AddEntry(graph, "TOTEM measurements", "p") ;
 	legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_10_GeV, "constraint", "p") ;
+	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_for_plot, "fit", "l") ;
+	if(scenario ==  scenario_prelim_2) legend->AddEntry(myarrow2, "uncertainty", "l") ;
 	// legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
 	
 	legend->Draw("same") ;
