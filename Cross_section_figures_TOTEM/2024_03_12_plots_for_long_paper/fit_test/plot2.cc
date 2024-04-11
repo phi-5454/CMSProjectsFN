@@ -236,6 +236,8 @@ void test()
     
     if(((func->Eval(1.5) > 39.275)) && (func->Eval(1.5) < 39.3))
     {
+		cout << "parameters " << func->GetParameter(0) << " "  << func->GetParameter(1) << " "  << func->GetParameter(2) << endl ;
+	 
       hist2->Fill(func->Eval(196.0)) ;
       hist4->Fill(func->Eval(0.5)) ;
     }
