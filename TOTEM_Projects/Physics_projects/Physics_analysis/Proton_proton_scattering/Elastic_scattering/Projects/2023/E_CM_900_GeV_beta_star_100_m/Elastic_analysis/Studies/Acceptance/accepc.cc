@@ -134,6 +134,7 @@ int main()
 	double R = (300e-6 / 2.0) ;
 
    TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, -1e-3, 1e-3, 100, -0.5e-3, 0.5e-3) ;	
+	hist_2d->SetTitle("") ;
 	TEllipse ellipse(0, 0, R, R) ;
 	ellipse.SetFillStyle(0) ;
 	ellipse.SetLineColor(kBlue) ;
