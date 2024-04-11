@@ -36,6 +36,8 @@ using namespace std;
 #include "TEllipse.h"
 #include "TMultiGraph.h"
 
+#include <fstream>
+
 #include <iomanip>
 
 TCanvas c ;
@@ -121,9 +123,68 @@ double accep_based_on_frame(double theta_star_rad)
 
 }
 
-int main()
+void other_studies()
 {
-	gStyle->SetOptStat("");
+	TCanvas b ;
+	TCanvas d ;
+	
+	c.SetLogy() ;			
+	d.SetLogy() ;			
+
+
+	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	string word ;
+	
+	bool first = true ;
+	
+	while(runs >> word)
+	{
+		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
+		
+		if(file == NULL) continue ;
+		
+		TH1D *hist = ((TH1D *)file->Get("P0014_PlotsCollection_theta_x_star_left_far_rad_theta_x_star_right_far_rad_with_cut_distance_from_cut")) ;
+
+		if(hist == NULL) continue ;
+
+		TH1D *hist2 = ((TH1D *)hist->Clone("hist2")) ;
+
+		hist->Fit("gaus", "", "", -5e-4, 5e-4) ;
+		
+		for(int i = 170 ; i <= 230 ; ++i)
+		{
+			hist2->SetBinContent(i, 0) ;
+		}
+
+		hist2->Fit("gaus", "", "", -5e-4, 5e-4) ;
+
+		b.cd() ;
+		if(first) hist->Draw("") ;
+		hist->Draw("same") ;
+		
+		first = false ;
+	
+		d.cd() ;
+
+		hist->Draw("") ;
+		hist2->Draw("same") ;
+		
+		d.SaveAs(("plots/plot_" + word + ".pdf").c_str()) ;
+		
+		double val1 = hist->GetFunction("gaus")->Eval(0) ;
+		double val2 = hist2->GetFunction("gaus")->Eval(0) ;
+		
+		cout << "run " << word << "  " << val2 / val1 << endl ;
+		
+	}
+	
+	b.SaveAs("b.root") ;
+	b.SaveAs("b.pdf") ;
+}
+
+void main_studies()
+{
 
 	TFile *file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/Tests/frame2.root") ;
 	
@@ -146,4 +207,12 @@ int main()
 	accep_based_on_frame(R) ;
 	
 	c.SaveAs("test.pdf") ;
+}
+
+int main()
+{
+	gStyle->SetOptStat("");
+
+	main_studies() ;
+	other_studies() ;
 }
