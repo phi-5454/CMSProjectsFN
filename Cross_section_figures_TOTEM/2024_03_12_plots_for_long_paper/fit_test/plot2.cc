@@ -188,6 +188,7 @@ TH1D *hist3 = new TH1D("hist3", "hist3", 4000, 0, 100) ;
 
 TH1D *hist4 = new TH1D("hist4", "hist4", 4000, 0, 100) ;
 
+int counter2 = 0 ;
 
 void test()
 {
@@ -230,6 +231,7 @@ void test()
   c->cd() ;
   c->SetLogx() ;
   
+  
   if(func->Eval(1.5) <= 39.3)
   {
     // cout << "wasok: " << counter << endl ;
@@ -237,6 +239,8 @@ void test()
     
     if(((func->Eval(1.5) > 39.275)) && (func->Eval(1.5) < 39.3))
     {
+	   ++counter2 ;
+	 
 		cout << "parameters " << func->GetParameter(0) << " "  << func->GetParameter(1) << " "  << func->GetParameter(2) << endl ;
 		func->SaveAs("func.root") ;
 		
@@ -257,7 +261,7 @@ void test()
 	 
 	   graph_for_plot->SaveAs("graph.root") ;
 
-		exit(1) ;
+		if(counter2 == 100) exit(1) ;
 	 
       hist2->Fill(func->Eval(196.0)) ;
       hist4->Fill(func->Eval(0.5)) ;

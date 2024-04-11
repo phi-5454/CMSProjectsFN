@@ -240,6 +240,11 @@ int plot_sigtot(int scenario)
 
 		myline->Draw("same") ;
 		myarrow->Draw("") ;
+		
+		TFile *afile = TFile::Open("./fit_test/graph.root") ;
+		
+		TGraph *graph_for_plot = ((TGraph *)afile->Get("graph_for_plot")) ;
+		graph_for_plot->Draw("same") ;
 	}
 
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
