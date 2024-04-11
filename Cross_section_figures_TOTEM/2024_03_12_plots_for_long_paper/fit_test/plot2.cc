@@ -129,7 +129,7 @@ void MinuitFit()
   gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
   
   func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
-  func->SetNpx(100) ;
+  func->SetNpx(100000) ;
 }
 
 TGraphErrors *graph = new TGraphErrors() ;
@@ -199,6 +199,7 @@ void test()
   if(!data.is_open())
   {
     cout << "Data file cannot be opened to read for fit" << endl ;
+
     exit(1) ;
   }
   
@@ -237,6 +238,26 @@ void test()
     if(((func->Eval(1.5) > 39.275)) && (func->Eval(1.5) < 39.3))
     {
 		cout << "parameters " << func->GetParameter(0) << " "  << func->GetParameter(1) << " "  << func->GetParameter(2) << endl ;
+		func->SaveAs("func.root") ;
+		
+	   const int npoints = 10000 ;
+  	   double de = 1300.0 / npoints ;
+
+	   TGraph *graph_for_plot = new TGraph() ; 
+		graph_for_plot->SetName("graph_for_plot") ;
+		graph_for_plot->SetTitle("graph_for_plot") ;
+
+	   for(int i = 0 ; i < npoints ; ++i)
+	   {
+			double energy = (de * (i+1)) ;
+		
+  	     graph_for_plot->SetPoint(i, energy * 10.0, func->Eval(energy)) ;
+		  // cout << func->Eval(de * (i+1)) << endl ;
+	   }
+	 
+	   graph_for_plot->SaveAs("graph.root") ;
+
+		exit(1) ;
 	 
       hist2->Fill(func->Eval(196.0)) ;
       hist4->Fill(func->Eval(0.5)) ;

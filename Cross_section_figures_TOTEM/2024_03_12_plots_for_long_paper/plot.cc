@@ -52,6 +52,19 @@ Double_t log_like_function(Double_t *x, Double_t *par)
         return f ;
 }
 
+Double_t log_like_function2(Double_t *x, Double_t *par)
+{
+        double f1 = par[0] * pow(log(x[0] / 10.0), 0) ;
+        double f2 = par[1] * pow(log(x[0] / 10.0), 1) ;
+        double f3 = par[2] * pow(log(x[0] / 10.0), 2) ;
+
+        double f = par[3] * (f1 + f2 + f3) ;
+      
+        cout << "energy: " << x[0] << " " << f << endl ;
+
+        return f ;
+}
+
 const int scenario_prelim_1 = 1 ;
 const int scenario_prelim_2 = 2 ;
 
@@ -114,9 +127,11 @@ int plot_sigtot(int scenario)
 
    TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, low_limit, 14.0 * TeV_to_GeV, 100, y_low_limit, 115) ;	
 
-   TF1 *func = new TF1("func", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
+   TF1 *func = new TF1("afunc", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
    TF1 *func_p = new TF1("func_p", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
    TF1 *func_m = new TF1("func_m", log_like_function, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
+
+   TF1 *func_15_GeV = new TF1("afunc2", log_like_function2, epsilon * TeV_to_GeV, 14.0 *  TeV_to_GeV, 4) ;	
 
    gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
@@ -176,10 +191,21 @@ int plot_sigtot(int scenario)
    func->SetParameters(cp, bp, ap, 1.0) ;
    func_p->SetParameters(cp, bp, ap, uncertainy_factor) ;
    func_m->SetParameters(cp, bp, ap, 1.0 / uncertainy_factor) ;
+	
+   func_15_GeV->SetParameters(cp, bp, ap, 1.0) ;
+	func_15_GeV->SetParameters(38.6901, 0.941957, 1.289) ;
+	// func_15_GeV->SetParameters(1.289, 0.941957, 38.6901) ;
+	func_15_GeV->SetRange(0.001, 13.0 * TeV_to_GeV) ; 
+	
+	double value = func_15_GeV->Eval(15) ;
+	cout << "blabla func_15_GeV " << value << endl << endl;
+
 
    func->SetNpx(100) ;	
    func_p->SetNpx(100) ;	
    func_m->SetNpx(100) ;	
+
+   func_15_GeV->SetNpx(100) ;	
 
    func->SetLineColor(kRed) ;	
    func_p->SetLineColor(kMagenta) ;	
@@ -218,6 +244,7 @@ int plot_sigtot(int scenario)
 
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
+	func_15_GeV->Draw("same l") ;
 
 	if(scenario ==  scenario_prelim_2) func->SetRange(1.96 * TeV_to_GeV, 13 * TeV_to_GeV) ;
 	// func_p->Draw("same l") ;
