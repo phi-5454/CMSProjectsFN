@@ -143,7 +143,7 @@ int plot_sigtot(int scenario)
 
 	hist_2d->SetTitle("") ;
 
-	graph->SetMarkerStyle(4) ;
+	graph->SetMarkerStyle(20) ;
 	graph->SetMarkerSize(0.8) ;
 
 	graph_1p96->SetMarkerStyle(4) ;
