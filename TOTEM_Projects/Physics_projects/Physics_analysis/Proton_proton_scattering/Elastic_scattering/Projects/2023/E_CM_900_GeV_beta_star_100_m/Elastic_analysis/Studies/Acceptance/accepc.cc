@@ -140,7 +140,8 @@ void other_studies()
 	
 	while(runs >> word)
 	{
-		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
+		// TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
+		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
 		
 		if(file == NULL) continue ;
 		
@@ -149,15 +150,24 @@ void other_studies()
 		if(hist == NULL) continue ;
 
 		TH1D *hist2 = ((TH1D *)hist->Clone("hist2")) ;
+		
+		double signal_fit_boundary = 2e-4 ;
+		double bkg_fit_boundary = 4e-4 ;
+		
+		if(word.compare("324536") == 0.0)
+		{
+			bkg_fit_boundary = 3e-4 ;
+		}
 
-		hist->Fit("gaus", "", "", -5e-4, 5e-4) ;
+		hist->Fit("gaus", "", "", -signal_fit_boundary, signal_fit_boundary) ;
 		
 		for(int i = 170 ; i <= 230 ; ++i)
 		{
 			hist2->SetBinContent(i, 0) ;
+			hist2->SetBinError(i, 0) ;
 		}
 
-		hist2->Fit("gaus", "", "", -5e-4, 5e-4) ;
+		hist2->Fit("gaus", "", "", -bkg_fit_boundary, bkg_fit_boundary) ;
 
 		b.cd() ;
 		if(first) hist->Draw("") ;
@@ -213,6 +223,6 @@ int main()
 {
 	gStyle->SetOptStat("");
 
-	main_studies() ;
+	// main_studies() ;
 	other_studies() ;
 }
