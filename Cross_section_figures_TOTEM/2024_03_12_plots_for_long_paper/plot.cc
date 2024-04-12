@@ -267,6 +267,8 @@ int plot_sigtot(int scenario)
 		myarrow2->Draw("") ;
 		
 	}
+	
+	cout << "Test: " << func->Eval(2760) << endl ;
 
 	func->SetRange(1.5 * TeV_to_GeV, 15 * TeV_to_GeV) ;
 	func->Draw("same l") ;
