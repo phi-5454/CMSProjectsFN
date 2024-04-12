@@ -232,6 +232,7 @@ int plot_sigtot(int scenario)
 
 	TGraph *graph_for_plot = NULL ;
 	TArrow *myarrow2 = NULL ;
+	TArrow *myarrow3 = NULL ;
 
 	if(scenario ==  scenario_prelim_2)
 	{
@@ -266,6 +267,21 @@ int plot_sigtot(int scenario)
 		myarrow2->SetLineColor(6) ;
 		myarrow2->Draw("") ;
 		
+	   TLatex *latex = new TLatex() ;
+
+	   latex->SetNDC() ;
+   	latex->SetTextFont(132) ;
+   	latex->SetTextSize(0.02) ;
+	   latex->SetTextColor(kRed) ;
+	
+		latex->DrawLatex(.72, .08, "1.96 TeV") ;
+
+		myarrow3 = new TArrow(1960, avalue, 1960, 30, 0.01, "") ;
+		myarrow3->SetAngle(40) ;
+		myarrow3->SetLineWidth(5) ;
+		myarrow3->SetLineColor(kRed) ;
+		myarrow3->SetLineStyle(kDashed) ;
+		myarrow3->Draw("") ;
 	}
 	
 	cout << "Test: " << func->Eval(2760) << endl ;
@@ -281,8 +297,8 @@ int plot_sigtot(int scenario)
 	TLegend *legend = new TLegend(0.12, 0.65, 0.5, 0.88) ;
 	
 	legend->AddEntry(graph, "TOTEM measurements", "p") ;
-	legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
-	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_10_GeV, "constraint", "p") ;
+	legend->AddEntry(graph_1p96, "extrapolation", "p") ;
+	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_10_GeV, "constraint", "pe") ;
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_for_plot, "fit", "l") ;
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(myarrow2, "uncertainty", "l") ;
 	// legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
