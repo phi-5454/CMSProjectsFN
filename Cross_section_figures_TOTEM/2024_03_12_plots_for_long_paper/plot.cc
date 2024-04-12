@@ -143,13 +143,14 @@ int plot_sigtot(int scenario)
 
 	hist_2d->SetTitle("") ;
 
-	graph->SetMarkerStyle(20) ;
+	graph->SetMarkerStyle(4) ;
+	graph->SetMarkerSize(0.8) ;
 
-	graph_1p96->SetMarkerStyle(29) ;
-	graph_1p96->SetMarkerSize(1.4) ;
+	graph_1p96->SetMarkerStyle(4) ;
+	graph_1p96->SetMarkerSize(0.8) ;
 
-	graph_10_GeV->SetMarkerStyle(29) ;
-	graph_10_GeV->SetMarkerSize(1.4) ;
+	graph_10_GeV->SetMarkerStyle(4) ;
+	graph_10_GeV->SetMarkerSize(0.8) ;
 
 	graph_1p96->SetMarkerColor(kBlue) ;
 	graph_10_GeV->SetMarkerColor(kRed) ;
@@ -170,6 +171,11 @@ int plot_sigtot(int scenario)
 		{
 			graph_1p96->SetPoint(0, energy, sigtot) ;
 			graph_1p96->SetPointError(0, 0, sigtotunc) ;
+
+			if(scenario ==  scenario_prelim_2)
+			{
+				graph_1p96->SetPointError(0, 0, 0) ;
+			}
 		}
 		else
 		{
@@ -254,7 +260,7 @@ int plot_sigtot(int scenario)
 		double avalue = graph_for_plot->Eval(anx) ;
 		double avalue_2 = 80.4579 ;
 
-		myarrow2 = new TArrow(1960, avalue, 1960, avalue_2, 0.01, "<|>") ;
+		myarrow2 = new TArrow(1960, avalue, 1960, avalue_2, 0.01, "") ;
 		myarrow2->SetAngle(40) ;
 		myarrow2->SetLineWidth(14) ;
 		myarrow2->SetLineColor(6) ;
