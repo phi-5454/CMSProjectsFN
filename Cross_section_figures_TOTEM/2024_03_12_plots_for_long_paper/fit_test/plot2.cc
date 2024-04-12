@@ -255,7 +255,11 @@ void test()
 	   {
 			double energy = (de * (i+1)) ;
 		
-  	     graph_for_plot->SetPoint(i, energy * 10.0, func->Eval(energy)) ;
+  	     if((energy * 10.0) >= 5.0)
+		  {
+		  		graph_for_plot->SetPoint(i-3, energy * 10.0, func->Eval(energy)) ;
+				cout << "the i:" << i << endl ;
+		  }
 		  // cout << func->Eval(de * (i+1)) << endl ;
 	   }
 	 
