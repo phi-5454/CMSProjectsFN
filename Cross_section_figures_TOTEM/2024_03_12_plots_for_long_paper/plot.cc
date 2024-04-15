@@ -500,9 +500,9 @@ int plot_dsdt()
 	graph_band_up->SetLineStyle(kDashed) ;
 	graph_band_down->SetLineStyle(kDashed) ;
 
-	TLegend *legend = new TLegend(0.4, 0.65, 0.88, 0.88) ;
+	TLegend *legend = new TLegend(0.4, 0.65, 0.89, 0.84) ;
 	
-	legend->AddEntry(graph, "p#bar{p} measurement by D0 at #sqrt{s}=1.96 TeV", "pe") ;
+	legend->AddEntry(graph, "D0 p#bar{p} measurement at #sqrt{s}=1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
 	legend->AddEntry(graph_band_up, "band width (#pm 1 #sigma)", "l") ;
 	
@@ -517,5 +517,5 @@ int main(int argc, char *argv[])
 {
 	plot_sigtot(scenario_prelim_1) ;
 	plot_sigtot(scenario_prelim_2) ;
-	// plot_dsdt() ;
+	plot_dsdt() ;
 }
