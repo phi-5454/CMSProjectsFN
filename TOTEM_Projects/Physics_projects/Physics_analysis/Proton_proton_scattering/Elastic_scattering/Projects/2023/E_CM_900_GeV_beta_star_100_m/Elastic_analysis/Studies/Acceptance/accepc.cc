@@ -226,10 +226,37 @@ void main_studies()
 	c.SaveAs("test.pdf") ;
 }
 
+void horizontal_elastic_alignment()
+{
+	// ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+	// string word ;
+	// bool first = true ;
+	// while(runs >> word)
+
+	TFile *file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+
+	vector<string> histograms ;
+
+	histogams.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
+	histogams.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
+	histogams.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
+	histogams.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+
+	TH2D *hist1 = ((TH2D *)file->Get("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP")) ;
+
+	double w_l = hist1->GetYaxis()->FindBin(6) ;
+	double w_u = hist1->GetYaxis()->FindBin(25) ;
+	TH1D *hist_1_proj = hist1->ProjectionX("px1", w_l, w_u) ;
+
+	hist_1_proj->Fit("gaus", "", "", -2, 2) ;
+}
+
 int main()
 {
 	gStyle->SetOptStat("");
 
-	main_studies() ;
-	other_studies() ;
+	// main_studies() ;
+	// other_studies() ;
+
+	horizontal_elastic_alignment() ;
 }
