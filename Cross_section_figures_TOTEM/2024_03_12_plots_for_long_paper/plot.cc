@@ -500,7 +500,7 @@ int plot_dsdt()
 	graph_band_up->SetLineStyle(kDashed) ;
 	graph_band_down->SetLineStyle(kDashed) ;
 
-	TLegend *legend = new TLegend(0.4, 0.65, 0.89, 0.84) ;
+	TLegend *legend = new TLegend(0.38, 0.65, 0.88, 0.84) ;
 	
 	legend->AddEntry(graph, "D#oslash p#bar{p} measurement at #sqrt{s}=1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
