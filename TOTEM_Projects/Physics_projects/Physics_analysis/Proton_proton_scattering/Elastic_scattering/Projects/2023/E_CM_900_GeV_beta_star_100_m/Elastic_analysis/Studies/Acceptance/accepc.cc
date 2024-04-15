@@ -181,6 +181,7 @@ void other_studies()
 		hist2->Draw("same") ;
 		
 		d.SaveAs(("plots/plot_" + word + ".pdf").c_str()) ;
+		d.SaveAs(("plots/plot_" + word + ".root").c_str()) ;
 		
 		double val1 = hist->GetFunction("gaus")->Eval(0) ;
 		double val2 = hist2->GetFunction("gaus")->Eval(0) ;

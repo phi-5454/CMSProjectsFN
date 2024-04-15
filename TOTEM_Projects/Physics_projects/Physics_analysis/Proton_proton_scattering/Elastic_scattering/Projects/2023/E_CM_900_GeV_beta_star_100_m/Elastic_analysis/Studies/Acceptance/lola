@@ -1,3 +1,22 @@
+-0.000131383
+ 0.000145419 3.6788e-05
+ -0.000145419 3.6788e-05
+0.000259897
+ 0.000146641 3.15677e-05
+ -0.000148923 1.79444e-05
+0.000399885
+ 0.000145969 -3.45392e-05
+ -0.000101581 -0.000110369
+0.000521515
+0.000418244
+ 7.13796e-05 0.000131928
+ -7.10485e-05 0.000132106
+-7.97476e-05
+-0.000199082
+ 0.000148035 -2.42009e-05
+ -0.0001447 3.95204e-05
+an acceptance computed
+Info in <TCanvas::Print>: pdf file test.pdf has been created
 ****************************************
 Minimizer is Minuit2 / Migrad
 Chi2                      =      1845.82
@@ -17,6 +36,7 @@ Constant                  =      100.335   +/-   8.61266
 Mean                      = -5.95598e-05   +/-   7.62684e-06 
 Sigma                     =  0.000243583   +/-   1.23936e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324458.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324458.root has been created
 run 324458  0.0180382
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -37,6 +57,7 @@ Constant                  =      52.5099   +/-   7.86909
 Mean                      = -5.92767e-05   +/-   8.52185e-06 
 Sigma                     =   0.00019647   +/-   1.17944e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324460.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324460.root has been created
 run 324460  0.0240475
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -57,6 +78,7 @@ Constant                  =      7.20472   +/-   3.30576
 Mean                      = -1.50813e-05   +/-   1.67725e-05 
 Sigma                     =  0.000201058   +/-   3.93459e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324461.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324461.root has been created
 run 324461  0.00713968
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -77,6 +99,7 @@ Constant                  =      7.67384   +/-   2.56665
 Mean                      = -2.07947e-05   +/-   1.99909e-05 
 Sigma                     =   0.00023887   +/-   4.54469e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324462.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324462.root has been created
 run 324462  0.000966843
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -97,6 +120,7 @@ Constant                  =      97.5906   +/-   9.00568
 Mean                      = -8.20305e-05   +/-   8.78282e-06 
 Sigma                     =  0.000234697   +/-   1.25094e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324464.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324464.root has been created
 run 324464  0.0450276
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -117,6 +141,7 @@ Constant                  =      464.288   +/-   18.6361
 Mean                      = -6.00996e-05   +/-   3.36513e-06 
 Sigma                     =  0.000242693   +/-   5.75979e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324465.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324465.root has been created
 run 324465  0.0752763
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -137,6 +162,7 @@ Constant                  =        8.455   +/-   2.19094
 Mean                      = -9.85415e-05   +/-   3.66526e-05 
 Sigma                     =  0.000261793   +/-   4.89e-05     	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324467.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324467.root has been created
 run 324467  0.112854
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -157,6 +183,7 @@ Constant                  =      104.929   +/-   8.85234
 Mean                      = -4.79684e-05   +/-   6.52582e-06 
 Sigma                     =   0.00025168   +/-   1.32948e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324469.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324469.root has been created
 run 324469  0.165045
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -177,6 +204,7 @@ Constant                  =       206.61   +/-   12.9321
 Mean                      = -5.32583e-05   +/-   4.52595e-06 
 Sigma                     =  0.000239132   +/-   8.57895e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324471.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324471.root has been created
 run 324471  0.137312
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -197,6 +225,7 @@ Constant                  =      74.6677   +/-   6.94147
 Mean                      = -9.67627e-05   +/-   1.24843e-05 
 Sigma                     =  0.000253828   +/-   1.60446e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324485.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324485.root has been created
 run 324485  0.0104414
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -217,6 +246,7 @@ Constant                  =      138.481   +/-   9.81902
 Mean                      = -0.000111671   +/-   9.09881e-06 
 Sigma                     =  0.000224135   +/-   8.78034e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324498.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324498.root has been created
 run 324498  0.0655073
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -237,6 +267,7 @@ Constant                  =      67.1826   +/-   6.69909
 Mean                      = -4.76837e-05   +/-   8.58329e-06 
 Sigma                     =  0.000270647   +/-   1.93677e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324509.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324509.root has been created
 run 324509  0.0511463
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -257,6 +288,7 @@ Constant                  =      92.0912   +/-   7.86272
 Mean                      =  3.93826e-05   +/-   7.36262e-06 
 Sigma                     =  0.000277501   +/-   1.78069e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324513.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324513.root has been created
 run 324513  0.0323735
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -277,6 +309,7 @@ Constant                  =       31.721   +/-   4.17885
 Mean                      =  3.59204e-05   +/-   1.43479e-05 
 Sigma                     =  0.000311101   +/-   3.80324e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324517.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324517.root has been created
 run 324517  0.487813
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -297,6 +330,7 @@ Constant                  =      314.286   +/-   14.4213
 Mean                      =  6.09629e-06   +/-   3.12465e-06 
 Sigma                     =  0.000278471   +/-   9.49762e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324518.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324518.root has been created
 run 324518  0.123699
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -317,6 +351,7 @@ Constant                  =      498.452   +/-   18.6804
 Mean                      =  5.06868e-06   +/-   2.39533e-06 
 Sigma                     =  0.000270254   +/-   7.11415e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324519.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324519.root has been created
 run 324519  0.152703
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -337,6 +372,7 @@ Constant                  =      620.333   +/-   20.7836
 Mean                      =  1.12336e-05   +/-   2.18324e-06 
 Sigma                     =  0.000267173   +/-   6.1545e-06   	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324520.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324520.root has been created
 run 324520  0.357959
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -357,6 +393,7 @@ Constant                  =      353.879   +/-   15.3831
 Mean                      =   1.5632e-05   +/-   3.10176e-06 
 Sigma                     =  0.000276929   +/-   8.87417e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324524.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324524.root has been created
 run 324524  0.345105
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -377,6 +414,7 @@ Constant                  =      471.233   +/-   17.8428
 Mean                      =  3.31745e-06   +/-   2.50602e-06 
 Sigma                     =  0.000276047   +/-   7.64062e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324526.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324526.root has been created
 run 324526  0.383323
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -397,6 +435,7 @@ Constant                  =      397.243   +/-   16.5212
 Mean                      =  6.79181e-07   +/-   2.72714e-06 
 Sigma                     =  0.000276394   +/-   8.42532e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324527.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324527.root has been created
 run 324527  0.0935597
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -417,6 +456,7 @@ Constant                  =      29.8876   +/-   4.055
 Mean                      =  2.54107e-06   +/-   1.29089e-05 
 Sigma                     =  0.000330178   +/-   4.60525e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324528.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324528.root has been created
 run 324528  0.015873
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -437,6 +477,7 @@ Constant                  =      113.074   +/-   8.72427
 Mean                      =  1.75581e-05   +/-   5.49207e-06 
 Sigma                     =  0.000275519   +/-   1.55334e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324529.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324529.root has been created
 run 324529  0.377646
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -457,6 +498,7 @@ Constant                  =      325.627   +/-   15.0308
 Mean                      =  1.15178e-05   +/-   3.1147e-06  
 Sigma                     =  0.000273105   +/-   9.04462e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324530.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324530.root has been created
 run 324530  0.101512
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -477,6 +519,7 @@ Constant                  =      106.435   +/-   8.02659
 Mean                      =  1.52581e-05   +/-   6.03441e-06 
 Sigma                     =  0.000293273   +/-   1.81606e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324531.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324531.root has been created
 run 324531  0.0568438
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -497,6 +540,7 @@ Constant                  =       13.165   +/-   5.19918
 Mean                      =   5.5695e-06   +/-   1.04843e-05 
 Sigma                     =  0.000175827   +/-   2.24527e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324532.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324532.root has been created
 run 324532  0.001598
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -517,6 +561,7 @@ Constant                  =      363.783   +/-   15.9301
 Mean                      =  1.18504e-05   +/-   2.87347e-06 
 Sigma                     =  0.000267334   +/-   8.0708e-06   	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324534.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324534.root has been created
 run 324534  0.161018
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -537,6 +582,7 @@ Constant                  =       834.77   +/-   23.8125
 Mean                      =  6.46248e-06   +/-   1.90127e-06 
 Sigma                     =  0.000273863   +/-   5.62394e-06  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324535.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324535.root has been created
 run 324535  0.149395
 ****************************************
 Minimizer is Minuit2 / Migrad
@@ -557,6 +603,7 @@ Constant                  =      19.7879   +/-   19.058
 Mean                      =  8.35571e-06   +/-   1.32534e-05 
 Sigma                     =  0.000151824   +/-   4.58489e-05  	 (limited)
 Info in <TCanvas::Print>: pdf file plots/plot_324536.pdf has been created
+Info in <TCanvas::SaveAs>: ROOT file plots/plot_324536.root has been created
 run 324536  0.00162312
 Info in <TCanvas::SaveAs>: ROOT file b.root has been created
 Info in <TCanvas::Print>: pdf file b.pdf has been created
