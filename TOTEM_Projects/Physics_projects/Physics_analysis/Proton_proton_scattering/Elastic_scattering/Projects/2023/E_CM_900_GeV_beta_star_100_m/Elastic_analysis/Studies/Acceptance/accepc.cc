@@ -15,6 +15,8 @@ using namespace std;
 
 #include "TF1.h"
 #include "TH2D.h"
+#include "TPave.h"
+#include "TBox.h"
 #include "TGraph.h"
 #include "TFile.h"
 #include "TH1D.h"
@@ -226,29 +228,88 @@ void main_studies()
 	c.SaveAs("test.pdf") ;
 }
 
+
+
 void horizontal_elastic_alignment()
 {
+	gStyle->SetLineScalePS(.3) ;
+	gStyle->SetOptFit(1111);
+	gStyle->SetOptStat("ne");
+
+	gStyle->SetPalette(kCividis);
+
 	// ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
 	// string word ;
 	// bool first = true ;
 	// while(runs >> word)
 
+	TCanvas c;
+	c.SetLogz() ;
+
 	TFile *file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
 
 	vector<string> histograms ;
 
-	histogams.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
-	histogams.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
-	histogams.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
-	histogams.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+	histograms.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
+	histograms.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
+	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
+	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 
-	TH2D *hist1 = ((TH2D *)file->Get("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP")) ;
+	const double width_mm = 1.5 ;
+	const double pos_u_mm = 25 ;
+	const double pos_l_mm = 6 ;
 
-	double w_l = hist1->GetYaxis()->FindBin(6) ;
-	double w_u = hist1->GetYaxis()->FindBin(25) ;
-	TH1D *hist_1_proj = hist1->ProjectionX("px1", w_l, w_u) ;
+	for(int i = 0 ; i < histograms.size() ; ++i)
+	{
+		int sign = 1 ;
+		if((histograms[i].substr(0, 5) == "P0027") || (histograms[i].substr(0, 5) == "P0028")) sign = -1 ;
 
-	hist_1_proj->Fit("gaus", "", "", -2, 2) ;
+		TH2D *hist1 = ((TH2D *)file->Get(histograms[i].c_str())) ;
+
+		hist1->SetBinContent(hist1->FindBin(0,0), 0) ;
+
+		double w_l = hist1->GetYaxis()->FindBin(sign * pos_l_mm) ;
+		double w_u = hist1->GetYaxis()->FindBin(sign * pos_u_mm) ;
+
+		TH1D *hist_1_proj = NULL ;
+
+		if(sign == 1) hist_1_proj = hist1->ProjectionX("px1", w_l, w_u) ;
+		else hist_1_proj = hist1->ProjectionX("px1", w_u, w_l) ;
+
+		hist_1_proj->Rebin(4) ;
+
+		double mean = 0.0 ;
+		double meane = 0.0 ;
+
+		for(int i = 0 ; i < 10 ; ++i)
+		{
+			TFitResultPtr fit_result = hist_1_proj->Fit("gaus", "SQ", "", -width_mm + mean, width_mm + mean) ;
+			hist_1_proj->GetFunction("gaus")->SetLineWidth(1) ;
+			mean = fit_result->Parameter(1) ;
+			meane = fit_result->ParError(1) ;
+		}
+
+		cout << "Mean: " << histograms[i] << " " << mean << " +/- " << meane << endl ;
+
+		hist1->Draw("colz") ;
+
+		TBox *box = new TBox(-width_mm + mean, (sign*pos_l_mm), width_mm + mean, (sign*pos_u_mm)) ;
+
+		// cout << (-width_mm + mean) << " " << (sign*pos_l_mm) << " " << (width_mm + mean) << " " << (sign*pos_u_mm) << endl ;
+		box->SetFillStyle(0) ;
+		box->Draw("same") ;
+
+		c.SaveAs(("plots/alignment/" + histograms[i] + ".png").c_str()) ;
+		c.SaveAs(("plots/alignment/" + histograms[i] + ".pdf").c_str()) ;
+		c.SaveAs(("plots/alignment/" + histograms[i] + ".root").c_str()) ;
+
+		hist_1_proj->Draw("") ;
+		c.SaveAs(("plots/alignment/" + histograms[i] + "_proj_fit.png").c_str()) ;
+		c.SaveAs(("plots/alignment/" + histograms[i] + "_proj_fit.pdf").c_str()) ;
+		c.SaveAs(("plots/alignment/" + histograms[i] + "_proj_fit.root").c_str()) ;
+
+		hist_1_proj->Delete() ;
+	}
 }
 
 int main()
