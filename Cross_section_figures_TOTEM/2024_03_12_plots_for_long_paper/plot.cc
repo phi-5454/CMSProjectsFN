@@ -76,7 +76,7 @@ void mydraw()
    latex->SetTextFont(132) ;
    latex->SetTextColor(kBlack) ;
 	
-	latex->DrawLatex(.7, .14, "TOTEM-D0") ;
+	latex->DrawLatex(.7, .14, "TOTEM-D#oslash") ;
 }
 
 const double axis_title_size = (0.035*1.2) ;
@@ -502,7 +502,7 @@ int plot_dsdt()
 
 	TLegend *legend = new TLegend(0.4, 0.65, 0.89, 0.84) ;
 	
-	legend->AddEntry(graph, "D0 p#bar{p} measurement at #sqrt{s}=1.96 TeV", "pe") ;
+	legend->AddEntry(graph, "D#oslash p#bar{p} measurement at #sqrt{s}=1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
 	legend->AddEntry(graph_band_up, "band width (#pm 1 #sigma)", "l") ;
 	
