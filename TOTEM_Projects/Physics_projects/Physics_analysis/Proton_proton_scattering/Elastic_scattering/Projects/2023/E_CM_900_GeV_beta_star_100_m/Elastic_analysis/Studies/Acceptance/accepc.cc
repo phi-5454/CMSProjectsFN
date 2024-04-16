@@ -245,8 +245,26 @@ void horizontal_elastic_alignment()
 
 	TCanvas c;
 	c.SetLogz() ;
-
-	TFile *file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+	
+	const int scenario_null = 0 ;
+	const int scenario_LBRT = 1 ;
+	const int scenario_LTRB = 2 ;
+	
+	int scenario = scenario_LTRB ;
+	
+	TFile *file = NULL ;
+	
+	int additional_sign = 1 ;
+	
+	if(scenario == scenario_LBRT)
+	{
+		file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+		additional_sign = -1 ;
+	}
+	else if(scenario == scenario_LTRB)
+	{
+		file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+	}
 
 	vector<string> histograms ;
 
@@ -259,10 +277,11 @@ void horizontal_elastic_alignment()
 	const double pos_u_mm = 25 ;
 	const double pos_l_mm = 6 ;
 
+
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
-		int sign = 1 ;
-		if((histograms[i].substr(0, 5) == "P0027") || (histograms[i].substr(0, 5) == "P0028")) sign = -1 ;
+		int sign = additional_sign ;
+		if((histograms[i].substr(0, 5) == "P0027") || (histograms[i].substr(0, 5) == "P0028")) sign = (-1.0 * additional_sign) ;
 
 		TH2D *hist1 = ((TH2D *)file->Get(histograms[i].c_str())) ;
 
