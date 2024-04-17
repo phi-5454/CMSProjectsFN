@@ -142,8 +142,8 @@ void other_studies()
 	
 	while(runs >> word)
 	{
-		// TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
-		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
+		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
+		// TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
 		
 		if(file == NULL) continue ;
 		
@@ -354,9 +354,14 @@ int main()
 	gStyle->SetOptStat("");
 
 	gErrorIgnoreLevel = kError ;
+	
+	const int main_scenario_acceptance_polygons = 1 ;
+	const int main_scenario_signal_to_bkg_for_2RP = 2 ;
+	const int main_scenario_elastic_alignment = 3 ;
 
-	// main_studies() ;
-	// other_studies() ;
+	int main_scenario = main_scenario_signal_to_bkg_for_2RP ;
 
-	horizontal_elastic_alignment() ;
+	if(main_scenario == main_scenario_acceptance_polygons) main_studies() ;
+	else if(main_scenario == main_scenario_signal_to_bkg_for_2RP) other_studies() ;
+	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 }
