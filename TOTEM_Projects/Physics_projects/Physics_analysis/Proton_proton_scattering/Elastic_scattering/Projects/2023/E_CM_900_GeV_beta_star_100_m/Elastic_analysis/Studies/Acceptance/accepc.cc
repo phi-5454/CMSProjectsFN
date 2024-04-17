@@ -322,7 +322,11 @@ void horizontal_elastic_alignment()
 			meane = fit_result->ParError(1) ;
 		}
 
-		cout << "Mean: " << histograms[i] << " \t\t" << mean << "\t\t +/- \t\t" << meane << endl ;
+		string warning = "" ;
+
+		if((fabs(mean) > fabs(meane)) || (fabs(mean) > 2e-3)) warning = "(to be checked)" ;
+
+		cout << "Mean: " << histograms[i] << " \t\t" << mean << "\t\t +/- \t\t" << meane << " " << warning << endl ;
 
 		hist1->Draw("colz") ;
 

@@ -6,7 +6,7 @@
                 <parameter> RP_alignment_left_near_x_mm            -3.261564E-001
                 <parameter> RP_alignment_left_far__x_mm            1.250940E-001
                 <parameter> RP_alignment_right_near_x_mm           3.088202E-002
-                <parameter> RP_alignment_right_far__x_mm           -7.598894E-001
+                <parameter> RP_alignment_right_far__x_mm           -7.608894E-001
 
                 <parameter> RP_alignment_left_near_y_mm             0.0
                 <parameter> RP_alignment_left_far__y_mm             0.0
