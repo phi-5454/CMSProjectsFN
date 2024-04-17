@@ -110,13 +110,13 @@
 
 <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_cut_block
         <parameter>      x1            -2.834875E-004
-        <parameter>      y1            2.856091E-004
+        <parameter>      y1            2.847664E-004
         <parameter>      x2            3.214650E-004
-        <parameter>      y2            -3.206348E-004
+        <parameter>      y2            -3.214775E-004
         <parameter> range1_x           -2.825445E-004
-        <parameter> range1_y           2.865529E-004
+        <parameter> range1_y           2.857102E-004
         <parameter> range2_x           3.232955E-004
-        <parameter> range2_y           -3.188041E-004
+        <parameter> range2_y           -3.196468E-004
         <parameter> sigma              3.1156465e-05
         <parameter> number_of_sigmas             4
 <end> theta_x_star_left_far_rad_theta_x_star_right_far_rad_cut_block
