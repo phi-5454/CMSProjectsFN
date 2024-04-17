@@ -274,13 +274,14 @@ void horizontal_elastic_alignment()
 	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 
 	const double width_mm = 1.5 ;
-	const double pos_u_mm = 25 ;
 	const double pos_l_mm = 6 ;
+	const double pos_u_mm = 22 ;
 
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
 		int sign = additional_sign ;
+
 		if((histograms[i].substr(0, 5) == "P0027") || (histograms[i].substr(0, 5) == "P0028")) sign = (-1.0 * additional_sign) ;
 
 		TH2D *hist1 = ((TH2D *)file->Get(histograms[i].c_str())) ;
