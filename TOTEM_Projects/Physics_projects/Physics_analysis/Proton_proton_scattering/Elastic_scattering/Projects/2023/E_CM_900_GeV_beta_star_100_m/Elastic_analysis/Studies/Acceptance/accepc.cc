@@ -308,7 +308,7 @@ void horizontal_elastic_alignment()
 			meane = fit_result->ParError(1) ;
 		}
 
-		cout << "Mean: " << histograms[i] << " " << mean << " +/- " << meane << endl ;
+		cout << "Mean: " << histograms[i] << " \t\t" << mean << "\t\t +/- \t\t" << meane << endl ;
 
 		hist1->Draw("colz") ;
 
@@ -334,6 +334,8 @@ void horizontal_elastic_alignment()
 int main()
 {
 	gStyle->SetOptStat("");
+
+	gErrorIgnoreLevel = kError ;
 
 	// main_studies() ;
 	// other_studies() ;
