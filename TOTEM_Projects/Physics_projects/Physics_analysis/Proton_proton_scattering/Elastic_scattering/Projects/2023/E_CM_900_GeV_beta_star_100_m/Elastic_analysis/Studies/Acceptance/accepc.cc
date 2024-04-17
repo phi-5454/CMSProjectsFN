@@ -250,7 +250,7 @@ void horizontal_elastic_alignment()
 	const int scenario_LBRT = 1 ;
 	const int scenario_LTRB = 2 ;
 	
-	int scenario = scenario_LTRB ;
+	int scenario = scenario_LBRT ;
 	
 	TFile *file = NULL ;
 	
