@@ -6,7 +6,7 @@
                 <parameter> RP_alignment_left_near_x_mm            -4.14E-001
                 <parameter> RP_alignment_left_far__x_mm            0.06
                 <parameter> RP_alignment_right_near_x_mm            -0.1
-                <parameter> RP_alignment_right_far__x_mm           -0.83901100
+                <parameter> RP_alignment_right_far__x_mm           -0.86296310
 
                 <parameter> RP_alignment_left_near_y_mm             0.0
                 <parameter> RP_alignment_left_far__y_mm             0.0
@@ -40,24 +40,11 @@
         <parameter> number_of_sigmas            1
 <end> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
 
-<begin> theta_y_star_left_far_rad_theta_y_star_right_rad_right_far_cut_block
-        <parameter>     x1             -2e-04
-        <parameter>     y1              8.0460000e-05
-        <parameter>     x2              2e-04
-        <parameter>     y2              8.0460000e-05
-        <parameter> range1_x            -6e-05
-        <parameter> range1_y            6.6565e-05
-        <parameter> range2_x            6e-05
-        <parameter> range2_y            6.6565e-05
-        <parameter> sigma               4.9682E-005
-        <parameter> number_of_sigmas            1
-<end> theta_y_star_left_far_rad_theta_y_star_right_rad_right_far_cut_block
-
 <begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
         <parameter>     x1             -2e-04
-        <parameter>     y1              8.0460000e-05
+        <parameter>     y1              8.1460000e-05
         <parameter>     x2              2e-04
-        <parameter>     y2              8.0460000e-05
+        <parameter>     y2              8.1460000e-05
         <parameter> range1_x            -6e-05
         <parameter> range1_y            6.6565e-05
         <parameter> range2_x            6e-05
@@ -69,20 +56,20 @@
 <begin> theta_x_star_far_rad_theta_y_star_far_rad_horizontal_cut_block
     <parameter>     y1                              4.66501999999999932e-04
     <parameter>     y2                              -4.66501999999999932e-04
-    <parameter>     x1                              1.7e-04
-    <parameter>     x2                              1.7e-04
+    <parameter>     x1                              0
+    <parameter>     x2                              0
     <parameter>     range1_x                       -60e-06
     <parameter>     range1_y                        66.565e-06
     <parameter>     range2_x                        60e-06
     <parameter>     range2_y                        66.565e-06
-    <parameter>     sigma                           5.3e-04
+    <parameter>     sigma                           8.3e-04
     <parameter>     number_of_sigmas                1
 <end>   theta_x_star_far_rad_theta_y_star_far_rad_horizontal_cut_block
 
 <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_left_cut_block
-        <parameter>     x1              0.0004
+        <parameter>     x1              0.0
         <parameter>     y1              0.00023546798
-        <parameter>     x2              0.0004
+        <parameter>     x2              0.0
         <parameter>     y2              -0.00032491695
         <parameter> range1_x            -7.75052e-05
         <parameter> range1_y            8.03706e-05
@@ -94,9 +81,9 @@
 
 <begin> theta_x_star_left_far_rad_theta_x_star_right_far_rad_right_cut_block
         <parameter>     x1              0.00023546798
-        <parameter>     y1              -0.0004
+        <parameter>     y1              0.0
         <parameter>     x2              -0.00032491695
-        <parameter>     y2              -0.0004
+        <parameter>     y2              0.0
         <parameter> range1_x            -7.75052e-05
         <parameter> range1_y            8.03706e-05
         <parameter> range2_x            8.10282e-05
