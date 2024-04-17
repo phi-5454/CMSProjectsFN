@@ -260,10 +260,14 @@ void horizontal_elastic_alignment()
 	{
 		file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
 		additional_sign = -1 ;
+
+		cout << "Diagonal LBRT" << endl ;
 	}
 	else if(scenario == scenario_LTRB)
 	{
 		file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+
+		cout << "Diagonal LTRB" << endl ;
 	}
 
 	vector<string> histograms ;
