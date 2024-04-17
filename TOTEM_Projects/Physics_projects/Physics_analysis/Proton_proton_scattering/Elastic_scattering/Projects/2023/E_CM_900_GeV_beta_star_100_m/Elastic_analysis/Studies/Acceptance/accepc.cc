@@ -147,7 +147,7 @@ void other_studies()
 		
 		if(file == NULL) continue ;
 		
-		TH1D *hist = ((TH1D *)file->Get("P0014_PlotsCollection_theta_x_star_left_far_rad_theta_x_star_right_far_rad_with_cut_distance_from_cut")) ;
+		TH1D *hist = ((TH1D *)file->Get("P0018_PlotsCollection_theta_x_star_left_far_rad_theta_x_star_right_far_rad_with_cut_distance_from_cut")) ;
 
 		if(hist == NULL) continue ;
 
@@ -356,7 +356,7 @@ int main()
 	gErrorIgnoreLevel = kError ;
 
 	// main_studies() ;
-	// other_studies() ;
+	other_studies() ;
 
-	horizontal_elastic_alignment() ;
+	// horizontal_elastic_alignment() ;
 }
