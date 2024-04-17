@@ -275,7 +275,7 @@ void horizontal_elastic_alignment()
 
 	const double width_mm = 1.5 ;
 	const double pos_l_mm = 6 ;
-	const double pos_u_mm = 22 ;
+	const double pos_u_mm = 20 ;
 
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
@@ -286,7 +286,16 @@ void horizontal_elastic_alignment()
 
 		TH2D *hist1 = ((TH2D *)file->Get(histograms[i].c_str())) ;
 
-		hist1->SetBinContent(hist1->FindBin(0,0), 0) ;
+		// cout << "min " << hist1->FindBin(0,-1) << endl ;
+		// cout << "max " << hist1->FindBin(0, 1) << endl ;
+		const int bin_min = hist1->FindBin(0,-1) ;
+		const int bin_max = hist1->FindBin(0, 1) ;
+
+		for(int j = bin_min ; j <= bin_max ; ++j)
+		{
+			hist1->SetBinContent(j, 0) ;
+			// hist1->SetBinContent(j, 1e6) ;
+		}
 
 		double w_l = hist1->GetYaxis()->FindBin(sign * pos_l_mm) ;
 		double w_u = hist1->GetYaxis()->FindBin(sign * pos_u_mm) ;
