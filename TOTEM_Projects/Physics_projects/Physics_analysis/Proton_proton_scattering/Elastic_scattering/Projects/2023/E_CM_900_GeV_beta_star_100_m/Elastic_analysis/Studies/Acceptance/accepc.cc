@@ -250,7 +250,7 @@ void horizontal_elastic_alignment()
 	const int scenario_LBRT = 1 ;
 	const int scenario_LTRB = 2 ;
 	
-	int scenario = scenario_LBRT ;
+	int scenario = scenario_LTRB ;
 	
 	TFile *file = NULL ;
 	
@@ -359,7 +359,7 @@ int main()
 	const int main_scenario_signal_to_bkg_for_2RP = 2 ;
 	const int main_scenario_elastic_alignment = 3 ;
 
-	int main_scenario = main_scenario_signal_to_bkg_for_2RP ;
+	int main_scenario = main_scenario_elastic_alignment ;
 
 	if(main_scenario == main_scenario_acceptance_polygons) main_studies() ;
 	else if(main_scenario == main_scenario_signal_to_bkg_for_2RP) other_studies() ;
