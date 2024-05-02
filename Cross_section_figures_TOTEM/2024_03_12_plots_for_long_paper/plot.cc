@@ -413,8 +413,10 @@ int plot_dsdt()
 
 	while(data3 >> t_value >> dsdt_down >> dsdt_up >> f_norm_down >> f_norm_up)
 	{
-		graph_band_up->SetPoint(i, t_value, dsdt_up) ;
-		graph_band_down->SetPoint(i, t_value, dsdt_down) ;
+		graph_band_up->SetPoint(i, t_value, (dsdt_up + dsdt_down) / 2.0) ;
+		graph_band_up->SetPointError(i, 0, fabs((dsdt_up - dsdt_down) / 2.0)) ;
+
+		// graph_band_down->SetPoint(i, t_value, dsdt_down) ;
 
 		graph_band_up_2->SetPoint(i, t_value, f_norm_down) ;
 		graph_band_down_2->SetPoint(i, t_value, f_norm_up) ;
@@ -496,11 +498,12 @@ int plot_dsdt()
 	hist_2d->GetYaxis()->SetTitleSize(axis_title_size) ;
 	// cout << "titlesize " << hist_2d->GetXaxis()->GetTitleSize() ;
 
-	graph->Draw("same p") ;
 	// graph2->Draw("same p") ;
 
-	graph_band_up->Draw("same l") ;
-	graph_band_down->Draw("same l") ;
+	graph_band_up->SetFillColor(18) ;
+	graph_band_up->SetFillStyle(1001) ;
+	graph_band_up->Draw("same 3") ;
+	// graph_band_down->Draw("same l") ;
 	
 	graph_center2->Draw("same p") ;
 	graph_band_up_2->Draw("same l") ;
@@ -515,6 +518,8 @@ int plot_dsdt()
 	graph_band_down_2->SetLineColor(kRed) ;
 	graph_band_up_2->SetLineStyle(kDashed) ;
 	graph_band_down_2->SetLineStyle(kDashed) ;
+
+	graph->Draw("same p") ;
 
 	TLegend *legend = new TLegend(0.38, 0.65, 0.88, 0.84) ;
 	
