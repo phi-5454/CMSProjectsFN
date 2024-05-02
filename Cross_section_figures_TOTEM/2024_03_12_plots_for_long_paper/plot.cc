@@ -332,8 +332,13 @@ int plot_dsdt()
 	hist_2d->SetTitle("") ;
 	TGraphErrors *graph = new TGraphErrors ;
 	TGraphErrors *graph2 = new TGraphErrors ;
+
 	TGraphErrors *graph_band_up = new TGraphErrors ;
 	TGraphErrors *graph_band_down = new TGraphErrors ;
+
+	TGraphErrors *graph_band_up_2 = new TGraphErrors ;
+	TGraphErrors *graph_band_down_2 = new TGraphErrors ;
+
 	TGraphAsymmErrors *graph_center = new TGraphAsymmErrors ;
 	TGraphAsymmErrors *graph_center2 = new TGraphAsymmErrors ;
 
@@ -411,6 +416,9 @@ int plot_dsdt()
 		graph_band_up->SetPoint(i, t_value, dsdt_up) ;
 		graph_band_down->SetPoint(i, t_value, dsdt_down) ;
 
+		graph_band_up_2->SetPoint(i, t_value, f_norm_down) ;
+		graph_band_down_2->SetPoint(i, t_value, f_norm_up) ;
+
 
 		double myx, myy ;
 
@@ -424,6 +432,7 @@ int plot_dsdt()
 		{
 			graph_center2->SetPoint(j, myx, myy) ;
 			graph_center2->SetPointError(j, 0, 0, myy - f_norm_down, f_norm_up - myy) ;
+			
 			++j ;
 		}
 
@@ -494,11 +503,18 @@ int plot_dsdt()
 	graph_band_down->Draw("same l") ;
 	
 	graph_center2->Draw("same p") ;
+	graph_band_up_2->Draw("same l") ;
+	graph_band_down_2->Draw("same l") ;
 	
 	graph_band_up->SetLineColor(kRed) ;
 	graph_band_down->SetLineColor(kRed) ;
 	graph_band_up->SetLineStyle(kDashed) ;
 	graph_band_down->SetLineStyle(kDashed) ;
+
+	graph_band_up_2->SetLineColor(kRed) ;
+	graph_band_down_2->SetLineColor(kRed) ;
+	graph_band_up_2->SetLineStyle(kDashed) ;
+	graph_band_down_2->SetLineStyle(kDashed) ;
 
 	TLegend *legend = new TLegend(0.38, 0.65, 0.88, 0.84) ;
 	
