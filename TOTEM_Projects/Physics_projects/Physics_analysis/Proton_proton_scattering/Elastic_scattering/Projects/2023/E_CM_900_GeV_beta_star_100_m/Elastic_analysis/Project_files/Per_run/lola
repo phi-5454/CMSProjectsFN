@@ -1,0 +1,283 @@
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Jan09 ?        00:00:06 init [5]                                              
+root         2     1  0 Jan09 ?        00:00:00 [migration/0]
+root         3     1  0 Jan09 ?        00:00:00 [ksoftirqd/0]
+root         4     1  0 Jan09 ?        00:00:00 [watchdog/0]
+root         5     1  0 Jan09 ?        00:00:00 [migration/1]
+root         6     1  0 Jan09 ?        00:00:00 [ksoftirqd/1]
+root         7     1  0 Jan09 ?        00:00:00 [watchdog/1]
+root         8     1  0 Jan09 ?        00:00:09 [events/0]
+root         9     1  0 Jan09 ?        00:00:06 [events/1]
+root        10     1  0 Jan09 ?        00:00:00 [khelper]
+root        48     1  0 Jan09 ?        00:00:00 [kthread]
+root        53    48  0 Jan09 ?        00:00:00 [kblockd/0]
+root        54    48  0 Jan09 ?        00:00:00 [kblockd/1]
+root        55    48  0 Jan09 ?        00:00:00 [kacpid]
+root       135    48  0 Jan09 ?        00:00:00 [cqueue/0]
+root       136    48  0 Jan09 ?        00:00:00 [cqueue/1]
+root       139    48  0 Jan09 ?        00:00:00 [khubd]
+root       141    48  0 Jan09 ?        00:00:00 [kseriod]
+root       217    48  0 Jan09 ?        00:00:00 [khungtaskd]
+root       220    48  0 Jan09 ?        00:01:18 [kswapd0]
+root       221    48  0 Jan09 ?        00:00:00 [aio/0]
+root       222    48  0 Jan09 ?        00:00:00 [aio/1]
+root       371    48  0 Jan09 ?        00:00:00 [kpsmoused]
+root       404    48  0 Jan09 ?        00:00:00 [ata/0]
+root       405    48  0 Jan09 ?        00:00:00 [ata/1]
+root       406    48  0 Jan09 ?        00:00:00 [ata_aux]
+root       410    48  0 Jan09 ?        00:00:00 [scsi_eh_0]
+root       411    48  0 Jan09 ?        00:03:06 [scsi_eh_1]
+root       412    48  0 Jan09 ?        00:00:00 [scsi_eh_2]
+root       413    48  0 Jan09 ?        00:00:00 [scsi_eh_3]
+root       414    48  0 Jan09 ?        00:00:00 [scsi_eh_4]
+root       415    48  0 Jan09 ?        00:00:00 [scsi_eh_5]
+root       419    48  0 Jan09 ?        00:00:00 [kstriped]
+root       432    48  0 Jan09 ?        00:00:00 [ksnapd]
+root       447    48  0 Jan09 ?        00:01:11 [kjournald]
+root       478    48  0 Jan09 ?        00:00:00 [kauditd]
+root       511     1  0 Jan09 ?        00:00:00 /sbin/udevd -d
+fnemes    1243  7009  0 Apr03 pts/25   00:00:11 ssh -Y lxplus9
+fnemes    1340  3863  0 Apr03 pts/21   00:00:00 ssh -Y lxplus9
+fnemes    1586  4164  0 Jan24 pts/42   00:00:00 bash
+root      1829    48  0 Jan09 ?        00:00:00 [hd-audio0]
+fnemes    1983  4164  0 Jan24 pts/43   00:00:00 bash
+root      2084    48  0 Jan09 ?        00:00:00 [kmpathd/0]
+root      2085    48  0 Jan09 ?        00:00:00 [kmpathd/1]
+root      2086    48  0 Jan09 ?        00:00:00 [kmpath_handlerd]
+root      2148    48  0 Jan09 ?        00:00:00 [kjournald]
+fnemes    2156  4164  0 Feb05 pts/30   00:00:00 bash
+fnemes    2157  4164  0 Feb05 pts/51   00:00:00 bash
+fnemes    2165 17868  0 Jan24 pts/14   00:02:22 nedit /afs/cern.ch/work/f/fnemes/main_workspace/2023/Elastic_analysis/E_CM_900_GeV_beta_star_100_m/Lxplus9/CMSSW_10_6_17/src/ElasticAnalysis/ElasticAnalyzer/test/final_high_beta_star/ntuple
+root      2317    48  0 Jan09 ?        00:00:00 [iscsi_eh]
+root      2320    48  0 Apr03 ?        00:00:00 [pdflush]
+root      2348    48  0 Jan09 ?        00:00:00 [cnic_wq]
+root      2353    48  0 Jan09 ?        00:00:00 [bnx2i_thread/0]
+root      2354    48  0 Jan09 ?        00:00:00 [bnx2i_thread/1]
+root      2368    48  0 Jan09 ?        00:00:00 [ib_addr]
+root      2378    48  0 Jan09 ?        00:00:00 [ib_mcast]
+root      2379    48  0 Jan09 ?        00:00:00 [ib_inform]
+root      2380    48  0 Jan09 ?        00:00:00 [local_sa]
+root      2384    48  0 Jan09 ?        00:00:00 [iw_cm_wq]
+root      2388    48  0 Jan09 ?        00:00:00 [ib_cm/0]
+root      2389    48  0 Jan09 ?        00:00:00 [ib_cm/1]
+root      2393    48  0 Jan09 ?        00:00:00 [rdma_cm]
+root      2411     1  0 Jan09 ?        00:00:00 iscsiuio
+root      2416     1  0 Jan09 ?        00:00:00 iscsid
+root      2417     1  0 Jan09 ?        00:00:00 iscsid
+root      2510     1  0 Jan09 ?        00:01:23 mcstransd
+root      2773     1  0 Jan09 ?        00:00:01 /sbin/dhclient -1 -q -lf /var/lib/dhclient/dhclient-eth0.leases -pf /var/run/dhclient-eth0.pid eth0
+root      2810     1  0 Jan09 ?        00:00:02 auditd
+root      2812  2810  0 Jan09 ?        00:00:00 /sbin/audispd
+root      2874     1  0 Jan09 ?        00:00:00 /usr/sbin/restorecond
+root      2883     1  0 Jan09 ?        00:00:27 syslogd -m 0
+root      2886     1  0 Jan09 ?        00:00:00 klogd -x
+root      2929    48  0 Jan09 ?        00:00:00 [kondemand/0]
+root      2930    48  0 Jan09 ?        00:00:00 [kondemand/1]
+rpc       2961     1  0 Jan09 ?        00:00:00 portmap
+root      2991    48  0 Jan09 ?        00:00:00 [rpciod/0]
+root      2992    48  0 Jan09 ?        00:00:00 [rpciod/1]
+rpcuser   3000     1  0 Jan09 ?        00:00:00 rpc.statd
+root      3028     1  0 Jan09 ?        00:00:00 rpc.idmapd
+dbus      3050     1  0 Jan09 ?        00:08:31 dbus-daemon --system
+root      3062     1  0 Jan09 ?        00:00:08 /usr/bin/python -E /usr/sbin/setroubleshootd
+root      3071     1  0 Jan09 ?        00:00:00 /usr/sbin/hcid
+root      3078     1  0 Jan09 ?        00:00:00 /usr/sbin/sdpd
+root      3107     1  0 Jan09 ?        00:00:00 [krfcommd]
+root      3143     1  0 Jan09 ?        00:00:58 pcscd
+root      3153     1  0 Jan09 ?        00:00:00 /usr/sbin/acpid
+68        3162     1  0 Jan09 ?        00:02:32 hald
+root      3163  3162  0 Jan09 ?        00:00:12 hald-runner
+68        3171  3163  0 Jan09 ?        00:00:00 hald-addon-acpi: listening on acpid socket /var/run/acpid.socket
+68        3175  3163  0 Jan09 ?        00:00:00 hald-addon-keyboard: listening on /dev/input/event4
+68        3179  3163  0 Jan09 ?        00:00:24 hald-addon-keyboard: listening on /dev/input/event3
+68        3184  3163  0 Jan09 ?        00:00:36 hald-addon-keyboard: listening on /dev/input/event2
+68        3188  3163  0 Jan09 ?        00:00:00 hald-addon-keyboard: listening on /dev/input/event1
+68        3191  3163  0 Jan09 ?        00:00:00 hald-addon-keyboard: listening on /dev/input/event0
+68        3201  3163  0 Jan09 ?        00:00:00 hald-addon-keyboard: listening on /dev/input/event6
+root      3205  3163  0 Jan09 ?        00:03:56 hald-addon-storage: polling /dev/sr0
+root      3223     1  0 Jan09 ?        00:00:00 /usr/bin/hidd --server
+root      3259     1  0 Jan09 ?        00:00:01 automount --pid-file /var/run/autofs.pid
+nscd      3277     1  0 Jan09 ?        00:01:42 /usr/sbin/nscd
+root      3294     1  0 Jan09 ?        00:00:00 ./hpiod
+root      3299     1  0 Jan09 ?        00:00:00 /usr/bin/python ./hpssd.py
+root      3309     1  0 Jan09 ?        00:00:27 /usr/sbin/mcelog --daemon
+root      3321     1  0 Jan09 ?        00:00:00 /usr/sbin/sshd
+root      3330     1  0 Jan09 ?        00:02:17 cupsd
+root      3343     1  0 Jan09 ?        00:00:00 xinetd -stayalive -pidfile /var/run/xinetd.pid
+ntp       3359     1  0 Jan09 ?        00:00:00 ntpd -u ntp:ntp -p /var/run/ntpd.pid
+root      3582     1  0 Jan09 ?        00:00:33 [afs_rxlistener]
+root      3584     1  0 Jan09 ?        00:00:01 [afs_callback]
+root      3586     1  0 Jan09 ?        00:00:00 [afs_rxevent]
+root      3588     1  0 Jan09 ?        00:00:14 [afsd]
+root      3590     1  0 Jan09 ?        00:00:25 [afs_checkserver]
+root      3592     1  0 Jan09 ?        00:00:04 [afs_background]
+root      3594     1  0 Jan09 ?        00:00:04 [afs_background]
+root      3596     1  0 Jan09 ?        00:00:04 [afs_background]
+root      3598     1  0 Jan09 ?        00:00:05 [afs_cachetrim]
+root      3616     1  0 Jan09 ?        00:00:00 sendmail: accepting connections
+smmsp     3625     1  0 Jan09 ?        00:00:00 sendmail: Queue runner@01:00:00 for /var/spool/clientmqueue
+root      3636     1  0 Jan09 ?        00:00:00 gpm -m /dev/input/mice -t exps2
+root      3645     1  0 Jan09 ?        00:00:00 crond
+xfs       3676     1  0 Jan09 ?        00:00:02 xfs -droppriv -daemon
+root      3693     1  0 Jan09 ?        00:00:00 /usr/sbin/atd
+avahi     3720     1  0 Jan09 ?        00:13:19 avahi-daemon: running [pctotem63.local]
+avahi     3721  3720  0 Jan09 ?        00:00:00 avahi-daemon: chroot helper
+root      3729     1  0 Jan09 ?        00:01:03 /usr/bin/python -tt /usr/sbin/yum-updatesd
+root      3731     1  0 Jan09 ?        00:00:00 /usr/libexec/gam_server
+fnemes    3769  4164  0 Apr09 pts/23   00:00:00 bash
+root      3797     1  0 Jan09 ?        00:00:00 /usr/sbin/smartd -q never
+root      3802     1  0 Jan09 tty1     00:00:00 /sbin/mingetty tty1
+root      3803     1  0 Jan09 tty2     00:00:00 /sbin/mingetty tty2
+root      3804     1  0 Jan09 tty3     00:00:00 /sbin/mingetty tty3
+root      3805     1  0 Jan09 tty4     00:00:00 /sbin/mingetty tty4
+root      3806     1  0 Jan09 tty5     00:00:00 /sbin/mingetty tty5
+root      3808     1  0 Jan09 tty6     00:00:00 /sbin/mingetty tty6
+root      3810     1  0 Jan09 ?        00:00:00 /usr/sbin/gdm-binary -nodaemon
+root      3853  3810  0 Jan09 ?        00:00:00 /usr/sbin/gdm-binary -nodaemon
+root      3855     1  0 Jan09 ?        00:00:00 /usr/libexec/gdm-rh-security-token-helper
+root      3858  3853  0 Jan09 tty7     18:09:51 /usr/bin/Xorg :0 -br -audit 0 -auth /var/gdm/:0.Xauth vt7
+fnemes    3863  4164  0 Mar20 pts/21   00:00:00 bash
+fnemes    3910  3853  0 Jan09 ?        00:00:00 /usr/bin/gnome-session
+fnemes    3949  3910  0 Jan09 ?        00:00:00 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "/usr/bin/dbus-launch --exit-with-session /etc/X11/xinit/Xclients"
+fnemes    4030     1  0 Jan09 ?        00:00:00 /usr/bin/dbus-launch --exit-with-session /etc/X11/xinit/Xclients
+fnemes    4031     1  0 Jan09 ?        00:00:02 /bin/dbus-daemon --fork --print-pid 4 --print-address 6 --session
+fnemes    4038     1  0 Jan09 ?        00:00:22 /usr/libexec/gconfd-2 11
+fnemes    4041     1  0 Jan09 ?        00:00:00 /usr/bin/gnome-keyring-daemon
+fnemes    4043     1  0 Jan09 ?        00:13:07 /usr/libexec/gnome-settings-daemon
+fnemes    4058     1  0 Jan09 ?        00:38:10 metacity --sm-client-id=default1
+fnemes    4062     1  0 Jan09 ?        00:09:38 gnome-panel --sm-client-id default2
+fnemes    4064     1  0 Jan09 ?        00:09:38 nautilus --no-default-window --sm-client-id default3
+fnemes    4068     1  0 Jan09 ?        00:00:00 /usr/libexec/bonobo-activation-server --ac-activate --ior-output-fd=16
+fnemes    4070     1  0 Jan09 ?        00:00:00 /usr/libexec/gnome-vfs-daemon
+fnemes    4073     1  0 Jan09 ?        00:00:00 eggcups --sm-client-id default4
+fnemes    4076     1  0 Jan09 ?        00:00:00 gnome-volume-manager --sm-client-id default5
+fnemes    4084     1  0 Jan09 ?        00:00:00 bt-applet --sm-disable
+fnemes    4088     1  0 Jan09 ?        00:00:00 /bin/sh /usr/bin/VidyoDesktop -AutoStart
+fnemes    4090     1  0 Jan09 ?        00:00:17 /usr/bin/python -tt /usr/bin/puplet
+fnemes    4099     1  0 Jan09 ?        00:00:00 nm-applet --sm-disable
+fnemes    4101     1  0 Jan09 ?        00:00:04 pam-panel-icon --sm-client-id default0
+root      4102  4101  0 Jan09 ?        00:00:00 /sbin/pam_timestamp_check -d root
+fnemes    4108     1  0 Jan09 ?        00:00:01 /usr/bin/python -E /usr/bin/sealert -s
+fnemes    4109     1  0 Jan09 ?        00:00:00 ./escd --key_Inserted="/usr/bin/esc" --on_Signal="/usr/bin/esc"
+root      4115     1  0 Jan09 ?        00:00:00 /usr/sbin/nm-system-settings --config /etc/NetworkManager/nm-system-settings.conf
+fnemes    4118     1  0 Jan09 ?        00:04:55 gnome-power-manager
+fnemes    4135     1  0 Jan09 ?        00:00:04 /usr/libexec/clock-applet --oaf-activate-iid=OAFIID:GNOME_ClockApplet_Factory --oaf-ior-fd=19
+fnemes    4137     1  0 Jan09 ?        00:00:00 /usr/libexec/trashapplet --oaf-activate-iid=OAFIID:GNOME_Panel_TrashApplet_Factory --oaf-ior-fd=25
+fnemes    4139     1  0 Jan09 ?        00:31:46 /usr/libexec/wnck-applet --oaf-activate-iid=OAFIID:GNOME_Wncklet_Factory --oaf-ior-fd=31
+fnemes    4148     1  0 Jan09 ?        00:00:00 /usr/libexec/mapping-daemon
+fnemes    4157     1  0 Jan09 ?        00:09:05 /usr/libexec/notification-daemon
+fnemes    4161     1  0 Jan09 ?        00:16:37 gnome-screensaver
+fnemes    4164     1  0 Jan09 ?        01:55:36 gnome-terminal
+fnemes    4167  4164  0 Jan09 ?        00:00:00 gnome-pty-helper
+fnemes    4260  4164  0 Jan09 pts/2    00:00:00 bash
+fnemes    4345  4260  0 Jan09 pts/2    00:29:03 gedit
+fnemes    4347     1  0 Jan09 ?        00:00:00 /usr/libexec/gam_server
+fnemes    4455  4164  0 Jan09 pts/4    00:00:00 bash
+root      4759    48  0 Apr09 ?        00:00:00 [pdflush]
+fnemes    4944  4164  0 Jan09 pts/6    00:00:00 bash
+fnemes    5036  4088  0 Jan09 ?        00:06:38 /opt/vidyo/VidyoDesktop/VidyoDesktop -Activate -AudioOnly -AutoStart
+fnemes    5544  4164  0 Feb22 pts/53   00:00:00 bash
+fnemes    5641     1  0 Jan09 ?        00:06:32 nedit /afs/cern.ch/work/f/fnemes/main_workspace/2023/Alignment_1/CMSSW_13_3_0_pre1/src/Test/MyAnalyzer/test/Test_3/ConfFile_cfg6.py
+fnemes    5731  4164  0 Jan09 pts/9    00:00:00 bash
+fnemes    5797  4164  0 Mar26 pts/63   00:00:00 bash
+fnemes    5883  5797  0 Mar26 pts/63   00:00:00 ssh -Y lxplus9
+fnemes    6006     1  0 Feb22 ?        00:04:12 gnome-terminal
+fnemes    6008     1  0 Feb22 ?        00:00:00 /usr/libexec/bonobo-activation-server --ac-activate --ior-output-fd=16
+fnemes    6012  6006  0 Feb22 ?        00:00:00 gnome-pty-helper
+fnemes    6013  6006  0 Feb22 pts/54   00:00:00 bash
+fnemes    6484  4164  0 Jan15 pts/24   00:00:00 bash
+fnemes    6583  4164  0 Jan19 pts/37   00:00:00 bash
+fnemes    6723  4164  0 Jan19 pts/38   00:00:00 bash
+fnemes    7009  4164  0 Jan15 pts/25   00:00:00 bash
+fnemes    7102  6723  0 Jan19 pts/38   00:03:08 nedit -read /afs/cern.ch/work/f/fnemes/main_workspace/2023/Optics_test_v1/CMSSW_13_3_0_pre1/src/Validation/CTPPS/test/simu/Frici/simu_2022_cfg.py /afs/cern.ch/work/f/fnemes/main_workspace/2
+fnemes    7103 17868  0 Jan19 pts/14   00:02:47 nedit -read /afs/cern.ch/work/f/fnemes/main_workspace/2023/Elastic_analysis/E_CM_900_GeV_beta_star_100_m/Lxplus9/CMSSW_10_6_17/src/ElasticAnalysis/ElasticAnalyzer/plugins/ElasticAnalyzer.cc
+fnemes    7104 23760  0 Jan19 pts/35   00:02:58 nedit -read /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/Cross_section_figures_TOTEM/plot2.cc
+fnemes    7609  4164  0 Jan15 pts/27   00:00:00 bash
+fnemes    7899  4164  0 Jan15 pts/29   00:00:00 bash
+fnemes    8333 29636  0 Apr04 pts/26   00:04:43 ssh -Y lxplus9
+fnemes    8746  4164  0 Jan25 pts/44   00:00:00 bash
+fnemes    8841  8746  0 Jan25 pts/44   00:02:17 nedit -read /afs/cern.ch/work/f/fnemes/main_workspace/2024/CMSSW_11_2_0/src/CalibPPS/AlignmentRelative/plugins/BuildFile.xml /afs/cern.ch/work/f/fnemes/main_workspace/2024/CMSSW_11_2_0/src/
+fnemes    9300  4164  0 Mar05 pts/56   00:00:00 bash
+fnemes   10022  4164  0 Mar11 pts/7    00:00:00 bash
+fnemes   11164  4164  0 Mar11 pts/5    00:00:00 bash
+fnemes   11704  4164  0 Mar05 pts/57   00:00:00 bash
+fnemes   12020  4164  0 Mar05 pts/58   00:00:00 bash
+fnemes   12084 24389  0 Feb29 pts/19   00:01:37 nedit /afs/cern.ch/work/f/fnemes/main_workspace/2023/Elastic_analysis/E_CM_900_GeV_beta_star_100_m/Lxplus9/CMSSW_10_6_17/src/ElasticAnalysis/ElasticAnalyzer/test/final_high_beta_star/ntuple
+fnemes   14230 29724  0 Apr05 pts/61   00:01:15 nedit /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV
+fnemes   14748  4164  0 Jan26 pts/45   00:00:00 bash
+fnemes   15106  8746  0 Jan26 pts/44   00:02:23 nedit -read /afs/cern.ch/work/f/fnemes/main_workspace/2024/CMSSW_11_2_0/src/RecoPPS/Local/plugins/TotemRPUVPatternFinder.cc /afs/cern.ch/work/f/fnemes/main_workspace/2024/CMSSW_11_2_0/src/R
+fnemes   15664 14748  0 Apr11 pts/45   00:00:12 ssh -Y lxplus9
+fnemes   16693 17956  0 Apr05 pts/15   00:00:00 ssh -Y lxplus7
+fnemes   16711 24273  0 Apr05 pts/55   00:00:00 ssh -Y lxplus7
+fnemes   16734     1  0 Mar12 ?        03:35:28 /usr/lib/acroread/Adobe/Reader9/Reader/intellinux/bin/acroread status_combined_v2.pdf
+fnemes   16856 17868  0 Apr05 pts/14   00:00:21 nedit /afs/cern.ch/work/f/fnemes/main_workspace/2023/Elastic_analysis/E_CM_900_GeV_beta_star_100_m/Lxplus9/CMSSW_10_6_17/src/ElasticAnalysis/ElasticAnalyzer/test/final_high_beta_star/ntuple
+fnemes   16873 17457  0 Apr05 pts/12   00:00:00 ssh -Y lxplus9
+fnemes   17007  4164  0 Apr11 pts/66   00:00:00 bash
+fnemes   17095  4164  0 Apr11 pts/60   00:00:00 bash
+fnemes   17182 17095  0 Apr11 pts/60   00:00:06 ssh -Y lxplus9
+fnemes   17198  4164  0 Jan16 pts/34   00:00:00 bash
+fnemes   17338  4164  0 Jan11 pts/11   00:00:07 bash
+fnemes   17457  4164  0 Jan11 pts/12   00:00:00 bash
+fnemes   17528  4164  0 Apr11 pts/68   00:00:00 bash
+fnemes   17545  4164  0 Jan11 pts/13   00:00:00 bash
+fnemes   17668 17528  0 Apr11 pts/68   00:00:22 ssh -Y lxplus9
+fnemes   17695     1  0 Jan16 ?        00:02:54 nedit /afs/cern.ch/work/f/fnemes/main_workspace/2023/Alignment_1/CMSSW_13_3_0_pre1/src/Test/MyAnalyzer/test/Test_3/Run_366186/ConfFile_cfg.py /afs/cern.ch/work/f/fnemes/main_workspace/2023/
+fnemes   17868  4164  0 Jan11 pts/14   00:00:01 bash
+fnemes   17956  4164  0 Jan11 pts/15   00:00:00 bash
+fnemes   18042 18584  0 Mar12 pts/17   00:02:14 nedit /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/Cross_section_figures_TOTEM/2024_03_12_plots_for_long_paper/plot.cc
+fnemes   18207  4164  0 Mar01 pts/16   00:00:00 bash
+fnemes   18298  4164  0 Mar01 pts/41   00:00:00 bash
+fnemes   18584  4164  0 Jan11 pts/17   00:00:01 bash
+fnemes   18678  4164  0 Jan11 pts/18   00:00:00 bash
+fnemes   18742  4164  0 Mar28 pts/64   00:00:00 bash
+fnemes   18834  4164  0 Mar28 pts/65   00:00:01 bash
+fnemes   20855     1  0 Mar18 ?        00:00:00 /bin/sh /usr/lib64/openoffice.org3/program/soffice -calc
+fnemes   20865 20855  0 Mar18 ?        00:32:11 /usr/lib64/openoffice.org3/program/scalc.bin -calc
+fnemes   21294  8746  0 Feb14 pts/44   00:02:29 nedit /afs/cern.ch/work/f/fnemes/main_workspace/2024/CMSSW_11_2_0/src/CalibPPS/AlignmentRelative/test/test_with_data/src/test.cc
+fnemes   21357  4164  0 Feb08 pts/10   00:00:00 bash
+fnemes   21652 17338  0 Apr02 pts/11   00:00:00 /bin/sh /usr/local/bin/Mathematica
+fnemes   21724 21652  0 Apr02 pts/11   00:03:57 /usr/local/Wolfram/Mathematica/7.0/SystemFiles/FrontEnd/Binaries/Linux-x86-64/Mathematica -topDirectory /usr/local/Wolfram/Mathematica/7.0
+fnemes   21728 21724  0 Apr02 pts/11   00:00:24 /usr/local/Wolfram/Mathematica/7.0/SystemFiles/Kernel/Binaries/Linux-x86-64/MathKernel -mathlink -linkmode connect -linkprotocol SharedMemory -linkname mzs_shm
+fnemes   21936 21728  0 Apr02 pts/11   00:00:22 /usr/local/Wolfram/Mathematica/7.0/SystemFiles/Java/Linux-x86-64/bin/java -classpath /usr/local/Wolfram/Mathematica/7.0/SystemFiles/Links/JLink/JLink.jar -Xmx256m -Djava.system.class.loader
+fnemes   23500  4164  0 Mar07 pts/59   00:00:00 bash
+fnemes   23760  4164  0 Jan17 pts/35   00:00:01 bash
+fnemes   24188 30001  0 Apr02 pts/62   00:00:05 ssh -Y lxplus9
+fnemes   24213  4164  0 Apr02 pts/33   00:00:01 bash
+fnemes   24273  4164  0 Feb26 pts/55   00:00:00 bash
+fnemes   24389  4164  0 Jan12 pts/19   00:00:00 bash
+fnemes   24482  4164  0 Jan12 pts/20   00:00:00 bash
+fnemes   25027  6006  0 Mar07 pts/1    00:00:00 bash
+fnemes   25561  4164  0 Feb20 pts/3    00:00:00 bash
+fnemes   25674  4164  0 Feb20 pts/22   00:00:00 bash
+fnemes   25766  4164  0 Feb20 pts/31   00:00:00 bash
+fnemes   27426  4164  0 Jan29 pts/28   00:00:00 bash
+fnemes   27542 23500  0 08:52 pts/59   00:00:00 bash
+fnemes   27543 27542  0 08:52 pts/59   00:00:10 xfreerdp -f -u fnemes -d cern cerntsnew.cern.ch
+fnemes   27614  4164  0 Jan29 pts/46   00:00:00 bash
+fnemes   27751  4164  0 09:33 pts/69   00:00:00 bash
+fnemes   27790  4164  0 Jan29 pts/47   00:00:00 bash
+fnemes   27802  4164  0 Apr08 pts/67   00:00:00 bash
+fnemes   27850  4164  0 Jan23 pts/39   00:00:00 bash
+fnemes   27919  4164  0 Jan29 pts/48   00:00:03 bash
+fnemes   27949  4164  0 Jan23 pts/40   00:00:00 bash
+fnemes   28018  4164  0 Jan29 pts/49   00:00:00 bash
+fnemes   28114  4164  0 Jan29 pts/50   00:00:00 bash
+fnemes   28714  4164  0 Apr08 pts/52   00:00:01 bash
+fnemes   29308  1983  0 Mar25 pts/43   00:00:02 ssh -Y lxplus9.cern.ch
+fnemes   29636  4164  0 Mar25 pts/26   00:00:00 bash
+fnemes   29638 24213  0 14:56 pts/33   00:00:21 ssh -Y lxplus9
+fnemes   29724  4164  0 Mar25 pts/61   00:00:09 bash
+fnemes   30001  4164  0 Mar25 pts/62   00:00:02 bash
+fnemes   30095 28714  0 16:13 pts/52   00:00:01 nedit /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV
+fnemes   30755  7609  0 Mar19 pts/27   00:00:00 ssh -Y lxplus7
+fnemes   30775 17338  0 Mar08 pts/11   00:01:30 nedit status.tex
+fnemes   30795 17007  0 17:58 pts/66   00:00:00 ssh -Y lxplus9
+fnemes   30859 28018  0 18:06 pts/49   00:00:01 nedit status.tex
+root     31201  3645  0 19:00 ?        00:00:00 crond
+root     31202 31201  0 19:00 ?        00:00:00 /bin/sh -c (perl -e 'sleep rand 3600'; /usr/sbin/ccm-fetch) >>/var/log/ccm-fetch.log 2>&1
+root     31203 31202  0 19:00 ?        00:00:00 /bin/sh -c (perl -e 'sleep rand 3600'; /usr/sbin/ccm-fetch) >>/var/log/ccm-fetch.log 2>&1
+root     31204 31203  0 19:00 ?        00:00:00 perl -e sleep rand 3600
+root     31266     1  0 19:07 ?        00:00:00 sendmail: ./43HH7EuJ031264 cernxchg91.cern.ch.: user open
+fnemes   31267  3769  0 19:07 pts/23   00:00:00 ps -ef
+fnemes   31993  4164  0 Apr12 pts/70   00:00:00 bash
+fnemes   32313  4164  0 Feb21 pts/36   00:00:00 bash
