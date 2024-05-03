@@ -250,22 +250,24 @@ void horizontal_elastic_alignment()
 	const int scenario_LBRT = 1 ;
 	const int scenario_LTRB = 2 ;
 	
-	int scenario = scenario_LTRB ;
+	int scenario = scenario_LBRT ;
 	
 	TFile *file = NULL ;
 	
 	int additional_sign = 1 ;
 	
+	const string run_to_test = "324461" ;
+
 	if(scenario == scenario_LBRT)
 	{
-		file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+		file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
 		additional_sign = -1 ;
 
 		cout << "Diagonal LBRT" << endl ;
 	}
 	else if(scenario == scenario_LTRB)
 	{
-		file = TFile::Open("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_324536/Generic.root") ;
+		file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
 
 		cout << "Diagonal LTRB" << endl ;
 	}
