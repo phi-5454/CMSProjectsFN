@@ -525,9 +525,9 @@ int plot_dsdt()
 	TLegend *legend = new TLegend(0.38, 0.65, 0.88, 0.84) ;
 	
 	legend->AddEntry(graph, "D#oslash p#bar{p} measurement at #sqrt{s}=1.96 TeV", "pe") ;
-	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
-	legend->AddEntry(graph_band_up, "band width (#pm 1 #sigma)", "l") ;
-	legend->AddEntry(graph_band_up_2, "Normalization uncertainty band", "e") ;
+	legend->AddEntry(graph2, "Extrapolated pp  #sigma at D0 bins", "pe") ;
+	legend->AddEntry(graph_band_up, "Uncertainty band of extrapolated pp  #sigma  (#pm 1 #sigma)", "l") ;
+	legend->AddEntry(graph_band_up_2, "Normalization uncertainty band ( #pm 1 #sigma)", "e") ;
 
 	legend->Draw("same") ;
 
