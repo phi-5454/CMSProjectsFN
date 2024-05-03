@@ -231,6 +231,8 @@ void main_studies()
 map<string, double> reference_offsets_LBRT ;
 map<string, double> reference_offsets_LTRB ;
 
+bool write_file = false ;
+
 void horizontal_elastic_alignment_per_run(string run_to_test)
 {
 	gStyle->SetLineScalePS(.3) ;
@@ -284,6 +286,14 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 	const double pos_l_mm = 6 ;
 	const double pos_u_mm = 20 ;
 
+	string corr_filename = "corrections_LBRT_" + run_to_test + ".prj" ;
+	if(scenario == scenario_LTRB) corr_filename = "corrections_LTRB_" + run_to_test + ".prj" ;
+
+	ofstream correction_file ;
+
+	if(write_file) correction_file.open("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/" + corr_filename) ;
+
+	if(write_file && (run_to_test.compare("324536") != 0)) correction_file << "<begin> alignment_block" << endl ;
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
@@ -359,7 +369,17 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.root").c_str()) ;
 
 		hist_1_proj->Delete() ;
+
+		if(write_file && (run_to_test.compare("324536") != 0))
+		{
+			if(scenario == scenario_LBRT) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LBRT[histograms[i]] - mean << endl ;
+			if(scenario == scenario_LTRB) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LTRB[histograms[i]] - mean << endl ;
+		}
 	}
+
+	if(write_file && (run_to_test.compare("324536") != 0)) correction_file << "<end> alignment_block" << endl ;
+
+	correction_file.close() ;
 	
 	cout << endl ;
 }
