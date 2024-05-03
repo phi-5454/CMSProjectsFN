@@ -228,9 +228,7 @@ void main_studies()
 	c.SaveAs("test.pdf") ;
 }
 
-
-
-void horizontal_elastic_alignment()
+void horizontal_elastic_alignment_per_run(string run_to_test)
 {
 	gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
@@ -250,26 +248,26 @@ void horizontal_elastic_alignment()
 	const int scenario_LBRT = 1 ;
 	const int scenario_LTRB = 2 ;
 	
-	int scenario = scenario_LBRT ;
+	int scenario = scenario_LTRB ;
 	
 	TFile *file = NULL ;
 	
 	int additional_sign = 1 ;
-	
-	const string run_to_test = "324461" ;
+
+	stringstream ss ;
 
 	if(scenario == scenario_LBRT)
 	{
 		file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
 		additional_sign = -1 ;
 
-		cout << "Diagonal LBRT" << endl ;
+		cout << "Diagonal LBRT " << run_to_test << endl ;
 	}
 	else if(scenario == scenario_LTRB)
 	{
 		file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
 
-		cout << "Diagonal LTRB" << endl ;
+		cout << "Diagonal LTRB " << run_to_test << endl ;
 	}
 
 	vector<string> histograms ;
@@ -338,16 +336,38 @@ void horizontal_elastic_alignment()
 		box->SetFillStyle(0) ;
 		box->Draw("same") ;
 
-		c.SaveAs(("plots/alignment/" + histograms[i] + ".png").c_str()) ;
-		c.SaveAs(("plots/alignment/" + histograms[i] + ".pdf").c_str()) ;
-		c.SaveAs(("plots/alignment/" + histograms[i] + ".root").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + ".png").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + ".pdf").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + ".root").c_str()) ;
 
 		hist_1_proj->Draw("") ;
-		c.SaveAs(("plots/alignment/" + histograms[i] + "_proj_fit.png").c_str()) ;
-		c.SaveAs(("plots/alignment/" + histograms[i] + "_proj_fit.pdf").c_str()) ;
-		c.SaveAs(("plots/alignment/" + histograms[i] + "_proj_fit.root").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.png").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.pdf").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.root").c_str()) ;
 
 		hist_1_proj->Delete() ;
+	}
+	
+	cout << endl ;
+}
+
+void horizontal_elastic_alignment()
+{
+	string word ;
+
+	ifstream cuts_LBRT("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Fill_7291/Cuts_test_left_bottom_right_top_4_sigma_2RP.prj") ;
+	
+	while(cuts_LBRT >> word)
+	{
+	}
+
+	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+	
+	while(runs >> word)
+	{
+		if(word.compare("324457") == 0) continue ;
+
+		horizontal_elastic_alignment_per_run(word) ;
 	}
 }
 
