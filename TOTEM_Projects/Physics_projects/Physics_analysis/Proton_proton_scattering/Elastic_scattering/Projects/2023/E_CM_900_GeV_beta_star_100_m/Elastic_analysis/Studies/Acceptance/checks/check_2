@@ -1,0 +1,290 @@
+-0.415853
+0.0567718
+-0.110012
+-0.859108
+
+-0.326156
+0.125094
+0.030882
+-0.762889
+
+Diagonal LTRB 324458
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00786288		 +/- 		0.0368127 (to be checked)
+RP_alignment_left_near_x_mm -0.334019
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-1.16766e-05		 +/- 		0.0140384 
+RP_alignment_left_far__x_mm 0.125106
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0104669		 +/- 		0.0283173 (to be checked)
+RP_alignment_right_near_x_mm 0.041349
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0013424		 +/- 		0.0110131 
+RP_alignment_right_far__x_mm -0.764232
+
+Diagonal LTRB 324460
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0165192		 +/- 		0.0497772 (to be checked)
+RP_alignment_left_near_x_mm -0.342676
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0496074		 +/- 		0.0284817 (to be checked)
+RP_alignment_left_far__x_mm 0.174701
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0216901		 +/- 		0.0470145 (to be checked)
+RP_alignment_right_near_x_mm 0.00919195
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00332454		 +/- 		0.0352604 (to be checked)
+RP_alignment_right_far__x_mm -0.759565
+
+Diagonal LTRB 324461
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0521245		 +/- 		0.0527683 (to be checked)
+RP_alignment_left_near_x_mm -0.378281
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.00352846		 +/- 		0.0406561 (to be checked)
+RP_alignment_left_far__x_mm 0.128622
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0593803		 +/- 		0.0588334 (to be checked)
+RP_alignment_right_near_x_mm 0.0902623
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0341373		 +/- 		0.0358671 (to be checked)
+RP_alignment_right_far__x_mm -0.728752
+
+Diagonal LTRB 324462
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00642464		 +/- 		0.028698 (to be checked)
+RP_alignment_left_near_x_mm -0.332581
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.00878851		 +/- 		0.0154812 (to be checked)
+RP_alignment_left_far__x_mm 0.133883
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0312536		 +/- 		0.0219511 (to be checked)
+RP_alignment_right_near_x_mm 0.0621356
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00127394		 +/- 		0.0144819 
+RP_alignment_right_far__x_mm -0.761615
+
+Diagonal LTRB 324464
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.00187204		 +/- 		0.0454733 
+RP_alignment_left_near_x_mm -0.324284
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.0305153		 +/- 		0.0266384 (to be checked)
+RP_alignment_left_far__x_mm 0.0945787
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0251249		 +/- 		0.0404738 (to be checked)
+RP_alignment_right_near_x_mm 0.056007
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0327893		 +/- 		0.0288905 (to be checked)
+RP_alignment_right_far__x_mm -0.7301
+
+Diagonal LTRB 324465
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00344831		 +/- 		0.0318081 (to be checked)
+RP_alignment_left_near_x_mm -0.329605
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.00984794		 +/- 		0.0186156 (to be checked)
+RP_alignment_left_far__x_mm 0.115246
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.00908261		 +/- 		0.0336815 (to be checked)
+RP_alignment_right_near_x_mm 0.0399646
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0140058		 +/- 		0.0218859 (to be checked)
+RP_alignment_right_far__x_mm -0.776895
+
+Diagonal LTRB 324467
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0466408		 +/- 		0.224865 (to be checked)
+RP_alignment_left_near_x_mm -0.372797
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.0775295		 +/- 		0.138829 (to be checked)
+RP_alignment_left_far__x_mm 0.0475645
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.369303		 +/- 		0.193246 (to be checked)
+RP_alignment_right_near_x_mm -0.338421
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0350637		 +/- 		0.155055 (to be checked)
+RP_alignment_right_far__x_mm -0.797953
+
+Diagonal LTRB 324469
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.129565		 +/- 		0.115791 (to be checked)
+RP_alignment_left_near_x_mm -0.196591
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0290334		 +/- 		0.0710684 (to be checked)
+RP_alignment_left_far__x_mm 0.154127
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0393994		 +/- 		0.115701 (to be checked)
+RP_alignment_right_near_x_mm -0.00851733
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0394412		 +/- 		0.112803 (to be checked)
+RP_alignment_right_far__x_mm -0.802331
+
+Diagonal LTRB 324471
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0222374		 +/- 		0.0533885 (to be checked)
+RP_alignment_left_near_x_mm -0.303919
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.018322		 +/- 		0.03585 (to be checked)
+RP_alignment_left_far__x_mm 0.143416
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.04864		 +/- 		0.0560343 (to be checked)
+RP_alignment_right_near_x_mm -0.017758
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0262039		 +/- 		0.0605321 (to be checked)
+RP_alignment_right_far__x_mm -0.789093
+
+Diagonal LTRB 324485
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.000961295		 +/- 		0.0135183 
+RP_alignment_left_near_x_mm -0.327118
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0193829		 +/- 		0.0177147 (to be checked)
+RP_alignment_left_far__x_mm 0.144477
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.034992		 +/- 		0.0312521 (to be checked)
+RP_alignment_right_near_x_mm 0.065874
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00230313		 +/- 		0.0196146 (to be checked)
+RP_alignment_right_far__x_mm -0.760586
+
+Diagonal LTRB 324498
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00126239		 +/- 		0.0715107 
+RP_alignment_left_near_x_mm -0.327419
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0308311		 +/- 		0.0315394 (to be checked)
+RP_alignment_left_far__x_mm 0.155925
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.00791623		 +/- 		0.0428675 (to be checked)
+RP_alignment_right_near_x_mm 0.0387982
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0491617		 +/- 		0.0282319 (to be checked)
+RP_alignment_right_far__x_mm -0.713728
+
+Diagonal LTRB 324509
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0106783		 +/- 		0.0858817 (to be checked)
+RP_alignment_left_near_x_mm -0.315478
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.0253332		 +/- 		0.0443294 (to be checked)
+RP_alignment_left_far__x_mm 0.0997608
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.000361861		 +/- 		0.0576977 
+RP_alignment_right_near_x_mm 0.0305202
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0271764		 +/- 		0.0419185 (to be checked)
+RP_alignment_right_far__x_mm -0.790066
+
+Diagonal LTRB 324513
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00464148		 +/- 		0.0490104 (to be checked)
+RP_alignment_left_near_x_mm -0.330798
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0204022		 +/- 		0.0247521 (to be checked)
+RP_alignment_left_far__x_mm 0.145496
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0356323		 +/- 		0.0405899 (to be checked)
+RP_alignment_right_near_x_mm 0.0665143
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00364725		 +/- 		0.0254948 (to be checked)
+RP_alignment_right_far__x_mm -0.759242
+
+Diagonal LTRB 324517
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0734845		 +/- 		0.189658 (to be checked)
+RP_alignment_left_near_x_mm -0.399641
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.0627272		 +/- 		0.102066 (to be checked)
+RP_alignment_left_far__x_mm 0.0623668
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0330574		 +/- 		0.161948 (to be checked)
+RP_alignment_right_near_x_mm 0.0639394
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0217188		 +/- 		0.10627 (to be checked)
+RP_alignment_right_far__x_mm -0.741171
+
+Diagonal LTRB 324518
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00625882		 +/- 		0.0430087 (to be checked)
+RP_alignment_left_near_x_mm -0.332415
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0213189		 +/- 		0.0241913 (to be checked)
+RP_alignment_left_far__x_mm 0.146413
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0283378		 +/- 		0.0521464 (to be checked)
+RP_alignment_right_near_x_mm 0.0025442
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00828966		 +/- 		0.0289331 (to be checked)
+RP_alignment_right_far__x_mm -0.7546
+
+Diagonal LTRB 324519
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0389543		 +/- 		0.0396407 (to be checked)
+RP_alignment_left_near_x_mm -0.365111
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.013808		 +/- 		0.0239803 (to be checked)
+RP_alignment_left_far__x_mm 0.111286
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.00829809		 +/- 		0.0358808 (to be checked)
+RP_alignment_right_near_x_mm 0.0225839
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0348115		 +/- 		0.0245256 (to be checked)
+RP_alignment_right_far__x_mm -0.797701
+
+Diagonal LTRB 324520
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0366464		 +/- 		0.0645269 (to be checked)
+RP_alignment_left_near_x_mm -0.28951
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.0347308		 +/- 		0.0334213 (to be checked)
+RP_alignment_left_far__x_mm 0.0903632
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0206946		 +/- 		0.0646147 (to be checked)
+RP_alignment_right_near_x_mm 0.0515766
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0133118		 +/- 		0.0359377 (to be checked)
+RP_alignment_right_far__x_mm -0.749578
+
+Diagonal LTRB 324524
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0395936		 +/- 		0.0914421 (to be checked)
+RP_alignment_left_near_x_mm -0.36575
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0403837		 +/- 		0.0458917 (to be checked)
+RP_alignment_left_far__x_mm 0.165478
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0183057		 +/- 		0.0739276 (to be checked)
+RP_alignment_right_near_x_mm 0.0125763
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0292549		 +/- 		0.0498091 (to be checked)
+RP_alignment_right_far__x_mm -0.733634
+
+Diagonal LTRB 324526
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0101443		 +/- 		0.0640941 (to be checked)
+RP_alignment_left_near_x_mm -0.336301
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0029873		 +/- 		0.0364721 (to be checked)
+RP_alignment_left_far__x_mm 0.128081
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0662701		 +/- 		0.0500971 (to be checked)
+RP_alignment_right_near_x_mm -0.0353881
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.00132508		 +/- 		0.0326922 
+RP_alignment_right_far__x_mm -0.764214
+
+Diagonal LTRB 324527
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0506469		 +/- 		0.0347905 (to be checked)
+RP_alignment_left_near_x_mm -0.27551
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0314156		 +/- 		0.0214639 (to be checked)
+RP_alignment_left_far__x_mm 0.15651
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0507189		 +/- 		0.0389621 (to be checked)
+RP_alignment_right_near_x_mm 0.0816009
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0367728		 +/- 		0.0211154 (to be checked)
+RP_alignment_right_far__x_mm -0.726117
+
+Diagonal LTRB 324528
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00350964		 +/- 		0.0563119 (to be checked)
+RP_alignment_left_near_x_mm -0.329666
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.0264939		 +/- 		0.0347492 (to be checked)
+RP_alignment_left_far__x_mm 0.0986001
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.053881		 +/- 		0.038739 (to be checked)
+RP_alignment_right_near_x_mm 0.084763
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0156056		 +/- 		0.0290134 (to be checked)
+RP_alignment_right_far__x_mm -0.778495
+
+Diagonal LTRB 324529
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0375093		 +/- 		0.101113 (to be checked)
+RP_alignment_left_near_x_mm -0.288647
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.057039		 +/- 		0.0549725 (to be checked)
+RP_alignment_left_far__x_mm 0.182133
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0544007		 +/- 		0.124611 (to be checked)
+RP_alignment_right_near_x_mm 0.0852827
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.0105301		 +/- 		0.0595359 (to be checked)
+RP_alignment_right_far__x_mm -0.77342
+
+Diagonal LTRB 324530
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0289817		 +/- 		0.0400209 (to be checked)
+RP_alignment_left_near_x_mm -0.355138
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0295087		 +/- 		0.0238674 (to be checked)
+RP_alignment_left_far__x_mm 0.154603
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.00803765		 +/- 		0.0419442 (to be checked)
+RP_alignment_right_near_x_mm 0.0228444
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0347025		 +/- 		0.0230247 (to be checked)
+RP_alignment_right_far__x_mm -0.728187
+
+Diagonal LTRB 324531
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0189857		 +/- 		0.0712694 (to be checked)
+RP_alignment_left_near_x_mm -0.345142
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.00266513		 +/- 		0.0363429 (to be checked)
+RP_alignment_left_far__x_mm 0.122429
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.018281		 +/- 		0.0607828 (to be checked)
+RP_alignment_right_near_x_mm 0.049163
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00511144		 +/- 		0.0351945 (to be checked)
+RP_alignment_right_far__x_mm -0.757778
+
+Diagonal LTRB 324532
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.0321148		 +/- 		0.0239465 (to be checked)
+RP_alignment_left_near_x_mm -0.358271
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.00115432		 +/- 		0.0152022 
+RP_alignment_left_far__x_mm 0.12394
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0330034		 +/- 		0.0223203 (to be checked)
+RP_alignment_right_near_x_mm 0.0638854
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0169037		 +/- 		0.0140786 (to be checked)
+RP_alignment_right_far__x_mm -0.745986
+
+Diagonal LTRB 324534
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0509477		 +/- 		0.0435073 (to be checked)
+RP_alignment_left_near_x_mm -0.275209
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.00297657		 +/- 		0.0275958 (to be checked)
+RP_alignment_left_far__x_mm 0.122117
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0376739		 +/- 		0.0541147 (to be checked)
+RP_alignment_right_near_x_mm -0.0067919
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0258963		 +/- 		0.0284568 (to be checked)
+RP_alignment_right_far__x_mm -0.736993
+
+Diagonal LTRB 324535
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0283802		 +/- 		0.0316276 (to be checked)
+RP_alignment_left_near_x_mm -0.297776
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0340818		 +/- 		0.0176879 (to be checked)
+RP_alignment_left_far__x_mm 0.159176
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0404462		 +/- 		0.0288953 (to be checked)
+RP_alignment_right_near_x_mm 0.0713282
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0282441		 +/- 		0.0184319 (to be checked)
+RP_alignment_right_far__x_mm -0.734645
+
+Diagonal LTRB 324536
+Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00101599		 +/- 		0.020113 
+RP_alignment_left_near_x_mm -0.327172
+Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.000313447		 +/- 		0.011767 
+RP_alignment_left_far__x_mm 0.125407
+Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.00117343		 +/- 		0.00931599 
+RP_alignment_right_near_x_mm 0.0320555
+Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.000876311		 +/- 		0.0115324 
+RP_alignment_right_far__x_mm -0.763766
+
