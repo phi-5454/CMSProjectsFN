@@ -331,6 +331,16 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 
 		cout << "Mean: " << histograms[i] << " \t\t" << mean << "\t\t +/- \t\t" << meane << " " << warning << endl ;
 
+		string alignment_string = "" ;
+
+		if(histograms[i].compare("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") == 0)	 alignment_string = "RP_alignment_left_near_x_mm" ;
+		if(histograms[i].compare("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") == 0)   alignment_string = "RP_alignment_left_far__x_mm" ;
+		if(histograms[i].compare("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") == 0) alignment_string = "RP_alignment_right_near_x_mm" ;
+		if(histograms[i].compare("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") == 0)  alignment_string = "RP_alignment_right_far__x_mm" ;
+
+		if(scenario == scenario_LBRT) cout << alignment_string << " " << reference_offsets_LBRT[histograms[i]] - mean << endl ;
+		if(scenario == scenario_LTRB) cout << alignment_string << " " << reference_offsets_LTRB[histograms[i]] - mean << endl ;
+
 		hist1->Draw("colz") ;
 
 		TBox *box = new TBox(-width_mm + mean, (sign*pos_l_mm), width_mm + mean, (sign*pos_u_mm)) ;
