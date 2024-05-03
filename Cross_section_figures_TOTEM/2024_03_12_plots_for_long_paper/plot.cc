@@ -25,6 +25,7 @@ using namespace std;
 #include "TGraphAsymmErrors.h"
 #include "TLatex.h"
 #include "TLine.h"
+#include "TBox.h"
 #include "TArrow.h"
 #include "TMinuit.h"
 #include "TStyle.h"
@@ -76,7 +77,7 @@ void mydraw()
    latex->SetTextFont(132) ;
    latex->SetTextColor(kBlack) ;
 	
-	latex->DrawLatex(.7, .14, "TOTEM-D#oslash") ;
+	latex->DrawLatex(.7, .13, "TOTEM-D#oslash") ;
 }
 
 const double axis_title_size = (0.035*1.2) ;
@@ -302,7 +303,7 @@ int plot_sigtot(int scenario)
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_for_plot, "fit", "l") ;
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(myarrow2, "uncertainty", "l") ;
 	// legend->AddEntry(func, "fit, prelim. uncert!", "l") ;
-	
+
 	legend->Draw("same") ;
 
 	mydraw() ;	
@@ -526,12 +527,18 @@ int plot_dsdt()
 	legend->AddEntry(graph, "D#oslash p#bar{p} measurement at #sqrt{s}=1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "pp extrapolated", "pe") ;
 	legend->AddEntry(graph_band_up, "band width (#pm 1 #sigma)", "l") ;
-	
+	legend->AddEntry(graph_band_up_2, "Normalization uncertainty band", "e") ;
+
 	legend->Draw("same") ;
+
+	TBox *box = new TBox(0.66 ,4e-2, 0.71, 4.8e-2) ;
+	box->SetFillColor(18) ;
+	box->Draw("same") ;
 
 	mydraw() ;
 
    c.SaveAs("fig/TOTEM_D0_14_PRL_preliminary_1_dsdt.pdf") ;
+   c.SaveAs("fig/TOTEM_D0_14_PRL_preliminary_1_dsdt.root") ;
 }
 
 int main(int argc, char *argv[])
