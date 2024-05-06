@@ -232,6 +232,7 @@ map<string, double> reference_offsets_LBRT ;
 map<string, double> reference_offsets_LTRB ;
 
 bool write_file = false ;
+// bool write_file = true ;
 
 void horizontal_elastic_alignment_per_run(string run_to_test)
 {
@@ -337,7 +338,16 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 
 		string warning = "" ;
 
-		if((fabs(mean) > fabs(meane)) || (fabs(mean) > 2e-3)) warning = "(to be checked)" ;
+		bool write_info = false ;
+
+		if((fabs(mean) > fabs(meane)) || (fabs(mean) > 2e-3))
+		{
+			warning = "(to be checked)" ;
+
+			write_info = true ;
+		}
+
+		const double fraction = 2.0 ;
 
 		cout << "Mean: " << histograms[i] << " \t\t" << mean << "\t\t +/- \t\t" << meane << " " << warning << endl ;
 
@@ -348,8 +358,8 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 		if(histograms[i].compare("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") == 0) alignment_string = "RP_alignment_right_near_x_mm" ;
 		if(histograms[i].compare("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") == 0)  alignment_string = "RP_alignment_right_far__x_mm" ;
 
-		if(scenario == scenario_LBRT) cout << alignment_string << " " << reference_offsets_LBRT[histograms[i]] - mean << endl ;
-		if(scenario == scenario_LTRB) cout << alignment_string << " " << reference_offsets_LTRB[histograms[i]] - mean << endl ;
+		if(write_info && scenario == scenario_LBRT) cout << alignment_string << " " << reference_offsets_LBRT[histograms[i]] - (mean / fraction) << endl ;
+		if(write_info && scenario == scenario_LTRB) cout << alignment_string << " " << reference_offsets_LTRB[histograms[i]] - (mean / fraction) << endl ;
 
 		hist1->Draw("colz") ;
 
@@ -372,8 +382,16 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 
 		if(write_file && (run_to_test.compare("324536") != 0))
 		{
-			if(scenario == scenario_LBRT) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LBRT[histograms[i]] - mean << endl ;
-			if(scenario == scenario_LTRB) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LTRB[histograms[i]] - mean << endl ;
+			if(write_info)
+			{
+				if(scenario == scenario_LBRT) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LBRT[histograms[i]] - (mean / fraction) << endl ;
+				if(scenario == scenario_LTRB) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LTRB[histograms[i]] - (mean / fraction) << endl ;
+			}
+			else
+			{
+				if(scenario == scenario_LBRT) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LBRT[histograms[i]] << endl ;
+				if(scenario == scenario_LTRB) correction_file << "\t <update_parameter> " << alignment_string << "\t" << reference_offsets_LTRB[histograms[i]] << endl ;
+			}
 		}
 	}
 
