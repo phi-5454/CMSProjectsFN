@@ -438,9 +438,67 @@ void load_runs()
 
 }
 
+void load_runs(string run)
+{
+	string word ;
+
+	reference_offsets_LBRT.clear() ;
+	reference_offsets_LTRB.clear() ;
+
+	ifstream cuts_LBRT("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Temp/corrections_LBRT_"+ run + ".prj") ;
+
+	while(cuts_LBRT >> word)
+	{
+		if(word.substr(0, 13).compare("RP_alignment_") == 0)
+		{
+			double param ;
+			cuts_LBRT >> param ;
+
+			if(word.compare("RP_alignment_left_near_x_mm") == 0) reference_offsets_LBRT["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] = param ;
+			if(word.compare("RP_alignment_left_far__x_mm") == 0) reference_offsets_LBRT["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] = param  ;
+			if(word.compare("RP_alignment_right_near_x_mm") == 0) reference_offsets_LBRT["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] = param  ;
+			if(word.compare("RP_alignment_right_far__x_mm") == 0) reference_offsets_LBRT["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] = param  ;
+		}
+	}
+
+	cuts_LBRT.close() ;
+
+	cout << reference_offsets_LBRT["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] << endl ;
+	cout << reference_offsets_LBRT["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] << endl ;
+	cout << reference_offsets_LBRT["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] << endl ;
+	cout << reference_offsets_LBRT["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] << endl ;
+   cout << endl ;
+
+	ifstream cuts_LTRB("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Temp/corrections_LTRB_"+ run + ".prj") ;
+
+	while(cuts_LTRB >> word)
+	{
+		if(word.substr(0, 13).compare("RP_alignment_") == 0)
+		{
+			double param ;
+			cuts_LTRB >> param ;
+
+			if(word.compare("RP_alignment_left_near_x_mm") == 0) reference_offsets_LTRB["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] = param ;
+			if(word.compare("RP_alignment_left_far__x_mm") == 0) reference_offsets_LTRB["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] = param  ;
+			if(word.compare("RP_alignment_right_near_x_mm") == 0) reference_offsets_LTRB["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] = param  ;
+			if(word.compare("RP_alignment_right_far__x_mm") == 0) reference_offsets_LTRB["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] = param  ;
+		}
+	}
+
+	cuts_LTRB.close() ;
+
+	cout << reference_offsets_LTRB["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] << endl ;
+	cout << reference_offsets_LTRB["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] << endl ;
+	cout << reference_offsets_LTRB["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] << endl ;
+	cout << reference_offsets_LTRB["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] << endl ;
+   cout << endl ;
+
+}
+
+
 void horizontal_elastic_alignment()
 {
-	load_runs() ;
+	// load_runs() ;
 
 	string word ;
 
@@ -449,6 +507,8 @@ void horizontal_elastic_alignment()
 	while(runs >> word)
 	{
 		if(word.compare("324457") == 0) continue ;
+
+		load_runs(word) ;
 
 		horizontal_elastic_alignment_per_run(word) ;
 	}
