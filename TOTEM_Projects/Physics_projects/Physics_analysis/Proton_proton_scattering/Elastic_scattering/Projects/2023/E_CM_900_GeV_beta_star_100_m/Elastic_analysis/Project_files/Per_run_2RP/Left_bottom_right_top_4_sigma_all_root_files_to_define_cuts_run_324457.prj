@@ -8,6 +8,7 @@
 <include> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
 <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_bottom_right_top_324457.prj
 <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma_2RP.prj
+<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LBRT_324457.prj
 
 <update_parameter> CollectCutDiagnosticData 1.0
 
