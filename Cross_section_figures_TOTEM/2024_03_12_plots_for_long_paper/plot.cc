@@ -527,7 +527,7 @@ int plot_dsdt()
 	legend->AddEntry(graph, "D#oslash p#bar{p} measurement at #sqrt{s} = 1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "Extrapolated pp  #sigma at D0 bins", "pe") ;
 	legend->AddEntry(graph_band_up, "Uncertainty band of extrapolated pp   #sigma  (#pm 1 #sigma)", "l") ;
-	legend->AddEntry(graph_band_up_2, "Normalization uncertainty band ( #pm 1 #sigma)", "e") ;
+	legend->AddEntry(graph_band_up_2, "Relative normalization uncertainty band ( #pm 1 #sigma)", "e") ;
 
 	legend->Draw("same") ;
 
