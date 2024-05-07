@@ -297,8 +297,18 @@ int plot_sigtot(int scenario)
 	
 	TLegend *legend = new TLegend(0.12, 0.65, 0.5, 0.88) ;
 	
-	legend->AddEntry(graph, "TOTEM measurements", "p") ;
-	legend->AddEntry(graph_1p96, "extrapolation", "p") ;
+	if(scenario ==  scenario_prelim_2)
+	{
+		legend->AddEntry(graph, "TOTEM measurements", "p") ;
+		legend->AddEntry(graph_1p96, "extrapolation", "p") ;
+	}
+	else
+	{
+		legend->AddEntry(graph, "TOTEM measurements", "pe") ;
+		legend->AddEntry(graph_1p96, "extrapolation", "pe") ;
+	}
+	
+	
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_10_GeV, "constraint", "pe") ;
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(graph_for_plot, "fit", "l") ;
 	if(scenario ==  scenario_prelim_2) legend->AddEntry(myarrow2, "uncertainty", "l") ;
@@ -522,12 +532,12 @@ int plot_dsdt()
 
 	graph->Draw("same p") ;
 
-	TLegend *legend = new TLegend(0.38, 0.65, 0.88, 0.84) ;
+	TLegend *legend = new TLegend(0.38, 0.65, 0.89, 0.84) ;
 	
 	legend->AddEntry(graph, "D#oslash p#bar{p} measurement at #sqrt{s} = 1.96 TeV", "pe") ;
 	legend->AddEntry(graph2, "Extrapolated pp  #sigma at D0 bins", "pe") ;
 	legend->AddEntry(graph_band_up, "Uncertainty band of extrapolated pp   #sigma  (#pm 1 #sigma)", "l") ;
-	legend->AddEntry(graph_band_up_2, "Relative normalization uncertainty band ( #pm 1 #sigma)", "e") ;
+	legend->AddEntry(graph_band_up_2, "Relative normalization uncertainty band (  #pm 1 #sigma)", "e") ;
 
 	legend->Draw("same") ;
 
