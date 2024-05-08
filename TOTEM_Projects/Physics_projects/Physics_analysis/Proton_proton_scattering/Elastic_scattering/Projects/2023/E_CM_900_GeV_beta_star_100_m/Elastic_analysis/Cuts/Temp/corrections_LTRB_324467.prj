@@ -1,6 +1,6 @@
 <begin> alignment_block
-	 <update_parameter> RP_alignment_left_near_x_mm	-0.744449
+	 <update_parameter> RP_alignment_left_near_x_mm	-0.859021
 	 <update_parameter> RP_alignment_left_far__x_mm	-0.0871455
-	 <update_parameter> RP_alignment_right_near_x_mm	0.0106815
-	 <update_parameter> RP_alignment_right_far__x_mm	-0.539079
+	 <update_parameter> RP_alignment_right_near_x_mm	-0.0205551
+	 <update_parameter> RP_alignment_right_far__x_mm	-0.550376
 <end> alignment_block
