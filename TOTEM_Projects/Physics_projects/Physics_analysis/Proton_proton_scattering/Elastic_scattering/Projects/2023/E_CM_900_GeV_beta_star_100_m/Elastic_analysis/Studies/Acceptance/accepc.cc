@@ -254,7 +254,7 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 	const int scenario_LBRT = 1 ;
 	const int scenario_LTRB = 2 ;
 	
-	int scenario = scenario_LTRB ;
+	int scenario = scenario_LBRT ;
 	
 	TFile *file = NULL ;
 	
@@ -373,16 +373,21 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 		box->SetFillStyle(0) ;
 		box->Draw("same") ;
 
-		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".png").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".pdf").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".root").c_str()) ;
+		bool save_figures = false ;
 
-		hist_1_proj->Draw("") ;
-		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.png").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.pdf").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.root").c_str()) ;
+		if(save_figures)
+		{
+			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".png").c_str()) ;
+			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".pdf").c_str()) ;
+			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".root").c_str()) ;
 
-		hist_1_proj->Delete() ;
+			hist_1_proj->Draw("") ;
+			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.png").c_str()) ;
+			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.pdf").c_str()) ;
+			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.root").c_str()) ;
+			hist_1_proj->Delete() ;
+
+		}
 
 		if(write_file && (run_to_test.compare("324536") != 0))
 		{
