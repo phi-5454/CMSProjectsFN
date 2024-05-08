@@ -254,7 +254,7 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 	const int scenario_LBRT = 1 ;
 	const int scenario_LTRB = 2 ;
 	
-	int scenario = scenario_LTRB ;
+	int scenario = scenario_LBRT ;
 	
 	TFile *file = NULL ;
 	
@@ -262,16 +262,20 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 
 	stringstream ss ;
 
+	string text_for_filename = "" ;
+
 	if(scenario == scenario_LBRT)
 	{
 		file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
 		additional_sign = -1 ;
+	   text_for_filename = "LBRT" ;
 
 		cout << "Diagonal LBRT " << run_to_test << endl ;
 	}
 	else if(scenario == scenario_LTRB)
 	{
 		file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+	   text_for_filename = "LTRB" ;
 
 		cout << "Diagonal LTRB " << run_to_test << endl ;
 	}
@@ -369,14 +373,14 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 		box->SetFillStyle(0) ;
 		box->Draw("same") ;
 
-		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + ".png").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + ".pdf").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + ".root").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".png").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".pdf").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_1_proj->Draw("") ;
-		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.png").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.pdf").c_str()) ;
-		c.SaveAs(("plots/alignment/" + run_to_test + " " + histograms[i] + "_proj_fit.root").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.png").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.pdf").c_str()) ;
+		c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + "_proj_fit.root").c_str()) ;
 
 		hist_1_proj->Delete() ;
 
