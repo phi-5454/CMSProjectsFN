@@ -234,7 +234,19 @@ map<string, double> reference_offsets_LTRB ;
 bool write_file = false ;
 // bool write_file = true ;
 
-void horizontal_elastic_alignment_per_run(string run_to_test)
+TGraph graph2 ;
+
+TGraph graph2_golden ;
+TGraph graph2_normal ;
+TGraph graph2_bad ;
+
+const int scenario_null = 0 ;
+const int scenario_LBRT = 1 ;
+const int scenario_LTRB = 2 ;
+
+int scenario = scenario_LTRB ;
+
+void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 {
 	gStyle->SetLineScalePS(.3) ;
 	gStyle->SetOptFit(1111);
@@ -249,12 +261,6 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 
 	TCanvas c;
 	c.SetLogz() ;
-	
-	const int scenario_null = 0 ;
-	const int scenario_LBRT = 1 ;
-	const int scenario_LTRB = 2 ;
-	
-	int scenario = scenario_LBRT ;
 	
 	TFile *file = NULL ;
 	
@@ -375,6 +381,14 @@ void horizontal_elastic_alignment_per_run(string run_to_test)
 
 		bool save_figures = false ;
 
+		int run_to_test_int = atoi(run_to_test.c_str()) ;
+
+		graph2.AddPoint(run_to_test_int, mean) ;
+
+		if(type == 1) graph2_golden.AddPoint(run_to_test_int, mean) ;
+		if(type == 2) graph2_normal.AddPoint(run_to_test_int, mean) ;
+		if(type == 3) graph2_bad.AddPoint(run_to_test_int, mean) ;
+
 		if(save_figures)
 		{
 			c.SaveAs(("plots/alignment/" + run_to_test + "_" + text_for_filename + "_" + histograms[i] + ".png").c_str()) ;
@@ -465,7 +479,7 @@ void load_runs()
 
 }
 
-void load_runs(string run)
+void load_runs(string run, int type)
 {
 	string word ;
 
@@ -529,16 +543,50 @@ void horizontal_elastic_alignment()
 
 	string word ;
 
+	vector<string> golden_runs_vector ;
+	vector<string> normal_runs_vector ;
+	vector<string> bad_runs_vector ;
+
+	ifstream golden_runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs_golden.txt") ;
+	while(golden_runs >> word) golden_runs_vector.push_back(word) ;
+	golden_runs.close() ;
+
+	ifstream normal_runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs_normal.txt") ;
+	while(normal_runs >> word) normal_runs_vector.push_back(word) ;
+	normal_runs.close() ;
+
+	ifstream bad_runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs_bad.txt") ;
+	while(bad_runs >> word) bad_runs_vector.push_back(word) ;
+	bad_runs.close() ;
+
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
 	
 	while(runs >> word)
 	{
 		if(word.compare("324457") == 0) continue ;
 
-		load_runs(word) ;
+		int type = 0 ;
 
-		horizontal_elastic_alignment_per_run(word) ;
+		if(std::find(golden_runs_vector.begin(), golden_runs_vector.end(), word) != golden_runs_vector.end()) type = 1 ;
+		if(std::find(normal_runs_vector.begin(), normal_runs_vector.end(), word) != normal_runs_vector.end()) type = 2 ;
+		if(std::find(bad_runs_vector.begin(), bad_runs_vector.end(), word) != bad_runs_vector.end()) type = 3 ;
+
+		load_runs(word, type) ;
+
+		horizontal_elastic_alignment_per_run(word, type) ;
 	}
+
+	if(scenario == scenario_LBRT) graph2.SaveAs("plots/graph2_LBRT.root") ;
+	if(scenario == scenario_LTRB) graph2.SaveAs("plots/graph2_LTRB.root") ;
+
+	if(scenario == scenario_LBRT) graph2_golden.SaveAs("plots/graph2_golden_LBRT.root") ;
+	if(scenario == scenario_LTRB) graph2_golden.SaveAs("plots/graph2_golden_LTRB.root") ;
+
+	if(scenario == scenario_LBRT) graph2_normal.SaveAs("plots/graph2_normal_LBRT.root") ;
+	if(scenario == scenario_LTRB) graph2_normal.SaveAs("plots/graph2_normal_LTRB.root") ;
+
+	if(scenario == scenario_LBRT) graph2_bad.SaveAs("plots/graph2_bad_LBRT.root") ;
+	if(scenario == scenario_LTRB) graph2_bad.SaveAs("plots/graph2_bad_LTRB.root") ;
 }
 
 int main()
