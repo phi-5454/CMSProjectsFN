@@ -37,7 +37,7 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0015284		 +/- 		0.0
 
 -0.507647
 0.00693434
--0.0560081
+-0.103759
 -0.82648
 
 Diagonal LBRT 324461
@@ -99,9 +99,9 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.000296649		 +/- 		0
 -0.379763
 -1.02744
 
--0.850692
+-0.859021
 -0.0871455
--0.0314232
+-0.0205551
 -0.550376
 
 Diagonal LBRT 324467
@@ -117,7 +117,7 @@ RP_alignment_right_far__x_mm -1.03082
 -0.138391
 -0.880194
 
--0.379957
+-0.428321
 -0.0445536
 0.0739967
 -0.383348
@@ -213,10 +213,10 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.00102923		 +/- 		0.0
 -0.192424
 -1.0857
 
--0.499402
--0.0108434
-0.00231627
--0.870268
+-0.5104
+-0.0351562
+-0.00317436
+-0.849785
 
 Diagonal LBRT 324517
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.138953		 +/- 		0.282153 (to be checked)
@@ -287,7 +287,7 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.000249396		 +/- 		0
 
 -0.236745
 0.224355
--0.0919158
+-0.117216
 -0.834333
 
 Diagonal LBRT 324524
@@ -303,7 +303,7 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.000694575		 +/- 		0
 
 -0.307722
 0.0705495
--0.185556
+-0.153882
 -0.892033
 
 Diagonal LBRT 324526
