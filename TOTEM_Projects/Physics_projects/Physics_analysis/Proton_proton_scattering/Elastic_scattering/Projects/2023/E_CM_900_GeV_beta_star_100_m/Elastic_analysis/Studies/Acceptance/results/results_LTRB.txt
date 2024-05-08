@@ -37,14 +37,14 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.00101696		 +/- 		0.0
 
 -0.507647
 0.00693434
--0.0560081
+-0.103759
 -0.82648
 
 Diagonal LTRB 324461
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00145031		 +/- 		0.0543122 
 Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.000862737		 +/- 		0.0403232 
 Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0418166		 +/- 		0.0584041 (to be checked)
-RP_alignment_right_near_x_mm -0.0350998
+RP_alignment_right_near_x_mm -0.0828507
 Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.00152816		 +/- 		0.0366257 
 
 -0.513363
@@ -100,17 +100,17 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00162107		 +/- 		0.
 -0.379763
 -1.02744
 
--0.850692
+-0.859021
 -0.0871455
--0.0314232
+-0.0205551
 -0.550376
 
 Diagonal LTRB 324467
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.115769		 +/- 		0.260337 (to be checked)
-RP_alignment_left_near_x_mm -0.792807
+RP_alignment_left_near_x_mm -0.801136
 Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.000991077		 +/- 		0.156709 
 Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.0407582		 +/- 		0.227125 (to be checked)
-RP_alignment_right_near_x_mm -0.0518023
+RP_alignment_right_near_x_mm -0.0409342
 Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00162265		 +/- 		0.149688 
 
 -0.390695
@@ -118,14 +118,14 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00162265		 +/- 		0.
 -0.138391
 -0.880194
 
--0.379957
+-0.428321
 -0.0445536
 0.0739967
 -0.383348
 
 Diagonal LTRB 324469
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.00358132		 +/- 		0.118498 (to be checked)
-RP_alignment_left_near_x_mm -0.378166
+RP_alignment_left_near_x_mm -0.42653
 Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.00191199		 +/- 		0.0620806 
 Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.000669494		 +/- 		0.101378 
 Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.00037143		 +/- 		0.12129 
@@ -215,20 +215,20 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		0.00147255		 +/- 		0.0
 -0.192424
 -1.0857
 
--0.499402
--0.0108434
-0.00231627
--0.870268
+-0.5104
+-0.0351562
+-0.00317436
+-0.849785
 
 Diagonal LTRB 324517
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		-0.0285352		 +/- 		0.197448 (to be checked)
-RP_alignment_left_near_x_mm -0.485134
+RP_alignment_left_near_x_mm -0.496132
 Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.0344319		 +/- 		0.100151 (to be checked)
-RP_alignment_left_far__x_mm 0.00637257
+RP_alignment_left_far__x_mm -0.0179402
 Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		0.00666961		 +/- 		0.17468 (to be checked)
-RP_alignment_right_near_x_mm -0.00101854
+RP_alignment_right_near_x_mm -0.00650917
 Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.0176662		 +/- 		0.124977 (to be checked)
-RP_alignment_right_far__x_mm -0.861435
+RP_alignment_right_far__x_mm -0.840952
 
 -0.461767
 0.0202272
@@ -285,14 +285,14 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.000721326		 +/- 		0
 
 -0.236745
 0.224355
--0.0919158
+-0.117216
 -0.834333
 
 Diagonal LTRB 324524
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.000367526		 +/- 		0.0820307 
 Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		0.001312		 +/- 		0.0481962 
 Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0342842		 +/- 		0.07269 (to be checked)
-RP_alignment_right_near_x_mm -0.0747737
+RP_alignment_right_near_x_mm -0.100074
 Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00133899		 +/- 		0.0529133 
 
 -0.558067
@@ -302,14 +302,14 @@ Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.00133899		 +/- 		0.
 
 -0.307722
 0.0705495
--0.185556
+-0.153882
 -0.892033
 
 Diagonal LTRB 324526
 Mean: P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP 		0.00173585		 +/- 		0.064451 
 Mean: P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP 		-0.00115957		 +/- 		0.0364226 
 Mean: P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP 		-0.0219441		 +/- 		0.0478939 (to be checked)
-RP_alignment_right_near_x_mm -0.174584
+RP_alignment_right_near_x_mm -0.14291
 Mean: P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP 		-0.000562854		 +/- 		0.0326439 
 
 -0.460089
