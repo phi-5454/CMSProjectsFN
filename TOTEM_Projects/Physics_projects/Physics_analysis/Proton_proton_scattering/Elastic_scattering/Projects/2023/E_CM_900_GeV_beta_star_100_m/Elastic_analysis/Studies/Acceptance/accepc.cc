@@ -137,9 +137,9 @@ void other_studies()
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
 
 	string word ;
-	
+
 	bool first = true ;
-	
+
 	while(runs >> word)
 	{
 		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + word + "/Generic.root").c_str()) ;
@@ -244,7 +244,11 @@ const int scenario_null = 0 ;
 const int scenario_LBRT = 1 ;
 const int scenario_LTRB = 2 ;
 
-int scenario = scenario_LTRB ;
+int scenario = scenario_LBRT ;
+
+void vertical_elastic_alignment(string run_to_test, int type)
+{
+}
 
 void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 {
@@ -425,6 +429,11 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 	cout << endl ;
 }
 
+void vertical_elastic_alignment_per_run(string run_to_test, int type)
+{
+	cout << "here" << endl ;
+}
+
 void load_runs()
 {
 	string word ;
@@ -478,6 +487,11 @@ void load_runs()
    cout << endl ;
 
 }
+
+void load_runs_y(string run, int type)
+{
+}
+
 
 void load_runs(string run, int type)
 {
@@ -560,7 +574,7 @@ void horizontal_elastic_alignment()
 	bad_runs.close() ;
 
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
-	
+
 	while(runs >> word)
 	{
 		if(word.compare("324457") == 0) continue ;
@@ -589,6 +603,48 @@ void horizontal_elastic_alignment()
 	if(scenario == scenario_LTRB) graph2_bad.SaveAs("plots/graph2_bad_LTRB.root") ;
 }
 
+void vertical_elastic_alignment()
+{
+	// load_runs() ;
+
+	string word ;
+
+	vector<string> golden_runs_vector ;
+	vector<string> normal_runs_vector ;
+	vector<string> bad_runs_vector ;
+
+	ifstream golden_runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs_golden.txt") ;
+	while(golden_runs >> word) golden_runs_vector.push_back(word) ;
+	golden_runs.close() ;
+
+	ifstream normal_runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs_normal.txt") ;
+	while(normal_runs >> word) normal_runs_vector.push_back(word) ;
+	normal_runs.close() ;
+
+	ifstream bad_runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs_bad.txt") ;
+	while(bad_runs >> word) bad_runs_vector.push_back(word) ;
+	bad_runs.close() ;
+
+	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	while(runs >> word)
+	{
+		if(word.compare("324457") == 0) continue ;
+
+		int type = 0 ;
+
+		if(std::find(golden_runs_vector.begin(), golden_runs_vector.end(), word) != golden_runs_vector.end()) type = 1 ;
+		if(std::find(normal_runs_vector.begin(), normal_runs_vector.end(), word) != normal_runs_vector.end()) type = 2 ;
+		if(std::find(bad_runs_vector.begin(), bad_runs_vector.end(), word) != bad_runs_vector.end()) type = 3 ;
+
+		load_runs_y(word, type) ;
+
+		vertical_elastic_alignment_per_run(word, type) ;
+	}
+
+}
+
+
 int main()
 {
 	gStyle->SetOptStat("");
@@ -598,10 +654,12 @@ int main()
 	const int main_scenario_acceptance_polygons = 1 ;
 	const int main_scenario_signal_to_bkg_for_2RP = 2 ;
 	const int main_scenario_elastic_alignment = 3 ;
+	const int main_scenario_elastic_alignment_vertical = 4 ;
 
-	int main_scenario = main_scenario_elastic_alignment ;
+	int main_scenario = main_scenario_elastic_alignment_vertical ;
 
 	if(main_scenario == main_scenario_acceptance_polygons) main_studies() ;
 	else if(main_scenario == main_scenario_signal_to_bkg_for_2RP) other_studies() ;
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
+	else if(main_scenario == main_scenario_elastic_alignment_vertical) vertical_elastic_alignment() ;
 }
