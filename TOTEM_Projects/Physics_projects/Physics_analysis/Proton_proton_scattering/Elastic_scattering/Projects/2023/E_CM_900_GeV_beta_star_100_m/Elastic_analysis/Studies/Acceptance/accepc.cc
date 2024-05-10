@@ -432,6 +432,36 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 void vertical_elastic_alignment_per_run(string run_to_test, int type)
 {
 	cout << "here" << endl ;
+
+	TFile *file_LBRT = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+	TFile *file_LTRB = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+
+	cout << file_LBRT << " " << file_LTRB << endl ;
+
+	vector<string> histograms ;
+
+	histograms.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
+	histograms.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
+	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
+	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+
+	for(int i = 0 ; i < histograms.size() ; ++i)
+	{
+		TH2D *hist_1 = ((TH2D *)file_LBRT->Get(histograms[i].c_str())) ;
+		TH2D *hist_2 = ((TH2D *)file_LTRB->Get(histograms[i].c_str())) ;
+
+		hist_1->Add(hist_2) ;
+
+		TH1D *hist_1_proj = NULL ;
+		hist_1_proj = hist_1->ProjectionY("py1") ;
+
+		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		hist_1_proj->Fit("gaus") ;
+		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+	}
+
+	file_LBRT->Close() ;
+	file_LTRB->Close() ;
 }
 
 void load_runs()
