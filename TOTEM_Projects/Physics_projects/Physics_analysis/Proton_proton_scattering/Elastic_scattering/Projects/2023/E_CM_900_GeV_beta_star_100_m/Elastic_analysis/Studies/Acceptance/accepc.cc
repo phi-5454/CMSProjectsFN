@@ -465,6 +465,8 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 	f = chi2 ;
 }
 
+TCanvas acanvas ;
+
 void vertical_elastic_alignment_per_run(string run_to_test, int type)
 {
 
@@ -485,7 +487,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	arglist[1] = 3 ;
 	arglist[2] = 1 ;
 
-	TF1 *func = new TF1("func",  my_gaus, 0, 1400.0, 3) ;
+	TF1 *func = new TF1("func",  my_gaus, -30, 30, 3) ;
+	func->SetLineColor(kBlue) ;
 
 	double func_par[4] ;
 	double func_pare[4] ;
@@ -551,9 +554,12 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_to_fit = hist_1_proj ;
-		TFitResultPtr fit_result = hist_1_proj->Fit("gaus", "S") ;
+		TFitResultPtr fit_result = hist_1_proj->Fit("gaus", "SQ") ;
 
-		fit_result->Parameter(2) ;
+		if(fabs(fit_result->Parameter(1) > 0.2))
+		{
+			cout << "run_to_test " << run_to_test << " " << histograms[i] << " " << fit_result->Parameter(1) << endl ;
+		}
 
 		gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
@@ -564,9 +570,6 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	   arglist[2] = 1 ;
 
 		gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
-
-		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
-		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
 
 		gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
@@ -586,7 +589,20 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			cout << "Warning2: fit " << run_to_test + "_" + histograms[i] << "  " << delta_3 << endl ;
 		}
 
-	  func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
+		func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
+
+		// hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		// hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
+
+		acanvas.cd() ;
+
+		acanvas.SetLogy() ;
+
+		hist_1_proj_clone->Draw() ;
+		hist_1_proj->Draw("same") ;
+		func->Draw("same") ;
+
+		acanvas.SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_canvas.root").c_str()) ;
 	}
 
 	file_LBRT->Close() ;
