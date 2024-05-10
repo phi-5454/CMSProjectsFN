@@ -246,10 +246,6 @@ const int scenario_LTRB = 2 ;
 
 int scenario = scenario_LBRT ;
 
-void vertical_elastic_alignment(string run_to_test, int type)
-{
-}
-
 void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 {
 	gStyle->SetLineScalePS(.3) ;
@@ -445,8 +441,19 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
 	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 
-	const double lo_x = 12 ;
-	const double hi_x = 20 ;
+	const int fit_standard = 1 ;
+	const int fit_with_coulomb = 2 ;
+
+	const int fit_scenario = fit_standard ;
+
+	double lo_x = 12 ;
+	double hi_x = 20 ;
+
+	if(fit_scenario == fit_with_coulomb)
+	{
+		double lo_x = 12 ;
+		double hi_x = 20 ;
+	}
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
@@ -931,7 +938,7 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		// vertical_elastic_alignment() ;
+		vertical_elastic_alignment() ;
 		test_of_cuts() ;
 	}
 }
