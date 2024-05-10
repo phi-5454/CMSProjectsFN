@@ -425,8 +425,57 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 	cout << endl ;
 }
 
+void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
+{
+  double chi2 = 0 ;
+
+  for(int i = 0 ; i < points.size() ; ++i)
+  {
+    double energy = points[i]->energy ;
+    double sigtot = points[i]->sigtot ;
+    double uncertainty_up = points[i]->uncertainty_up ;
+
+    double value = log_like_function(&energy, par) ;
+
+    double delta = (value - sigtot) / uncertainty_up ;
+
+    chi2 += delta*delta ;
+  }
+
+  f = chi2 ;
+}
+
 void vertical_elastic_alignment_per_run(string run_to_test, int type)
 {
+
+	TMinuit *gMinuit2 = new TMinuit(10);
+	gMinuit2->SetFCN(fcn);
+
+	Double_t arglist[10];
+
+	arglist[0] = -1 ;
+	Int_t ierflg = 0 ;
+	gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+
+	arglist[0] = 1 ;
+	gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
+
+
+	gMinuit2->mnparm(0, "const", 0, 0.1, 0, 0, ierflg);
+	gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
+	gMinuit2->mnparm(2, "sigma", 0, 0.1, 0, 0, ierflg);
+
+	arglist[0] = 0 ;
+	arglist[1] = 3 ;
+	arglist[2] = 1 ;
+
+	func = new TF1("func",  log_like_function, epsilon, 1400.0, 3) ;
+
+	gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+
+	double func_par[4] ;
+	double func_pare[4] ;
+
 	cout << "here" << endl ;
 
 	TFile *file_LBRT = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
@@ -491,6 +540,11 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
+
+		gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
+		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
+		gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
+
 	}
 
 	file_LBRT->Close() ;
