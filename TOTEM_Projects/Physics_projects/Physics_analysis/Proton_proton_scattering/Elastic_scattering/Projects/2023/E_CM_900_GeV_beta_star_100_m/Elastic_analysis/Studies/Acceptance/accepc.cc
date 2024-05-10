@@ -702,6 +702,8 @@ void vertical_elastic_alignment()
 
 void test_of_cuts()
 {
+	TCanvas c ;
+
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
 
 	cout << "Test of cuts" << endl << endl ;
@@ -760,6 +762,7 @@ void test_of_cuts()
 
 	runs2.close() ;
 
+
 	TGraph *alignx_graph_LBRT_left_near = new TGraph() ;
 	TGraph *alignx_graph_LTRB = new TGraph() ;
 
@@ -792,6 +795,15 @@ void test_of_cuts()
 	}
 
 	runs3.close() ;
+
+	alignx_graph_LBRT_left_near->GetYaxis()->SetRangeUser(-1,1) ;
+
+	c.cd() ;
+
+	alignx_graph_LBRT_left_near->Draw("ap") ;
+	alignx_graph_LBRT_left_near->SetMarkerStyle(20) ;
+
+	c.SaveAs("plots/alignment_test/alignx_graph_LBRT_left_near.root") ;
 }
 
 int main()
