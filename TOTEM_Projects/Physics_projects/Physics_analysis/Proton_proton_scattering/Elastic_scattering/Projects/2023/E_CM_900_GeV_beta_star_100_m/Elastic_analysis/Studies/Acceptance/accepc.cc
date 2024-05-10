@@ -759,6 +759,39 @@ void test_of_cuts()
 	cout << "mean_max: " << mean_max << endl ;
 
 	runs2.close() ;
+
+	TGraph *alignx_graph_LBRT_left_near = new TGraph() ;
+	TGraph *alignx_graph_LTRB = new TGraph() ;
+
+	ifstream runs3("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	string word ;
+
+	while(runs3 >> run_to_test)
+	{
+		cout << "Analysed run " << run_to_test << endl ;
+
+		ifstream prj_file("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LBRT_" + run_to_test + ".prj") ;
+
+		while(prj_file >> word)
+		{
+			int run_to_test_int = atoi(run_to_test.c_str()) ;
+
+			if(word.compare("RP_alignment_left_near_x_mm") == 0)
+			{
+				double value = 0 ;
+
+				prj_file >> value ;
+
+				alignx_graph_LBRT_left_near->AddPoint(run_to_test_int, value) ;
+			}
+
+		}
+
+		prj_file.close() ;
+	}
+
+	runs3.close() ;
 }
 
 int main()
@@ -783,7 +816,7 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		vertical_elastic_alignment() ;
+		// vertical_elastic_alignment() ;
 		test_of_cuts() ;
 	}
 }
