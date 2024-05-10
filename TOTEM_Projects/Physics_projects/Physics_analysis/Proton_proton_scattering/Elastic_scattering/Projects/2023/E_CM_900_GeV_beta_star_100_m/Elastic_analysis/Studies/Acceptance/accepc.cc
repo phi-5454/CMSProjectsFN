@@ -425,19 +425,34 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 	cout << endl ;
 }
 
+Double_t my_gaus(Double_t *x, Double_t *par)
+{
+        double f1 = par[0] * pow(log(x[0]), 0) ;
+        double f2 = par[1] * pow(log(x[0]), 1) ;
+        double f3 = par[2] * pow(log(x[0]), 2) ;
+
+        double f = f1 + f2 + f3 ;
+
+      // cout << "energy: " << x[0] << " " << f << endl ;
+
+        return f ;
+}
+
+TH1D *hist_to_fit = NULL ;
+
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
   double chi2 = 0 ;
 
-  for(int i = 0 ; i < points.size() ; ++i)
+  for(int i = 0 ; i < hist_to_fit->GetNbinsX() ; ++i)
   {
-    double energy = points[i]->energy ;
-    double sigtot = points[i]->sigtot ;
-    double uncertainty_up = points[i]->uncertainty_up ;
+    double y_pos_mm = hist_to_fit->GetBinCenter(i) ;
+    double value = hist_to_fit->GetBinContent(i) ;
+    double unc = hist_to_fit->GetBinError(i) ;
 
-    double value = log_like_function(&energy, par) ;
+    double func_value = my_gaus(&y_pos_mm, par) ;
 
-    double delta = (value - sigtot) / uncertainty_up ;
+    double delta = (value - func_value) / unc ;
 
     chi2 += delta*delta ;
   }
@@ -455,11 +470,10 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 	arglist[0] = -1 ;
 	Int_t ierflg = 0 ;
-	gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+//	gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
 
 	arglist[0] = 1 ;
 	gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
-
 
 	gMinuit2->mnparm(0, "const", 0, 0.1, 0, 0, ierflg);
 	gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
@@ -469,9 +483,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	arglist[1] = 3 ;
 	arglist[2] = 1 ;
 
-	func = new TF1("func",  log_like_function, epsilon, 1400.0, 3) ;
-
-	gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+	TF1 *func = new TF1("func",  my_gaus, 0, 1400.0, 3) ;
 
 	double func_par[4] ;
 	double func_pare[4] ;
@@ -536,7 +548,10 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
-		hist_1_proj->Fit("gaus") ;
+		hist_to_fit = hist_1_proj ;
+//		hist_1_proj->Fit("gaus") ;
+
+		gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
 
 		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
@@ -545,6 +560,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
 		gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
 
+	  func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
 	}
 
 	file_LBRT->Close() ;
