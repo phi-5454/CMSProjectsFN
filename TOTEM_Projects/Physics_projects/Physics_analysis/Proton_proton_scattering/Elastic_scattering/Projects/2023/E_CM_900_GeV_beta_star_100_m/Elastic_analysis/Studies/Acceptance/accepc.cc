@@ -625,7 +625,6 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		acanvas.SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_canvas.root").c_str()) ;
 		
-		exit(1) ;		
 	}
 
 	file_LBRT->Close() ;
