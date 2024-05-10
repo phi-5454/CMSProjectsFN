@@ -674,6 +674,66 @@ void vertical_elastic_alignment()
 
 }
 
+void test_of_cuts()
+{
+	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	cout << "Test of cuts" << endl << endl ;
+
+	string run_to_test ;
+
+	double mean_max = 0 ;
+
+	while(runs >> run_to_test)
+	{
+		if(run_to_test.compare("324457") == 0) continue ;
+
+		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+
+		TH1D *histo = ((TH1D *)file->Get("P0021_PlotsCollection_theta_x_star_left_far_rad_theta_x_star_right_far_rad_define_cut_distance_from_cut")) ;
+
+		double mean = histo->GetMean() ;
+
+		if(mean > mean_max) mean_max = mean ;
+
+		cout << "run " << run_to_test << " " << histo->GetMean() << endl ;
+
+		file->Close() ;
+	}
+
+	cout << "mean_max: " << mean_max << endl ;
+
+	runs.close() ;
+
+
+
+	ifstream runs2("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	cout << "Test of cuts" << endl << endl ;
+
+	mean_max = 0 ;
+
+	while(runs2 >> run_to_test)
+	{
+		if(run_to_test.compare("324457") == 0) continue ;
+
+		TFile *file = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+
+		TH1D *histo = ((TH1D *)file->Get("P0021_PlotsCollection_theta_x_star_left_far_rad_theta_x_star_right_far_rad_define_cut_distance_from_cut")) ;
+
+		double mean = histo->GetMean() ;
+
+		if(mean > mean_max) mean_max = mean ;
+
+		cout << "run " << run_to_test << " " << histo->GetMean() << endl ;
+
+		file->Close() ;
+	}
+
+	cout << "mean_max: " << mean_max << endl ;
+
+	runs2.close() ;
+}
 
 int main()
 {
@@ -688,8 +748,13 @@ int main()
 
 	int main_scenario = main_scenario_elastic_alignment_vertical ;
 
+
 	if(main_scenario == main_scenario_acceptance_polygons) main_studies() ;
 	else if(main_scenario == main_scenario_signal_to_bkg_for_2RP) other_studies() ;
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
-	else if(main_scenario == main_scenario_elastic_alignment_vertical) vertical_elastic_alignment() ;
+	else if(main_scenario == main_scenario_elastic_alignment_vertical)
+	{
+		vertical_elastic_alignment() ;
+		test_of_cuts() ;
+	}
 }
