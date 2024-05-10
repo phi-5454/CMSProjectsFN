@@ -204,7 +204,7 @@ void main_studies()
 	graph = ((TGraph *)file->Get("Graph")) ;
 
 	c.cd() ;
-	
+
 	double R = (300e-6 / 2.0) ;
 
    TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, -0.7e-3, 0.7e-3, 100, -0.25e-3, 0.25e-3) ;	
@@ -700,6 +700,107 @@ void vertical_elastic_alignment()
 
 }
 
+void a_test(string diagonal)
+{
+	string run_to_test ;
+
+	TGraph *alignx_graph_left_near = new TGraph() ;
+	TGraph *alignx_graph_left_far = new TGraph() ;
+	TGraph *alignx_graph_right_near = new TGraph() ;
+	TGraph *alignx_graph_right_far = new TGraph() ;
+
+	ifstream runs3("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	string word ;
+
+	while(runs3 >> run_to_test)
+	{
+		cout << "Analysed run " << run_to_test << endl ;
+
+		ifstream prj_file("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_" + diagonal + "_" + run_to_test + ".prj") ;
+
+		while(prj_file >> word)
+		{
+			int run_to_test_int = atoi(run_to_test.c_str()) ;
+
+			if(word.compare("RP_alignment_left_near_x_mm") == 0)
+			{
+				double value = 0 ;
+
+				prj_file >> value ;
+
+				alignx_graph_left_near->AddPoint(run_to_test_int, value) ;
+			}
+			else if(word.compare("RP_alignment_left_far__x_mm") == 0)
+			{
+				double value = 0 ;
+
+				prj_file >> value ;
+
+				alignx_graph_left_far->AddPoint(run_to_test_int, value) ;
+			}
+			else if(word.compare("RP_alignment_right_near_x_mm") == 0)
+			{
+				double value = 0 ;
+
+				prj_file >> value ;
+
+				alignx_graph_right_near->AddPoint(run_to_test_int, value) ;
+			}
+			else if(word.compare("RP_alignment_right_far__x_mm") == 0)
+			{
+				double value = 0 ;
+
+				prj_file >> value ;
+
+				alignx_graph_right_far->AddPoint(run_to_test_int, value) ;
+			}
+
+		}
+
+		prj_file.close() ;
+	}
+
+	runs3.close() ;
+
+	alignx_graph_left_near->GetYaxis()->SetRangeUser(-1.2,0.3) ;
+
+	c.cd() ;
+
+	alignx_graph_left_near->GetYaxis()->SetTitle("#Delta x (mm)") ;
+
+	alignx_graph_left_near->Draw("ap") ;
+	alignx_graph_left_far->Draw("same p") ;
+	alignx_graph_right_near->Draw("same p") ;
+	alignx_graph_right_far->Draw("same p") ;
+
+	alignx_graph_left_near->SetMarkerStyle(20) ;
+	alignx_graph_left_far->SetMarkerStyle(20) ;
+	alignx_graph_right_near->SetMarkerStyle(20) ;
+	alignx_graph_right_far->SetMarkerStyle(20) ;
+
+	alignx_graph_left_near->SetMarkerColor(kBlack) ;
+	alignx_graph_left_far->SetMarkerColor(kRed) ;
+	alignx_graph_right_near->SetMarkerColor(kGreen) ;
+	alignx_graph_right_far->SetMarkerColor(kBlue) ;
+
+	c.SetGridx() ;
+	c.SetGridy() ;
+
+	TLegend *legend = new TLegend() ;
+
+	legend->AddEntry(alignx_graph_left_near, "left near", "p") ;
+	legend->AddEntry(alignx_graph_left_far, "left far", "p") ;
+	legend->AddEntry(alignx_graph_right_near, "right near", "p") ;
+	legend->AddEntry(alignx_graph_right_far, "right far", "p") ;
+
+	legend->Draw() ;
+
+	c.SaveAs(("plots/alignment_test/alignx_graph_"+ diagonal + ".root").c_str()) ;
+	c.SaveAs(("plots/alignment_test/alignx_graph_"+ diagonal + ".pdf").c_str()) ;
+
+}
+
 void test_of_cuts()
 {
 	TCanvas c ;
@@ -762,48 +863,8 @@ void test_of_cuts()
 
 	runs2.close() ;
 
-
-	TGraph *alignx_graph_LBRT_left_near = new TGraph() ;
-	TGraph *alignx_graph_LTRB = new TGraph() ;
-
-	ifstream runs3("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
-
-	string word ;
-
-	while(runs3 >> run_to_test)
-	{
-		cout << "Analysed run " << run_to_test << endl ;
-
-		ifstream prj_file("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LBRT_" + run_to_test + ".prj") ;
-
-		while(prj_file >> word)
-		{
-			int run_to_test_int = atoi(run_to_test.c_str()) ;
-
-			if(word.compare("RP_alignment_left_near_x_mm") == 0)
-			{
-				double value = 0 ;
-
-				prj_file >> value ;
-
-				alignx_graph_LBRT_left_near->AddPoint(run_to_test_int, value) ;
-			}
-
-		}
-
-		prj_file.close() ;
-	}
-
-	runs3.close() ;
-
-	alignx_graph_LBRT_left_near->GetYaxis()->SetRangeUser(-1,1) ;
-
-	c.cd() ;
-
-	alignx_graph_LBRT_left_near->Draw("ap") ;
-	alignx_graph_LBRT_left_near->SetMarkerStyle(20) ;
-
-	c.SaveAs("plots/alignment_test/alignx_graph_LBRT_left_near.root") ;
+   a_test("LBRT") ;
+   a_test("LTRB") ;
 }
 
 int main()
