@@ -425,11 +425,19 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 	cout << endl ;
 }
 
+
+const int align_fit_standard = 1 ;
+const int align_fit_with_coulomb = 2 ;
+
+const int align_fit_scenario = align_fit_standard ;
+
 Double_t my_gaus(Double_t *x, Double_t *par)
 {
 			double myarg = ((x[0] - par[1]) / par[2]) ;
+			double myarg2 = ((x[0] - par[1]) / par[4]) ;
 
         double f1 = (par[0] * exp(-0.5 * (myarg * myarg))) ;
+        double f2 = (par[3] * exp(-0.5 * (myarg2 * myarg2))) ;
 
         double f = f1 ;
 
@@ -507,15 +515,10 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
 	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 
-	const int fit_standard = 1 ;
-	const int fit_with_coulomb = 2 ;
-
-	const int fit_scenario = fit_standard ;
-
 	double lo_x = 12 ;
 	double hi_x = 20 ;
 
-	if(fit_scenario == fit_with_coulomb)
+	if(align_fit_scenario == align_fit_with_coulomb)
 	{
 		double lo_x = 12 ;
 		double hi_x = 20 ;
@@ -564,6 +567,12 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(2, "sigma", 20, 0.1, 0, 0, ierflg);
+		
+		if(align_fit_scenario == align_fit_with_coulomb)		
+		{
+			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
+			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
+		}
 
 	   arglist[0] = 0 ;
 		arglist[1] = 3 ;
