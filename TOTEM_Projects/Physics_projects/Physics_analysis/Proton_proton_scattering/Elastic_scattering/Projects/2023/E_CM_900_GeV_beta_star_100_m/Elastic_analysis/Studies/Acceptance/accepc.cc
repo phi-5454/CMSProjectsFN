@@ -429,7 +429,7 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 const int align_fit_standard = 1 ;
 const int align_fit_with_coulomb = 2 ;
 
-const int align_fit_scenario = align_fit_standard ;
+const int align_fit_scenario = align_fit_with_coulomb ;
 
 Double_t my_gaus(Double_t *x, Double_t *par)
 {
@@ -487,7 +487,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 	arglist[0] = -1 ;
 	Int_t ierflg = 0 ;
-	gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+	// gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
 
 	arglist[0] = 1 ;
 	gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
@@ -497,11 +497,11 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	arglist[1] = 3 ;
 	arglist[2] = 1 ;
 
-	TF1 *func = new TF1("func",  my_gaus, -30, 30, 3) ;
+	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
 	func->SetLineColor(kBlue) ;
 
-	double func_par[4] ;
-	double func_pare[4] ;
+	double func_par[5] ;
+	double func_pare[5] ;
 
 	cout << "here" << endl ;
 
@@ -569,18 +569,21 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(2, "sigma", 20, 0.1, 0, 0, ierflg);
-		
-		if(align_fit_scenario == align_fit_with_coulomb)		
-		{
-			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
-			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
-		}
 
 	   arglist[0] = 0 ;
 		arglist[1] = 3 ;
 	   arglist[2] = 1 ;
 
 		gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+		
+		if(align_fit_scenario == align_fit_with_coulomb)		
+		{
+			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
+			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
+
+			gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+			
+		}
 
 		gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
@@ -621,6 +624,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		func->Draw("same") ;
 
 		acanvas.SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_canvas.root").c_str()) ;
+		
+		exit(1) ;		
 	}
 
 	file_LBRT->Close() ;
