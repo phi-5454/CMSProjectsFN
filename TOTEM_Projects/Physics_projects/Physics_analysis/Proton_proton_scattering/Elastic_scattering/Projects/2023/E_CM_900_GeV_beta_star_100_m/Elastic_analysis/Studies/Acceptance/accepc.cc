@@ -440,6 +440,8 @@ Double_t my_gaus(Double_t *x, Double_t *par)
         double f2 = (par[3] * exp(-0.5 * (myarg2 * myarg2))) ;
 
         double f = f1 ;
+		  
+		  if(align_fit_scenario == align_fit_with_coulomb) f = f1 + f2 ;
 
       // cout << "energy: " << x[0] << " " << f << endl ;
 
@@ -584,6 +586,12 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
 		gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
 
+		if(align_fit_scenario == align_fit_with_coulomb)		
+		{
+			gMinuit2->GetParameter(3, func_par[3], func_pare[3]) ;
+			gMinuit2->GetParameter(4, func_par[4], func_pare[4]) ;
+		}
+
 		double delta_1 = 100.0 * fabs((fit_result->Parameter(0) - func_par[0]) / fit_result->Parameter(0)) ;
 		double delta_2 = 100.0 * fabs((fit_result->Parameter(1) - func_par[1]) / fit_result->Parameter(1)) ;
 		double delta_3 = 100.0 * fabs((fit_result->Parameter(2) - func_par[2]) / fit_result->Parameter(2)) ;
@@ -598,7 +606,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			cout << "Warning2: fit " << run_to_test + "_" + histograms[i] << "  " << delta_3 << endl ;
 		}
 
-		func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
+		if(align_fit_scenario == align_fit_standard) func->SetParameters(func_par[0], func_par[1], func_par[2], 0, 0) ;
+		if(align_fit_scenario == align_fit_with_coulomb) func->SetParameters(func_par[0], func_par[1], func_par[2], func_par[3], func_par[4]) ;
 
 		// hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		// hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
