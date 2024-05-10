@@ -427,11 +427,11 @@ void horizontal_elastic_alignment_per_run(string run_to_test, int type)
 
 Double_t my_gaus(Double_t *x, Double_t *par)
 {
-        double f1 = par[0] * pow(log(x[0]), 0) ;
-        double f2 = par[1] * pow(log(x[0]), 1) ;
-        double f3 = par[2] * pow(log(x[0]), 2) ;
+			double myarg = ((x[0] - par[1]) / par[2]) ;
 
-        double f = f1 + f2 + f3 ;
+        double f1 = (par[0] * exp(-0.5 * (myarg * myarg))) ;
+
+        double f = f1 ;
 
       // cout << "energy: " << x[0] << " " << f << endl ;
 
@@ -442,22 +442,27 @@ TH1D *hist_to_fit = NULL ;
 
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
-  double chi2 = 0 ;
+	double chi2 = 0 ;
 
-  for(int i = 0 ; i < hist_to_fit->GetNbinsX() ; ++i)
-  {
-    double y_pos_mm = hist_to_fit->GetBinCenter(i) ;
-    double value = hist_to_fit->GetBinContent(i) ;
-    double unc = hist_to_fit->GetBinError(i) ;
+	for(int i = 0 ; i < hist_to_fit->GetNbinsX() ; ++i)
+	{
+		if(hist_to_fit->GetBinError(i) != 0.0)
+		{
+			double y_pos_mm = hist_to_fit->GetBinCenter(i) ;
+			double value = hist_to_fit->GetBinContent(i) ;
+			double unc = hist_to_fit->GetBinError(i) ;
 
-    double func_value = my_gaus(&y_pos_mm, par) ;
+			double func_value = my_gaus(&y_pos_mm, par) ;
 
-    double delta = (value - func_value) / unc ;
+			double delta = (value - func_value) / unc ;
 
-    chi2 += delta*delta ;
-  }
+			chi2 += delta*delta ;
 
-  f = chi2 ;
+			// cout << "chi2 " << i << " " << chi2 << endl ;
+		}
+	}
+
+	f = chi2 ;
 }
 
 void vertical_elastic_alignment_per_run(string run_to_test, int type)
@@ -470,14 +475,11 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 	arglist[0] = -1 ;
 	Int_t ierflg = 0 ;
-//	gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+	gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
 
 	arglist[0] = 1 ;
 	gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
 
-	gMinuit2->mnparm(0, "const", 0, 0.1, 0, 0, ierflg);
-	gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
-	gMinuit2->mnparm(2, "sigma", 0, 0.1, 0, 0, ierflg);
 
 	arglist[0] = 0 ;
 	arglist[1] = 3 ;
@@ -549,7 +551,17 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_to_fit = hist_1_proj ;
-//		hist_1_proj->Fit("gaus") ;
+		TFitResultPtr fit_result = hist_1_proj->Fit("gaus", "S") ;
+
+		fit_result->Parameter(2) ;
+
+		gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
+		gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
+		gMinuit2->mnparm(2, "sigma", 20, 0.1, 0, 0, ierflg);
+
+	   arglist[0] = 0 ;
+		arglist[1] = 3 ;
+	   arglist[2] = 1 ;
 
 		gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
 
@@ -559,6 +571,20 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
 		gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
+
+		double delta_1 = 100.0 * fabs((fit_result->Parameter(0) - func_par[0]) / fit_result->Parameter(0)) ;
+		double delta_2 = 100.0 * fabs((fit_result->Parameter(1) - func_par[1]) / fit_result->Parameter(1)) ;
+		double delta_3 = 100.0 * fabs((fit_result->Parameter(2) - func_par[2]) / fit_result->Parameter(2)) ;
+
+		if((delta_1 > 0.1) || (delta_2 > 0.1) || (delta_3 > 0.1))
+		{
+			cout << "Warning1: fit " << run_to_test + "_" + histograms[i] << "  " << delta_1 << "  " << delta_2 << "  " << delta_3 << endl ;
+		}
+
+		if(delta_3 > 0.1)
+		{
+			cout << "Warning2: fit " << run_to_test + "_" + histograms[i] << "  " << delta_3 << endl ;
+		}
 
 	  func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
 	}
