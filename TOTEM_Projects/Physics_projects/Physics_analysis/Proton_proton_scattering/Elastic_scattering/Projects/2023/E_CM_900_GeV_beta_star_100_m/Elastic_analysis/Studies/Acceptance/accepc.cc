@@ -768,6 +768,7 @@ void a_test(string diagonal)
 	c.cd() ;
 
 	alignx_graph_left_near->GetYaxis()->SetTitle("#Delta x (mm)") ;
+	alignx_graph_left_near->GetXaxis()->SetTitle("Run number") ;
 
 	alignx_graph_left_near->Draw("ap") ;
 	alignx_graph_left_far->Draw("same p") ;
@@ -805,6 +806,9 @@ void test_of_cuts()
 {
 	TCanvas c ;
 
+	TGraph *graph_cut_qualitiy_LBRT = new TGraph() ;
+	TGraph *graph_cut_qualitiy_LTRB = new TGraph() ;
+
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
 
 	cout << "Test of cuts" << endl << endl ;
@@ -822,6 +826,10 @@ void test_of_cuts()
 		TH1D *histo = ((TH1D *)file->Get("P0021_PlotsCollection_theta_x_star_left_far_rad_theta_x_star_right_far_rad_define_cut_distance_from_cut")) ;
 
 		double mean = histo->GetMean() ;
+
+		int run_to_test_int = atoi(run_to_test.c_str()) ;
+
+		graph_cut_qualitiy_LBRT->AddPoint(run_to_test_int, mean) ;
 
 		if(mean > mean_max) mean_max = mean ;
 
@@ -852,6 +860,10 @@ void test_of_cuts()
 
 		double mean = histo->GetMean() ;
 
+		int run_to_test_int = atoi(run_to_test.c_str()) ;
+
+		graph_cut_qualitiy_LTRB->AddPoint(run_to_test_int, mean) ;
+
 		if(mean > mean_max) mean_max = mean ;
 
 		cout << "run " << run_to_test << " " << histo->GetMean() << endl ;
@@ -862,6 +874,36 @@ void test_of_cuts()
 	cout << "mean_max: " << mean_max << endl ;
 
 	runs2.close() ;
+
+	c.cd() ;
+
+	graph_cut_qualitiy_LBRT->GetXaxis()->SetTitle("Run number") ;
+	graph_cut_qualitiy_LBRT->GetYaxis()->SetTitle("#theta_{x}* (rad)") ;
+
+	graph_cut_qualitiy_LBRT->Draw("ap") ;
+	graph_cut_qualitiy_LTRB->Draw("same p") ;
+
+	graph_cut_qualitiy_LBRT->SetMarkerStyle(20) ;
+	graph_cut_qualitiy_LBRT->SetMarkerSize(0.8) ;
+
+	graph_cut_qualitiy_LTRB->SetMarkerStyle(20) ;
+	graph_cut_qualitiy_LTRB->SetMarkerSize(0.8) ;
+
+	graph_cut_qualitiy_LBRT->SetMarkerColor(kRed) ;
+	graph_cut_qualitiy_LTRB->SetMarkerColor(kBlue) ;
+
+	c.SetGridx() ;
+	c.SetGridy() ;
+
+	TLegend *legend = new TLegend() ;
+
+	legend->AddEntry(graph_cut_qualitiy_LBRT, "LBRT", "p") ;
+	legend->AddEntry(graph_cut_qualitiy_LTRB, "LTRB", "p") ;
+
+	legend->Draw() ;
+
+	c.SaveAs("plots/alignment_test/cut_qualitiy.root") ;
+	c.SaveAs("plots/alignment_test/cut_qualitiy.pdf") ;
 
    a_test("LBRT") ;
    a_test("LTRB") ;
