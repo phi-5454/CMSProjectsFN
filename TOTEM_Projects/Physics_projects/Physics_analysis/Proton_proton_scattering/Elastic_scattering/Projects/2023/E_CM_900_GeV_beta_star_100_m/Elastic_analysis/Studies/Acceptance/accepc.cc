@@ -445,6 +445,9 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
 	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 
+	const double lo_x = 12 ;
+	const double hi_x = 20 ;
+
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
 		TH2D *hist_1 = ((TH2D *)file_LBRT->Get(histograms[i].c_str())) ;
@@ -453,11 +456,34 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1->Add(hist_2) ;
 
 		TH1D *hist_1_proj = NULL ;
+		TH1D *hist_1_proj_clone = NULL ;
+
 		hist_1_proj = hist_1->ProjectionY("py1") ;
+		hist_1_proj_clone = ((TH1D *)hist_1_proj->Clone("clone")) ;
+		hist_1_proj_clone->SetLineColor(kGreen) ;
+
+		for(int j = 0 ; j < hist_1_proj->GetNbinsX() ; ++j)
+		{
+			double bin_position = fabs(hist_1_proj->GetBinCenter(j)) ;
+
+			if((lo_x < bin_position) && (bin_position < hi_x))
+			{
+
+			}
+			else
+			{
+				hist_1_proj->SetBinContent(j, 0) ;
+				hist_1_proj->SetBinError(j, 0) ;
+			}
+
+		}
 
 		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+
 		hist_1_proj->Fit("gaus") ;
+
 		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
 	}
 
 	file_LBRT->Close() ;
@@ -737,7 +763,10 @@ void test_of_cuts()
 
 int main()
 {
-	gStyle->SetOptStat("");
+	gStyle->SetLineScalePS(.3) ;
+
+	// gStyle->SetOptStat("");
+	gStyle->SetOptFit(1111) ;
 
 	gErrorIgnoreLevel = kError ;
 	
