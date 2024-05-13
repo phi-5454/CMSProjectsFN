@@ -627,9 +627,6 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		if(align_fit_scenario == align_fit_standard) func->SetParameters(func_par[0], func_par[1], func_par[2], 0, 0) ;
 		if(align_fit_scenario == align_fit_with_coulomb) func->SetParameters(func_par[0], func_par[1], func_par[2], func_par[3], func_par[4]) ;
 
-		// hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
-		// hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_clone.root").c_str()) ;
-
 		acanvas.cd() ;
 
 		acanvas.SetLogy() ;
@@ -641,6 +638,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_clone_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		func->SaveAs(("plots/vertical_alignment/func_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_1_proj->Delete() ;
 		hist_1_proj_clone->Delete() ;
@@ -819,6 +817,52 @@ void horizontal_elastic_alignment()
 	if(scenario == scenario_LTRB) graph2_bad.SaveAs("plots/graph2_bad_LTRB.root") ;
 }
 
+void additional_plots()
+{
+	TCanvas canvas ;
+
+	vector<string> histograms ;
+
+	histograms.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
+	histograms.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
+	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
+	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+
+	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	string run_to_test ;
+
+	bool first = true ;
+
+	while(runs >> run_to_test)
+	{
+		if(run_to_test.compare("324457") == 0) continue ;
+
+		for(int i = 0 ; i < histograms.size() ; ++i)
+		{
+			TFile *file1 = TFile::Open(("plots/vertical_alignment/hist_1_proj_clone_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+			TFile *file2 = TFile::Open(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+			TFile *file3 = TFile::Open(("plots/vertical_alignment/func_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+
+			TH1D *histo_1 = ((TH1D *)file1->Get("clone")) ;
+			TH1D *histo_2 = ((TH1D *)file2->Get("py1")) ;
+			TF1 *func = ((TF1 *)file3->Get("func")) ;
+
+			canvas.cd() ;
+
+			if(first) histo_1->Draw("") ;
+			else histo_1->Draw("same") ;
+
+			histo_2->Draw("same") ;
+			// func->Draw("same") ;
+
+			first = false ;
+		}
+	}
+
+	canvas.SaveAs("test.root") ;
+}
+
 void vertical_elastic_alignment()
 {
 	// load_runs() ;
@@ -857,6 +901,10 @@ void vertical_elastic_alignment()
 
 		vertical_elastic_alignment_per_run(word, type) ;
 	}
+
+	runs.close() ;
+
+	additional_plots() ;
 }
 
 void a_test(string diagonal)
