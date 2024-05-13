@@ -450,6 +450,15 @@ Double_t my_gaus(Double_t *x, Double_t *par)
 
 TH1D *hist_to_fit = NULL ;
 
+double lo_x = 12 ;
+double hi_x = 20 ;
+
+double lo_x_standard = 12 ;
+double hi_x_standard = 20 ;
+
+double lo_x_coulomb = 8 ;
+double hi_x_coulomb = 20 ;
+
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
 	double chi2 = 0 ;
@@ -459,16 +468,18 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 		if(hist_to_fit->GetBinError(i) != 0.0)
 		{
 			double y_pos_mm = hist_to_fit->GetBinCenter(i) ;
-			double value = hist_to_fit->GetBinContent(i) ;
-			double unc = hist_to_fit->GetBinError(i) ;
 
-			double func_value = my_gaus(&y_pos_mm, par) ;
+			if((lo_x < fabs(y_pos_mm)) && (fabs(y_pos_mm) < hi_x))
+			{
+				double value = hist_to_fit->GetBinContent(i) ;
+				double unc = hist_to_fit->GetBinError(i) ;
 
-			double delta = (value - func_value) / unc ;
+				double func_value = my_gaus(&y_pos_mm, par) ;
 
-			chi2 += delta*delta ;
+				double delta = (value - func_value) / unc ;
 
-			// cout << "chi2 " << i << " " << chi2 << endl ;
+				chi2 += delta*delta ;
+			}
 		}
 	}
 
@@ -517,14 +528,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
 	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 
-	double lo_x = 12 ;
-	double hi_x = 20 ;
-
-	if(align_fit_scenario == align_fit_with_coulomb)
-	{
-		double lo_x = 12 ;
-		double hi_x = 20 ;
-	}
+	bool test_migrad_gaus_with_built_in = true ;
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
@@ -538,9 +542,10 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		hist_1_proj = hist_1->ProjectionY("py1") ;
 		hist_1_proj_clone = ((TH1D *)hist_1_proj->Clone("clone")) ;
-		hist_1_proj_clone->SetLineColor(kGreen) ;
+		hist_1_proj->SetLineColor(kGreen) ;
+		hist_1_proj_clone->SetLineColor(kBlue) ;
 
-		for(int j = 0 ; j < hist_1_proj->GetNbinsX() ; ++j)
+		for(int j = 0 ; j < hist_1_proj_clone->GetNbinsX() ; ++j)
 		{
 			double bin_position = fabs(hist_1_proj->GetBinCenter(j)) ;
 
@@ -550,8 +555,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			}
 			else
 			{
-				hist_1_proj->SetBinContent(j, 0) ;
-				hist_1_proj->SetBinError(j, 0) ;
+				if(test_migrad_gaus_with_built_in) hist_1_proj_clone->SetBinContent(j, 0) ;
+				if(test_migrad_gaus_with_built_in) hist_1_proj_clone->SetBinError(j, 0) ;
 			}
 
 		}
@@ -559,8 +564,10 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_to_fit = hist_1_proj ;
-		TFitResultPtr fit_result = hist_1_proj->Fit("gaus", "SQ") ;
+		TFitResultPtr fit_result ;
+		if(test_migrad_gaus_with_built_in) fit_result = hist_1_proj_clone->Fit("gaus", "SQ") ;
 
+		if(test_migrad_gaus_with_built_in)
 		if(fabs(fit_result->Parameter(1) > 0.2))
 		{
 			cout << "run_to_test " << run_to_test << " " << histograms[i] << " " << fit_result->Parameter(1) << endl ;
@@ -610,18 +617,21 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			gMinuit2->GetParameter(4, func_par[4], func_pare[4]) ;
 		}
 
-		double delta_1 = 100.0 * fabs((fit_result->Parameter(0) - func_par[0]) / fit_result->Parameter(0)) ;
-		double delta_2 = 100.0 * fabs((fit_result->Parameter(1) - func_par[1]) / fit_result->Parameter(1)) ;
-		double delta_3 = 100.0 * fabs((fit_result->Parameter(2) - func_par[2]) / fit_result->Parameter(2)) ;
-
-		if((delta_1 > 0.1) || (delta_2 > 0.1) || (delta_3 > 0.1))
+		if(test_migrad_gaus_with_built_in)
 		{
-			cout << "Warning1: fit " << run_to_test + "_" + histograms[i] << "  " << delta_1 << "  " << delta_2 << "  " << delta_3 << endl ;
-		}
+			double delta_1 = 100.0 * fabs((fit_result->Parameter(0) - func_par[0]) / fit_result->Parameter(0)) ;
+			double delta_2 = 100.0 * fabs((fit_result->Parameter(1) - func_par[1]) / fit_result->Parameter(1)) ;
+			double delta_3 = 100.0 * fabs((fit_result->Parameter(2) - func_par[2]) / fit_result->Parameter(2)) ;
 
-		if(delta_3 > 0.1)
-		{
-			cout << "Warning2: fit " << run_to_test + "_" + histograms[i] << "  " << delta_3 << endl ;
+			if((delta_1 > 0.1) || (delta_2 > 0.1) || (delta_3 > 0.1))
+			{
+				cout << "Warning1: fit " << run_to_test + "_" + histograms[i] << "  " << delta_1 << "  " << delta_2 << "  " << delta_3 << endl ;
+			}
+
+			if(delta_3 > 0.1)
+			{
+				cout << "Warning2: fit " << run_to_test + "_" + histograms[i] << "  " << delta_3 << endl ;
+			}
 		}
 
 		if(align_fit_scenario == align_fit_standard) func->SetParameters(func_par[0], func_par[1], func_par[2], 0, 0) ;
@@ -854,7 +864,7 @@ void additional_plots()
 			else histo_1->Draw("same") ;
 
 			histo_2->Draw("same") ;
-			// func->Draw("same") ;
+			func->Draw("same") ;
 
 			first = false ;
 		}
