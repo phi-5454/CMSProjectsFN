@@ -490,24 +490,6 @@ TCanvas acanvas ;
 
 void vertical_elastic_alignment_per_run(string run_to_test, int type)
 {
-
-	TMinuit *gMinuit2 = new TMinuit(10);
-	gMinuit2->SetFCN(fcn);
-
-	Double_t arglist[10];
-
-	arglist[0] = -1 ;
-	Int_t ierflg = 0 ;
-	// gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
-
-	arglist[0] = 1 ;
-	gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
-
-
-	arglist[0] = 0 ;
-	arglist[1] = 3 ;
-	arglist[2] = 1 ;
-
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
 	func->SetLineColor(kBlue) ;
 
@@ -532,6 +514,23 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
+		TMinuit *gMinuit2 = new TMinuit(10);
+		gMinuit2->SetFCN(fcn);
+
+		Double_t arglist[10];
+
+		arglist[0] = -1 ;
+		Int_t ierflg = 0 ;
+		// gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+
+		arglist[0] = 1 ;
+		gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
+
+
+		arglist[0] = 0 ;
+		arglist[1] = 3 ;
+		arglist[2] = 1 ;
+
 		TH2D *hist_1 = ((TH2D *)file_LBRT->Get(histograms[i].c_str())) ;
 		TH2D *hist_2 = ((TH2D *)file_LTRB->Get(histograms[i].c_str())) ;
 
@@ -549,7 +548,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		{
 			double bin_position = fabs(hist_1_proj->GetBinCenter(j)) ;
 
-			if((lo_x < bin_position) && (bin_position < hi_x))
+			if((lo_x_standard < bin_position) && (bin_position < hi_x_standard))
 			{
 
 			}
@@ -652,10 +651,13 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		hist_1_proj->Delete() ;
 		hist_1_proj_clone->Delete() ;
+
+		delete gMinuit2 ;
 	}
 
 	file_LBRT->Close() ;
 	file_LTRB->Close() ;
+	
 }
 
 void load_runs()
@@ -896,6 +898,12 @@ void vertical_elastic_alignment()
 	bad_runs.close() ;
 
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
+
+	if(align_fit_scenario == align_fit_with_coulomb)
+	{
+		lo_x = lo_x_coulomb ;
+		hi_x = hi_x_coulomb ;
+	}
 
 	while(runs >> word)
 	{
