@@ -638,7 +638,9 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1_proj->Draw("same") ;
 		func->Draw("same") ;
 
-		acanvas.SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_canvas.root").c_str()) ;
+		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_clone_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_1_proj->Delete() ;
 		hist_1_proj_clone->Delete() ;
