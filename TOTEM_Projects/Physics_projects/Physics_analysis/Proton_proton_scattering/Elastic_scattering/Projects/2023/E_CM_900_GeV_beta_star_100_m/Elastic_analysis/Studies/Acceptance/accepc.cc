@@ -565,12 +565,14 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		{
 			cout << "run_to_test " << run_to_test << " " << histograms[i] << " " << fit_result->Parameter(1) << endl ;
 		}
+		
+		cout << "Start minimization " << run_to_test << endl ;
 
 		gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(2, "sigma", 20, 0.1, 0, 0, ierflg);
 
-	   arglist[0] = 0 ;
+	   arglist[0] = 20000 ;
 		arglist[1] = 3 ;
 	   arglist[2] = 1 ;
 
@@ -578,12 +580,25 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		
 		if(align_fit_scenario == align_fit_with_coulomb)		
 		{
+			gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
+			gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
+			gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
+
+			gMinuit2->mnparm(0, "const", func_par[0], 0.1, 0, 0, ierflg);
+			gMinuit2->mnparm(1, "mean",  func_par[1], 0.1, 0, 0, ierflg);
+			gMinuit2->mnparm(2, "sigma", func_par[2], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
+
+		   arglist[0] = 20000 ;
+			arglist[1] = 3 ;
+	   	arglist[2] = 1 ;
 
 			gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
 			
 		}
+
+		cout << "End minimization " << run_to_test << " " << histograms[i] << endl ;
 
 		gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
@@ -624,6 +639,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		func->Draw("same") ;
 
 		acanvas.SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + "_canvas.root").c_str()) ;
+		hist_1_proj->Delete() ;
+		hist_1_proj_clone->Delete() ;
 		
 	}
 
