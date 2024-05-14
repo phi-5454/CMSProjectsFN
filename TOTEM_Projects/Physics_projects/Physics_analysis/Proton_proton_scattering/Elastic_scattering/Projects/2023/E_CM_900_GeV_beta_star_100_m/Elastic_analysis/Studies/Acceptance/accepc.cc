@@ -460,10 +460,14 @@ double lo_x_coulomb = 8 ;
 double hi_x_coulomb = 20 ;
 
 double chi2_global = 0 ;
+double ndf_global = 0 ;
 
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
 	double chi2 = 0 ;
+
+	chi2_global = 0 ;
+	ndf_global = 0 ;
 
 	for(int i = 0 ; i < hist_to_fit->GetNbinsX() ; ++i)
 	{
@@ -481,6 +485,7 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 				double delta = (value - func_value) / unc ;
 
 				chi2 += delta*delta ;
+				++ndf_global ;
 			}
 		}
 	}
@@ -603,14 +608,21 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			gMinuit2->mnparm(2, "sigma", func_par[2], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
+			
+			const int number_of_parameters = 5 ;
 
 		   arglist[0] = 20000 ;
 			arglist[1] = 3 ;
 	   	arglist[2] = 1 ;
 
 			chi2_global = 0 ;
+			ndf_global = 0 ;
 
 			gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+			
+			double myprob = TMath::Prob(chi2_global, ndf_global - number_of_parameters) ;
+
+			cout << "ierflg " << run_to_test << " " << ierflg << " " << ierflg << " " << myprob << endl ;
 		}
 
 		cout << "End minimization " << run_to_test << " " << histograms[i] << endl ;
@@ -663,8 +675,14 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1_proj_clone->Draw() ;
 		hist_1_proj->Draw("same") ;
 		func->Draw("same") ;
+		
+		double max = func->Eval(0.0) ;
+
+		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.1 * max, 1.2 * max) ;
+		
 
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".pdf").c_str()) ;
 		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_clone_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		hist_1_proj->SaveAs(("plots/vertical_alignment/hist_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		func->SaveAs(("plots/vertical_alignment/func_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
@@ -1158,7 +1176,7 @@ int main()
 {
 	gStyle->SetLineScalePS(.3) ;
 
-	// gStyle->SetOptStat("");
+	gStyle->SetOptStat("");
 	gStyle->SetOptFit(1111) ;
 
 	gErrorIgnoreLevel = kError ;
