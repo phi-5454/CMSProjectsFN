@@ -459,6 +459,8 @@ double hi_x_standard = 20 ;
 double lo_x_coulomb = 8 ;
 double hi_x_coulomb = 20 ;
 
+double chi2_global = 0 ;
+
 void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 {
 	double chi2 = 0 ;
@@ -484,6 +486,7 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 	}
 
 	f = chi2 ;
+	chi2_global = chi2 ;
 }
 
 TCanvas acanvas ;
@@ -581,15 +584,20 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 	   arglist[0] = 20000 ;
 		arglist[1] = 3 ;
 	   arglist[2] = 1 ;
+		
+		chi2_global = 0 ;
 
 		gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
 		
+		gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
+		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
+		gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
+
+		double gaus_mean = func_par[1] ;
+		double gaus_sigma = func_par[2] ;
+		
 		if(align_fit_scenario == align_fit_with_coulomb)		
 		{
-			gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
-			gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
-			gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
-
 			gMinuit2->mnparm(0, "const", func_par[0], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(1, "mean",  func_par[1], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(2, "sigma", func_par[2], 0.1, 0, 0, ierflg);
@@ -600,8 +608,9 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			arglist[1] = 3 ;
 	   	arglist[2] = 1 ;
 
+			chi2_global = 0 ;
+
 			gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
-			
 		}
 
 		cout << "End minimization " << run_to_test << " " << histograms[i] << endl ;
@@ -614,6 +623,17 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		{
 			gMinuit2->GetParameter(3, func_par[3], func_pare[3]) ;
 			gMinuit2->GetParameter(4, func_par[4], func_pare[4]) ;
+
+			double double_gaus_mean = func_par[1] ;
+			double double_gaus_sigma = func_par[2] ;
+
+			double sigma_rel_diff = 100.0 * ((gaus_sigma - double_gaus_sigma) / double_gaus_sigma) ;
+
+			double mean_diff = 1000.0 * ((gaus_mean - double_gaus_mean)) ;
+			double mean_rel_diff = 100.0 * ((gaus_mean - double_gaus_mean) / double_gaus_mean) ;
+			
+			// cout << "sigma_rel_diff " << run_to_test << " " << std::fixed <<  std::setprecision(1) <<  std::setw(10) << " " << chi2_global " " << std::setw(10) << std::right  << double_gaus_sigma << " " << std::setw(10) << sigma_rel_diff << endl ;
+			cout << "mean_rel_diff " << run_to_test << " " << std::fixed <<  std::setprecision(1) <<  std::setw(10) << " " << std::right << chi2_global << std::setw(10) << (double_gaus_mean * 1000.0) << " " <<  std::setw(10) << mean_diff << " " << std::setw(10) << std::setprecision(1) << mean_rel_diff << endl ;
 		}
 
 		if(test_migrad_gaus_with_built_in)
