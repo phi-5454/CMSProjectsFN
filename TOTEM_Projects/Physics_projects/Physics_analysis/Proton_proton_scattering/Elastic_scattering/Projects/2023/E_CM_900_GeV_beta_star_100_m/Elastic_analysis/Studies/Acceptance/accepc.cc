@@ -496,7 +496,9 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 
 TCanvas acanvas ;
 
-void vertical_elastic_alignment_per_run(string run_to_test, int type)
+
+
+void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test_histogram)
 {
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
 	func->SetLineColor(kBlue) ;
@@ -506,17 +508,30 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 	cout << "here" << endl ;
 
-	TFile *file_LBRT = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
-	TFile *file_LTRB = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+	TFile *file_LBRT = NULL ;
+	TFile *file_LTRB = NULL ;
+	
+	if(test_histogram == NULL)
+	{
+		file_LBRT = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_BOTTOM_RIGHT_TOP_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+		file_LTRB = TFile::Open(("/afs/cern.ch/work/f/fnemes/tmp/pp/E_CM_900_GeV_beta_star_100_m/Analysis_output_files/7291/Diagonals/DIAGONAL_LEFT_TOP_RIGHT_BOTTOM_2RP/All_root_files_to_define_cuts_run_" + run_to_test + "/Generic.root").c_str()) ;
+	}
 
 	cout << file_LBRT << " " << file_LTRB << endl ;
 
 	vector<string> histograms ;
 
-	histograms.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
-	histograms.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
-	histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
-	histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+	if(test_histogram == NULL)
+	{
+		histograms.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
+		histograms.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
+		histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
+		histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+	}
+	else
+	{
+		histograms.push_back("test") ;
+	}
 
 	bool test_migrad_gaus_with_built_in = true ;
 
@@ -539,15 +554,23 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		arglist[1] = 3 ;
 		arglist[2] = 1 ;
 
-		TH2D *hist_1 = ((TH2D *)file_LBRT->Get(histograms[i].c_str())) ;
-		TH2D *hist_2 = ((TH2D *)file_LTRB->Get(histograms[i].c_str())) ;
+		TH2D *hist_1 = NULL ;
+		TH2D *hist_2 = NULL ;
 
-		hist_1->Add(hist_2) ;
+		if(test_histogram == NULL)
+		{
+			hist_1 = ((TH2D *)file_LBRT->Get(histograms[i].c_str())) ;
+			hist_2 = ((TH2D *)file_LTRB->Get(histograms[i].c_str())) ;
+
+			hist_1->Add(hist_2) ;
+		}
 
 		TH1D *hist_1_proj = NULL ;
 		TH1D *hist_1_proj_clone = NULL ;
 
-		hist_1_proj = hist_1->ProjectionY("py1") ;
+		if(test_histogram == NULL) hist_1_proj = hist_1->ProjectionY("py1") ;
+		else  hist_1_proj = test_histogram ;
+
 		hist_1_proj_clone = ((TH1D *)hist_1_proj->Clone("clone")) ;
 		hist_1_proj->SetLineColor(kGreen) ;
 		hist_1_proj_clone->SetLineColor(kBlue) ;
@@ -568,7 +591,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		}
 
-		hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
+		if(test_histogram == NULL) hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_to_fit = hist_1_proj ;
 		TFitResultPtr fit_result ;
@@ -691,6 +714,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		ss_sigma2 << std::setprecision(3) << func_par[4] ;
 		ss_sigma2e << std::setprecision(3) << func_pare[4] ;
+		
+		cout << "hello1" << endl ;
 
 		const int number_of_parameters = 5 ;
 		double myprob = TMath::Prob(chi2_global, ndf_global - number_of_parameters) ;
@@ -718,6 +743,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		line1->SetLineStyle(kDashed) ;
 		line1->Draw("same") ;
 
+		cout << "hello2" << endl ;
+
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".pdf").c_str()) ;
 		hist_1_proj_clone->SaveAs(("plots/vertical_alignment/hist_1_proj_clone_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
@@ -727,11 +754,16 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1_proj->Delete() ;
 		hist_1_proj_clone->Delete() ;
 
+		cout << "hello3" << endl ;
+
 		delete gMinuit2 ;
 	}
 
-	file_LBRT->Close() ;
-	file_LTRB->Close() ;
+	if(test_histogram == NULL)
+	{
+		file_LBRT->Close() ;
+		file_LTRB->Close() ;
+	}
 	
 }
 
@@ -992,7 +1024,7 @@ void vertical_elastic_alignment()
 
 		load_runs_y(word, type) ;
 
-		vertical_elastic_alignment_per_run(word, type) ;
+		vertical_elastic_alignment_per_run(word, type, NULL) ;
 	}
 
 	runs.close() ;
@@ -1209,6 +1241,26 @@ void test_of_cuts()
    a_test("LTRB") ;
 }
 
+void mc_test_of_alignment()
+{
+	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
+
+	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;	
+	func->SetParameters(1e3, 0, 20, 1e5, 4) ;
+
+	TH1D *hist = new TH1D("hist", "hist", 1024, -35, 35) ;
+	
+	int bin1 = hist->FindBin(lo_x_coulomb) ;
+	int bin2 = hist->FindBin(hi_x_coulomb) ;
+
+	hist->FillRandom("func", 4e5) ;
+
+	int myintegral = 2.0 * hist->Integral(bin1, bin2) ;
+	cout << "myintegral " << myintegral << endl ;
+
+	vertical_elastic_alignment_per_run("test", 0, hist) ;
+}
+
 int main()
 {
 	gStyle->SetLineScalePS(.3) ;
@@ -1233,5 +1285,7 @@ int main()
 	{
 		vertical_elastic_alignment() ;
 		test_of_cuts() ;
+
+		mc_test_of_alignment() ;
 	}
 }
