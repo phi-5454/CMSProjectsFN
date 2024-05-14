@@ -600,7 +600,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 		double gaus_mean = func_par[1] ;
 		double gaus_sigma = func_par[2] ;
-		
+
 		if(align_fit_scenario == align_fit_with_coulomb)		
 		{
 			gMinuit2->mnparm(0, "const", func_par[0], 0.1, 0, 0, ierflg);
@@ -609,8 +609,6 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
 			
-			const int number_of_parameters = 5 ;
-
 		   arglist[0] = 20000 ;
 			arglist[1] = 3 ;
 	   	arglist[2] = 1 ;
@@ -620,9 +618,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 
 			gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
 			
-			double myprob = TMath::Prob(chi2_global, ndf_global - number_of_parameters) ;
-
-			cout << "ierflg " << run_to_test << " " << ierflg << " " << ierflg << " " << myprob << endl ;
+			cout << "ierflg " << run_to_test << " " << ierflg << " " << ierflg << " " << endl ;
 		}
 
 		cout << "End minimization " << run_to_test << " " << histograms[i] << endl ;
@@ -675,10 +671,48 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		hist_1_proj_clone->Draw() ;
 		hist_1_proj->Draw("same") ;
 		func->Draw("same") ;
+
+		TLatex *latex = new TLatex() ;
+
+		latex->SetNDC() ;
+		latex->SetTextFont(132) ;
+		latex->SetTextColor(kBlack) ;
+
+		stringstream ss_mean, ss_meane ;
+		stringstream ss_sigma1, ss_sigma1e ;
+		stringstream ss_sigma2, ss_sigma2e ;
+		stringstream ss_chi2, ss_ndf, ss_p_value ;
+
+		ss_mean << std::setprecision(3) << func_par[1] ;
+		ss_meane << std::setprecision(3) << func_pare[1] ;
+
+		ss_sigma1 << std::setprecision(3) << func_par[2] ;
+		ss_sigma1e << std::setprecision(3) << func_pare[2] ;
+
+		ss_sigma2 << std::setprecision(3) << func_par[4] ;
+		ss_sigma2e << std::setprecision(3) << func_pare[4] ;
+
+		const int number_of_parameters = 5 ;
+		double myprob = TMath::Prob(chi2_global, ndf_global - number_of_parameters) ;
+
+		ss_chi2 << std::setprecision(1) << chi2_global ;
+		ss_ndf << std::setprecision(0) << ndf_global ;
+		ss_p_value << std::setprecision(2) << myprob ;
+
+		const double text_x = 0.12 ;
+
+		latex->DrawLatex(text_x, .85, ("#chi2 / ndf = " + ss_chi2.str() + " / " + ss_ndf.str() + ",p-value=" + ss_p_value.str()).c_str()) ;
+
+		if(ierflg == 0) latex->DrawLatex(text_x, .78, "CONVERGED") ;
+		if(ierflg == 4) latex->DrawLatex(text_x, .78, "FAILED") ;
+
+		latex->DrawLatex(text_x, .72, ("Mean : " + ss_mean.str() + " #pm " + ss_meane.str()).c_str()) ;
+		latex->DrawLatex(text_x, .66, ("#sigma1 : " + ss_sigma1.str() + " #pm " + ss_sigma1e.str()).c_str()) ;
+		latex->DrawLatex(text_x, .60, ("#sigma2 : " + ss_sigma2.str() + " #pm " + ss_sigma2e.str()).c_str()) ;
 		
 		double max = func->Eval(0.0) ;
 
-		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.1 * max, 1.2 * max) ;
+		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.1 * max, 1.3 * max) ;
 		
 
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
