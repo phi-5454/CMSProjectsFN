@@ -621,6 +621,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
 		gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
 
+		double gaus_const = func_par[0] ;
 		double gaus_mean = func_par[1] ;
 		double gaus_sigma = func_par[2] ;
 
@@ -737,7 +738,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		
 		double max = func->Eval(func_par[1]) ;
 
-		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.1 * max, 1.3 * max) ;
+		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.5 * gaus_const, 1.3 * max) ;
 		
 		TLine *line1 = new TLine(func_par[1], 0, func_par[1], max) ;
 		line1->SetLineStyle(kDashed) ;
@@ -1008,8 +1009,13 @@ void vertical_elastic_alignment()
 
 	if(align_fit_scenario == align_fit_with_coulomb)
 	{
-		lo_x = lo_x_coulomb ;
-		hi_x = hi_x_coulomb ;
+		double perturb = 0.0 ;
+	
+		double perturb_lo = perturb * 1.0 ;
+		double perturb_hi = perturb * 1.0 ;
+
+		lo_x = lo_x_coulomb + perturb_lo ;
+		hi_x = hi_x_coulomb + perturb_hi  ;
 	}
 
 	while(runs >> word)
