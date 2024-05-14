@@ -710,10 +710,13 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type)
 		latex->DrawLatex(text_x, .66, ("#sigma1 : " + ss_sigma1.str() + " #pm " + ss_sigma1e.str()).c_str()) ;
 		latex->DrawLatex(text_x, .60, ("#sigma2 : " + ss_sigma2.str() + " #pm " + ss_sigma2e.str()).c_str()) ;
 		
-		double max = func->Eval(0.0) ;
+		double max = func->Eval(func_par[1]) ;
 
 		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.1 * max, 1.3 * max) ;
 		
+		TLine *line1 = new TLine(func_par[1], 0, func_par[1], max) ;
+		line1->SetLineStyle(kDashed) ;
+		line1->Draw("same") ;
 
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 		acanvas.SaveAs(("plots/vertical_alignment/canvas_1_proj_run_" + run_to_test + "_" + histograms[i] + ".pdf").c_str()) ;
