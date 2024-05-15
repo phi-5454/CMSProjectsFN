@@ -619,6 +619,33 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 		}
 
+		int left_edge  = hist_1_proj->FindBin(-1.0) ;
+		int right_edge = hist_1_proj->FindBin( 1.0) ;
+
+		for(int j = 0 ; j < 600 ; ++j)
+		{
+			double bin_content = hist_1_proj->GetBinContent(right_edge) ;
+			double prev_bin_content = hist_1_proj->GetBinContent(right_edge - 1) ;
+
+			if(bin_content < (10.0 * prev_bin_content)) break ;
+
+			++right_edge ;
+		}
+
+		double right_edge_pos = hist_1_proj->GetBinCenter(right_edge) ;
+
+		for(int j = 0 ; j < 600 ; ++j)
+		{
+			double bin_content = hist_1_proj->GetBinContent(left_edge) ;
+			double prev_bin_content = hist_1_proj->GetBinContent(left_edge + 1) ;
+
+			if(bin_content < (10.0 * prev_bin_content)) break ;
+
+			--left_edge ;
+		}
+
+		double left_edge_pos = hist_1_proj->GetBinCenter(left_edge) ;
+
 		if(test_histogram == NULL) hist_1->SaveAs(("plots/vertical_alignment/hist_1_run_" + run_to_test + "_" + histograms[i] + ".root").c_str()) ;
 
 		hist_to_fit = hist_1_proj ;
@@ -799,6 +826,16 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			TLine *line5 = new TLine(-hi_x, 0, -hi_x, 1.3 * max) ;
 			line5->SetLineStyle(kDashed) ;
 			line5->Draw("same") ;
+
+			TLine *line6 = new TLine(left_edge_pos, 0, left_edge_pos, 1.3 * max) ;
+			line6->SetLineStyle(kDashed) ;
+			line6->SetLineColor(kRed) ;
+			line6->Draw("same") ;
+
+			TLine *line7 = new TLine(right_edge_pos, 0, right_edge_pos, 1.3 * max) ;
+			line7->SetLineStyle(kDashed) ;
+			line7->SetLineColor(kRed) ;
+			line7->Draw("same") ;
 		}
 		
 		TLine *line1 = new TLine(func_par[1], 0, func_par[1], max) ;
