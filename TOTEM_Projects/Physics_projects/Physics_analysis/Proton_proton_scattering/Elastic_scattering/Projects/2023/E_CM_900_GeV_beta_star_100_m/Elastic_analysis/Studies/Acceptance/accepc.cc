@@ -1291,7 +1291,7 @@ void test_of_cuts()
 
 void mc_test_of_alignment()
 {
-	cout << endl << endl << "Start mc_test_of_alignment2" << endl ;
+	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
 
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
 	func->SetParameters(1e4, 0, 20, 2e4, 4) ;
@@ -1307,6 +1307,8 @@ void mc_test_of_alignment()
 	cout << "myintegral " << myintegral << endl ;
 
 	vertical_elastic_alignment_per_run("test", 0, hist) ;
+
+	cout << endl << endl << "End mc_test_of_alignment" << endl ;
 }
 
 void mc_test_of_alignment2()
@@ -1365,6 +1367,8 @@ void mc_test_of_alignment2()
 	gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
 
 	hist->SaveAs("plots/vertical_alignment/mytest.root") ;
+
+	cout << endl << endl << "End mc_test_of_alignment2" << endl ;
 
 }
 
