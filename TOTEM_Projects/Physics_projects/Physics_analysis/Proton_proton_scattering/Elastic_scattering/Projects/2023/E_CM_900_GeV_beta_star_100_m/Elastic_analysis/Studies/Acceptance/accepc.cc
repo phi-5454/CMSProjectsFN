@@ -730,7 +730,13 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		latex->DrawLatex(text_x, .85, ("#chi2 / ndf = " + ss_chi2.str() + " / " + ss_ndf.str() + ",p-value=" + ss_p_value.str()).c_str()) ;
 
 		if(ierflg == 0) latex->DrawLatex(text_x, .78, "CONVERGED") ;
-		if(ierflg == 4) latex->DrawLatex(text_x, .78, "FAILED") ;
+		if(ierflg == 4)
+		{
+			latex->SetTextColor(kRed) ;
+			latex->SetTextFont(22) ;
+			latex->DrawLatex(text_x, .78, "FAILED") ;
+			latex->SetTextFont(132) ;
+		}
 
 		latex->DrawLatex(text_x, .72, ("Mean : " + ss_mean.str() + " #pm " + ss_meane.str()).c_str()) ;
 		latex->DrawLatex(text_x, .66, ("#sigma1 : " + ss_sigma1.str() + " #pm " + ss_sigma1e.str()).c_str()) ;
@@ -1149,7 +1155,7 @@ void test_of_cuts()
 
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
 
-	cout << "Test of cuts" << endl << endl ;
+	cout << std::scientific << "Test of cuts" << endl << endl ;
 
 	string run_to_test ;
 
