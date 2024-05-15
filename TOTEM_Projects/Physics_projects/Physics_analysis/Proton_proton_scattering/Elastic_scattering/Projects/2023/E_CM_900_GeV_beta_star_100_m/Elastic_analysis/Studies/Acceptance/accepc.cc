@@ -615,7 +615,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		TFitResultPtr fit_result ;
 		if(test_migrad_gaus_with_built_in)
 		{
-			fit_result = hist_1_proj_clone->Fit("gaus", "SQ") ;
+			fit_result = hist_1_proj_clone->Fit("gaus", "S") ;
 			hist_1_proj_clone->GetFunction("gaus")->SetLineColor(kBlue) ;
 		}
 
@@ -777,6 +777,14 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			TLine *line3 = new TLine(-lo_x, 0, -lo_x, 1.3 * max) ;
 			line3->SetLineStyle(kDashed) ;
 			line3->Draw("same") ;
+
+			TLine *line4 = new TLine(hi_x, 0, hi_x, 1.3 * max) ;
+			line4->SetLineStyle(kDashed) ;
+			line4->Draw("same") ;
+
+			TLine *line5 = new TLine(-hi_x, 0, -hi_x, 1.3 * max) ;
+			line5->SetLineStyle(kDashed) ;
+			line5->Draw("same") ;
 		}
 		
 		TLine *line1 = new TLine(func_par[1], 0, func_par[1], max) ;
@@ -1280,7 +1288,7 @@ void mc_test_of_alignment()
 	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
 
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;	
-	func->SetParameters(1e3, 0, 20, 1e5, 4) ;
+	func->SetParameters(1e4, 0, 20, 2e4, 4) ;
 
 	TH1D *hist = new TH1D("hist", "hist", 1024, -35, 35) ;
 	
@@ -1317,8 +1325,8 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		vertical_elastic_alignment() ;
-		test_of_cuts() ;
+		// vertical_elastic_alignment() ;
+		// test_of_cuts() ;
 
 		mc_test_of_alignment() ;
 	}
