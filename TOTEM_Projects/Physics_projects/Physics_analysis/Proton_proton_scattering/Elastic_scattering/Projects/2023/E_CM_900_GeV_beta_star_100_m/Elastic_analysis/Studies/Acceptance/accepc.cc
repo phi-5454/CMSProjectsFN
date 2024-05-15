@@ -804,6 +804,24 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		latex->DrawLatex(text_x, .72, ("Mean : " + ss_mean.str() + " #pm " + ss_meane.str()).c_str()) ;
 		latex->DrawLatex(text_x, .66, ("#sigma1 : " + ss_sigma1.str() + " #pm " + ss_sigma1e.str()).c_str()) ;
 		latex->DrawLatex(text_x, .60, ("#sigma2 : " + ss_sigma2.str() + " #pm " + ss_sigma2e.str()).c_str()) ;
+
+		bool info_for_me = true ;
+
+		if(info_for_me)
+		{
+			stringstream ss_left, ss_right ;
+			stringstream ss_center ;
+
+			double mycenter = (left_edge_pos + right_edge_pos) / 2.0 ;
+
+			ss_left << left_edge_pos ;
+			ss_right << right_edge_pos ;
+			ss_center << mycenter ;
+
+			latex->DrawLatex(text_x, .54, ("ledge : " + ss_left.str()).c_str()) ;
+			latex->DrawLatex(text_x, .48, ("redge : " + ss_right.str()).c_str()) ;
+			latex->DrawLatex(text_x, .42, ("center : " + ss_center.str()).c_str()) ;
+		}
 		
 		double max = func->Eval(func_par[1]) ;
 
