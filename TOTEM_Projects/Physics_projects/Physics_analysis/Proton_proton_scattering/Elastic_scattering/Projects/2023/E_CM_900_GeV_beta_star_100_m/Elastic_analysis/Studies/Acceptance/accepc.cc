@@ -537,6 +537,22 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 	for(int i = 0 ; i < histograms.size() ; ++i)
 	{
+		if(align_fit_scenario == align_fit_with_coulomb)
+		{
+			double perturb = 0.0 ;
+
+			double perturb_lo = perturb * 1.0 ;
+			double perturb_hi = perturb * 1.0 ;
+
+			lo_x = lo_x_coulomb + perturb_lo ;
+			hi_x = hi_x_coulomb + perturb_hi ;
+
+			if((histograms[i].compare("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") == 0) || histograms[i].compare("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") == 0)
+			{
+				lo_x = lo_x - 1.0 ;
+			}
+		}
+
 		TMinuit *gMinuit2 = new TMinuit(10);
 		gMinuit2->SetFCN(fcn);
 
@@ -1023,17 +1039,6 @@ void vertical_elastic_alignment()
 	bad_runs.close() ;
 
 	ifstream runs("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/General_settings/List_of_runs.txt") ;
-
-	if(align_fit_scenario == align_fit_with_coulomb)
-	{
-		double perturb = 0.0 ;
-	
-		double perturb_lo = perturb * 1.0 ;
-		double perturb_hi = perturb * 1.0 ;
-
-		lo_x = lo_x_coulomb + perturb_lo ;
-		hi_x = hi_x_coulomb + perturb_hi  ;
-	}
 
 	while(runs >> word)
 	{
