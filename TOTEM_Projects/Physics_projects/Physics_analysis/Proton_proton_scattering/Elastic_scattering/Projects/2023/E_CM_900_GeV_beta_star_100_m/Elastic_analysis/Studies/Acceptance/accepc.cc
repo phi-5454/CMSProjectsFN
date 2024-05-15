@@ -555,6 +555,12 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 				
 				if((histograms[i].compare("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") == 0) && (run_to_test.compare("324461") == 0)) hi_x = hi_x - 1.0 ;
 			}
+
+			if((histograms[i].compare("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") == 0) && (run_to_test.compare("324485") == 0))
+			{
+				lo_x = lo_x + 1.0 ;
+				hi_x = hi_x + 1.0 ;
+			}
 		}
 
 		TMinuit *gMinuit2 = new TMinuit(10);
