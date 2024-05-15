@@ -431,6 +431,8 @@ const int align_fit_with_coulomb = 2 ;
 
 const int align_fit_scenario = align_fit_with_coulomb ;
 
+bool use_coulomb = true ;
+
 Double_t my_gaus(Double_t *x, Double_t *par)
 {
 			double myarg = ((x[0] - par[1]) / par[2]) ;
@@ -440,8 +442,8 @@ Double_t my_gaus(Double_t *x, Double_t *par)
         double f2 = (par[3] * exp(-0.5 * (myarg2 * myarg2))) ;
 
         double f = f1 ;
-		  
-		  if(align_fit_scenario == align_fit_with_coulomb) f = f1 + f2 ;
+
+		  if((align_fit_scenario == align_fit_with_coulomb) && use_coulomb) f = f1 + f2 ;
 
       // cout << "energy: " << x[0] << " " << f << endl ;
 
@@ -627,6 +629,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		
 		cout << "Start minimization " << run_to_test << endl ;
 
+		use_coulomb = false ;
+
 		gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
 		gMinuit2->mnparm(2, "sigma", 20, 0.1, 0, 0, ierflg);
@@ -649,6 +653,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 		if(align_fit_scenario == align_fit_with_coulomb)		
 		{
+			use_coulomb = true ;
+
 			gMinuit2->mnparm(0, "const", func_par[0], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(1, "mean",  func_par[1], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(2, "sigma", func_par[2], 0.1, 0, 0, ierflg);
@@ -1287,6 +1293,26 @@ void mc_test_of_alignment()
 {
 	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
 
+	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
+	func->SetParameters(1e4, 0, 20, 2e4, 4) ;
+
+	TH1D *hist = new TH1D("hist", "hist", 1024, -35, 35) ;
+
+	int bin1 = hist->FindBin(lo_x_coulomb) ;
+	int bin2 = hist->FindBin(hi_x_coulomb) ;
+
+	hist->FillRandom("func", 4e5) ;
+
+	int myintegral = 2.0 * hist->Integral(bin1, bin2) ;
+	cout << "myintegral " << myintegral << endl ;
+
+	vertical_elastic_alignment_per_run("test", 0, hist) ;
+}
+
+void mc_test_of_alignment2()
+{
+	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
+
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;	
 	func->SetParameters(1e4, 0, 20, 2e4, 4) ;
 
@@ -1302,6 +1328,7 @@ void mc_test_of_alignment()
 
 	vertical_elastic_alignment_per_run("test", 0, hist) ;
 }
+
 
 int main()
 {
@@ -1325,8 +1352,8 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		// vertical_elastic_alignment() ;
-		// test_of_cuts() ;
+		vertical_elastic_alignment() ;
+		test_of_cuts() ;
 
 		mc_test_of_alignment() ;
 	}
