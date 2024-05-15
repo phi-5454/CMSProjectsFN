@@ -744,7 +744,18 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		
 		double max = func->Eval(func_par[1]) ;
 
-		if(max >= 0) hist_1_proj_clone->GetYaxis()->SetRangeUser(0.5 * gaus_const, 1.3 * max) ;
+		if(max >= 0)
+		{
+			hist_1_proj_clone->GetYaxis()->SetRangeUser(0.5 * gaus_const, 1.3 * max) ;
+
+			TLine *line2 = new TLine(lo_x, 0, lo_x, 1.3 * max) ;
+			line2->SetLineStyle(kDashed) ;
+			line2->Draw("same") ;
+
+			TLine *line3 = new TLine(-lo_x, 0, -lo_x, 1.3 * max) ;
+			line3->SetLineStyle(kDashed) ;
+			line3->Draw("same") ;
+		}
 		
 		TLine *line1 = new TLine(func_par[1], 0, func_par[1], max) ;
 		line1->SetLineStyle(kDashed) ;
