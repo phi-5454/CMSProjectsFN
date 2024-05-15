@@ -1291,7 +1291,7 @@ void test_of_cuts()
 
 void mc_test_of_alignment()
 {
-	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
+	cout << endl << endl << "Start mc_test_of_alignment2" << endl ;
 
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
 	func->SetParameters(1e4, 0, 20, 2e4, 4) ;
@@ -1311,22 +1311,61 @@ void mc_test_of_alignment()
 
 void mc_test_of_alignment2()
 {
-	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
+	cout << endl << endl << "Start mc_test_of_alignment2" << endl ;
+
+	TMinuit *gMinuit2 = new TMinuit(10);
+	gMinuit2->SetFCN(fcn);
+
+	Double_t arglist[10];
+
+	arglist[0] = -1 ;
+	Int_t ierflg = 0 ;
+	// gMinuit2->mnexcm("SET PRI", arglist ,1,ierflg);
+
+	arglist[0] = 1 ;
+	gMinuit2->mnexcm("SET ERR", arglist ,1,ierflg);
 
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;	
-	func->SetParameters(1e4, 0, 20, 2e4, 4) ;
+	func->SetParameters(1e4, 0, 20, 0, 0) ;
 
 	TH1D *hist = new TH1D("hist", "hist", 1024, -35, 35) ;
 	
-	int bin1 = hist->FindBin(lo_x_coulomb) ;
-	int bin2 = hist->FindBin(hi_x_coulomb) ;
-
 	hist->FillRandom("func", 4e5) ;
+	hist->Fit("gaus") ;
 
-	int myintegral = 2.0 * hist->Integral(bin1, bin2) ;
-	cout << "myintegral " << myintegral << endl ;
+	hist_to_fit = hist ;
+	use_coulomb = false ;
 
-	vertical_elastic_alignment_per_run("test", 0, hist) ;
+	gMinuit2->mnparm(0, "const", 100, 0.1, 0, 0, ierflg);
+	gMinuit2->mnparm(1, "mean",  0, 0.1, 0, 0, ierflg);
+	gMinuit2->mnparm(2, "sigma", 20, 0.1, 0, 0, ierflg);
+
+	arglist[0] = 20000 ;
+	arglist[1] = 3 ;
+	arglist[2] = 1 ;
+
+	chi2_global = 0 ;
+
+	int old_lo_x = lo_x ;
+	int old_hi_x = hi_x ;
+
+	lo_x = -1000 ;
+	hi_x =  1000 ;
+
+	gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
+
+	lo_x = old_lo_x ;
+	hi_x = old_hi_x ;
+
+	double func_par[5] ;
+	double func_pare[5] ;
+
+	gMinuit2->GetParameter(0, func_par[0], func_pare[0]) ;
+	gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
+	gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
+
+	hist->SaveAs("plots/vertical_alignment/mytest.root") ;
+
 }
 
 
@@ -1352,9 +1391,10 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		vertical_elastic_alignment() ;
-		test_of_cuts() ;
+		// vertical_elastic_alignment() ;
+		// test_of_cuts() ;
 
 		mc_test_of_alignment() ;
+		mc_test_of_alignment2() ;
 	}
 }
