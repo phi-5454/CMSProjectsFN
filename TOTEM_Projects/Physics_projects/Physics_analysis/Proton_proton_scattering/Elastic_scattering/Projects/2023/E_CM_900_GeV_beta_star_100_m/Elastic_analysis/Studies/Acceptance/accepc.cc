@@ -810,7 +810,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		if(info_for_me)
 		{
 			stringstream ss_left, ss_right ;
-			stringstream ss_center ;
+			stringstream ss_center, ss_delta ;
 
 			double mycenter = (left_edge_pos + right_edge_pos) / 2.0 ;
 
@@ -818,9 +818,13 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			ss_right << right_edge_pos ;
 			ss_center << mycenter ;
 
+			double delta = gaus_mean - func_par[1] ;
+			ss_delta << delta ;
+
 			latex->DrawLatex(text_x, .54, ("ledge : " + ss_left.str()).c_str()) ;
 			latex->DrawLatex(text_x, .48, ("redge : " + ss_right.str()).c_str()) ;
 			latex->DrawLatex(text_x, .42, ("center : " + ss_center.str()).c_str()) ;
+			latex->DrawLatex(text_x, .36, ("deltam : " + ss_delta.str()).c_str()) ;
 		}
 		
 		double max = func->Eval(func_par[1]) ;
@@ -845,15 +849,18 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			line5->SetLineStyle(kDashed) ;
 			line5->Draw("same") ;
 
-			TLine *line6 = new TLine(left_edge_pos, 0, left_edge_pos, 1.3 * max) ;
-			line6->SetLineStyle(kDashed) ;
-			line6->SetLineColor(kRed) ;
-			line6->Draw("same") ;
+			if(info_for_me)
+			{
+				TLine *line6 = new TLine(left_edge_pos, 0, left_edge_pos, 1.3 * max) ;
+				line6->SetLineStyle(kDashed) ;
+				line6->SetLineColor(kRed) ;
+				line6->Draw("same") ;
 
-			TLine *line7 = new TLine(right_edge_pos, 0, right_edge_pos, 1.3 * max) ;
-			line7->SetLineStyle(kDashed) ;
-			line7->SetLineColor(kRed) ;
-			line7->Draw("same") ;
+				TLine *line7 = new TLine(right_edge_pos, 0, right_edge_pos, 1.3 * max) ;
+				line7->SetLineStyle(kDashed) ;
+				line7->SetLineColor(kRed) ;
+				line7->Draw("same") ;
+			}
 		}
 		
 		TLine *line1 = new TLine(func_par[1], 0, func_par[1], max) ;
