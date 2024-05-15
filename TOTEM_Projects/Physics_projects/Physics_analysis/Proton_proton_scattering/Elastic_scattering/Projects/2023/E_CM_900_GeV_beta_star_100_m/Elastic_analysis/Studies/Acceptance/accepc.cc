@@ -591,6 +591,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		if(test_histogram == NULL) hist_1_proj = hist_1->ProjectionY("py1") ;
 		else  hist_1_proj = test_histogram ;
 
+		if(run_to_test.compare("324461") == 0) hist_1_proj->Rebin(2) ;
+
 		hist_1_proj_clone = ((TH1D *)hist_1_proj->Clone("clone")) ;
 		hist_1_proj->SetLineColor(kGreen) ;
 		hist_1_proj_clone->SetLineColor(kBlue) ;
@@ -1395,8 +1397,8 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		// vertical_elastic_alignment() ;
-		// test_of_cuts() ;
+		vertical_elastic_alignment() ;
+		test_of_cuts() ;
 
 		mc_test_of_alignment() ;
 		mc_test_of_alignment2() ;
