@@ -501,7 +501,7 @@ TCanvas acanvas ;
 void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test_histogram)
 {
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
-	func->SetLineColor(kBlue) ;
+	func->SetLineColor(kRed) ;
 
 	double func_par[5] ;
 	double func_pare[5] ;
@@ -613,7 +613,11 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 		hist_to_fit = hist_1_proj ;
 		TFitResultPtr fit_result ;
-		if(test_migrad_gaus_with_built_in) fit_result = hist_1_proj_clone->Fit("gaus", "SQ") ;
+		if(test_migrad_gaus_with_built_in)
+		{
+			fit_result = hist_1_proj_clone->Fit("gaus", "SQ") ;
+			hist_1_proj_clone->GetFunction("gaus")->SetLineColor(kBlue) ;
+		}
 
 		if(test_migrad_gaus_with_built_in)
 		if(fabs(fit_result->Parameter(1) > 0.2))
