@@ -9,6 +9,7 @@
 <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_top_right_bottom_324462.prj
 <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Left_top_right_bottom_4_sigma_2RP.prj
 <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LTRB_324462.prj
+<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Vertical/vertical_corrections_324462.prj
 
 <update_parameter> CollectCutDiagnosticData 1.0
 

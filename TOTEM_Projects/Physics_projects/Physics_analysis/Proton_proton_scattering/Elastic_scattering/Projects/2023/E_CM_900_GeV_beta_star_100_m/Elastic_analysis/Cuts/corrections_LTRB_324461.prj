@@ -1,6 +1,27 @@
-<begin> alignment_block
-	 <update_parameter> RP_alignment_left_near_x_mm	-0.507647
-	 <update_parameter> RP_alignment_left_far__x_mm	0.00693434
-	 <update_parameter> RP_alignment_right_near_x_mm	-0.103759
-	 <update_parameter> RP_alignment_right_far__x_mm	-0.82648
-<end> alignment_block
+accep2.png
+analyse
+analyse.cc
+a_useful_command.sh
+clean_actual_proj.sh
+clean_all_output_2RP.sh
+clean_all_output.sh
+include
+lib
+makefile
+new_definitions.txt
+print_commands.sh
+Projects
+run_all_LBRT_2RP.sh
+run_all_LBRT.sh
+run_all_LTRB_2RP.sh
+run_all_LTRB.sh
+run.sh
+src
+test1.pdf
+test2.txt
+test_all.sh
+test.txt
+theta_x_star_difference.root
+theta_y_star_difference.root
+tmp
+zigma_test.sh
