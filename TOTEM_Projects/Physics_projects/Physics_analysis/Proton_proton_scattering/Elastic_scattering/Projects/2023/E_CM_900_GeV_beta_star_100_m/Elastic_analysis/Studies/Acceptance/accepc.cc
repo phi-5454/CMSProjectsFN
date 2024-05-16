@@ -499,6 +499,47 @@ void fcn(Int_t &npar, double *gin, double &f, double *par, int iflag)
 TCanvas acanvas ;
 
 
+void write_correction(string run_to_test, map<string, double> &correction)
+{
+	vector<string> runs_to_use ;
+
+	runs_to_use.push_back("324461") ;
+	runs_to_use.push_back("324462") ;
+	runs_to_use.push_back("324532") ;
+	runs_to_use.push_back("324536") ;
+	runs_to_use.push_back("324485") ;
+	runs_to_use.push_back("324528") ;
+	
+	bool found = false ;
+	
+	for(int i = 0 ; i < runs_to_use.size() ; ++i) if(runs_to_use[i].compare(run_to_test.c_str()) == 0) found = true ;
+	
+	if(found)
+	{
+		string corr_filename = "vertical_corrections_" + run_to_test + ".prj" ;
+
+		ofstream correction_file ;
+
+		bool write_vertical_file = true ;
+
+		if(write_vertical_file) correction_file.open("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Vertical/" + corr_filename) ;
+
+
+		correction_file << "<begin_if_setting> vertical_alignment_corrections yes" << endl ;
+
+		correction_file << "  <begin> alignment_block" << endl ;
+		correction_file << "                  <update_parameter> RP_alignment_left_near_y_mm "  << -correction["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] << endl ;
+		correction_file << "                  <update_parameter> RP_alignment_left_far__y_mm "   << -correction["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] << endl ;
+		correction_file << "                  <update_parameter> RP_alignment_right_near_y_mm " << -correction["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] << endl ;
+		correction_file << "                  <update_parameter> RP_alignment_right_far__y_mm "  << -correction["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] << endl ;
+		correction_file << "  <end> alignment_block" << endl ;
+
+		correction_file << "<end_if_setting>" << endl ;
+
+		correction_file.close() ;
+	}
+}
+
 
 void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test_histogram)
 {
@@ -522,6 +563,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 	cout << file_LBRT << " " << file_LTRB << endl ;
 
 	vector<string> histograms ;
+	map<string, double> map_histograms_results ;
 
 	if(test_histogram == NULL)
 	{
@@ -706,6 +748,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			gMinuit2->mnexcm("MIGRAD", arglist , 2, ierflg);
 			
 			cout << "ierflg " << run_to_test << " " << ierflg << " " << ierflg << " " << endl ;
+
 		}
 
 		cout << "End minimization " << run_to_test << " " << histograms[i] << endl ;
@@ -718,6 +761,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		{
 			gMinuit2->GetParameter(3, func_par[3], func_pare[3]) ;
 			gMinuit2->GetParameter(4, func_par[4], func_pare[4]) ;
+			
+			map_histograms_results[histograms[i]] = func_par[1] ;
 
 			double double_gaus_mean = func_par[1] ;
 			double double_gaus_sigma = func_par[2] ;
@@ -898,6 +943,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 	if(test_histogram == NULL)
 	{
+		write_correction(run_to_test, map_histograms_results) ;	
+	
 		file_LBRT->Close() ;
 		file_LTRB->Close() ;
 	}
@@ -1564,10 +1611,10 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		// vertical_elastic_alignment() ;
-		// test_of_cuts() ;
+		vertical_elastic_alignment() ;
+		test_of_cuts() ;
 
-		mc_test_of_alignment2() ;
+		// mc_test_of_alignment2() ;
 		// mc_test_of_alignment3() ;
 		// for(int i = 0 ; i < 100 ; ++i) mc_test_of_alignment(i) ;
 		// mc_test_of_alignment(22) ;
