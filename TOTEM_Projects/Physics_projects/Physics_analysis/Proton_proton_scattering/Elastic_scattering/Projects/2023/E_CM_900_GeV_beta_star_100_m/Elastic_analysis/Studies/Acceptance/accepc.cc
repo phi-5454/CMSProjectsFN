@@ -1383,9 +1383,9 @@ void mc_test_of_alignment()
 	cout << endl << endl << "End mc_test_of_alignment" << endl ;
 }
 
-void mc_test_of_alignment3()
+void mc_test_of_alignment2()
 {
-	cout << endl << endl << "Start mc_test_of_alignment3" << endl ;
+	cout << endl << endl << "Start mc_test_of_alignment2" << endl ;
 
 	TMinuit *gMinuit2 = new TMinuit(10);
 	gMinuit2->SetFCN(fcn);
@@ -1445,9 +1445,9 @@ void mc_test_of_alignment3()
 }
 
 
-void mc_test_of_alignment2()
+void mc_test_of_alignment3()
 {
-	cout << endl << endl << "Start mc_test_of_alignment2" << endl ;
+	cout << endl << endl << "Start mc_test_of_alignment3" << endl ;
 
 	TMinuit *gMinuit2 = new TMinuit(10);
 	gMinuit2->SetFCN(fcn);
