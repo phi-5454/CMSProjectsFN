@@ -789,23 +789,31 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 		ss_p_value << std::setprecision(2) << myprob ;
 
 		const double text_x = 0.12 ;
+		
+		if(test_histogram != NULL)
+		{
+			latex->DrawLatex(text_x, .91, "TOTEM Simulation") ;
+		}
 
-		latex->DrawLatex(text_x, .85, ("#chi^{2} / ndf = " + ss_chi2.str() + " / " + ss_ndf.str() + ",  p-value=" + ss_p_value.str()).c_str()) ;
+		latex->DrawLatex(text_x, .85, "Double gaus fit") ;
 
-		if(ierflg == 0) latex->DrawLatex(text_x, .78, "CONVERGED") ;
+		if(ierflg == 0) latex->DrawLatex(text_x, .79, "CONVERGED") ;
 		if(ierflg == 4)
 		{
 			latex->SetTextColor(kRed) ;
 			latex->SetTextFont(22) ;
-			latex->DrawLatex(text_x, .78, "FAILED") ;
+			latex->DrawLatex(text_x, .79, "FAILED") ;
 			latex->SetTextFont(132) ;
 		}
 
-		latex->DrawLatex(text_x, .72, ("Mean : " + ss_mean.str() + " #pm " + ss_meane.str()).c_str()) ;
-		latex->DrawLatex(text_x, .66, ("#sigma1 : " + ss_sigma1.str() + " #pm " + ss_sigma1e.str()).c_str()) ;
-		latex->DrawLatex(text_x, .60, ("#sigma2 : " + ss_sigma2.str() + " #pm " + ss_sigma2e.str()).c_str()) ;
+		latex->DrawLatex(text_x, .73, ("#chi^{2} / ndf = " + ss_chi2.str() + " / " + ss_ndf.str()).c_str()) ;
+		latex->DrawLatex(text_x, .67, ("p-value=" + ss_p_value.str()).c_str()) ;
 
-		bool info_for_me = true ;
+		latex->DrawLatex(text_x, .61, ("Mean : " + ss_mean.str() + " #pm " + ss_meane.str()).c_str()) ;
+		latex->DrawLatex(text_x, .55, ("#sigma1 : " + ss_sigma1.str() + " #pm " + ss_sigma1e.str()).c_str()) ;
+		latex->DrawLatex(text_x, .49, ("#sigma2 : " + ss_sigma2.str() + " #pm " + ss_sigma2e.str()).c_str()) ;
+
+		bool info_for_me = false ;
 
 		if(info_for_me)
 		{
@@ -833,21 +841,24 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 		if(max >= 0)
 		{
-			hist_1_proj_clone->GetYaxis()->SetRangeUser(0.5 * gaus_const, 1.3 * max) ;
+			double start_y = 0.5 * gaus_const ;
+			double end_y = 0.6 * gaus_const ;
 
-			TLine *line2 = new TLine(lo_x, 0, lo_x, 1.3 * max) ;
+			hist_1_proj_clone->GetYaxis()->SetRangeUser(start_y , 1.3 * max) ;
+
+			TLine *line2 = new TLine(lo_x, start_y, lo_x, end_y) ;
 			line2->SetLineStyle(kDashed) ;
 			line2->Draw("same") ;
 
-			TLine *line3 = new TLine(-lo_x, 0, -lo_x, 1.3 * max) ;
+			TLine *line3 = new TLine(-lo_x, start_y, -lo_x, end_y) ;
 			line3->SetLineStyle(kDashed) ;
 			line3->Draw("same") ;
 
-			TLine *line4 = new TLine(hi_x, 0, hi_x, 1.3 * max) ;
+			TLine *line4 = new TLine(hi_x, start_y, hi_x, end_y) ;
 			line4->SetLineStyle(kDashed) ;
 			line4->Draw("same") ;
 
-			TLine *line5 = new TLine(-hi_x, 0, -hi_x, 1.3 * max) ;
+			TLine *line5 = new TLine(-hi_x, start_y, -hi_x, end_y) ;
 			line5->SetLineStyle(kDashed) ;
 			line5->Draw("same") ;
 
@@ -1550,6 +1561,7 @@ int main()
 
 		// mc_test_of_alignment2() ;
 		// mc_test_of_alignment3() ;
-		for(int i = 0 ; i < 100 ; ++i) mc_test_of_alignment(i) ;
+		// for(int i = 0 ; i < 100 ; ++i) mc_test_of_alignment(i) ;
+		mc_test_of_alignment(22) ;
 	}
 }
