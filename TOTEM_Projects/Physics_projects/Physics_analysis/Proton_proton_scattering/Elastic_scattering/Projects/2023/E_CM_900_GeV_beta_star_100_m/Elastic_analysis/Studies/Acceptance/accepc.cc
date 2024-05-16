@@ -691,7 +691,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			use_coulomb = true ;
 
 			gMinuit2->mnparm(0, "const", func_par[0], 0.1, 0, 0, ierflg);
-			gMinuit2->mnparm(1, "mean",  func_par[1], 0.1, 0, 0, ierflg);
+			gMinuit2->mnparm(1, "meand",  func_par[1], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(2, "sigma", func_par[2], 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(3, "const2", 100, 0.1, 0, 0, ierflg);
 			gMinuit2->mnparm(4, "sigma2", 20, 0.1, 0, 0, ierflg);
@@ -1361,8 +1361,11 @@ void test_of_cuts()
    a_test("LTRB") ;
 }
 
-void mc_test_of_alignment()
+
+void mc_test_of_alignment(int i)
 {
+	gRandom->SetSeed(i) ;
+
 	cout << endl << endl << "Start mc_test_of_alignment" << endl ;
 
 	TF1 *func = new TF1("func",  my_gaus, -30, 30, 5) ;
@@ -1545,8 +1548,8 @@ int main()
 		// vertical_elastic_alignment() ;
 		// test_of_cuts() ;
 
-		mc_test_of_alignment() ;
-		mc_test_of_alignment2() ;
-		mc_test_of_alignment3() ;
+		// mc_test_of_alignment2() ;
+		// mc_test_of_alignment3() ;
+		for(int i = 0 ; i < 100 ; ++i) mc_test_of_alignment(i) ;
 	}
 }
