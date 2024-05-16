@@ -1452,9 +1452,17 @@ void mc_test_of_alignment2()
 	gMinuit2->GetParameter(1, func_par[1], func_pare[1]) ;
 	gMinuit2->GetParameter(2, func_par[2], func_pare[2]) ;
 
+	if(align_fit_scenario == align_fit_with_coulomb) func->SetParameters(func_par[0], func_par[1], func_par[2]) ;
+
 	hist->SaveAs("plots/vertical_alignment/mytest.root") ;
 
 	cout << endl << endl << "End mc_test_of_alignment2" << endl ;
+
+	TCanvas c ;
+
+	hist->Draw() ;
+	func->Draw("same") ;
+	c.SaveAs("plots/vertical_alignment/mytest_canvas.root") ;
 
 }
 
@@ -1559,9 +1567,9 @@ int main()
 		// vertical_elastic_alignment() ;
 		// test_of_cuts() ;
 
-		// mc_test_of_alignment2() ;
+		mc_test_of_alignment2() ;
 		// mc_test_of_alignment3() ;
 		// for(int i = 0 ; i < 100 ; ++i) mc_test_of_alignment(i) ;
-		mc_test_of_alignment(22) ;
+		// mc_test_of_alignment(22) ;
 	}
 }
