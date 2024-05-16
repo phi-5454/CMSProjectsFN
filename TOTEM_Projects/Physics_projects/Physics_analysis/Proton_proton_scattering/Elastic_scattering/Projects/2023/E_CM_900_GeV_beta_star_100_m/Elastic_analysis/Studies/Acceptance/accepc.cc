@@ -790,7 +790,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 		const double text_x = 0.12 ;
 
-		latex->DrawLatex(text_x, .85, ("#chi2 / ndf = " + ss_chi2.str() + " / " + ss_ndf.str() + ",p-value=" + ss_p_value.str()).c_str()) ;
+		latex->DrawLatex(text_x, .85, ("#chi^{2} / ndf = " + ss_chi2.str() + " / " + ss_ndf.str() + ",  p-value=" + ss_p_value.str()).c_str()) ;
 
 		if(ierflg == 0) latex->DrawLatex(text_x, .78, "CONVERGED") ;
 		if(ierflg == 4)
@@ -820,6 +820,8 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 			double delta = gaus_mean - func_par[1] ;
 			ss_delta << delta ;
+
+			cout << "delta " << run_to_test << " " << histograms[i] << std::setprecision(2) << "\t delta \t" << delta << endl ;
 
 			latex->DrawLatex(text_x, .54, ("ledge : " + ss_left.str()).c_str()) ;
 			latex->DrawLatex(text_x, .48, ("redge : " + ss_right.str()).c_str()) ;
@@ -1465,8 +1467,8 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		vertical_elastic_alignment() ;
-		test_of_cuts() ;
+		// vertical_elastic_alignment() ;
+		// test_of_cuts() ;
 
 		mc_test_of_alignment() ;
 		mc_test_of_alignment2() ;
