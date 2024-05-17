@@ -496,6 +496,10 @@ const double *TProtonReconstruction::GetReconstructedVariable(string variable_na
 	{
 		return &minus_t_y_GeV2 ; 
 	}
+        else if(variable_name.compare("minus_t_y_far_GeV2")==0)
+        {
+                return &minus_t_y_far_GeV2 ;
+        }
 	else if(variable_name.compare("minus_t_y_aligned_GeV2")==0)
 	{
 		return &minus_t_y_aligned_GeV2 ; 
