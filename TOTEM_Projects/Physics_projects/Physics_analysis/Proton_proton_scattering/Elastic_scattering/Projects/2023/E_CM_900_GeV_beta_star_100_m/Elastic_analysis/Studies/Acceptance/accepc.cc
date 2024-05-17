@@ -783,7 +783,12 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			gMinuit2->GetParameter(3, func_par[3], func_pare[3]) ;
 			gMinuit2->GetParameter(4, func_par[4], func_pare[4]) ;
 			
-			map_histograms_results[histograms[i]] = func_par[1] ;
+			if(fabs(func_par[1]) > (func_pare[1] * 0.8))
+			{
+				map_histograms_results[histograms[i]] = func_par[1] ;
+
+				cout << run_to_test << " " << histograms[i] << " Corrected alignment value" << endl ;
+			}
 
 			double double_gaus_mean = func_par[1] ;
 			double double_gaus_sigma = func_par[2] ;
