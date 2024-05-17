@@ -1776,6 +1776,15 @@
 		<parameter>	to_be_saved_for_smart_merging							0.0
 	<end>	dN_dt_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_hor_beam_divergence_corrected_pile_up_inefficiency_corrected_plot_block
 
+        <begin> dN_dt_far_GeV2_geometrical_acceptance_corrected_plot_block
+                <parameter>     dimension                                                                                               1.0
+                <setting>       type                                                                                                    dN_dt_GeV2_type_block
+                <setting>       x_variable                                                                                              minus_t_far_GeV2
+                <parameter>     weighted                                                                                                1.0
+                <parameter>     geometrical_acceptance_corrected                                                1.0
+        <end>   dN_dt_far_GeV2_geometrical_acceptance_corrected_plot_block
+
+
 <comment> ********************************************
 <comment> Final t-distributions with alignment
 <comment> ********************************************
