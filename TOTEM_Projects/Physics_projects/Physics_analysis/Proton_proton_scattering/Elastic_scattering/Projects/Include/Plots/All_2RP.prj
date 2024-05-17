@@ -32,6 +32,7 @@
 
 
         <nsetting>      analysis_plot           dN_dt_far_GeV2
+        <nsetting>      analysis_plot           dN_dt_far_GeV2_geometrical_acceptance_corrected_plot_block
 
         <nsetting>      analysis_plot           x_mm_y_mm_far_left
         <nsetting>      analysis_plot           x_mm_y_mm_far_right

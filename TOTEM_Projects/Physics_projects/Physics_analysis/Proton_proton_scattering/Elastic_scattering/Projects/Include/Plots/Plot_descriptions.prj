@@ -1784,6 +1784,16 @@
                 <parameter>     geometrical_acceptance_corrected                                                1.0
         <end>   dN_dt_far_GeV2_geometrical_acceptance_corrected_plot_block
 
+        <begin> dN_dt_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_plot_block
+                <parameter>     dimension                                                                                               1.0
+                <setting>       type                                                                                                    dN_dt_GeV2_type_block
+                <setting>       x_variable                                                                                              minus_t_far_GeV2
+                <setting>       beam_divergence_parameter                                               minus_t_y_far_GeV2
+                <parameter>     weighted                                                                                                1.0
+                <parameter>     geometrical_acceptance_corrected                                                1.0
+                <parameter>     beam_divergence_corrected                                                               1.0
+        <end>   dN_dt_far_GeV2_geometrical_acceptance_corrected_beam_divergence_corrected_plot_block
+
 
 <comment> ********************************************
 <comment> Final t-distributions with alignment
