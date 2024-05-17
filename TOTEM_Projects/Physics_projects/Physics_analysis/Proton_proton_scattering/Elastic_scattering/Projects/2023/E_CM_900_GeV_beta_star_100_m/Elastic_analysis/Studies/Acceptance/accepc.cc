@@ -518,12 +518,27 @@ void write_correction(string run_to_test, map<string, double> &correction)
 	{
 		string corr_filename = "vertical_corrections_" + run_to_test + ".prj" ;
 
-		ifstream correction_file ;
+		ifstream incorrection_file("/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Vertical/" + corr_filename) ;
 
+		string word ;
+
+		map<string, double> current_corrections ;
+
+		while(incorrection_file >> word)
+		{
+			if((word.compare("RP_alignment_left_near_y_mm") == 0) || (word.compare("RP_alignment_left_far__y_mm") == 0) || (word.compare("RP_alignment_right_near_y_mm") == 0) || (word.compare("RP_alignment_right_far__y_mm") == 0))
+			{
+				double value ;
+
+				incorrection_file >> value ;
+
+				current_corrections[word] = value ;
+			}
+		}
 
 		ofstream correction_file ;
 
-		bool write_vertical_file = false ;
+		bool write_vertical_file = true ;
 
 		if(write_vertical_file)
 		{
@@ -533,10 +548,10 @@ void write_correction(string run_to_test, map<string, double> &correction)
 			correction_file << "<begin_if_setting> vertical_alignment_corrections yes" << endl ;
 
 			correction_file << "  <begin> alignment_block" << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_left_near_y_mm "  << -correction["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_left_far__y_mm "   << -correction["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_right_near_y_mm " << -correction["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_right_far__y_mm "  << -correction["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_left_near_y_mm "  <<  (current_corrections["RP_alignment_left_near_y_mm"] - correction["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"]) << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_left_far__y_mm "   << (current_corrections["RP_alignment_left_far__y_mm"] - correction["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"]) << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_right_near_y_mm " <<  (current_corrections["RP_alignment_right_near_y_mm"] - correction["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"]) << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_right_far__y_mm "  << (current_corrections["RP_alignment_right_far__y_mm"] - correction["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"]) << endl ;
 			correction_file << "  <end> alignment_block" << endl ;
 
 			correction_file << "<end_if_setting>" << endl ;
