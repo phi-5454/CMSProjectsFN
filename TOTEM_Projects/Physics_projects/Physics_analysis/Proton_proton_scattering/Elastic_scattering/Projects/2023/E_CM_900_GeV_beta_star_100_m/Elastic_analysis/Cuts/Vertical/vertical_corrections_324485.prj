@@ -1,8 +1,1 @@
-<begin_if_setting> vertical_alignment_corrections yes
-  <begin> alignment_block
-                  <update_parameter> RP_alignment_left_near_y_mm -0.0399683
-                  <update_parameter> RP_alignment_left_far__y_mm -0.144994
-                  <update_parameter> RP_alignment_right_near_y_mm -0.0199606
-                  <update_parameter> RP_alignment_right_far__y_mm -0.0386789
-  <end> alignment_block
-<end_if_setting>
+
