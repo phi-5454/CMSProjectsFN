@@ -1611,8 +1611,8 @@ int main()
 	else if(main_scenario == main_scenario_elastic_alignment) horizontal_elastic_alignment() ;
 	else if(main_scenario == main_scenario_elastic_alignment_vertical)
 	{
-		// vertical_elastic_alignment() ;
-		test_of_cuts() ;
+		vertical_elastic_alignment() ;
+		// test_of_cuts() ;
 
 		// mc_test_of_alignment2() ;
 		// mc_test_of_alignment3() ;
