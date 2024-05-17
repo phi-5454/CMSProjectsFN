@@ -538,7 +538,7 @@ void write_correction(string run_to_test, map<string, double> &correction)
 
 		ofstream correction_file ;
 
-		bool write_vertical_file = true ;
+		bool write_vertical_file = false ;
 
 		if(write_vertical_file)
 		{
@@ -548,10 +548,10 @@ void write_correction(string run_to_test, map<string, double> &correction)
 			correction_file << "<begin_if_setting> vertical_alignment_corrections yes" << endl ;
 
 			correction_file << "  <begin> alignment_block" << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_left_near_y_mm "  <<  (current_corrections["RP_alignment_left_near_y_mm"] - correction["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"]) << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_left_far__y_mm "   << (current_corrections["RP_alignment_left_far__y_mm"] - correction["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"]) << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_right_near_y_mm " <<  (current_corrections["RP_alignment_right_near_y_mm"] - correction["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"]) << endl ;
-			correction_file << "                  <update_parameter> RP_alignment_right_far__y_mm "  << (current_corrections["RP_alignment_right_far__y_mm"] - correction["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"]) << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_left_near_y_mm "  <<  (current_corrections["RP_alignment_left_near_y_mm"] -  (correction["P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP"] / 2.0))  << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_left_far__y_mm "   << (current_corrections["RP_alignment_left_far__y_mm"] -  (correction["P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP"] / 2.0))   << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_right_near_y_mm " <<  (current_corrections["RP_alignment_right_near_y_mm"] - (correction["P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP"] / 2.0)) << endl ;
+			correction_file << "                  <update_parameter> RP_alignment_right_far__y_mm "  << (current_corrections["RP_alignment_right_far__y_mm"] - (correction["P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP"] / 2.0))  << endl ;
 			correction_file << "  <end> alignment_block" << endl ;
 
 			correction_file << "<end_if_setting>" << endl ;
@@ -783,7 +783,7 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 			gMinuit2->GetParameter(3, func_par[3], func_pare[3]) ;
 			gMinuit2->GetParameter(4, func_par[4], func_pare[4]) ;
 			
-			if(fabs(func_par[1]) > (func_pare[1] * 0.8))
+			if(fabs(func_par[1]) > (func_pare[1]))
 			{
 				map_histograms_results[histograms[i]] = func_par[1] ;
 
