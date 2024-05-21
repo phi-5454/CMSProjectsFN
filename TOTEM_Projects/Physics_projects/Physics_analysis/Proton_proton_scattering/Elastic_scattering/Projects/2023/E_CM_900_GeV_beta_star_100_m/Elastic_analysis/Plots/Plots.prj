@@ -1,6 +1,6 @@
 	<begin>	dN_dt_GeV2_type_block
 		<update_parameter>			horizontal_axis_left_boundary					0.0
-		<update_parameter>			horizontal_axis_right_boundary					4.0
+		<update_parameter>			horizontal_axis_right_boundary					0.4
 		<update_parameter>			number_of_horizontal_bins						800
 	<end>	dN_dt_GeV2_type_block
 
