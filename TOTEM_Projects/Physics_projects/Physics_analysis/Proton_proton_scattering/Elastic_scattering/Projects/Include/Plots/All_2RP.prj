@@ -42,3 +42,4 @@
         <nsetting>      analysis_plot           x_mm_y_mm_far_left_for_2RP
         <nsetting>      analysis_plot           x_mm_y_mm_near_right_for_2RP
         <nsetting>      analysis_plot           x_mm_y_mm_far_right_for_2RP
+        <nsetting>      analysis_plot           theta_x_star_far_rad_theta_y_star_far_rad_with_cut
