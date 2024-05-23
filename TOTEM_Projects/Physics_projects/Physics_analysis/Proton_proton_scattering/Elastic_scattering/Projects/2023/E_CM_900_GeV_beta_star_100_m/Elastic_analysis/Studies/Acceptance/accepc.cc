@@ -588,10 +588,10 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 	if(test_histogram == NULL)
 	{
-		histograms.push_back("P0025_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
-		histograms.push_back("P0026_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
-		histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
-		histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
+		histograms.push_back("P0027_PlotsCollection_x_mm_y_mm_near_left_for_2RP") ;
+		histograms.push_back("P0028_PlotsCollection_x_mm_y_mm_far_left_for_2RP") ;
+		histograms.push_back("P0029_PlotsCollection_x_mm_y_mm_near_right_for_2RP") ;
+		histograms.push_back("P0030_PlotsCollection_x_mm_y_mm_far_right_for_2RP") ;
 	}
 	else
 	{
@@ -648,10 +648,14 @@ void vertical_elastic_alignment_per_run(string run_to_test, int type, TH1D *test
 
 		if(test_histogram == NULL)
 		{
+			cout << "Here I am" << endl ;
+
 			hist_1 = ((TH2D *)file_LBRT->Get(histograms[i].c_str())) ;
 			hist_2 = ((TH2D *)file_LTRB->Get(histograms[i].c_str())) ;
 
 			hist_1->Add(hist_2) ;
+
+			cout << "Here I am 2" << endl ;
 		}
 
 		TH1D *hist_1_proj = NULL ;
