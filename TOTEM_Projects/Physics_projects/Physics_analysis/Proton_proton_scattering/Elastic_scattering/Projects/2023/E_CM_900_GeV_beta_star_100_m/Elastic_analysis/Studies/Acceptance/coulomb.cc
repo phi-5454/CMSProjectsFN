@@ -47,6 +47,11 @@ const double hbarc = 0.19732697 ;                            // [hbarc] = GeV * 
 const double Lambda2_GeV2 = 0.71 ;
 const double Fine_structure_constant = 1/137.035 ;
 
+const double beam_energy_GeV = 900.0 ;
+
+const double theta_x_star_resolution_rad = 30.0e-6 ;
+const double theta_y_star_resolution_rad =  5.4e-6 ;
+
 double G_proton(double t)
 {
   return 1 / pow(1-(-t/Lambda2_GeV2),2) ;
@@ -65,6 +70,75 @@ double sigma(double *t, double *par)
   return result ;
 }
 
+const double epsilon = 1e-5 ;
+TF1 *func = new TF1("sigma",  sigma, epsilon, 1, 0) ;
+
+void randomdist()
+{
+  TCanvas c ;
+
+  TH1F *distribution = new TH1F("distribution", "distribution", 1000, 0.0, 0.1) ;
+  TH1F *distribution_pert = new TH1F("distribution_perts", "distribution_pert", 1000, 0.0, 0.1) ;
+
+  TRandom3 *myrandom = new TRandom3() ;
+
+  c.SetLogy() ;
+
+  for(int i = 0 ; i < 1e8 ; ++i)
+  {
+    double t_value_GeV2 = func->GetRandom() ;
+    double phi_value_rad = myrandom->Uniform() * TMath::Pi() * 2.0 ;
+
+    double theta_star_rad = sqrt(t_value_GeV2) / beam_energy_GeV ;
+
+    double theta_x_star_rad_b1 = theta_star_rad * cos(phi_value_rad) ;
+    double theta_y_star_rad_b1 = theta_star_rad * sin(phi_value_rad) ;
+
+    double theta_x_star_rad_b2 = -theta_star_rad * cos(phi_value_rad) ;
+    double theta_y_star_rad_b2 = -theta_star_rad * sin(phi_value_rad) ;
+
+    double pert_x_rad_b1 = myrandom->Gaus() * theta_x_star_resolution_rad * 1.0 ;
+    double pert_y_rad_b1 = myrandom->Gaus() * theta_y_star_resolution_rad * 1.0 ;
+
+    double pert_x_rad_b2 = myrandom->Gaus() * theta_x_star_resolution_rad * 1.0 ;
+    double pert_y_rad_b2 = myrandom->Gaus() * theta_y_star_resolution_rad * 1.0 ;
+
+    double theta_x_star_pert_rad_b1 = theta_x_star_rad_b1 + pert_x_rad_b1 ;
+    double theta_y_star_pert_rad_b1 = theta_y_star_rad_b1 + pert_y_rad_b1 ;
+
+    double theta_x_star_pert_rad_b2 = theta_x_star_rad_b2 + pert_x_rad_b2 ;
+    double theta_y_star_pert_rad_b2 = theta_y_star_rad_b2 + pert_y_rad_b2 ;
+    
+    // if(theta_y_star_rad_b1 < 30e-6) continue ;
+    
+    double theta_x_star_pert_rad = (theta_x_star_pert_rad_b1 - theta_x_star_pert_rad_b2) / 2.0 ;
+    double theta_y_star_pert_rad = (theta_y_star_pert_rad_b1 - theta_y_star_pert_rad_b2) / 2.0 ;
+    
+    double theta_star_pert_rad = sqrt((theta_x_star_pert_rad * theta_x_star_pert_rad) + (theta_y_star_pert_rad * theta_y_star_pert_rad)) ;
+
+    double p_GeV = (theta_star_pert_rad * beam_energy_GeV) ;
+    double t_value_pert_GeV2 = p_GeV * p_GeV ;
+
+    distribution->Fill(t_value_GeV2) ;
+    distribution_pert->Fill(t_value_pert_GeV2) ;
+  }
+
+  distribution->SaveAs("plots/coulomb/distribution.root") ;
+  distribution->Draw("") ;
+  c.SaveAs("plots/coulomb/distribution.pdf") ;
+
+  distribution_pert->SaveAs("plots/coulomb/distribution_pert.root") ;
+  distribution_pert->Draw("") ;
+  c.SaveAs("plots/coulomb/distribution_pert.pdf") ;
+
+  c.SetLogy(0) ;
+
+  distribution_pert->Divide(distribution) ;
+  distribution_pert->SaveAs("plots/coulomb/distribution_pert_div.root") ;
+  distribution_pert->Draw("") ;
+  c.SaveAs("plots/coulomb/distribution_pert_div.pdf") ;
+}
+
 int main(int argc, char *argv[])
 {
 
@@ -73,9 +147,7 @@ int main(int argc, char *argv[])
     cout << "Please provide ..." << endl ;
     exit(1) ;
   }
-   const double epsilon = 1e-5 ;
 
-  TF1 *func = new TF1("sigma",  sigma, epsilon, 1, 0) ;
   func->SetNpx(1e4) ;
 
   const double value_for_normalization  = func->Integral(4e-4, 7e-4) ;
@@ -96,4 +168,6 @@ int main(int argc, char *argv[])
   func->SaveAs("plots/coulomb/func_coulomb_test.root") ;
   c.SaveAs("plots/coulomb/canvas_coulomb_test.root") ;
   c.SaveAs("plots/coulomb/canvas_coulomb_test.pdf") ;
+
+  randomdist() ;
 }
