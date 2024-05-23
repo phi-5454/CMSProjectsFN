@@ -78,6 +78,14 @@ int main(int argc, char *argv[])
   TF1 *func = new TF1("sigma",  sigma, epsilon, 1, 0) ;
   func->SetNpx(1e4) ;
 
+  const double value_for_normalization  = func->Integral(4e-4, 7e-4) ;
+  const double value_for_normalization2 = func->Eval(0.00056250000) ;
+  const double value_for_normalization3 = func->Eval(0.0004375) ;
+
+  cout << "value_for_normalization  " << value_for_normalization  << endl ;
+  cout << "value_for_normalization2 " << value_for_normalization2 << endl ;
+  cout << "value_for_normalization3 " << value_for_normalization3 << endl ;
+
   TCanvas c ;
 
   TH2D *hist_2d = new TH2D("hist_2d", "hist_2d", 100, 0, 1, 100, 0, 5) ;
