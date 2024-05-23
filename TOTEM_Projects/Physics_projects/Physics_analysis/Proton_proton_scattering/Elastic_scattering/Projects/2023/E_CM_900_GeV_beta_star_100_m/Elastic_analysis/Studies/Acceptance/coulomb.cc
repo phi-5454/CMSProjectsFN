@@ -109,7 +109,7 @@ void randomdist()
     double theta_x_star_pert_rad_b2 = theta_x_star_rad_b2 + pert_x_rad_b2 ;
     double theta_y_star_pert_rad_b2 = theta_y_star_rad_b2 + pert_y_rad_b2 ;
     
-    // if(theta_y_star_rad_b1 < 30e-6) continue ;
+    if(theta_y_star_rad_b1 < 30e-6) continue ;
     
     double theta_x_star_pert_rad = (theta_x_star_pert_rad_b1 - theta_x_star_pert_rad_b2) / 2.0 ;
     double theta_y_star_pert_rad = (theta_y_star_pert_rad_b1 - theta_y_star_pert_rad_b2) / 2.0 ;
