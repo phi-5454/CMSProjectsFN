@@ -1,0 +1,136 @@
+	<begin>	dN_dt_GeV2_type_block
+		<update_parameter>			horizontal_axis_left_boundary					0.0
+		<update_parameter>			horizontal_axis_right_boundary					0.02
+		<update_parameter>			number_of_horizontal_bins						160
+	<end>	dN_dt_GeV2_type_block
+
+	<begin>	theta_y_rad_y_mm_type_block
+		<update_parameter>			horizontal_axis_boundary						30
+		<update_parameter>			vertical_axis_boundary							0.0006
+		<update_parameter>			number_of_horizontal_bins						100		
+	<end>	theta_y_rad_y_mm_type_block
+
+	<begin>	x_star_mm_x_star_mm_type_block
+		<update_parameter>			number_of_horizontal_bins						100
+		<update_parameter>			number_of_vertical_bins							100
+                <update_parameter>                     horizontal_axis_boundary                                                10
+                <update_parameter>                     vertical_axis_boundary                                                  10
+	<end>	x_star_mm_x_star_mm_type_block
+	
+        <begin> theta_x_star_rad_theta_x_star_rad_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                0.0008
+                <update_parameter>                     number_of_horizontal_bins                                               200
+                <update_parameter>                     vertical_axis_boundary                                                  0.0008
+                <update_parameter>                     number_of_vertical_bins                                                 200
+        <end>   theta_x_star_rad_theta_x_star_rad_type_block
+
+	<begin>	theta_x_rad_theta_x_right_rad_type_block
+		<update_parameter>			horizontal_axis_boundary						0.0002
+		<update_parameter>			vertical_axis_boundary							0.0002
+	<end>	theta_x_rad_theta_x_right_rad_type_block
+
+	<begin>	theta_y_star_rad_theta_y_star_rad_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                       0.00022
+                <update_parameter>                     vertical_axis_boundary                                                         0.00022
+	<end>	theta_y_star_rad_theta_y_star_rad_type_block
+
+
+	<begin>	theta_x_star_rad_type_block
+		<update_parameter>			number_of_horizontal_bins						400
+	<end>	theta_x_star_rad_type_block
+
+	<begin>	y_star_left_mm_y_star_right_mm_with_cut_plot_block
+		<update_parameter>	cut														0.0
+	<end>	y_star_left_mm_y_star_right_mm_with_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_left_with_cut_plot_block
+		<update_parameter>	cut														1.0
+	<end>	x_mm_near_dx_mm_left_with_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_right_with_cut_plot_block
+		<update_parameter>	cut														1.0
+	<end>	x_mm_near_dx_mm_right_with_cut_plot_block
+
+	<begin>	y_star_left_mm_y_star_right_mm_define_cut_plot_block
+		<update_parameter>	define_cut												0.0
+	<end>	y_star_left_mm_y_star_right_mm_define_cut_plot_block
+	
+	<begin>	x_mm_near_dx_mm_right_define_cut_plot_block
+		<update_parameter>	define_cut												1.0
+	<end>	x_mm_near_dx_mm_right_define_cut_plot_block
+
+	<begin>	x_mm_near_dx_mm_left_define_cut_plot_block
+		<update_parameter>	define_cut												1.0
+	<end>	x_mm_near_dx_mm_left_define_cut_plot_block
+
+	<begin>	x_far_left_mm_theta_x_rad_plot_block
+		<update_parameter>	define_cut												0.0
+	<end>	x_far_left_mm_theta_x_rad_plot_block
+
+	<begin>	x_far_right_mm_theta_x_rad_plot_block
+		<update_parameter>	define_cut												0.0
+	<end>	x_far_right_mm_theta_x_rad_plot_block
+	
+        <begin> x_mm_near_x_mm_far_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                30
+                <update_parameter>                     vertical_axis_boundary                                                  30
+        <end>   x_mm_near_x_mm_far_type_block
+
+        <begin> y_mm_near_y_mm_far_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                40
+                <update_parameter>                     vertical_axis_boundary                                                  40
+        <end>   y_mm_near_y_mm_far_type_block
+
+        <begin> theta_x_star_rad_theta_y_star_rad_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                0.0008
+                <update_parameter>                     vertical_axis_boundary                                                  0.0004
+        <end>   theta_x_star_rad_theta_y_star_rad_type_block
+
+        <begin> y_star_mm_y_star_mm_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                15
+                <update_parameter>                     vertical_axis_boundary                                                  15
+        <end>   y_star_mm_y_star_mm_type_block
+
+        <begin> y_mm_near_dy_mm_left_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+		<update_parameter>			number_of_vertical_bins						        3200
+		<update_parameter>			number_of_horizontal_bins						3200
+        <end>   y_mm_near_dy_mm_left_type_block
+
+        <begin> y_mm_far_dy_mm_left_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+                <update_parameter>                      number_of_vertical_bins                                                 3200
+                <update_parameter>                      number_of_horizontal_bins                                               3200
+        <end>   y_mm_far_dy_mm_left_type_block
+
+        <begin> y_mm_near_dy_mm_right_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+                <update_parameter>                      number_of_vertical_bins                                                 3200
+                <update_parameter>                      number_of_horizontal_bins                                               3200
+        <end>   y_mm_near_dy_mm_right_type_block
+
+        <begin> y_mm_far_dy_mm_right_type_block
+                <update_parameter>                     vertical_axis_boundary                                                  5
+                <update_parameter>                      number_of_vertical_bins                                                 3200
+                <update_parameter>                      number_of_horizontal_bins                                               3200
+        <end>   y_mm_far_dy_mm_right_type_block
+
+        <begin> x_mm_near_dx_mm_left_type_block
+                <update_parameter>                     horizontal_axis_boundary                                                18
+                <update_parameter>                     number_of_horizontal_bins                                               200
+                <update_parameter>                     vertical_axis_boundary                                                  6
+                <update_parameter>                     number_of_vertical_bins                                                 200
+        <end>   x_mm_near_dx_mm_left_type_block
+
+        <begin> x_star_mm_type_block
+                <update_parameter>                     horizontal_axis_left_boundary                                   -5
+                <update_parameter>                     horizontal_axis_right_boundary                                  5
+                <update_parameter>                     number_of_horizontal_bins                                               500
+        <end>   x_star_mm_type_block
+
+        <begin> y_star_mm_type_block
+                <update_parameter>                     horizontal_axis_left_boundary                                   -5
+                <update_parameter>                     horizontal_axis_right_boundary                                  5
+                <update_parameter>                     number_of_horizontal_bins                                               500
+        <end>   y_star_mm_type_block
+
