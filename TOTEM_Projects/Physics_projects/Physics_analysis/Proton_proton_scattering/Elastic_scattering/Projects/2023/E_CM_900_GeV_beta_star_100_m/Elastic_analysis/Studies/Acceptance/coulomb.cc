@@ -49,7 +49,7 @@ const double Fine_structure_constant = 1/137.035 ;
 
 const double beam_energy_GeV = 450.0 ;
 
-const double theta_x_star_resolution_rad = 25.0e-6 ;
+const double theta_x_star_resolution_rad = 30.0e-6 ;
 const double theta_y_star_resolution_rad =  5.4e-6 ;
 
 double G_proton(double t)
@@ -89,7 +89,12 @@ void randomdist()
 
   for(int i = 0 ; i < 1e8 ; ++i)
   {
-    double t_value_GeV2 = func->GetRandom() ;
+    // double t_value_GeV2 = func->GetRandom() ;
+
+    double t_value_GeV2 = myrandom->Uniform() * 0.02 ;
+
+    double weight = func->Eval(t_value_GeV2) ;
+
     double phi_value_rad = myrandom->Uniform() * TMath::Pi() * 2.0 ;
 
     double theta_star_rad = sqrt(t_value_GeV2) / beam_energy_GeV ;
@@ -99,7 +104,7 @@ void randomdist()
 
     double theta_x_star_rad_b2 = -theta_star_rad * cos(phi_value_rad) ;
     double theta_y_star_rad_b2 = -theta_star_rad * sin(phi_value_rad) ;
-    
+
     double perturb = 1.0 ;
 
     double pert_x_rad_b1 = myrandom->Gaus() * theta_x_star_resolution_rad * perturb ;
@@ -116,8 +121,8 @@ void randomdist()
     
     if(theta_y_star_rad_b1 < 30e-6) continue ;
     
-    theta_x_y_star_rad_b1->Fill(theta_x_star_rad_b1, theta_y_star_rad_b1) ;
-    theta_x_y_star_pert_rad_b1->Fill(theta_x_star_pert_rad_b1, theta_y_star_pert_rad_b1) ;
+    theta_x_y_star_rad_b1->Fill(theta_x_star_rad_b1, theta_y_star_rad_b1, weight) ;
+    theta_x_y_star_pert_rad_b1->Fill(theta_x_star_pert_rad_b1, theta_y_star_pert_rad_b1, weight) ;
     
     double theta_x_star_pert_rad = (theta_x_star_pert_rad_b1 - theta_x_star_pert_rad_b2) / 2.0 ;
     double theta_y_star_pert_rad = (theta_y_star_pert_rad_b1 - theta_y_star_pert_rad_b2) / 2.0 ;
@@ -127,8 +132,8 @@ void randomdist()
     double p_GeV = (theta_star_pert_rad * beam_energy_GeV) ;
     double t_value_pert_GeV2 = p_GeV * p_GeV ;
 
-    distribution->Fill(t_value_GeV2) ;
-    distribution_pert->Fill(t_value_pert_GeV2) ;
+    distribution->Fill(t_value_GeV2, weight) ;
+    distribution_pert->Fill(t_value_pert_GeV2, weight) ;
   }
 
   distribution->SaveAs("plots/coulomb/distribution.root") ;
