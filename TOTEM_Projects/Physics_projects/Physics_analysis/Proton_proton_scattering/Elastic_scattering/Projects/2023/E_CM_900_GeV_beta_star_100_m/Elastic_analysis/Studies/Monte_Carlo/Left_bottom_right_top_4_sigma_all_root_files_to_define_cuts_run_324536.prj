@@ -8,10 +8,23 @@
 <update_setting> project_subtask MonteCarlo
 
 <include> /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/Include/Main_settings.prj
-<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_bottom_right_top_324536.prj
+<comment> <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Input_files/Reduced_ntuples_left_bottom_right_top_324536.prj
 <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Project_files/Left_bottom_right_top_4_sigma_2RP.prj
-<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LBRT_324536.prj
-<include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Vertical/vertical_corrections_324536.prj
+<comment> <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LBRT_324536.prj
+<comment> <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Vertical/vertical_corrections_324536.prj
+
+<begin> alignment_block
+                <update_parameter> RP_alignment_left_near_x_mm             0.0
+                <update_parameter> RP_alignment_left_far__x_mm             0.0
+                <update_parameter> RP_alignment_right_near_x_mm            0.0
+                <update_parameter> RP_alignment_right_far__x_mm            0.0
+
+                <update_parameter> RP_alignment_left_near_y_mm             0.0
+                <update_parameter> RP_alignment_left_far__y_mm             0.0
+                <update_parameter> RP_alignment_right_near_y_mm            0.0
+                <update_parameter> RP_alignment_right_far__y_mm            0.0
+<end>   alignment_block
+
 
 <update_parameter> CollectCutDiagnosticData 1.0
 
@@ -25,14 +38,14 @@
         <parameter>             number_of_simulated_particles                           8
         <parameter>             number_of_simulated_background_particles        1
         <parameter>             t_GeV2_distribution_lower_edge                          0.0
-        <parameter>             t_GeV2_distribution_upper_edge                          1.0
+        <parameter>             t_GeV2_distribution_upper_edge                          0.02
         <parameter>             vertex_size_x_m                                                         0.0e-6
         <parameter>             vertex_size_y_m                                                         0.0e-6
-        <parameter>             max_number_of_phi_divisions                                     400.0
+        <parameter>             max_number_of_phi_divisions                                     4000000.0
         <parameter>             smooth_iterations       0
         <parameter>             sigma_x_of_effective_beam_divergence_rad        0.0E-006
         <parameter>             sigma_y_of_effective_beam_divergence_rad        0.0E-006
-        <parameter>             seed 1
+        <parameter>             seed 4
 <end>   MC_generator_settings_block
 
 <begin> Exponential_fit_block_off
@@ -52,6 +65,8 @@
 <parameter>             track_left_far_dy_mm            0.0
 <parameter>             track_right_near_dy_mm          0.0
 <parameter>             track_right_far_dy_mm           0.0
+
+<parameter>             geom_correction_upper_limit     0.4
 
 <setting>       histogram_name_for_unfolding  P0022_PlotsCollection_dN_dt_far_GeV2
 
