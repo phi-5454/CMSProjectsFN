@@ -47,7 +47,7 @@ const double hbarc = 0.19732697 ;                            // [hbarc] = GeV * 
 const double Lambda2_GeV2 = 0.71 ;
 const double Fine_structure_constant = 1/137.035 ;
 
-const double beam_energy_GeV = 900.0 ;
+const double beam_energy_GeV = 450.0 ;
 
 const double theta_x_star_resolution_rad = 30.0e-6 ;
 const double theta_y_star_resolution_rad =  5.4e-6 ;
