@@ -3377,7 +3377,7 @@ void TProject::InitMonteCarlo(double &sigma_x_of_effective_beam_divergence_rad, 
 	}
 	else
 	{
-		string cut_block_name = "theta_y_star_left_rad_theta_y_star_right_rad_cut_block" ;
+		string cut_block_name = ProjectParameters->GetSettingValue("vertical_beam_divergence_cut_block") ;
 
 		if(ProjectParameters->IsBlockDefined(cut_block_name))
 		{
