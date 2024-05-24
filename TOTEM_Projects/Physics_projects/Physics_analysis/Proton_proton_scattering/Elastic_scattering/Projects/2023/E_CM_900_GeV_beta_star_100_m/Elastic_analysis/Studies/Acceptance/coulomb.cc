@@ -49,7 +49,7 @@ const double Fine_structure_constant = 1/137.035 ;
 
 const double beam_energy_GeV = 450.0 ;
 
-const double theta_x_star_resolution_rad = 30.0e-6 ;
+const double theta_x_star_resolution_rad = 25.0e-6 ;
 const double theta_y_star_resolution_rad =  5.4e-6 ;
 
 double G_proton(double t)
@@ -70,7 +70,7 @@ double sigma(double *t, double *par)
   return result ;
 }
 
-const double epsilon = 1e-5 ;
+const double epsilon = 1e-7 ;
 TF1 *func = new TF1("sigma",  sigma, epsilon, 1, 0) ;
 
 void randomdist()
@@ -79,6 +79,9 @@ void randomdist()
 
   TH1F *distribution = new TH1F("distribution", "distribution", 1000, 0.0, 0.1) ;
   TH1F *distribution_pert = new TH1F("distribution_perts", "distribution_pert", 1000, 0.0, 0.1) ;
+
+  TH2F *theta_x_y_star_rad_b1 = new TH2F("theta_x_y_star_rad_b1", "theta_x_y_star_rad_b1", 100, -1e-3, 1e-3, 100, -1e-3, 1e-3) ;
+  TH2F *theta_x_y_star_pert_rad_b1 = new TH2F("theta_x_y_star_pert_rad_b1", "theta_x_y_star_pert_rad_b1", 100, -1e-3, 1e-3, 100, -1e-3, 1e-3) ;
 
   TRandom3 *myrandom = new TRandom3() ;
 
@@ -96,12 +99,14 @@ void randomdist()
 
     double theta_x_star_rad_b2 = -theta_star_rad * cos(phi_value_rad) ;
     double theta_y_star_rad_b2 = -theta_star_rad * sin(phi_value_rad) ;
+    
+    double perturb = 1.0 ;
 
-    double pert_x_rad_b1 = myrandom->Gaus() * theta_x_star_resolution_rad * 1.0 ;
-    double pert_y_rad_b1 = myrandom->Gaus() * theta_y_star_resolution_rad * 1.0 ;
+    double pert_x_rad_b1 = myrandom->Gaus() * theta_x_star_resolution_rad * perturb ;
+    double pert_y_rad_b1 = myrandom->Gaus() * theta_y_star_resolution_rad * perturb ;
 
-    double pert_x_rad_b2 = myrandom->Gaus() * theta_x_star_resolution_rad * 1.0 ;
-    double pert_y_rad_b2 = myrandom->Gaus() * theta_y_star_resolution_rad * 1.0 ;
+    double pert_x_rad_b2 = myrandom->Gaus() * theta_x_star_resolution_rad * perturb ;
+    double pert_y_rad_b2 = myrandom->Gaus() * theta_y_star_resolution_rad * perturb ;
 
     double theta_x_star_pert_rad_b1 = theta_x_star_rad_b1 + pert_x_rad_b1 ;
     double theta_y_star_pert_rad_b1 = theta_y_star_rad_b1 + pert_y_rad_b1 ;
@@ -110,6 +115,9 @@ void randomdist()
     double theta_y_star_pert_rad_b2 = theta_y_star_rad_b2 + pert_y_rad_b2 ;
     
     if(theta_y_star_rad_b1 < 30e-6) continue ;
+    
+    theta_x_y_star_rad_b1->Fill(theta_x_star_rad_b1, theta_y_star_rad_b1) ;
+    theta_x_y_star_pert_rad_b1->Fill(theta_x_star_pert_rad_b1, theta_y_star_pert_rad_b1) ;
     
     double theta_x_star_pert_rad = (theta_x_star_pert_rad_b1 - theta_x_star_pert_rad_b2) / 2.0 ;
     double theta_y_star_pert_rad = (theta_y_star_pert_rad_b1 - theta_y_star_pert_rad_b2) / 2.0 ;
@@ -137,6 +145,14 @@ void randomdist()
   distribution_pert->SaveAs("plots/coulomb/distribution_pert_div.root") ;
   distribution_pert->Draw("") ;
   c.SaveAs("plots/coulomb/distribution_pert_div.pdf") ;
+  
+  c.SetLogz() ;  
+  
+  theta_x_y_star_rad_b1->Draw("colz") ;
+  c.SaveAs("plots/coulomb/theta_x_y_star_rad_b1.pdf") ;
+
+  theta_x_y_star_pert_rad_b1->Draw("colz") ;
+  c.SaveAs("plots/coulomb/theta_x_y_star_pert_rad_b1.pdf") ;
 }
 
 int main(int argc, char *argv[])
