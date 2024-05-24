@@ -58,7 +58,7 @@ class TAcceptance : public TAnalysisObject
 
 	public:
 
-	TAcceptance(string, string, string , double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double) ;
+	TAcceptance(string, string, string , double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double) ;
 	TAcceptance(string, string) ;
 
 	TF1 *GetPreliminaryAcceptance_TF1() ;
@@ -334,7 +334,7 @@ Double_t preliminary_acceptance_beam_1_diagonal_left_bottom_right_top_function(D
 TAcceptance::TAcceptance(string name, string id, string output_directory, double theta_y_star_min, double theta_y_star_max, double beam_momentum,
 	double theta_y_star_rad_left_cut_edge_plus,  double theta_y_star_rad_left_cut_edge_minus, double theta_y_star_rad_right_cut_edge_plus, double theta_y_star_rad_right_cut_edge_minus,
 	double cut_p0, double cut_p1, double diagonal, double sigma, double theta_x_star_rad_left, double theta_x_star_rad_right,
-	double theta_x_star_rad_left_cut_edge_plus,  double theta_x_star_rad_left_cut_edge_minus, double theta_x_star_rad_right_cut_edge_plus, double theta_x_star_rad_right_cut_edge_minus) : TAnalysisObject(name, id),
+	double theta_x_star_rad_left_cut_edge_plus,  double theta_x_star_rad_left_cut_edge_minus, double theta_x_star_rad_right_cut_edge_plus, double theta_x_star_rad_right_cut_edge_minus, double limit) : TAnalysisObject(name, id),
 	geometrical_acceptance_correction_TF1(NULL),
 	beam_divergence_acceptance_correction_TF1(NULL),
 	horizontal_beam_divergence_acceptance_correction_TF1(NULL),
@@ -365,7 +365,7 @@ TAcceptance::TAcceptance(string name, string id, string output_directory, double
 	theta_x_star_rad_right_cut_edge_minus(theta_x_star_rad_right_cut_edge_minus)
 {
 	double abs_t_GeV2_low = 0.0 ;
-	double abs_t_GeV2_high = 4.0 ; // was 2.0 until 2016.04.07. 16:00 !
+	double abs_t_GeV2_high = limit ; // was 2.0 until 2016.04.07. 16:00 !
 	int number_of_parameters = 11 ;
 	int number_of_points_in_t_GeV2 = 10000000 ;
 

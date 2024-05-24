@@ -437,6 +437,13 @@ void TProject::SetupAcceptanceCorrections()
 				exit(1) ;
 			}
 		}
+
+		double geom_correction_upper_limit = 4.0 ;
+
+		if(ProjectParameters->IsParameterDefined("geom_correction_upper_limit"))
+		{
+			geom_correction_upper_limit = ProjectParameters->GetParameterValue("geom_correction_upper_limit") ;
+		}
 		
 		// =========================================================
 		// End of horizontal beam divergence correction parameters
@@ -449,7 +456,7 @@ void TProject::SetupAcceptanceCorrections()
 				theta_y_star_rad_right_cut_edge_plus, theta_y_star_rad_right_cut_edge_minus,
 				cut_p0, cut_p1, analysed_diagonal, effective_beam_divergence, theta_x_star_rad_cut_left, theta_x_star_rad_cut_right,
 				theta_x_star_rad_left_cut_edge_plus,  theta_x_star_rad_left_cut_edge_minus,
-				theta_x_star_rad_right_cut_edge_plus, theta_x_star_rad_right_cut_edge_minus)) ;
+				theta_x_star_rad_right_cut_edge_plus, theta_x_star_rad_right_cut_edge_minus, geom_correction_upper_limit)) ;
 
 	}
 
