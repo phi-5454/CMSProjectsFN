@@ -3405,7 +3405,7 @@ void TProject::InitMonteCarlo(double &sigma_x_of_effective_beam_divergence_rad, 
 			exit(1) ;
 		}
 
-		cut_block_name = "theta_x_star_rad_theta_y_star_rad_cut_block" ;
+		cut_block_name = ProjectParameters->GetSettingValue("geometrical_acceptance_cut_block") ;
 
 		if(ProjectParameters->IsBlockDefined(cut_block_name))
 		{
@@ -3420,7 +3420,7 @@ void TProject::InitMonteCarlo(double &sigma_x_of_effective_beam_divergence_rad, 
 			exit(1) ;
 		}
 
-		cut_block_name = "theta_y_star_left_rad_theta_y_star_right_rad_left_cut_block" ;
+		cut_block_name = ProjectParameters->GetSettingValue("vertical_angular_left_acceptance_cut_block") ;
 
 		if(ProjectParameters->IsBlockDefined(cut_block_name))
 		{
@@ -3435,7 +3435,7 @@ void TProject::InitMonteCarlo(double &sigma_x_of_effective_beam_divergence_rad, 
 			exit(1) ;
 		}
 
-		cut_block_name = "theta_y_star_left_rad_theta_y_star_right_rad_right_cut_block" ;
+		cut_block_name = ProjectParameters->GetSettingValue("vertical_angular_right_acceptance_cut_block") ;
 
 		if(ProjectParameters->IsBlockDefined(cut_block_name))
 		{
