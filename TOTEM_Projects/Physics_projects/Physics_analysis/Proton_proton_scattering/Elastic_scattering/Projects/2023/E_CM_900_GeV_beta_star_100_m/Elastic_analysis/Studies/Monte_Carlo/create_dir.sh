@@ -5,8 +5,8 @@ create_dirs() {
 	local_target_dir=$1
 	templatefile=$2
 
-	home_dir="/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_11_m/Elastic_analysis/Project_files/Fill_7301/Monte_Carlo/Condor/"
-	eos_dir="/eos/cms/store/user/fnemes/Analysis/pp/E_CM_900_GeV_beta_star_11_m/Monte_Carlo/Condor/"
+	home_dir="/afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Studies/Monte_Carlo/Condor/"
+	eos_dir="/eos/cms/store/user/fnemes/Analysis/pp/E_CM_900_GeV_beta_star_100_m/Monte_Carlo/Condor/"
 	global_target_dir=$home_dir/$local_target_dir
 	global_eos_target_dir=$eos_dir/$local_target_dir
 	global_templatefile=$home_dir/$templatefile
@@ -16,7 +16,8 @@ create_dirs() {
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	for i in `seq -w 0 99`
+	# for i in `seq -w 0 99`
+	for i in `seq -w 0 5`
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i
@@ -30,4 +31,4 @@ create_dirs() {
 	done
 }
 
-#create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_aligned_first_optics_test_hor_cor_reference.prj
+create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
