@@ -1,0 +1,12 @@
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+Info in <TF1::SaveAs>: ROOT file ./geometrical_acceptance_correction_TF1.root has been created
+Info in <TF1::SaveAs>: ROOT file ./beam_divergence_acceptance_correction_TF1.root has been created
+Info in <TF1::SaveAs>: ROOT file ./horizontal_beam_divergence_acceptance_correction_TF1.root has been created
+Info in <TF1::SaveAs>: ROOT file ./horizontal_beam_divergence_acceptance_correction_TF1_in_angle.root has been created
+Warning in <TH1D::Sumw2>: Sum of squares of weights structure already created
+Warning in <TBranch::TBranch>: Extra characters after type tag 'O)' for branch 'track_left_far_valid'; must be one character.
+Iteration : 1
+Warning in <Fit>: Abnormal termination of minimization.
+Warning in <Fit>: Abnormal termination of minimization.
+Info in <TH1D::SaveAs>: ROOT file theta_y_star_difference.root has been created
+Info in <TH1D::SaveAs>: ROOT file theta_x_star_difference.root has been created
