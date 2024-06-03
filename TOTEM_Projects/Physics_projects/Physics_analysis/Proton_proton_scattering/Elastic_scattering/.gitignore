@@ -13,3 +13,5 @@ MC*/fnemes.cc
 new_definitions.txt
 new_definitions_2.txt
 fnemes.cc
+condor.sub
+dir_*

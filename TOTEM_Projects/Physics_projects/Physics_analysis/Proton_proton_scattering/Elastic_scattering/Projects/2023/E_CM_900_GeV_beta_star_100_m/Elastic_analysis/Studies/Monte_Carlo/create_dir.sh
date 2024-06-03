@@ -16,8 +16,7 @@ create_dirs() {
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	# for i in `seq -w 0 99`
-	for i in `seq -w 0 5`
+	for i in `seq -w 0 99`
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i
@@ -31,4 +30,5 @@ create_dirs() {
 	done
 }
 
-create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
+#create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
+create_dirs MC_ver                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_ver.prj
