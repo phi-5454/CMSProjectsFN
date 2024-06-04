@@ -30,5 +30,9 @@ create_dirs() {
 	done
 }
 
-create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
+#create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
 #create_dirs MC_ver                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_ver.prj
+
+#create_dirs MC_reference_LTRB                    Templates/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
+create_dirs MC_ver_LTRB                           Templates/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536_ver.prj
+
