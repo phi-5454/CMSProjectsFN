@@ -13,14 +13,6 @@
 <comment> <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/corrections_LBRT_324536.prj
 <comment> <include> Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Cuts/Vertical/vertical_corrections_324536.prj
 
-<begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
-        <update_parameter> sigma               15.3538E-005
-<end> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
-
-<begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
-        <update_parameter> sigma               14.9682E-005
-<end> theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
-
 <begin> alignment_block
                 <update_parameter> RP_alignment_left_near_x_mm             0.0
                 <update_parameter> RP_alignment_left_far__x_mm             0.0
