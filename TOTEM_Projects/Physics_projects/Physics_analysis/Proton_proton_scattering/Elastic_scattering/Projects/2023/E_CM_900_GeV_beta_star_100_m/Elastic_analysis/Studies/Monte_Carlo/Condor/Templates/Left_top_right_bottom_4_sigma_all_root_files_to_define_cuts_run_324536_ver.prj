@@ -25,14 +25,6 @@
                 <update_parameter> RP_alignment_right_far__y_mm            0.0
 <end>   alignment_block
 
-<begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
-        <update_parameter> sigma               15.3538E-005
-<end> theta_y_star_left_far_rad_theta_y_star_right_far_rad_left_cut_block
-
-<begin> theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
-        <update_parameter> sigma               14.9682E-005
-<end> theta_y_star_left_far_rad_theta_y_star_right_far_rad_right_cut_block
-
 <update_parameter> CollectCutDiagnosticData 1.0
 
 <update_parameter> MaxNumberOfEventsToAnalyzeIsSet 0.0
