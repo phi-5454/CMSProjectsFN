@@ -4539,7 +4539,7 @@ void TProject::ExecuteMonteCarlo()
 	
 	Monte_Carlo_ntuple->Branch("track_left_far_x"	, &track_left_far_x_mm, "track_left_far_x/D") ;
 	Monte_Carlo_ntuple->Branch("track_left_far_y"	, &track_left_far_y_mm, "track_left_far_y/D") ;
-	Monte_Carlo_ntuple->Branch("track_left_far_valid"	, &valid_MC, "track_left_far_valid/O)") ;
+	Monte_Carlo_ntuple->Branch("track_left_far_valid"	, &valid_MC, "track_left_far_valid/O") ;
 
 	Monte_Carlo_ntuple->Branch("track_left_near_x"	, &track_left_near_x_mm, "track_left_near_x/D") ;
 	Monte_Carlo_ntuple->Branch("track_left_near_y"	, &track_left_near_y_mm, "track_left_near_y/D") ;
