@@ -12,11 +12,11 @@ create_dirs() {
 	global_templatefile=$home_dir/$templatefile
 	number_of_particles=4000000.0
 	#echo $global_templatefile
-	prefix=00
+	prefix=0
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	for i in `seq -w 0 99`
+	for i in `seq -w 0 399`
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i
@@ -33,6 +33,6 @@ create_dirs() {
 #create_dirs MC_reference                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
 #create_dirs MC_ver                              Templates/Left_bottom_right_top_4_sigma_all_root_files_to_define_cuts_run_324536_ver.prj
 
-#create_dirs MC_reference_LTRB                    Templates/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
-create_dirs MC_ver_LTRB                           Templates/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536_ver.prj
+create_dirs MC_reference_LTRB                    Templates/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536_reference.prj
+#create_dirs MC_ver_LTRB                           Templates/Left_top_right_bottom_4_sigma_all_root_files_to_define_cuts_run_324536_ver.prj
 
