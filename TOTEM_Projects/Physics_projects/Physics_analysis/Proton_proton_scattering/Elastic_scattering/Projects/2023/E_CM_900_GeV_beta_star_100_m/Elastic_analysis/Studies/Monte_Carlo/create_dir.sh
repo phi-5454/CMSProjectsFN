@@ -12,11 +12,15 @@ create_dirs() {
 	global_templatefile=$home_dir/$templatefile
 	number_of_particles=4000000.0
 	#echo $global_templatefile
-	prefix=00
+	prefix=0
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	for i in `seq -w 0 99`
+	cd $home_dir/Templates/tmp/
+        for i in `ls x*.sub -c1` ; do cat $i | sed "s#XXXX#$1#g"  > $global_target_dir/$i  ; done
+	cd -
+
+	for i in `seq -w 0 399`
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i

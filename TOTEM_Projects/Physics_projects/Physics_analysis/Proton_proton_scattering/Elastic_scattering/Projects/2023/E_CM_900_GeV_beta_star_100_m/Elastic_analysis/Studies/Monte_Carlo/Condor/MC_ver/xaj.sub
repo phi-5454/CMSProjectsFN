@@ -1,0 +1,71 @@
+executable = /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Studies/Monte_Carlo/Condor/MC_ver/$(dir)/cfg_analyzer.sh
+use_x509userproxy = true
+GetEnv = True
+arguments = $(ClusterId) $(ProcId) \"$(dir)\"
+output = /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Studies/Monte_Carlo/Condor/MC_ver/$(dir)/out
+error =  /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Studies/Monte_Carlo/Condor/MC_ver/$(dir)/err
+log =    /afs/cern.ch/work/f/fnemes/main_workspace_github_ssh_4/Projects/TOTEM_Projects/Physics_projects/Physics_analysis/Proton_proton_scattering/Elastic_scattering/Projects/2023/E_CM_900_GeV_beta_star_100_m/Elastic_analysis/Studies/Monte_Carlo/Condor/MC_ver/condor.log
++MaxRuntime = 7200
++JobBatchName = "TOTEM2_1"
+
+
+dir=dir_0180
+queue
+
+dir=dir_0181
+queue
+
+dir=dir_0182
+queue
+
+dir=dir_0183
+queue
+
+dir=dir_0184
+queue
+
+dir=dir_0185
+queue
+
+dir=dir_0186
+queue
+
+dir=dir_0187
+queue
+
+dir=dir_0188
+queue
+
+dir=dir_0189
+queue
+
+dir=dir_0190
+queue
+
+dir=dir_0191
+queue
+
+dir=dir_0192
+queue
+
+dir=dir_0193
+queue
+
+dir=dir_0194
+queue
+
+dir=dir_0195
+queue
+
+dir=dir_0196
+queue
+
+dir=dir_0197
+queue
+
+dir=dir_0198
+queue
+
+dir=dir_0199
+queue
+
