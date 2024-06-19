@@ -48,26 +48,36 @@ int main()
 	TFile *general = new TFile("generic.root", "UPDATE") ;
 
 	string word ;
+	
 	ifstream myfiles("tmp/files.txt") ;
 	
 	TH1D *hist2 = new TH1D("hist", "hist", 800, 0, 0.1) ;
 	
 	while(myfiles >> word)
 	{
-		cout << word << endl ;
-		TFile *myfile = new TFile(word.c_str(), "READ") ;
-		
-		if(!myfile->IsZombie() && (myfile != NULL)) ;
+		string filename = "/eos/cms/store/user/fnemes/Analysis/pp/E_CM_900_GeV_beta_star_100_m/Monte_Carlo/Condor/MC_ver/" + word ;
+		cout << filename << endl ;
+
+		if(access(filename.c_str(), F_OK) == 0)
 		{
+			cout << "adding" << endl ;
+			TFile *myfile = NULL ;
+			myfile = new TFile(filename.c_str(), "READ") ;
 
-			TH1D *hist = ((TH1D *)myfile->Get("P0016_PlotsCollection_dN_dt_far_GeV2")) ;
-			
-			hist2->Add(hist) ;
+			if(myfile != NULL)
+			if(!myfile->IsZombie())
+			{
+
+				// TH1D *hist = ((TH1D *)myfile->Get("P0016_PlotsCollection_dN_dt_far_GeV2")) ;
+				TH1D *hist = ((TH1D *)myfile->Get("P0019_PlotsCollection_dN_dt_far_GeV2")) ;
+
+				hist2->Add(hist) ;
+			}
+
+			cout << hist2 << endl ;
+
+			delete myfile ;
 		}
-		
-		cout << hist2 << endl ;
-
-		delete myfile ;
 	}
 
 	hist2->SaveAs("hist2.root") ;	
