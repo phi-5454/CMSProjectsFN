@@ -16,7 +16,7 @@ create_dirs() {
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	for i in `seq -w 0 39`
+	for i in `seq -w 0 99`
 	do
 		mydir=$global_target_dir/"dir_"$prefix$i
 		myeosdir=$global_eos_target_dir/"dir_"$prefix$i
