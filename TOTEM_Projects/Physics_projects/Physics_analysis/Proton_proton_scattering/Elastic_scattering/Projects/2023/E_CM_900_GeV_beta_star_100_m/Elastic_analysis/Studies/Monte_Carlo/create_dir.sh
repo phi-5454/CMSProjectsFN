@@ -16,7 +16,7 @@ create_dirs() {
 
 	cat $home_dir/Templates/condor.sub | sed "s#XXXX#$1#g"  > $global_target_dir/condor.sub
 
-	cd $home_dir/Templates/tmp/
+	cd $home_dir/Templates/tmp/Split_40/
         for i in `ls x*.sub -c1` ; do cat $i | sed "s#XXXX#$1#g"  > $global_target_dir/$i  ; done
 	cd -
 
