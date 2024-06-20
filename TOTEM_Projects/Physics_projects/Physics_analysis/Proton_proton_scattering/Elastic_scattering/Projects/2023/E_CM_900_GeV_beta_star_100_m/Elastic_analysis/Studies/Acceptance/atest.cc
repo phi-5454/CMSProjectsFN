@@ -53,6 +53,8 @@ int main()
 	
 	TH1D *hist2 = new TH1D("hist", "hist", 800, 0, 0.1) ;
 	
+	int files_ok = 0 ;
+
 	while(myfiles >> word)
 	{
 		string filename = "/eos/cms/store/user/fnemes/Analysis/pp/E_CM_900_GeV_beta_star_100_m/Monte_Carlo/Condor/MC_ver/" + word ;
@@ -69,9 +71,12 @@ int main()
 			{
 
 				// TH1D *hist = ((TH1D *)myfile->Get("P0016_PlotsCollection_dN_dt_far_GeV2")) ;
-				TH1D *hist = ((TH1D *)myfile->Get("P0019_PlotsCollection_dN_dt_far_GeV2")) ;
+				// TH1D *hist = ((TH1D *)myfile->Get("P0019_PlotsCollection_dN_dt_far_GeV2")) ;
+				TH1D *hist = ((TH1D *)myfile->Get("P0020_PlotsCollection_dN_dt_far_GeV2_geometrical_acceptance_corrected")) ;
+
 
 				hist2->Add(hist) ;
+				files_ok++ ;
 			}
 
 			cout << hist2 << endl ;
@@ -79,6 +84,8 @@ int main()
 			delete myfile ;
 		}
 	}
+
+	cout << "files_ok " << files_ok << endl ;
 
 	hist2->SaveAs("hist2.root") ;	
 }
