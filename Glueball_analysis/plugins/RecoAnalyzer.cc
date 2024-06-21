@@ -237,6 +237,8 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	const reco::Vertex &primVtx = vertices->front();
 	reco::VertexRef primVtxRef(vertices,0);
 	ev_.zPV = primVtx.z();
+	ev_.xPV = primVtx.x();
+	ev_.yPV = primVtx.y();
 	
 	// Get track collection
     Handle<TrackCollection> trackCollectionHandle;

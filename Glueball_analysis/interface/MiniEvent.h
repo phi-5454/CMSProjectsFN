@@ -20,13 +20,14 @@ struct MiniEvent_t
   
   // Vertex info
   Int_t nvtx;
-  Float_t zPV;
+  Float_t zPV, xPV, yPV;
+  Float_t zPVerr, xPVerr, yPVerr;
 
    
   //track info
   Int_t ntrk, trk_nMeasure[MAXTRACKS], trk_nSaturMeasure[MAXTRACKS], trk_nMeasureLayer[MAXTRACKS];
   Int_t trk_q[MAXTRACKS], trk_isPi[MAXTRACKS], trk_isK[MAXTRACKS], trk_isP[MAXTRACKS];
-  Float_t trk_p[MAXTRACKS], trk_pt[MAXTRACKS], trk_eta[MAXTRACKS], trk_phi[MAXTRACKS], trk_dedx[MAXTRACKS], trk_dedxerr[MAXTRACKS];
+  Float_t trk_p[MAXTRACKS], trk_perr[MAXTRACKS], trk_pt[MAXTRACKS], trk_eta[MAXTRACKS], trk_phi[MAXTRACKS], trk_dedx[MAXTRACKS], trk_dedxerr[MAXTRACKS];
   Float_t trk_dxy[MAXTRACKS], trk_dz[MAXTRACKS];
   
   // generator level particles

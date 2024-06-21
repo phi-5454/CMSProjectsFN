@@ -14,7 +14,6 @@
 #include <map>
 
 // user include files
-#include "one"
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/one/EDFilter.h"
 

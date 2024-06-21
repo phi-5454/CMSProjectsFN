@@ -68,6 +68,14 @@ void RunGlueballAnalysis(const TString in_fname,
   outT->Branch("EventNum",&ev.event,"EventNum/l");
   outT->Branch("LumiSection",&ev.lumi,"LumiSection/i");
   outT->Branch("zPV",  &ev.zPV,  "zPV/F");
+  // Requested, x and y positions of primary vertex
+  outT->Branch("xPV",  &ev.xPV,  "xPV/F");
+  outT->Branch("yPV",  &ev.yPV,  "yPV/F");
+  // Errors in x and y position of primary vertex.
+  outT->Branch("xPVerr",  &ev.xPVerr,  "xPVerr/F");
+  outT->Branch("yPVerr",  &ev.yPVerr,  "yPVerr/F");
+  outT->Branch("zPVerr",  &ev.zPVerr,  "zPVerr/F");
+
   
   // Tracks
   int trk_isK[ev.MAXTRACKS], trk_isPi[ev.MAXTRACKS], trk_isP[ev.MAXTRACKS];
