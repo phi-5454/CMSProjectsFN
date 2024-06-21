@@ -5,7 +5,7 @@ sleep 5
 jobs=`condor_q | grep fnemes | grep running | sed "s/.*idle, //g" | sed "s/ running.*//g"`
 jobs2=`condor_q | grep fnemes | grep running | sed "s/.*removed, //g" | sed "s/ idle.*//g"`
 
-while [ "$jobs" != "0" ] || [ "$jobs2" != "0" ]
+while [ "$jobs" -gt "5" ] || [ "$jobs2" != "0" ]
 do
 	echo waiting
 	sleep 20
