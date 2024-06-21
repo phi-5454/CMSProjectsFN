@@ -40,9 +40,9 @@ process.source = cms.Source("PoolSource",
 #configure for data/MC based on lumi json input (if passed in command line)
 from Configuration.AlCa.GlobalTag import GlobalTag
 if options.lumiJson:
-  print 'Running on data file:'
+  print('Running on data file:')
   process.GlobalTag.globaltag = "101X_dataRun2_Prompt_v11"
-  print 'Lumi sections will be selected with',options.lumiJson
+  print('Lumi sections will be selected with',options.lumiJson)
   from FWCore.PythonUtilities.LumiList import LumiList
   myLumis = LumiList(filename = options.lumiJson).getCMSSWString().split(',')
   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
@@ -54,9 +54,9 @@ process.TFileService = cms.Service("TFileService",
 					)
 					
 process.analysis = cms.EDAnalyzer('RecoAnalyzer',
-#       tracks = cms.untracked.InputTag('generalTracks'),
-       tracks = cms.untracked.InputTag('refitterForEnergyLoss'),
-       DeDxData = cms.untracked.InputTag('energyLossProducer','energyLossAllHits'),
+       tracks = cms.untracked.InputTag('generalTracks'),
+       #tracks = cms.untracked.InputTag('refitterForEnergyLoss'),
+       #DeDxData = cms.untracked.InputTag('energyLossProducer','energyLossAllHits'),
 #       vertices = cms.InputTag('offlinePrimaryVertices'),	 
        vertices = cms.InputTag('offlinePrimaryVerticesWithBS'),	 
        rpTrackTag = cms.InputTag('ctppsLocalTrackLiteProducer'),
@@ -66,17 +66,22 @@ process.analysis = cms.EDAnalyzer('RecoAnalyzer',
 
 process.anal = cms.Path(process.analysis)
 
+'''
 #dEdX
 process.load("UserCode.EnergyLossPID.EnergyLossProducer_cff")
 process.energyLossProducer.tag = cms.string('totem')
 process.reco = cms.Path(process.MeasurementTrackerEvent
                       * process.siPixelClusterShapeCache)
+                      '''
 
 
 ###############################################################################
 # Schedule
+'''
 process.schedule = cms.Schedule(process.reco,
                                 process.produceEnergyLoss,
 								                process.anal)
+                                '''
+process.schedule = cms.Schedule(process.anal)
 							
 								

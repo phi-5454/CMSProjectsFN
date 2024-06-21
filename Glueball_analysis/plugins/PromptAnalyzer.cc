@@ -14,6 +14,7 @@
 #include <map>
 
 // user include files
+#include "one"
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/one/EDFilter.h"
 
@@ -30,9 +31,11 @@
 #include "DataFormats/FWLite/interface/Handle.h"
 #include "DataFormats/FWLite/interface/ChainEvent.h"
 
+/*
 #include "UserCode/EnergyLossPID/interface/DataHandler.h"
 #include "UserCode/EnergyLossPID/interface/MostProbable.h"
 #include "UserCode/EnergyLossPID/interface/ParticleType.h"
+*/
 
 #include "DataFormats/VertexReco/interface/Vertex.h"
 #include "DataFormats/VertexReco/interface/VertexFwd.h"
@@ -249,20 +252,20 @@ bool PromptAnalyzer::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	// process track data
 	for (const auto &tr : *hRPTracks)
 	{
-		CTPPSDetId rpId(tr.getRPId());
+		CTPPSDetId rpId(tr.rpId());
 		unsigned int rpDecId = (100*rpId.arm()) + (10*rpId.station()) + (1*rpId.rp());
 
-		if(rpDecId == 4) 	{rp_valid_004 = true; xLN = tr.getX() + mean_x4; yLN = tr.getY() + mean_y4;}
-		if(rpDecId == 5) 	{rp_valid_005 = true; xLN = tr.getX() + mean_x5; yLN = tr.getY() + mean_y5;}
+		if(rpDecId == 4) 	{rp_valid_004 = true; xLN = tr.x() + mean_x4; yLN = tr.y() + mean_y4;}
+		if(rpDecId == 5) 	{rp_valid_005 = true; xLN = tr.x() + mean_x5; yLN = tr.y() + mean_y5;}
 
-		if(rpDecId == 24) 	{rp_valid_024 = true; xLF = tr.getX() + mean_x24; yLF = tr.getY() + mean_y24;}
-		if(rpDecId == 25) 	{rp_valid_025 = true; xLF = tr.getX() + mean_x25; yLF = tr.getY() + mean_y25;}
+		if(rpDecId == 24) 	{rp_valid_024 = true; xLF = tr.x() + mean_x24; yLF = tr.y() + mean_y24;}
+		if(rpDecId == 25) 	{rp_valid_025 = true; xLF = tr.x() + mean_x25; yLF = tr.y() + mean_y25;}
 
-		if(rpDecId == 104) 	{rp_valid_104 = true; xRN = tr.getX() + mean_x104; yRN = tr.getY() + mean_y104;}
-		if(rpDecId == 105) 	{rp_valid_105 = true; xRN = tr.getX() + mean_x105; yRN = tr.getY() + mean_y105;}
+		if(rpDecId == 104) 	{rp_valid_104 = true; xRN = tr.x() + mean_x104; yRN = tr.y() + mean_y104;}
+		if(rpDecId == 105) 	{rp_valid_105 = true; xRN = tr.x() + mean_x105; yRN = tr.y() + mean_y105;}
 
-		if(rpDecId == 124) 	{rp_valid_124 = true; xRF = tr.getX() + mean_x124; yRF = tr.getY() + mean_y124;}
-		if(rpDecId == 125) 	{rp_valid_125 = true; xRF = tr.getX() + mean_x125; yRF = tr.getY() + mean_y125;}
+		if(rpDecId == 124) 	{rp_valid_124 = true; xRF = tr.x() + mean_x124; yRF = tr.y() + mean_y124;}
+		if(rpDecId == 125) 	{rp_valid_125 = true; xRF = tr.x() + mean_x125; yRF = tr.y() + mean_y125;}
 	}
 
 	bool diag_top45_bot56 = (rp_valid_024 && rp_valid_004 && rp_valid_105 && rp_valid_125);

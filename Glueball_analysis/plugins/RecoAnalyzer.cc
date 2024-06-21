@@ -26,7 +26,7 @@
 
 // user include files
 #include "FWCore/Framework/interface/Frameworkfwd.h"
-#include "FWCore/Framework/interface/EDAnalyzer.h"
+#include "FWCore/Framework/interface/one/EDAnalyzer.h"
 
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/EventSetup.h"
@@ -42,9 +42,11 @@
 #include "DataFormats/FWLite/interface/Handle.h"
 #include "DataFormats/FWLite/interface/ChainEvent.h"
 
+/*
 #include "UserCode/EnergyLossPID/interface/DataHandler.h"
 #include "UserCode/EnergyLossPID/interface/MostProbable.h"
 #include "UserCode/EnergyLossPID/interface/ParticleType.h"
+*/
 
 #include "DataFormats/VertexReco/interface/Vertex.h"
 #include "DataFormats/VertexReco/interface/VertexFwd.h"
@@ -133,7 +135,7 @@ using namespace reco;
 using namespace std;
 using reco::TrackCollection;
 
-class RecoAnalyzer : public edm::EDAnalyzer  {
+class RecoAnalyzer : public edm::one::EDAnalyzer<>  {
    public:
       explicit RecoAnalyzer(const edm::ParameterSet&);
       ~RecoAnalyzer();
@@ -150,7 +152,7 @@ class RecoAnalyzer : public edm::EDAnalyzer  {
 	
       // ----------member data ---------------------------
       edm::EDGetTokenT<TrackCollection> tracksToken_;
-      edm::EDGetTokenT<DeDxDataValueMap> DeDxDataToken_;
+      //edm::EDGetTokenT<DeDxDataValueMap> DeDxDataToken_;
       edm::EDGetTokenT<reco::VertexCollection> vtxToken_;	
 	  edm::EDGetTokenT<vector<CTPPSLocalTrackLite>> rpTrackToken_;
 	  edm::EDGetTokenT<reco::GenParticleCollection> genParticlesToken_;
@@ -180,7 +182,7 @@ class RecoAnalyzer : public edm::EDAnalyzer  {
 RecoAnalyzer::RecoAnalyzer(const edm::ParameterSet& iConfig)
  :
   tracksToken_(consumes<TrackCollection>(iConfig.getUntrackedParameter<edm::InputTag>("tracks"))),
-  DeDxDataToken_(consumes<DeDxDataValueMap>(iConfig.getUntrackedParameter<edm::InputTag>("DeDxData"))),
+  //DeDxDataToken_(consumes<DeDxDataValueMap>(iConfig.getUntrackedParameter<edm::InputTag>("DeDxData"))),
   vtxToken_(consumes<VertexCollection>(iConfig.getParameter<edm::InputTag>("vertices"))),
   rpTrackToken_(consumes<vector<CTPPSLocalTrackLite>>(iConfig.getParameter<edm::InputTag>("rpTrackTag"))),
   genParticlesToken_(consumes<GenParticleCollection>(iConfig.getParameter<edm::InputTag>("genParticles"))),
@@ -241,10 +243,12 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     iEvent.getByToken(tracksToken_, trackCollectionHandle);
     TrackCollection trackCollection = *trackCollectionHandle.product();
 	
+	/*
 	// Get dE/dx collection
 	Handle<DeDxDataValueMap> dEdxTrackHandle;
     iEvent.getByToken(DeDxDataToken_, dEdxTrackHandle);
 	DeDxDataValueMap dEdxTrack = *dEdxTrackHandle.product();
+	*/
 	
     Handle<vector<CTPPSLocalTrackLite>> hRPTracks;
     iEvent.getByToken(rpTrackToken_, hRPTracks);
@@ -268,10 +272,12 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	    ev_.trk_dz[i] = track->dz(primVtx.position()); // < 20.
 	    ev_.alltrk_q += ev_.trk_q[i] ;
 		
+		/*
 		ev_.trk_dedx[i] = dEdxTrack[track].dEdx();
 		ev_.trk_dedxerr[i] = dEdxTrack[track].dEdxError();
 		ev_.trk_nSaturMeasure[i] = dEdxTrack[track].numberOfSaturatedMeasurements();
 		ev_.trk_nMeasure[i] = int(dEdxTrack[track].numberOfMeasurements());
+		*/
 		
 		// number of measurements / layer (from HitPatten)
 		const HitPattern &p = track->hitPattern();
@@ -351,20 +357,20 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	// process track data
 	for (const auto &tr : *hRPTracks)
 	{
-		CTPPSDetId rpId(tr.getRPId());
+		CTPPSDetId rpId(tr.rpId());
 		unsigned int rpDecId = (100*rpId.arm()) + (10*rpId.station()) + (1*rpId.rp());
 
-		if(rpDecId == 4) 	{rp_valid_004 = true; ev_.xLN = tr.getX() + mean_x4; ev_.yLN = tr.getY() + mean_y4;}
-		if(rpDecId == 5) 	{rp_valid_005 = true; ev_.xLN = tr.getX() + mean_x5; ev_.yLN = tr.getY() + mean_y5;}
+		if(rpDecId == 4) 	{rp_valid_004 = true; ev_.xLN = tr.x() + mean_x4; ev_.yLN = tr.y() + mean_y4;}
+		if(rpDecId == 5) 	{rp_valid_005 = true; ev_.xLN = tr.x() + mean_x5; ev_.yLN = tr.y() + mean_y5;}
 
-		if(rpDecId == 24) 	{rp_valid_024 = true; ev_.xLF = tr.getX() + mean_x24; ev_.yLF = tr.getY() + mean_y24;}
-		if(rpDecId == 25) 	{rp_valid_025 = true; ev_.xLF = tr.getX() + mean_x25; ev_.yLF = tr.getY() + mean_y25;}
+		if(rpDecId == 24) 	{rp_valid_024 = true; ev_.xLF = tr.x() + mean_x24; ev_.yLF = tr.y() + mean_y24;}
+		if(rpDecId == 25) 	{rp_valid_025 = true; ev_.xLF = tr.x() + mean_x25; ev_.yLF = tr.y() + mean_y25;}
 
-		if(rpDecId == 104) 	{rp_valid_104 = true; ev_.xRN = tr.getX() + mean_x104; ev_.yRN = tr.getY() + mean_y104;}
-		if(rpDecId == 105) 	{rp_valid_105 = true; ev_.xRN = tr.getX() + mean_x105; ev_.yRN = tr.getY() + mean_y105;}
+		if(rpDecId == 104) 	{rp_valid_104 = true; ev_.xRN = tr.x() + mean_x104; ev_.yRN = tr.y() + mean_y104;}
+		if(rpDecId == 105) 	{rp_valid_105 = true; ev_.xRN = tr.x() + mean_x105; ev_.yRN = tr.y() + mean_y105;}
 
-		if(rpDecId == 124) 	{rp_valid_124 = true; ev_.xRF = tr.getX() + mean_x124; ev_.yRF = tr.getY() + mean_y124;}
-		if(rpDecId == 125) 	{rp_valid_125 = true; ev_.xRF = tr.getX() + mean_x125; ev_.yRF = tr.getY() + mean_y125;}
+		if(rpDecId == 124) 	{rp_valid_124 = true; ev_.xRF = tr.x() + mean_x124; ev_.yRF = tr.y() + mean_y124;}
+		if(rpDecId == 125) 	{rp_valid_125 = true; ev_.xRF = tr.x() + mean_x125; ev_.yRF = tr.y() + mean_y125;}
 	}
 
 	bool diag_top45_bot56 = (rp_valid_024 && rp_valid_004 && rp_valid_105 && rp_valid_125);
