@@ -273,6 +273,11 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	    ev_.trk_dxy[i] = track->dxy(primVtx.position()); // < 0.3
 	    ev_.trk_dz[i] = track->dz(primVtx.position()); // < 20.
 	    ev_.alltrk_q += ev_.trk_q[i] ;
+
+		// Added
+	    ev_.trk_dxyerr[i] = track->dxyError();
+	    ev_.trk_dzerr[i] = track->dzError();
+	    ev_.trk_pterr[i] = track->ptError() ;
 		
 		/*
 		ev_.trk_dedx[i] = dEdxTrack[track].dEdx();

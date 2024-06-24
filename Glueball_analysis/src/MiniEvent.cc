@@ -24,6 +24,10 @@ void createMiniEventTree(TTree *t,MiniEvent_t &ev)
   t->Branch("trk_nSaturMeasure",  ev.trk_nSaturMeasure,  "trk_nSaturMeasure[ntrk]/I");
   t->Branch("trk_nMeasure",       ev.trk_nMeasure,       "trk_nMeasure[ntrk]/I");
   t->Branch("trk_nMeasureLayer",  ev.trk_nMeasureLayer,  "trk_nMeasureLayer[ntrk]/I");
+// Added
+  t->Branch("trk_dxyerr",      ev.trk_dxyerr,       "trk_dxyerr[ntrk]/F");
+  t->Branch("trk_dzerr",       ev.trk_dzerr,        "trk_dzerr[ntrk]/F");
+  t->Branch("trk_pterr",       ev.trk_pterr,        "trk_pterr[ntrk]/F");
 
   t->Branch("ngentrk",      &ev.ngentrk,      "ngentrk/I");
   t->Branch("gentrk_id",    ev.gentrk_id,     "gentrk_id[ngentrk]/I");
@@ -32,7 +36,6 @@ void createMiniEventTree(TTree *t,MiniEvent_t &ev)
   t->Branch("gentrk_eta",   ev.gentrk_eta,    "gentrk_eta[ngentrk]/F");
   t->Branch("gentrk_phi",   ev.gentrk_phi,    "gentrk_phi[ngentrk]/F");
   t->Branch("gentrk_m",     ev.gentrk_m,      "gentrk_m[ngentrk]/F");
-
 
   t->Branch("alltrk_pt",    &ev.alltrk_pt,    "alltrk_pt/F");
   t->Branch("alltrk_mass",  &ev.alltrk_mass,  "alltrk_mass/F");
@@ -56,6 +59,9 @@ void createMiniEventTree(TTree *t,MiniEvent_t &ev)
   t->Branch("yVtxR",  &ev.yVtxR,  "yVtxR/F");
 
   t->Branch("zPV",  &ev.zPV,  "zPV/F");
+  // Added
+  t->Branch("xPV",  &ev.xPV,  "xPV/F");
+  t->Branch("yPV",  &ev.yPV,  "yPV/F");
   
 }
 
@@ -82,6 +88,10 @@ void attachToMiniEventTree(TTree *t,MiniEvent_t &ev)
   t->SetBranchAddress("trk_nMeasure",      ev.trk_nMeasure);
   t->SetBranchAddress("trk_nMeasureLayer", ev.trk_nMeasureLayer);
   t->SetBranchAddress("trk_nSaturMeasure", ev.trk_nSaturMeasure);
+// Added
+  t->SetBranchAddress("trk_dxyerr",      ev.trk_dxyerr);
+  t->SetBranchAddress("trk_dzerr",       ev.trk_dzerr);
+  t->SetBranchAddress("trk_pterr",       ev.trk_pterr);
 
   t->SetBranchAddress("ngentrk",        &ev.ngentrk);
   t->SetBranchAddress("gentrk_id",      ev.gentrk_id);
@@ -115,4 +125,7 @@ void attachToMiniEventTree(TTree *t,MiniEvent_t &ev)
 
   t->SetBranchAddress("zPV",    &ev.zPV); 
   
+  // Added
+  t->SetBranchAddress("xPV",  &ev.xPV);
+  t->SetBranchAddress("yPV",  &ev.yPV);
 }

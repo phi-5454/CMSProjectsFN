@@ -71,11 +71,6 @@ void RunGlueballAnalysis(const TString in_fname,
   // Requested, x and y positions of primary vertex
   outT->Branch("xPV",  &ev.xPV,  "xPV/F");
   outT->Branch("yPV",  &ev.yPV,  "yPV/F");
-  // Errors in x and y position of primary vertex.
-  outT->Branch("xPVerr",  &ev.xPVerr,  "xPVerr/F");
-  outT->Branch("yPVerr",  &ev.yPVerr,  "yPVerr/F");
-  outT->Branch("zPVerr",  &ev.zPVerr,  "zPVerr/F");
-
   
   // Tracks
   int trk_isK[ev.MAXTRACKS], trk_isPi[ev.MAXTRACKS], trk_isP[ev.MAXTRACKS];
@@ -91,11 +86,18 @@ void RunGlueballAnalysis(const TString in_fname,
   outT->Branch("trk_isK",     trk_isK,     "trk_isK[ntrk]/I");
   outT->Branch("trk_isP",     trk_isP,     "trk_isP[ntrk]/I");
   outT->Branch("trk_dz",       ev.trk_dz,        "trk_dz[ntrk]/F");
+  // Was missing?
+  outT->Branch("trk_dxy",      ev.trk_dxy,       "trk_dxy[ntrk]/F");
   outT->Branch("trk_dedx",     ev.trk_dedx,      "trk_dedx[ntrk]/F");
   outT->Branch("trk_dedxerr",  ev.trk_dedxerr,   "trk_dedxerr[ntrk]/F");
   outT->Branch("trk_nSaturMeasure",  ev.trk_nSaturMeasure,   "trk_nSaturMeasure[ntrk]/I");
   outT->Branch("trk_nMeasure",  ev.trk_nMeasure,   "trk_nMeasure[ntrk]/I");
   outT->Branch("trk_nMeasureLayer",  ev.trk_nMeasureLayer,   "trk_nMeasureLayer[ntrk]/I");
+  // Errors of dxy and dz:
+  outT->Branch("trk_dxyerr",      ev.trk_dxyerr,       "trk_dxyerr[ntrk]/F");
+  outT->Branch("trk_dzerr",       ev.trk_dzerr,        "trk_dzerr[ntrk]/F");
+  // Errors in pt:
+  outT->Branch("trk_pterr",       ev.trk_pterr,        "trk_pterr[ntrk]/F");
 
   // Protons
   outT->Branch("ThxR", &ev.ThxR, "ThxR/F");
