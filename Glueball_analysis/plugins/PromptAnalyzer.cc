@@ -86,6 +86,8 @@ const double v_y_L_2_F =  +2.7884E-010  ;  const double L_y_L_2_F =   2.7157E+00
 
 // Matched optics
 
+// TODO: User Frici optics?
+
 const double v_x_R_1_F_matched = -2.24546659 ; const double L_x_R_1_F_matched = 194.31957649 ;
 const double v_y_R_1_F_matched = 0.01851263  ; const double L_y_R_1_F_matched = 238326.01074279 ;
 const double v_x_R_2_F_matched = -1.92329688 ; const double L_x_R_2_F_matched = -2950.79562493 ;

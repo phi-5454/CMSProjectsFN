@@ -1563,6 +1563,8 @@ double PromptAnalyzer::factor_for_rho_mass_constraint(TLorentzVector lv, double 
 	return result ;
 }
 
+// TODO: Implement new hit reconstruction?
+
 bool PromptAnalyzer::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
   // defaults
