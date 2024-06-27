@@ -12,6 +12,11 @@ options.register('applyFilt', True,
                  VarParsing.varType.bool,
                  'Apply filters'
                  )
+options.register('inputFileList', "",
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string,
+                 'List of files to run program on'
+                 )
 options.parseArguments()
 
 from Configuration.StandardSequences.Eras import eras
@@ -32,8 +37,27 @@ process.maxEvents = cms.untracked.PSet(
 )
 
 
+files = [];
+with open(options.inputFileList) as file:
+    for line in file:
+        files.append("root://eostotem/" + line.rstrip())
+        #print(files[-1])
+
+
+'''
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(options.inputFiles),
+                            duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
+                            )
+'''
+'''
+process.source = cms.Source("PoolSource",
+        fileNames = cms.untracked.vstring(*(files[:10])),
+                            duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
+                            )
+'''
+process.source = cms.Source("PoolSource",
+        fileNames = cms.untracked.vstring(*(files)),
                             duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
                             )
 
@@ -49,8 +73,10 @@ if options.lumiJson:
   process.source.lumisToProcess.extend(myLumis)
 else: process.GlobalTag.globaltag = "101X_upgrade2018_realistic_v7"
 
+outname = os.path.splitext(options.inputFileList)[0].lstrip("./")
+
 process.TFileService = cms.Service("TFileService",
-                    fileName = cms.string('output.root')
+                    fileName = cms.string('intermediate/' + outname + '.root')
 					)
 					
 process.analysis = cms.EDAnalyzer('RecoAnalyzer',

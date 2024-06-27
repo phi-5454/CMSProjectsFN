@@ -1,0 +1,9 @@
+.vscode/*
+python/__init__.py
+*.pyc
+*.root
+TOTEM*
+run_analysis.sh
+#*analysis.sh
+#*analysis_build.sh
+print_subdirs.sh
