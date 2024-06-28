@@ -425,7 +425,9 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
 	bool isElastic = false;
 
-	if((TMath::Abs(ev_.ThyL+ev_.ThyR)< 15e-6) && (TMath::Abs(ev_.ThxL+ev_.ThxR)<45e-6)) isElastic = true ;
+	// Remove the veto temporarily, find more stringent values.
+
+	//if((TMath::Abs(ev_.ThyL+ev_.ThyR)< 15e-6) && (TMath::Abs(ev_.ThxL+ev_.ThxR)<45e-6)) isElastic = true ;
  
  
     if (applyFilt_ && isElastic) return;

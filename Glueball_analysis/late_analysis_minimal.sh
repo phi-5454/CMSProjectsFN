@@ -1,7 +1,7 @@
 #analysisWrapper --in output.root --out tracks.root --method GlueballAnalysis
 
 
-outdir="/eos/user/y/yelberke/TOTEM_2018_ADDEDVARS_OUT"
+outdir="/eos/user/y/yelberke/TOTEM_2018_ADDEDVARS_OUT/minimal"
 ntuplize_parallel() {
 	#totem_files=$(find intermediate -type f -name "TOTEM*" -exec basename {} \;)
 	#echo "$totem_files"

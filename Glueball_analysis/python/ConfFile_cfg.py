@@ -12,10 +12,21 @@ options.register('applyFilt', True,
                  VarParsing.varType.bool,
                  'Apply filters'
                  )
+                 # Two added options
+options.register('nFiles', -1,
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.int,
+                 'How many files to apply analysis to? Set -1 for all. (for debug/fast results)'
+                 )
 options.register('inputFileList', "",
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
                  'List of files to run program on'
+                 )
+options.register('outDir', None,
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string,
+                 'What directory to output the intermediate files to'
                  )
 options.parseArguments()
 
@@ -43,23 +54,22 @@ with open(options.inputFileList) as file:
         files.append("root://eostotem/" + line.rstrip())
         #print(files[-1])
 
-
 '''
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(options.inputFiles),
                             duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
                             )
 '''
-'''
-process.source = cms.Source("PoolSource",
-        fileNames = cms.untracked.vstring(*(files[:10])),
-                            duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
-                            )
-'''
-process.source = cms.Source("PoolSource",
-        fileNames = cms.untracked.vstring(*(files)),
-                            duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
-                            )
+if(options.nFiles != -1):
+    process.source = cms.Source("PoolSource",
+            fileNames = cms.untracked.vstring(*(files[:options.nFiles])),
+                                duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
+                                )
+else:
+    process.source = cms.Source("PoolSource",
+            fileNames = cms.untracked.vstring(*(files)),
+                                duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
+                                )
 
 #configure for data/MC based on lumi json input (if passed in command line)
 from Configuration.AlCa.GlobalTag import GlobalTag
@@ -74,9 +84,10 @@ if options.lumiJson:
 else: process.GlobalTag.globaltag = "101X_upgrade2018_realistic_v7"
 
 outname = os.path.splitext(options.inputFileList)[0].lstrip("./")
-
+outdir = options.outDir
+outdir = options.outDir
 process.TFileService = cms.Service("TFileService",
-                    fileName = cms.string('intermediate/' + outname + '.root')
+                    fileName = cms.string(outdir + outname + '.root')
 					)
 					
 process.analysis = cms.EDAnalyzer('RecoAnalyzer',
