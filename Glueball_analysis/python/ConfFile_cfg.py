@@ -1,6 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 from FWCore.ParameterSet.VarParsing import VarParsing
+
 options = VarParsing ('python')
 options.register('lumiJson', None,
                  VarParsing.multiplicity.singleton,
@@ -49,10 +50,16 @@ process.maxEvents = cms.untracked.PSet(
 
 
 files = [];
-with open(options.inputFileList) as file:
+with open(options.inputFileList, encoding='us-ascii', errors='ignore') as file:
     for line in file:
         files.append("root://eostotem/" + line.rstrip())
         #print(files[-1])
+
+# select, Filter out empty values
+if(options.nFiles != -1):
+    files = files[:options.nFiles]
+
+#files = ["root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/TOTEM43/110000/004228F1-344D-E911-919B-F01FAFD35CA4.root"];
 
 '''
 process.source = cms.Source("PoolSource",
@@ -60,9 +67,11 @@ process.source = cms.Source("PoolSource",
                             duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
                             )
 '''
+
+
 if(options.nFiles != -1):
     process.source = cms.Source("PoolSource",
-            fileNames = cms.untracked.vstring(*(files[:options.nFiles])),
+            fileNames = cms.untracked.vstring(*(files)),
                                 duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
                                 )
 else:
@@ -84,8 +93,9 @@ if options.lumiJson:
 else: process.GlobalTag.globaltag = "101X_upgrade2018_realistic_v7"
 
 outname = os.path.splitext(options.inputFileList)[0].lstrip("./")
+
 outdir = options.outDir
-outdir = options.outDir
+
 process.TFileService = cms.Service("TFileService",
                     fileName = cms.string(outdir + outname + '.root')
 					)

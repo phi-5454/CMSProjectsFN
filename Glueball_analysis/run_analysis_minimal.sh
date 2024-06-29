@@ -4,7 +4,7 @@
 analyze_parallel() {
     # Use find command with -name option to find files matching the regex
     # Use parallel to run the program in parallel with each file as input
-    find . -type f -name "TOTEM*" | parallel -j 8 --ungroup  cmsRun $CMSSW_BASE/src/Projects/Glueball_analysis/python/ConfFile_cfg.py inputFileList={}  applyFilt=True smallData=True outDir="intermediate_minimal/"
+    find . -type f -name "TOTEM*.txt" | parallel -j 8 --ungroup  cmsRun $CMSSW_BASE/src/Projects/Glueball_analysis/python/ConfFile_cfg.py inputFileList={}  applyFilt=True nFiles=1 outDir="intermediate_minimal/"
 }
 
 
