@@ -1,0 +1,25 @@
+executable            = run_analysis_seq.sh
+#arguments             = --analyze --n-analyze 2 --in-filelist $(arg) --analysis-name testCondor
+arguments             = --analyze --in-filelist $(arg) --analysis-name testCondorIndiv
+output                = output/$(arg).out
+error                 = error/$(arg).err
+log                   = log/$(arg).log
+RequestCpus = 8
+
++JobFlavour="nextweek"
+#+CondorIsDebug = True
+
+#arg=TestFileNames.txt
+#queue 1
+queue arg from TOTEM43.txt
+
+#queue transfer_input_files, arg from(
+#TOTEM20.txt, TOTEM20.txt
+#TOTEM21.txt, TOTEM21.txt
+#TOTEM22.txt, TOTEM22.txt
+#TOTEM23.txt, TOTEM23.txt
+#TOTEM40.txt, TOTEM40.txt
+#TOTEM41.txt, TOTEM41.txt
+#TOTEM42.txt, TOTEM42.txt
+#TOTEM43.txt, TOTEM43.txt
+#)

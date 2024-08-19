@@ -445,8 +445,11 @@ RecoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	double TOTEMpy =  beam_mom_GeV * (ev_.ThyL+ev_.ThyR);
 	double TOTEMpx = -beam_mom_GeV * (ev_.ThxL+ev_.ThxR);
 
-	bool CTpxcut4 = TMath::Abs(CMSpx4+TOTEMpx) < 0.13 ;
-	bool CTpycut4 = TMath::Abs(CMSpy4+TOTEMpy) < 0.06 ;
+	//bool CTpxcut4 = TMath::Abs(CMSpx4+TOTEMpx) < 0.13 ;
+	//bool CTpycut4 = TMath::Abs(CMSpy4+TOTEMpy) < 0.06 ;
+	// Loosened cuts
+	bool CTpxcut4 = TMath::Abs(CMSpx4+TOTEMpx) < 0.20 ;
+	bool CTpycut4 = TMath::Abs(CMSpy4+TOTEMpy) < 0.10 ;
 
 	bool allCuts4 = (CTpxcut4 && CTpycut4) ;
 	

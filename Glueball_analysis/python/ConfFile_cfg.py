@@ -49,15 +49,18 @@ process.maxEvents = cms.untracked.PSet(
 )
 
 
-files = [];
+#files = [];
+files = ["root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/" + options.inputFileList.rstrip()];
+'''
 with open(options.inputFileList, encoding='us-ascii', errors='ignore') as file:
     for line in file:
         files.append("root://eostotem/" + line.rstrip())
-        #print(files[-1])
+        print(files[-1])
 
 # select, Filter out empty values
 if(options.nFiles != -1):
     files = files[:options.nFiles]
+'''
 
 #files = ["root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/TOTEM43/110000/004228F1-344D-E911-919B-F01FAFD35CA4.root"];
 
@@ -68,6 +71,7 @@ process.source = cms.Source("PoolSource",
                             )
 '''
 
+print(files[0])
 
 if(options.nFiles != -1):
     process.source = cms.Source("PoolSource",
@@ -96,9 +100,14 @@ outname = os.path.splitext(options.inputFileList)[0].lstrip("./")
 
 outdir = options.outDir
 
+print(outdir + outname + '.root')
+
+#process.TFileService = cms.Service("TFileService",
+                    #fileName = cms.string(outname + '.root'))
+
 process.TFileService = cms.Service("TFileService",
-                    fileName = cms.string(outdir + outname + '.root')
-					)
+                            fileName = cms.string(outdir + outname + '.root'))
+
 					
 process.analysis = cms.EDAnalyzer('RecoAnalyzer',
        tracks = cms.untracked.InputTag('generalTracks'),
