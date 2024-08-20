@@ -1,4 +1,5 @@
 import FWCore.ParameterSet.Config as cms
+import os
 
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing ('python')
@@ -11,6 +12,22 @@ options.register('applyFilt', True,
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.bool,
                  'Apply filters'
+                 )
+# Two added options
+options.register('nFiles', -1,
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.int,
+                 'How many files to apply analysis to? Set -1 for all. (for debug/fast results)'
+                 )
+options.register('inputFileList', "",
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string,
+                 'List of files to run program on'
+                 )
+options.register('outDir', None,
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string,
+                 'What directory to output the intermediate files to'
                  )
 options.parseArguments()
 
@@ -31,11 +48,40 @@ process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(options.maxEvents)
 )
 
+#files = [];
+files = ["root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/" + options.inputFileList.rstrip()];
+'''
+with open(options.inputFileList, encoding='us-ascii', errors='ignore') as file:
+    for line in file:
+        files.append("root://eostotem/" + line.rstrip())
+        print(files[-1])
+# select, Filter out empty values
+if(options.nFiles != -1):
+    files = files[:options.nFiles]
+'''
+
+#files = ["root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/TOTEM43/110000/004228F1-344D-E911-919B-F01FAFD35CA4.root"];
+
+'''
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(options.inputFiles),
                             duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
                             )
+'''
+
+print(files[0])
+
+if(options.nFiles != -1):
+    process.source = cms.Source("PoolSource",
+            fileNames = cms.untracked.vstring(*(files)),
+                                duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
+                                )
+else:
+    process.source = cms.Source("PoolSource",
+            fileNames = cms.untracked.vstring(*(files)),
+                                duplicateCheckMode = cms.untracked.string('noDuplicateCheck') 
+                                )
 
 #configure for data/MC based on lumi json input (if passed in command line)
 from Configuration.AlCa.GlobalTag import GlobalTag
@@ -49,13 +95,21 @@ if options.lumiJson:
   process.source.lumisToProcess.extend(myLumis)
 else: process.GlobalTag.globaltag = "101X_upgrade2018_realistic_v7"
 
+outname = os.path.splitext(options.inputFileList)[0].lstrip("./")
+
+outdir = options.outDir
+
+print(outdir + outname + '.root')
+
+#process.TFileService = cms.Service("TFileService",
+                    #fileName = cms.string(outname + '.root'))
+
 process.TFileService = cms.Service("TFileService",
-                    fileName = cms.string('output.root')
-					)
+                    fileName = cms.string(outdir + outname + '.root'))
 					
 process.analysis = cms.EDAnalyzer('RecoAnalyzer',
-#       tracks = cms.untracked.InputTag('generalTracks'),
-       tracks = cms.untracked.InputTag('refitterForEnergyLoss'),
+       tracks = cms.untracked.InputTag('generalTracks'),
+       #tracks = cms.untracked.InputTag('refitterForEnergyLoss'),
        DeDxData = cms.untracked.InputTag('energyLossProducer','energyLossAllHits'),
 #       vertices = cms.InputTag('offlinePrimaryVertices'),	 
        vertices = cms.InputTag('offlinePrimaryVerticesWithBS'),	 
@@ -75,8 +129,10 @@ process.reco = cms.Path(process.MeasurementTrackerEvent
 
 ###############################################################################
 # Schedule
-process.schedule = cms.Schedule(process.reco,
-                                process.produceEnergyLoss,
-								                process.anal)
+process.schedule = cms.Schedule(
+    process.reco,
+    process.produceEnergyLoss,
+    process.anal
+    )
 							
 								
