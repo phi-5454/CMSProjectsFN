@@ -1,0 +1,15 @@
+executable            = run_analysis_seq.sh
+#arguments             = --analyze --n-analyze 2 --in-filelist $(arg) --analysis-name testCondor
+arguments             = --analyze --in-filelist $(arg) --analysis-name condorIndivLoosecut 
+output                = output/$(arg).out
+error                 = error/$(arg).err
+log                   = log/$(arg).log
+RequestCpus = 12
+
++JobFlavour="nextweek"
+#+CondorIsDebug = True
+
+#arg=TOTEM20.txt
+#queue 1
+
+queue arg from TOTEM43.txt

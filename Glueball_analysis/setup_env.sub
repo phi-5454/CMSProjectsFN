@@ -1,0 +1,10 @@
+# setup_env.sub
+universe   = vanilla
+executable = 
+log        = setup_env.log
+output     = setup_env.out
+error      = setup_env.err
+#transfer_output_files = env_setup.sh
+
+queue
+

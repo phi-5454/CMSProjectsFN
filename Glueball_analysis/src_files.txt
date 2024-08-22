@@ -1,0 +1,8 @@
+TOTEM20.txt
+TOTEM21.txt
+TOTEM22.txt
+TOTEM23.txt
+TOTEM40.txt
+TOTEM41.txt
+TOTEM42.txt
+TOTEM43.txt
