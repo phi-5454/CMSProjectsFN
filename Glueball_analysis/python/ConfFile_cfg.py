@@ -24,6 +24,11 @@ options.register('inputFileList', "",
                  VarParsing.varType.string,
                  'List of files to run program on'
                  )
+options.register('srcDir', None,
+                 VarParsing.multiplicity.singleton,
+                 VarParsing.varType.string,
+                 'What directory to output the intermediate files to'
+                 )
 options.register('outDir', None,
                  VarParsing.multiplicity.singleton,
                  VarParsing.varType.string,
@@ -50,7 +55,7 @@ process.maxEvents = cms.untracked.PSet(
 
 
 #files = [];
-files = ["root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/" + options.inputFileList.rstrip()];
+files = [options.srcDir + options.inputFileList.rstrip()];
 '''
 with open(options.inputFileList, encoding='us-ascii', errors='ignore') as file:
     for line in file:
@@ -100,7 +105,7 @@ outname = os.path.splitext(options.inputFileList)[0].lstrip("./")
 
 outdir = options.outDir
 
-print(outdir + outname + '.root')
+print(outdir + outname + '.root, our OUTDIR')
 
 #process.TFileService = cms.Service("TFileService",
                     #fileName = cms.string(outname + '.root'))

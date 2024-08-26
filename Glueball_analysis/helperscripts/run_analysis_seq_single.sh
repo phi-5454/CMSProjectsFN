@@ -3,16 +3,16 @@
 #export FILENAME=/eos/totem/data/cmstotem/2018/90m/RECO_copy/TOTEM20/110000/000E49AC-AB3D-E911-9749-0242AC130002.root
 #cmsRun $CMSSW_BASE/src/Projects/Glueball_analysis/python/ConfFile_cfg.py inputFiles=srcfiles applyFilt=True
 
-cd /afs/cern.ch/user/y/yelberke/scratch1/CMSSW_14_0_9/src/Projects/Glueball_analysis
-cmsenv
-echo "AAAA"
-
-outdir="/eos/user/y/yelberke/TOTEM_2018_ADDEDVARS_OUT"
+# Working directory
+wdir=""
+src_dir="root://eostotem//eos/totem/data/cmstotem/2018/90m/RECO_copy/" 
+analysis_workspace=""
 analysis_name=""
 
 in_filelist=""
 
-inter_dir="intermediate"
+inter_dir="intermediate_ntuples"
+final_dir="ntuplized"
 
 build=false
 analyze=false
@@ -29,21 +29,16 @@ is_integer() {
 
 # Function to print usage
 usage() {
-	echo "Usage: [--build] [--analyze] [--ntuplize] [--n-analyze <number of files to analyze from each folder>] [--n-jobs <number of jobs>] [--in-filelist <file that contains input files>] [--inter-dir <(sub)directory>] [--analysis-name <identifier for the given analysis>]"
+	echo "Usage: [--build] [--analyze] [--ntuplize] [--n-analyze <number of files to analyze from each folder>] [--n-jobs <number of jobs>] [--in-filelist <file that contains input files>] [--inter-dir <(sub)directory>] [--analysis-name <identifier for the given analysis> --analysis-name <workspace for the analysis, make sure it's empty>] --wdir <the project's base directory>"
 	exit 1
 }
 
 analyze() {
-	# Use find command with -name option to find files matching the regex
-	# Use parallel to run the program in parallel with each file as input
-	cmsRun $CMSSW_BASE/src/Projects/Glueball_analysis/python/ConfFile_cfg.py inputFileList=$in_filelist nFiles=$n_analyze applyFilt=True outDir="$inter_dir/$analysis_name/"
-	#cmsRun $CMSSW_BASE/src/Projects/Glueball_analysis/python/ConfFile_cfg.py inputFileList=$in_filelist nFiles=$n_analyze applyFilt=True outDir="./"
+	cmsRun $CMSSW_BASE/src/Projects/Glueball_analysis/python/ConfFile_cfg.py inputFileList="$in_filelist" nFiles=$n_analyze applyFilt=True srcDir="$src_dir" outDir="$analysis_workspace/$analysis_name/$inter_dir/"
 }
 
 ntuplize() {
-	#totem_files=$(find intermediate -type f -name "TOTEM*" -exec basename {} \;)
-	#echo "$totem_files"
-	find intermediate -type f -name "TOTEM*.root" -exec basename {} \; | parallel -j 8  --ungroup analysisWrapper --in "$inter_dir/$analysis_name/"{} --out "$outdir"/"$analysis_name"/{} --method GlueballAnalysis
+	analysisWrapper --in "$analysis_workspace/$analysis_name/$inter_dir/$in_filelist" --out "$analysis_workspace/$analysis_name/$final_dir/$in_filelist" --method GlueballAnalysis
 }
 
 build(){
@@ -67,6 +62,26 @@ while [[ "$#" -gt 0 ]]; do
 				shift
 			else
 				echo "Error: --analysis-name requires a non-empty option argument."
+				usage
+			fi
+			;;
+		--analysis-workspace) 
+			if [[ -n "$2" && ! "$2" =~ ^-- ]]; then
+				echo AAAA
+				analysis_workspace="$2"
+				shift
+			else
+				echo "Error: --analysis-workspace requires a non-empty option argument."
+				usage
+			fi
+			;;
+		--wdir) 
+			if [[ -n "$2" && ! "$2" =~ ^-- ]]; then
+				echo AAAA
+				wdir="$2"
+				shift
+			else
+				echo "Error: --wdir requires a non-empty option argument."
 				usage
 			fi
 			;;
@@ -123,17 +138,21 @@ fi
 
 echo "STARTING"
 
+cd $wdir
+cmsenv
+
 if $build; then
 	build
 fi
 
 if $analyze; then
-	mkdir -p $inter_dir/$analysis_name
+	mkdir -p $analysis_workspace/$analysis_name/$inter_dir/$(dirname "$in_filelist")
+
 	analyze
 fi
 
 echo "CONTINUING"
 if $ntuplize; then
-	mkdir -p $outdir/$analysis_name
+	mkdir -p $analysis_workspace/$analysis_name/$final_dir/$(dirname "$in_filelist")
 	ntuplize
 fi
