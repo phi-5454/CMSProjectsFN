@@ -25,7 +25,9 @@ Analysis are performed in two steps
    1. process data/MC files from AOD format using updated [dEdX reconstruction](https://twiki.cern.ch/twiki/pub/CMS/EnergyLossPID/UserCode_EnergyLossPID.tgz 
 )
    2. Ntuplize output files - at this stage trackID is computed together with some high-level variables.
-   
+
+#WARNING: the following commands will not work as they are. The base commands are the same, but the arguments are different. See the run scripts on what arguments are supplied.
+
 ### Processing the data
 
 To process a single data file (stored in `/eos/totem/data/cmstotem/2018/90m/RECO_copy/`) run the following command:
